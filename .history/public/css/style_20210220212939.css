@@ -545,7 +545,8 @@ hr {
 
 .main-notification {
     border-top-right-radius: 0;
-    border-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
     background-color: var(--nav-color);
     padding-bottom: 40px;
 }
@@ -1858,7 +1859,7 @@ select {
     }
 
     .login-with__google {
-        margin: 30px 0 0 200px;
+        margin: 30px 0 0 20px;
     }
 
     /* ================ Admin page ================ */
@@ -2058,10 +2059,6 @@ select {
 
     .btn {
         margin: 0;
-    }
-
-    .login-with__google {
-        margin: 30px 0 0 140px;
     }
 
     /*================ Admin page ===============  */

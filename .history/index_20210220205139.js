@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     if (!req.session.username){
         return res.redirect(303,'/login');
     }
-    res.render("home")
+    res.render("index")
 });
 
 app.get('/login',(req, res) =>{

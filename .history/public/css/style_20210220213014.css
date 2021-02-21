@@ -545,7 +545,8 @@ hr {
 
 .main-notification {
     border-top-right-radius: 0;
-    border-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
     background-color: var(--nav-color);
     padding-bottom: 40px;
 }
