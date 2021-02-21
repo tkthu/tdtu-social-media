@@ -3,7 +3,11 @@ const exphbs = require('express-handlebars')
 const path = require('path');
 const port = 8080
 
-var credentials = require('./credentials')
+const db = require('./config/db/index')
+db.connect()
+
+const credentials = require('./credentials')
+const route = require('./routes/index')
 
 const app = express()
 
@@ -16,18 +20,6 @@ app.use(express.urlencoded());
 app.use(require('cookie-parser')(credentials.cookieSecret));
 app.use(require("express-session")({ saveUninitialized: false, resave:true, secret: credentials.sessionSecret }));
 
-
-app.get('/', (req, res) => { 
-    //nếu chưa đăng nhập thì chuyển qua trang login
-    if (!req.session.username){
-        return res.redirect(303,'/login');
-    }
-    res.render("index")
-});
-
-app.get('/login',(req, res) =>{
-    res.render('login')
-})
-
+route(app)
 
 app.listen(port,()=>{console.log(`http://localhost:${port}`)})
