@@ -86,63 +86,10 @@ function createPost() {
     var x = document.querySelector(".upload-post");
     if (x.style.display === "none") {
       x.style.display = "block";
+      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     } else {
       x.style.display = "none";
     }
-}
-
-//============= Tắt bảng sửa thông tin, bài viết ======================
-var closeEditProfile = document.querySelector(".edit-profile__header--close");
-var closeEditContent = document.querySelector(".edit-content__header--close");
-var closeCreatePost = document.querySelector(".upload-post__header--close");
-
-var editProfile = document.querySelector(".edit-profile");
-var editContent = document.querySelector(".edit-content");
-var uploadPost = document.querySelector(".upload-post");
-
-closeEditProfile.addEventListener("click", () => {
-  if (editProfile.style.display === "block") {
-    editProfile.style.display = "none";
-  }
-  else {
-    editProfile.style.display = "block";
-  }
-});
-
-closeEditContent.addEventListener("click", () => {
-  if (editContent.style.display === "block") {
-    editContent.style.display = "none";
-  }
-  else {
-    editContent.style.display = "block";
-  }
-});
-
-closeCreatePost.addEventListener("click", () => {
-  if (uploadPost.style.display === "block") {
-    uploadPost.style.display = "none";
-  }
-  else {
-    uploadPost.style.display = "block";
-  }
-});
-
-function closeInfoPhongKhoa() {
-  var x = document.querySelector(".edit-info-phongKhoa");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-
-function closeInfoStudent() {
-  var x = document.querySelector(".edit-info");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
 }
 
 // Sidebar responsive
