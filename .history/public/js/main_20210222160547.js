@@ -81,24 +81,14 @@ function editContentPosted() {
     }
 }
 
-// Hiện bảng tạo bài viết tại trang chủ
+// Hiện bảng tạo bài viết
 function createPost() {
-    var x = document.querySelector(".upload-post-home");
+    var x = document.querySelector(".upload-post");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
       x.style.display = "none";
     }
-}
-
-// Hiện bảng tạo bài viết tại cá nhân
-function createPostAtPersonal() {
-  var x = document.querySelector(".upload-post");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
 }
 
 //============= Tắt bảng sửa thông tin, bài viết ======================
@@ -137,8 +127,8 @@ closeCreatePost.addEventListener("click", () => {
   }
 });
 
-function closeCreatePostHome() {
-  var x = document.querySelector(".upload-post-home");
+function closeInfoPhongKhoa() {
+  var x = document.querySelector(".edit-info-phongKhoa");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {

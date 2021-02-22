@@ -81,9 +81,9 @@ function editContentPosted() {
     }
 }
 
-// Hiện bảng tạo bài viết tại trang chủ
+// Hiện bảng tạo bài viết
 function createPost() {
-    var x = document.querySelector(".upload-post-home");
+    var x = document.querySelector(".upload-post");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
@@ -91,20 +91,10 @@ function createPost() {
     }
 }
 
-// Hiện bảng tạo bài viết tại cá nhân
-function createPostAtPersonal() {
-  var x = document.querySelector(".upload-post");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
 //============= Tắt bảng sửa thông tin, bài viết ======================
 var closeEditProfile = document.querySelector(".edit-profile__header--close");
 var closeEditContent = document.querySelector(".edit-content__header--close");
-var closeCreatePost = document.querySelector(".upload-post__header--close");
+var closeCreatePost = document.querySelector(".btnClose");
 
 var editProfile = document.querySelector(".edit-profile");
 var editContent = document.querySelector(".edit-content");
@@ -136,15 +126,6 @@ closeCreatePost.addEventListener("click", () => {
     uploadPost.style.display = "block";
   }
 });
-
-function closeCreatePostHome() {
-  var x = document.querySelector(".upload-post-home");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
 
 function closeInfoPhongKhoa() {
   var x = document.querySelector(".edit-info-phongKhoa");

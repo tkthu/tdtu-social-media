@@ -91,16 +91,6 @@ function createPost() {
     }
 }
 
-// Hiện bảng tạo bài viết tại cá nhân
-function createPostAtPersonal() {
-  var x = document.querySelector(".upload-post");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
 //============= Tắt bảng sửa thông tin, bài viết ======================
 var closeEditProfile = document.querySelector(".edit-profile__header--close");
 var closeEditContent = document.querySelector(".edit-content__header--close");
@@ -137,7 +127,7 @@ closeCreatePost.addEventListener("click", () => {
   }
 });
 
-function closeCreatePostHome() {
+function closeCreatePost() {
   var x = document.querySelector(".upload-post-home");
   if (x.style.display === "block") {
     x.style.display = "none";

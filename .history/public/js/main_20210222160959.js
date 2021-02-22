@@ -81,24 +81,14 @@ function editContentPosted() {
     }
 }
 
-// Hiện bảng tạo bài viết tại trang chủ
+// Hiện bảng tạo bài viết
 function createPost() {
-    var x = document.querySelector(".upload-post-home");
+    var x = document.querySelector(".upload-post");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
       x.style.display = "none";
     }
-}
-
-// Hiện bảng tạo bài viết tại cá nhân
-function createPostAtPersonal() {
-  var x = document.querySelector(".upload-post");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
 }
 
 //============= Tắt bảng sửa thông tin, bài viết ======================
@@ -128,17 +118,17 @@ closeEditContent.addEventListener("click", () => {
   }
 });
 
-closeCreatePost.addEventListener("click", () => {
-  if (uploadPost.style.display === "block") {
-    uploadPost.style.display = "none";
-  }
-  else {
-    uploadPost.style.display = "block";
-  }
-});
+// closeCreatePost.addEventListener("click", () => {
+//   if (uploadPost.style.display === "block") {
+//     uploadPost.style.display = "none";
+//   }
+//   else {
+//     uploadPost.style.display = "block";
+//   }
+// });
 
-function closeCreatePostHome() {
-  var x = document.querySelector(".upload-post-home");
+function closeCreatePost() {
+  var x = document.querySelector(".upload-post-home__header--close");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {

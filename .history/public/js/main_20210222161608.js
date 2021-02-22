@@ -137,7 +137,7 @@ closeCreatePost.addEventListener("click", () => {
   }
 });
 
-function closeCreatePostHome() {
+function closeCreatePost() {
   var x = document.querySelector(".upload-post-home");
   if (x.style.display === "block") {
     x.style.display = "none";

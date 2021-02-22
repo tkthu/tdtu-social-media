@@ -92,8 +92,8 @@ function createPost() {
 }
 
 // Hiện bảng tạo bài viết tại cá nhân
-function createPostAtPersonal() {
-  var x = document.querySelector(".upload-post");
+function createPost() {
+  var x = document.querySelector(".upload-post-home");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -137,7 +137,7 @@ closeCreatePost.addEventListener("click", () => {
   }
 });
 
-function closeCreatePostHome() {
+function closeCreatePost() {
   var x = document.querySelector(".upload-post-home");
   if (x.style.display === "block") {
     x.style.display = "none";
