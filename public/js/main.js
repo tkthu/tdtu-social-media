@@ -1,12 +1,37 @@
 function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    if(profile.getEmail().endsWith('@student.tdtu.edu.vn')){// là sinh viên
-        //TODO: nếu đăng nhập lần đầu tiên => lưu info vào database        
-    }
-    // console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    const email = googleUser.getBasicProfile().getEmail();
+    const displayName = googleUser.getBasicProfile().getName();
+    const imageUrl = googleUser.getBasicProfile().getImageUrl();
+
+    const suffix = '@student.tdtu.edu.vn';  
+    if(email.endsWith(suffix)){// là sinh viên
+        //TODO: nếu đăng nhập lần đầu tiên => lưu info vào database
+        const body = JSON.stringify({
+            username: email.split(suffix)[0],
+            displayName,
+            imageUrl,
+        })
+        const headers = { 'Content-Type': 'application/json' };
+
+        fetch('/login/GGAuth', { method: 'post', body, headers })
+        .then(resp => {            
+            if(resp.status < 200 || resp.status >= 300)
+                throw new Error(`Request failed with status ${resp.status}`)
+            return resp.json()
+        })
+        .then(json => {
+            console.log(json);
+            window.location.replace(json.url);
+        })
+        .catch(err => {
+            //TODO: hiện thông báo lổi ở err-msg
+            console.log(`error: ${err}`);            
+        })
+    }else{
+        //TODO: hiện thông báo lổi ở err-msg
+        console.log(`Tài khoản phải có đuôi "${suffix}"`);
+    }  
+        
 }
 
 // --------- Chỉnh sửa profile ---------

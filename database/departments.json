@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "602e9cb11054c06b8fd7dc1e"
+  },
+  "name": "Phòng Công tác học sinh sinh viên",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "602e9df21054c06b8fd7dc1f"
+  },
+  "name": "Phòng Đại học",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "602e9e471054c06b8fd7dc20"
+  },
+  "name": "Phòng Sau đại học",
+  "avatarUrl": "/img/logo tdt.png"
+}]
