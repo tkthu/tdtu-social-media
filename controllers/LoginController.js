@@ -4,7 +4,7 @@ const credentials = require('../credentials');
 class LoginController{
     // [GET] /login
     index(req, res){
-        res.render('login',{ username:'', password:'', errMsg:''});
+        res.render('login',{ username:'', password:'', errMsg:'',layout:'no-header-layout'});
     }
 
     // [POST] /login
@@ -14,14 +14,14 @@ class LoginController{
 
         if (!password || !username){
             errMsg = "Chưa nhập đủ thông tin";
-            return res.render("login", { username, password, errMsg})
+            return res.render("login", { username, password, errMsg,layout:'no-header-layout'});
         }
 
         userModel.findOne({username, password},(err,user)=>{
             if (err) return console.log('error: ' + err);
             else if (user === null) {
                 errMsg = "Sai tên đăng nhập hoặc mật khẩu";
-                return res.render("login", { username, password, errMsg})
+                return res.render("login", { username, password, errMsg,layout:'no-header-layout'});
             }
             //đăng nhập thành công
             console.log("đăng nhập thành công")
