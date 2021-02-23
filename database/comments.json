@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "602ea4ee1054c06b8fd7dc2a"
+  },
+  "content": "Thầy chưa kèm file ạ",
+  "createdAt": "2021-02-18T17:34:25.229Z",
+  "lastEdited": "2021-02-18T17:34:25.229Z",
+  "imageUrl": "/upload/51800001/TrThB_avatar.png",
+  "sender": {
+    "id": "51800001",
+    "name": "Trần Thị B",
+    "avatarUrl": "/upload/518000001/screenshot.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": "602ea4551054c06b8fd7dc29"
+}]

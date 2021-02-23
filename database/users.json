@@ -1,0 +1,44 @@
+[{
+  "_id": "admin",
+  "username": "admin",
+  "password": "123456",
+  "displayName": "Quản lý",
+  "avatarUrl": "upload/admin/TDT_logo.png",
+  "createdAt": "2021-02-18T16:21:45.133Z",
+  "lastEdited": "2021-02-18T16:21:45.133Z"
+},{
+  "_id": "NgVA256",
+  "username": "NgVA256",
+  "password": "random123",
+  "displayName": "Nguyễn Văn A",
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-02-18T16:34:27.235Z",
+  "lastEdited": "2021-02-18T16:34:27.235Z",
+  "staffInfo": {
+    "authorized": [
+      "602e9cb11054c06b8fd7dc1e",
+      "602e9df21054c06b8fd7dc1f"
+    ]
+  }
+},{
+  "_id": "51800001",
+  "username": "51800001",
+  "password": "B123",
+  "displayName": "Trần Thị B",
+  "avatarUrl": "/upload/51800001/TrThB_avatar.jpg",
+  "createdAt": "2021-02-18T17:42:45.674Z",
+  "lastEdited": "2021-02-18T17:42:45.674Z",
+  "studentInfo": {
+    "class": "18050202",
+    "faculty": "Công nghệ thông tin"
+  }
+},{
+  "_id": "51800816",
+  "avatarUrl": "https://lh6.googleusercontent.com/-dX5rmv_O1wo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmbxRoBVA27aUyS7WZpzUX9I4TEtw/s96-c/photo.jpg",
+  "createdAt": "2021-02-23T11:03:40.862Z",
+  "lastEdited": "2021-02-23T11:03:40.862Z",
+  "username": "51800816",
+  "password": "[passHolder]",
+  "displayName": "Thái Kim Thư",
+  "__v": 0
+}]

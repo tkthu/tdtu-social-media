@@ -5,13 +5,13 @@
                 <img src="/img/tdtu-2.png" alt="TDTU" class="login-img__bg">
             </div>
             <span class="space-line"></span>
-            <div class="login-form">
+            <form class="login-form" action="/login" method="post">
                 <p class="login-title">Log in</p>
                 <div class="login-form-group">
-                    <input class="login-username" type="text" placeholder="Username" value="">
+                    <input class="login-username" type="text" placeholder="Username" value="{{username}}" name="username">
                 </div>
                 <div class="login-form-group">
-                    <input class="login-password" type="password" placeholder="Password" value="">
+                    <input class="login-password" type="password" placeholder="Password" value="{{password}}" name="password">
                 </div>
                 <span class="forgot-password">
                     <a href="">
@@ -20,13 +20,10 @@
                 </span>
                 <button class="btn">SIGN IN</button>
                 <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                {{!-- <div class="login-with__google">
-                    Sign in with
-                    <a href="#">
-                        <img class="img-google" src="/img/google.png" alt="Google">
-                    </a>
-                </div> --}}
-            </div>
+                <br>
+                <p class="err-msg">{{errMsg}}</p>           
+
+            </form>
         </div>
     </div>
 </div>
