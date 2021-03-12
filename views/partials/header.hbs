@@ -6,9 +6,9 @@
                     <img src="/img/logo tdt.png" alt="logo TDTU" class="sidebar-logo">
                 </a>
                 <div class="sidebar-username">
-                    <img class="sidebar-username__img" src="https://afamilycdn.com/150157425591193600/2020/4/25/photo-1-1587804947662288123715-1587813338690-15878133394051371394553.jpg" alt="Logo user">
+                    <img class="sidebar-username__img" src="{{{avatarUrl}}}" alt="Logo user">
                     <h6 class="sidebar-username__name">
-                        Vương Nhất Bác
+                        {{{displayName}}}
                     </h6>
                 </div>
                 <div class="sidebar-navbar">
@@ -54,9 +54,9 @@
                 <input class="header-search" type="text" placeholder="Tìm kiếm">
                 <a href="personal.html" class="header-username-link">
                     <div class="header-username">
-                        <img class="header-username__img" src="https://afamilycdn.com/150157425591193600/2020/4/25/photo-1-1587804947662288123715-1587813338690-15878133394051371394553.jpg" alt="Logo user">
+                        <img class="header-username__img" src="{{{avatarUrl}}}" alt="Logo user">
                         <p class="header-username__name">
-                            Vương Nhất Bác
+                            {{{displayName}}}
                         </p>
                     </div>
                 </a>
@@ -124,7 +124,7 @@
                     </div>
 
                     <div class="header-nav__logout">
-                        <a href="login.html">
+                        <a  href="#" onclick="signOut();">
                             <img src="/img/exit.png" alt="icon bell" class="header-nav__logout--logo">
                         </a>
                     </div>

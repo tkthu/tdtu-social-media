@@ -3,29 +3,18 @@ const siteRouter = require('./site');
 const notifRouter = require('./notifications');
 const managerRouter = require('./manager');
 
+const {checkAuth,checkAdmin} = require('../middlewares/auth')
+
 function route(app){
-    
-    app.use((req,res,next)=>{
-        console.log(req.url)
-        // xóa flash message trong session
-        res.locals.msg = req.session.msg || '';
-        delete req.session.msg
-        next();
-    })
-    app.use('/login',loginRouter);  
-    app.use(checkAuth)
-    // app.use('/notifications', notifRouter);
-    // app.use('/manager', managerRouter);
-    app.use('/', siteRouter);
+    app.use('/logout',(req,res,next) =>{
+        req.session.destroy();
+        console.log('Đã logout')
+        res.redirect('/login');
+    });     
+    app.use('/login',loginRouter);
+    // app.use('/notifications', checkAuth, notifRouter);
+    app.use('/manager', checkAuth, checkAdmin, managerRouter);// chỉ cho admin xem trang này
+    app.use('/', checkAuth, siteRouter);
 }
 
 module.exports = route
-
-const checkAuth = (req,res,next) => {
-    //nếu chưa đăng nhập thì chuyển qua trang login
-    if (!req.session.username){
-        // console.log("chua dang nhap cho link " + req.url)
-        return res.redirect(303,'/login');
-    }
-    next()
-}

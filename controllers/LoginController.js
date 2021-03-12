@@ -1,41 +1,60 @@
-const userModel = require('../models/user.model')
-const credentials = require('../credentials');
+const userModel = require('../models/user.model');
+const {validationResult} = require('express-validator');
 
 class LoginController{
     // [GET] /login
     index(req, res){
-        res.render('login',{ username:'', password:'', errMsg:'',layout:'no-header-layout'});
+
+        if (req.session.username) {
+            return res.redirect('/');
+        }
+    
+        const errMsg = req.flash('error') || ''
+        const password = req.flash('password') || ''
+        const username = req.flash('username') || ''
+
+        res.render('login',{ username, password, errMsg,layout:'no-header-layout'});
     }
 
     // [POST] /login
     login(req, res){
-        const {username, password} = req.body;        
-        var errMsg = ''; 
+        let result = validationResult(req);
 
-        if (!password || !username){
-            errMsg = "Chưa nhập đủ thông tin";
-            return res.render("login", { username, password, errMsg,layout:'no-header-layout'});
+        if (result.errors.length !== 0) {
+            result = result.mapped();
+            let message;
+            for (var fields in result) {
+                message = result[fields].msg;
+                break;
+            }
+        
+            const {username, password} = req.body;
+            
+            req.flash('error', message);
+            req.flash('password', password);
+            req.flash('username', username);
+            
+            return res.redirect('/login');
         }
 
+        const {username, password} = req.body;
         userModel.findOne({username, password},(err,user)=>{
             if (err) return console.log('error: ' + err);
             else if (user === null) {
-                errMsg = "Sai tên đăng nhập hoặc mật khẩu";
-                return res.render("login", { username, password, errMsg,layout:'no-header-layout'});
+                req.flash('error', "Sai tên đăng nhập hoặc mật khẩu");                
+                return res.redirect('/login');
             }
             //đăng nhập thành công
             console.log("đăng nhập thành công")
-            // req.session.msg="Đăng nhập thành công";
-            req.session.username = username
+            req.session.username = username;
             return res.redirect(303,'/');
-        })
+        });
         
     }
 
     // [POST] /login/GGAuth
     ggAuth(req, res){
-        const {username, displayName, imageUrl} = req.body;        
-        var errMsg = ''; 
+        const {username, displayName, imageUrl} = req.body;
 
         userModel.findById(username,(err,user)=>{
             if (err) return res.status(500).json('database failure');
@@ -54,15 +73,12 @@ class LoginController{
                 }).save();
             }             
             // đăng nhập thành công
-            console.log("đăng nhập = GG thành công")
-            // req.session.msg="Đăng nhập bằng google thành công";
-            req.session.username = username
+            console.log("đăng nhập bằng google thành công");
+            req.session.username = username;
             return res.status(200).json({
-                msg: 'login with google successfully',
-                url: credentials.url.dev
+                msg: 'login with google successfully'
             });
         })
-
         
     }
 

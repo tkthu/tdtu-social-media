@@ -2,12 +2,12 @@ class ManagerController{
 
     // [GET] /staffs
     staffsPage(req, res){        
-        res.end("trang quản lý tài khoản nhân viên (tài khoản phòng/khoa)");
+        res.end("trang quan ly tai khoan nhan vien (tai khoan van phong khoa)");
     }
 
     // [GET] /students
     studentsPage(req, res){        
-        res.end("trang quản lý tài khoản sinh viên");
+        res.end("trang quan ly tai khoan sinh vien");
     }
 
 }

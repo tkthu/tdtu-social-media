@@ -2,7 +2,7 @@ class SiteController{
 
     // [GET] /
      index(req, res){        
-        res.render("home");
+        res.render("home",{displayName: req.user.displayName, avatarUrl: req.user.avatarUrl });
     }
 
     // [GET] /:userId

@@ -16,7 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 app.use(require('cookie-parser')(credentials.cookieSecret));
-app.use(require("express-session")({ saveUninitialized: false, resave:true, secret: credentials.sessionSecret }));
+app.use(require('express-session')({ saveUninitialized: false, resave:true, secret: credentials.sessionSecret }));
+app.use(require('express-flash')());
 
 
 route(app);
