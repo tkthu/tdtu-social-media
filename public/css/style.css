@@ -172,9 +172,9 @@ body {
     color: var(--text-color);
 }
 
-.not-admin {
+/* .not-admin {
     display: none;
-}
+} */
 
 .sidebar-navbar__phong-khoa,
 .sidebar-navbar__admin p,

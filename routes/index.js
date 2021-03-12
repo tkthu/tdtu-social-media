@@ -12,7 +12,7 @@ function route(app){
         res.redirect('/login');
     });     
     app.use('/login',loginRouter);
-    // app.use('/notifications', checkAuth, notifRouter);
+    app.use('/notifications', checkAuth, notifRouter);
     app.use('/manager', checkAuth, checkAdmin, managerRouter);// chỉ cho admin xem trang này
     app.use('/', checkAuth, siteRouter);
 }

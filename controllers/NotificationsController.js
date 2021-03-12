@@ -1,13 +1,13 @@
 class NotificationsController{
 
     // [GET] /
-    index(req, res){        
-        res.end("trang tất cả thông báo");
+    index(req, res){      
+        res.render("all-notification",{user: req.user});
     }
 
     // [GET] /departments
     departmentPage(req, res){        
-        res.end("trang phòng ban");
+        res.render("phongban",{user: req.user});
     }
 
 }

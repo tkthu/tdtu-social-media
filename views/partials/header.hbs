@@ -2,48 +2,33 @@
         <div class="col-sm-3 col-sideBar">
             <!-- Sidebar -->
             <div class="sidebar">
-                <a href="home.html" class="sidebar-logo-link">
+                <a href="/" class="sidebar-logo-link">
                     <img src="/img/logo tdt.png" alt="logo TDTU" class="sidebar-logo">
                 </a>
                 <div class="sidebar-username">
-                    <img class="sidebar-username__img" src="{{{avatarUrl}}}" alt="Logo user">
+                    <img class="sidebar-username__img" src="{{{user.avatarUrl}}}" alt="Logo user">
                     <h6 class="sidebar-username__name">
-                        {{{displayName}}}
+                        {{{user.displayName}}}
                     </h6>
                 </div>
                 <div class="sidebar-navbar">
-                    <a href="phongban.html" class="sidebar-navbar__phong-khoa-link">
+                    <a href="/notifications/departments" class="sidebar-navbar__phong-khoa-link">
                         <div class="sidebar-navbar__phong-khoa">
                             Phòng/Khoa
                         </div>
                     </a>
-                    <!-- Nếu ko phải admin thì thêm class="not-admin", ngược lại bỏ nó đi -->
-                    <div class="sidebar-navbar__admin not-admin">
-                        <p> Quản lý </p>
-                        <div class="sidebar-navbar__admin--block">
-                            <a href="admin-posted.html" class="sidebar-navbar__admin--item-link">
-                                <div class="sidebar-navbar__admin--item item-baiviet">
-                                    Bài viết
-                                </div>
-                            </a>
-                            <a href="admin-comment.html" class="sidebar-navbar__admin--item-link">
-                                <div class="sidebar-navbar__admin--item item-binhluan">
-                                    Bình luận
-                                </div>
-                            </a>
-                            <a href="admin-acc-phong-khoa.html" class="sidebar-navbar__admin--item-link">
-                                <div class="sidebar-navbar__admin--item item-tkphong">
-                                    Tài khoản Phòng/Khoa
-                                </div>
-                            </a>
-                            <a href="admin-acc-student.html" class="sidebar-navbar__admin--item-link">
-                                <div class="sidebar-navbar__admin--item item-tksinhvien">
-                                    Tài khoản sinh viên
-                                </div>
-                            </a>
+                    {{#ifEquals user.username 'admin'}}
+                    <a href="/manager/staffs" class="sidebar-navbar__admin--item-link">
+                        <div class="sidebar-navbar__admin--item item-tkphong">
+                            Tài khoản Phòng/Khoa
                         </div>
-                    </div>
-                    
+                    </a>
+                    <a href="/manager/students" class="sidebar-navbar__admin--item-link">
+                        <div class="sidebar-navbar__admin--item item-tksinhvien">
+                            Tài khoản sinh viên
+                        </div>
+                    </a>
+                    {{/ifEquals}}                    
 
                 </div>
             </div>
@@ -52,24 +37,26 @@
         <div class="col-lg-9">
             <div class="header">
                 <input class="header-search" type="text" placeholder="Tìm kiếm">
-                <a href="personal.html" class="header-username-link">
+                <a href="/{{user.username}}" class="header-username-link">
                     <div class="header-username">
-                        <img class="header-username__img" src="{{{avatarUrl}}}" alt="Logo user">
+                        <img class="header-username__img" src="{{{user.avatarUrl}}}" alt="Logo user">
                         <p class="header-username__name">
-                            {{{displayName}}}
+                            {{{user.displayName}}}
                         </p>
                     </div>
                 </a>
                 <div class="header-nav">
                     <div class="header-nav__notification">
-                        <img src="/img/bell.png" alt="icon bell" class="header-nav__notification--logo">
+                        <a href="/notifications">
+                            <img src="/img/bell.png" alt="icon bell" class="header-nav__notification--logo">
+                        </a>                        
                         <h6 class="header-nav__notification--number">2</h6>
                         <!-- Header notification -->
                         <div class="header-notification">
                             <div class="header-notification__header">
                                 <h4 class="header-notification__header--title">Thông báo</h4>
                                 <div class="header-notification__header--see-all">
-                                    <a href="all-notification.html" class="header-notification__header--see-all-link">
+                                    <a href="/notifications" class="header-notification__header--see-all-link">
                                         Xem tất cả
                                     </a>
                                 </div>
@@ -79,7 +66,7 @@
                                     <p class="header-notification__body--name">[TDT Creative Language Center]</p>
                                     <span class="header-notification__body--time">03/02/2021 . 16:15</span>
                                 </div>
-                                <a href="detail-notification.html" class="header-notification__body--title-link">
+                                <a href="/userId/posts/postId" class="header-notification__body--title-link">
                                     <h6 class="header-notification__body--title">
                                         Thông báo khai giảng các khóa học tiếng anh tháng 03/2021
                                     </h6>
@@ -94,7 +81,7 @@
                                     <p class="header-notification__body--name">[TDT Creative Language Center]</p>
                                     <span class="header-notification__body--time">03/02/2021 . 16:15</span>
                                 </div>
-                                <a href="detail-notification.html" class="header-notification__body--title-link">
+                                <a href="/userId/posts/postId" class="header-notification__body--title-link">
                                     <h6 class="header-notification__body--title">
                                         Thông báo khai giảng các khóa học tiếng anh tháng 03/2021
                                     </h6>
@@ -109,7 +96,7 @@
                                     <p class="header-notification__body--name">[TDT Creative Language Center]</p>
                                     <span class="header-notification__body--time">03/02/2021 . 16:15</span>
                                 </div>
-                                <a href="detail-notification.html" class="header-notification__body--title-link">
+                                <a href="/userId/posts/postId" class="header-notification__body--title-link">
                                     <h6 class="header-notification__body--title">
                                         Thông báo khai giảng các khóa học tiếng anh tháng 03/2021
                                     </h6>
@@ -124,7 +111,7 @@
                     </div>
 
                     <div class="header-nav__logout">
-                        <a  href="#" onclick="signOut();">
+                        <a href="#" onclick="signOut();">
                             <img src="/img/exit.png" alt="icon bell" class="header-nav__logout--logo">
                         </a>
                     </div>

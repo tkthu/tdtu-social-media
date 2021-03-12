@@ -8,7 +8,15 @@ const db = require('./config/db/index');
 db.connect();
 
 const app = express();
-app.engine('.hbs', exphbs({extname: ".hbs"}));
+app.engine('.hbs', exphbs({
+    extname: ".hbs",
+    helpers: {
+        inc: function(value, options){return parseInt(value) + 1;},
+        ifEquals: function(arg1, arg2, options) {
+            return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+        }
+    }
+}));
 app.set('view engine', '.hbs');
 
 app.use(express.static(path.join(__dirname , 'public')));

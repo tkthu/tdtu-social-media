@@ -3,8 +3,8 @@
 
                 <div class="col-lg-3">
                     <div class="profile-user">
-                        <img src="https://afamilycdn.com/150157425591193600/2020/4/25/photo-1-1587804947662288123715-1587813338690-15878133394051371394553.jpg" alt="img" class="profile-user__img">
-                        <h6 class="profile-user__name">Vương Nhất Bác</h6>
+                        <img src="{{{user.avatarUrl}}}" alt="img" class="profile-user__img">
+                        <h6 class="profile-user__name">{{{user.displayName}}}</h6>
                         <div class="profile-user__title">
                             <h6>Giới thiệu</h6>
                             <div class="profile-user__edit">
@@ -108,7 +108,7 @@
                             <div class="main-up-post">
                                 <div class="main-up-post-frame">
                                     <div class="main-up-post-frame__username">
-                                        <img src="https://afamilycdn.com/150157425591193600/2020/4/25/photo-1-1587804947662288123715-1587813338690-15878133394051371394553.jpg" alt="img" class="main-up-post-frame__username--img">
+                                        <img src="{{{user.avatarUrl}}}" alt="img" class="main-up-post-frame__username--img">
                                         <textarea class="main-up-post-frame__username--write" placeholder="Bạn đang nghĩ gì ..." cols="80" rows="2" onclick="createPostAtPersonal()"></textarea>
                                     </div>
 
@@ -227,9 +227,9 @@
                 
                             <div class="main-posted"> 
                                 <div class="main-posted__user">
-                                    <img src="https://afamilycdn.com/150157425591193600/2020/4/25/photo-1-1587804947662288123715-1587813338690-15878133394051371394553.jpg" alt="Img" class="main-posted__user--img">
+                                    <img src="{{{user.avatarUrl}}}" alt="Img" class="main-posted__user--img">
                                     <div class="main-posted__user-info">
-                                        <h6 class="main-posted__user--name">Vương Nhất Bác</h6>
+                                        <h6 class="main-posted__user--name">{{{user.displayName}}}</h6>
                                         <p class="main-posted__user--name-date">8 tháng 2 năm 2021 lúc 18:00</p>
                                     </div>
                                     <div class="main-posted__user--edit-and-delete">
@@ -327,7 +327,7 @@
                                 </div>
                                 <hr>
                                 <div class="comment">
-                                    <img src="https://afamilycdn.com/150157425591193600/2020/4/25/photo-1-1587804947662288123715-1587813338690-15878133394051371394553.jpg" alt="img" class="comment--img">
+                                    <img src="{{{user.avatarUrl}}}" alt="img" class="comment--img">
                                     <textarea class="comment--write" placeholder="Viết bình luận" cols="90"></textarea>
                                 </div>
                                 <div class="comment-other">

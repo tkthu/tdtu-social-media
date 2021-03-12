@@ -1,15 +1,15 @@
 class SiteController{
 
     // [GET] /
-     index(req, res){        
-        res.render("home",{displayName: req.user.displayName, avatarUrl: req.user.avatarUrl });
+    index(req, res){
+        res.render("home",{user: req.user});
     }
 
     // [GET] /:userId
     userPage(req, res){
         const userId = req.params.userId;
         console.log("userId = " + userId);
-        res.end("trang nha user");
+        res.render("personal",{user: req.user});
     }
 
     // [GET] /:userId/posts/:postId
@@ -17,7 +17,7 @@ class SiteController{
         const userId = req.params.userId;
         const postId = req.params.postId;
         console.log("userId = " + userId + " | postId = " + postId);
-        res.end("trang post chi tiet cua user");
+        res.render("detail-notification",{user: req.user});
     }
 
 }
