@@ -1,4 +1,5 @@
 const loginRouter = require('./login');
+const registerRouter = require('./register');
 const siteRouter = require('./site');
 const notifRouter = require('./notifications');
 const managerRouter = require('./manager');
@@ -12,6 +13,7 @@ function route(app){
         res.redirect('/login');
     });     
     app.use('/login',loginRouter);
+    app.use('/register',registerRouter);
     app.use('/notifications', checkAuth, notifRouter);
     app.use('/manager', checkAuth, checkAdmin, managerRouter);// chỉ cho admin xem trang này
     app.use('/', checkAuth, siteRouter);

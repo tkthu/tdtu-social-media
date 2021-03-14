@@ -12,14 +12,13 @@ function onSignIn(googleUser) {
     const email = googleUser.getBasicProfile().getEmail();
     const displayName = googleUser.getBasicProfile().getName();
     const imageUrl = googleUser.getBasicProfile().getImageUrl();
+    
 
     const suffix = '@student.tdtu.edu.vn';  
+    const username = email.split(suffix)[0];
     if(email.endsWith(suffix)){// là sinh viên
-        //TODO: nếu đăng nhập lần đầu tiên => lưu info vào database
         const body = JSON.stringify({
-            username: email.split(suffix)[0],
-            displayName,
-            imageUrl,
+            username
         })
         const headers = { 'Content-Type': 'application/json' };
 
@@ -30,18 +29,19 @@ function onSignIn(googleUser) {
             return resp.json()
         })
         .then(json => {
-            console.log(json);
-            window.location.replace('/');
+            if(json.code === 1){// đăng nhập email lần đầu
+              gapi.auth2.getAuthInstance().signOut();
+              firstTimeLogin(username,displayName,imageUrl);    
+            }else if (json.code === 0){// đăng nhập thành công
+              window.location.replace('/');
+            }            
         })
         .catch(err => {
-            //TODO: hiện thông báo lổi ở err-msg
             console.log(`error: ${err}`);            
         })
     }else{
-        //TODO: hiện thông báo lổi ở err-msg
         console.log(`Tài khoản phải có đuôi "${suffix}"`);
-    }  
-        
+    }        
 }
 
 function signOut() {
@@ -49,9 +49,54 @@ function signOut() {
   auth2.signOut().then(function () {
     console.log('User signed out.');
     window.location.replace('/logout')    
-  });
-  
+  });  
 }
+
+function firstTimeLogin(username,displayName,imageUrl) {
+  $('#set-pass-modal').modal('show');
+  $('#confirm-set-pass').attr('data-username',username);
+  $('#confirm-set-pass').attr('data-display-name',displayName);
+  $('#confirm-set-pass').attr('data-image-url',imageUrl);  
+}
+
+$('#confirm-set-pass').click(e => {
+  e.preventDefault()
+
+  const password = $('#newPassword').val();
+  const confirmPassword = $('#confirmPassword').val();
+
+  if( password.length < 6){
+    return $('#set-pass-err-msg').html("mật khẩu phải có ít nhất 6 kí tự");
+  }if( password !== confirmPassword){
+    return $('#set-pass-err-msg').html("mật khẩu xác nhận không khớp");
+  }
+
+  const username = $(e.target).data('username');
+  const displayName = $(e.target).data('display-name');
+  const imageUrl = $(e.target).data('image-url');
+  const userType = 'student'
+
+  const data= {
+    username, displayName, imageUrl, password, userType
+  }
+
+  fetch("/register",{
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)     
+  })
+  .then(result => result.json())
+  .then(json => {
+    if(json.code === 1){// user đã có tài khoản
+      console.log(`error: ${json.msg}`);     
+    }else if (json.code === 0){// đăng kí thành công
+      window.location.replace('/');
+    }    
+  })
+  .catch(e => console.log(e))
+})
+
+
 
 // --------- Chỉnh sửa profile ---------
 function uploadFileImg(target) {

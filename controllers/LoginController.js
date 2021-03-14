@@ -54,29 +54,22 @@ class LoginController{
 
     // [POST] /login/GGAuth
     ggAuth(req, res){
-        const {username, displayName, imageUrl} = req.body;
+        const {username} = req.body;
 
         userModel.findById(username,(err,user)=>{
             if (err) return res.status(500).json('database failure');
-            else if (user === null) {
+            if (user === null) {
                 // user đăng nhập lần đầu => tạo mới user trong database
-                new userModel({
-                    _id: username,
-                    username: username,
-                    password: "[passHolder]",
-                    displayName: displayName,
-                    avatarUrl: imageUrl || '/img/no-face.png',
-                    createdAt: new Date().toISOString(),
-                    lastEdited: new Date().toISOString(),
-                    staffInfo: undefined,
-                    studentInfo: undefined,
-                    userType: "student",
-                }).save();
+                return res.status(200).json({
+                    code: 1,
+                    msg: 'first time login'
+                });
             }             
             // đăng nhập thành công
             console.log("đăng nhập bằng google thành công");
             req.session.username = username;
             return res.status(200).json({
+                code: 0,
                 msg: 'login with google successfully'
             });
         })
