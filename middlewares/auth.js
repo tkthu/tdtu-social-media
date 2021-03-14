@@ -10,7 +10,8 @@ const checkAuth = async (req,res,next) => {
         req.user = {
             username : user.username,
             displayName :  user.displayName,
-            avatarUrl :  user.avatarUrl
+            avatarUrl :  user.avatarUrl,
+            userType: user.userType,
         };
         console.log(req.user);
     })
@@ -19,7 +20,7 @@ const checkAuth = async (req,res,next) => {
 
 const checkAdmin = (req,res,next) => {
     //nếu người dùng là admin
-    if (req.user.username !== 'admin'){
+    if (req.user.userType !== 'admin'){
         return res.end("Only admin can see this page");
     }
     next();

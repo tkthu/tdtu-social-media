@@ -69,7 +69,8 @@ class LoginController{
                     createdAt: new Date().toISOString(),
                     lastEdited: new Date().toISOString(),
                     staffInfo: undefined,
-                    studentInfo: undefined
+                    studentInfo: undefined,
+                    userType: "student",
                 }).save();
             }             
             // đăng nhập thành công

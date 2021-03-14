@@ -766,7 +766,8 @@ select {
     padding: 0 20px;
 }
 
-.notification-body__filter-delete {
+.notification-body__filter-delete,
+.notification-body__filter-search {
     width: 70px;
     height: 40px;
     border-radius: 40px;

@@ -2,18 +2,138 @@
   "_id": {
     "$oid": "602e9cb11054c06b8fd7dc1e"
   },
-  "name": "Phòng Công tác học sinh sinh viên",
+  "name": "PHÒNG CTHSSV",
   "avatarUrl": "/img/logo tdt.png"
 },{
   "_id": {
     "$oid": "602e9df21054c06b8fd7dc1f"
   },
-  "name": "Phòng Đại học",
+  "name": "PHÒNG ĐẠI HỌC",
   "avatarUrl": "/img/logo tdt.png"
 },{
   "_id": {
     "$oid": "602e9e471054c06b8fd7dc20"
   },
-  "name": "Phòng Sau đại học",
+  "name": "PHÒNG SAU ĐẠI HỌC",
   "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfdc59d2b493644b48ada"
+  },
+  "name": "PHÒNG ĐIỆN TOÁN VÀ MÁY TÍNH",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfdce9d2b493644b48adb"
+  },
+  "name": "PHÒNG KHẢO THÍ VÀ KĐCL",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfdd99d2b493644b48adc"
+  },
+  "name": "PHÒNG TÀI CHÍNH",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfde89d2b493644b48add"
+  },
+  "name": "CÔNG TY TĐT",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfdf19d2b493644b48ade"
+  },
+  "name": "VIỆN CHÍNH SÁCH KINH TẾ VÀ KINH DOANH (IBEP)",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfdf99d2b493644b48adf"
+  },
+  "name": "TDT CREATIVE LANGUAGE CENTER",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfe019d2b493644b48ae0"
+  },
+  "name": "TRUNG TÂM TIN HỌC",
+  "avatarUrl": "/img/logoPhongBan/TTTH.png"
+},{
+  "_id": {
+    "$oid": "604dfe0f9d2b493644b48ae1"
+  },
+  "name": "TRUNG TÂM PHÁT TRIỂN KHOA HỌC QUẢN LÝ VÀ ỨNG DỤNG CÔNG NGHỆ (ATEM)",
+  "avatarUrl": "/img/logoPhongBan/ATEM.png"
+},{
+  "_id": {
+    "$oid": "604dfe189d2b493644b48ae2"
+  },
+  "name": "TRUNG TÂM HỢP TÁC DOANH NGHIỆP VÀ CỰU SINH VIÊN",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfe209d2b493644b48ae3"
+  },
+  "name": "TRUNG TÂM NGOẠI NGỮ-TIN HỌC-BỒI DƯỠNG VĂN HÓA",
+  "avatarUrl": "/img/logoPhongBan/cifleet.png"
+},{
+  "_id": {
+    "$oid": "604dfe289d2b493644b48ae4"
+  },
+  "name": "KHOA LUẬT",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfe2f9d2b493644b48ae5"
+  },
+  "name": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "avatarUrl": "/img/logoPhongBan/MTCN.png"
+},{
+  "_id": {
+    "$oid": "604dfe379d2b493644b48ae6"
+  },
+  "name": "KHOA ĐIỆN-ĐIỆN TỬ",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfe3c9d2b493644b48ae7"
+  },
+  "name": "KHOA CÔNG NGHỆ THÔNG TIN",
+  "avatarUrl": "/img/logoPhongBan/CNTT.png"
+},{
+  "_id": {
+    "$oid": "604dfe419d2b493644b48ae8"
+  },
+  "name": "KHOA QUẢN TRỊ KINH DOANH",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfe499d2b493644b48ae9"
+  },
+  "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "avatarUrl": "/img/logoPhongBan/MT_BHLD.png"
+},{
+  "_id": {
+    "$oid": "604dfe509d2b493644b48aea"
+  },
+  "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfe579d2b493644b48aeb"
+  },
+  "name": "KHOA TÀI CHÍNH NGÂN HÀNG",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dfe5f9d2b493644b48aec"
+  },
+  "name": "KHOA GIÁO DỤC QUỐC TẾ",
+  "avatarUrl": "/img/logo tdt.png"
+},{
+  "_id": {
+    "$oid": "604dff7d9d2b493644b48aef"
+  },
+  "name": "TRUNG TÂM ĐÀO TẠO PHÁT TRIỂN XÃ HỘI(SDTC)",
+  "avatarUrl": "/img/logoPhongBan/STDC.png"
 }]

@@ -16,6 +16,7 @@ const User = new Schema({
         class: { type: String },
         faculty: { type: String },
     },
+    userType: { type: String, default: "staff" },
 });
 
 module.exports = mongoose.model('User', User);
