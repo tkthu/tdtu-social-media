@@ -190,6 +190,11 @@ body {
     margin: 0;
 }
 
+.menu-icon {
+    width: 40px;
+    height: 40px;
+}
+
 .sidebar-navbar__phong-khoa:hover,
 .sidebar-navbar__admin p:hover,
 .sidebar-navbar__admin--item:hover {
@@ -199,7 +204,6 @@ body {
 }
 
 .sidebar-navbar__admin--item  {
-    margin-left: 100px;
     border-left: 1px solid var(--line-color);
 }
 
@@ -246,11 +250,23 @@ body {
     width: 380px;
     height: 40px;
     border-radius: 30px;
-    margin: 30px;
+    margin: 30px 0 30px 30px;
     padding-left: 20px;
     outline: none;
     border: none;
     color: var(--bg-color);
+}
+
+.header__searching--link,
+.admin-body__table-search--link {
+    position: relative;
+    left: -45px;
+}
+
+.header__searching--loupe,
+.admin-body__table-search--loupe {
+    width: 20px;
+    height: 20px;
 }
 
 .header-username {
@@ -951,7 +967,8 @@ select {
 .upload-post,
 .upload-post-home,
 .edit-info,
-.edit-info-phongKhoa {
+.edit-info-phongKhoa,
+.add-account {
     background-color: var(--bg-color);
     border: 3px solid var(--red-color);
     width: 1000px;
@@ -979,7 +996,8 @@ select {
 .edit-profile__header,
 .edit-content__header,
 .upload-post__header,
-.edit-info__header {
+.edit-info__header,
+.add-account__header {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid var(--white-color);
@@ -990,7 +1008,8 @@ select {
 .edit-profile__header--logo,
 .edit-content__header--logo,
 .upload-post__header--logo,
-.edit-info__header--logo {
+.edit-info__header--logo,
+.add-account__header--logo {
     width: 100px;
     margin-left: 50px;
 }
@@ -998,7 +1017,8 @@ select {
 .edit-profile__header--text,
 .edit-content__header--text,
 .upload-post__header--text,
-.edit-info__header--text {
+.edit-info__header--text,
+.add-account__header--text {
     color: var(--white-color);
     margin-top: 30px;
 }
@@ -1007,7 +1027,8 @@ select {
 .edit-content__header--close,
 .upload-post__header--close,
 .upload-post-home__header--close,
-.edit-info__header--close {
+.edit-info__header--close,
+.add-account__header--close {
     width: 50px;
     height: 50px;
     margin: 20px 30px 0 0;
@@ -1016,14 +1037,16 @@ select {
 .edit-profile__body,
 .edit-content__body,
 .upload-post__body,
-.edit-info__body {
+.edit-info__body,
+.add-account__body {
     margin-top: 20px;
 }
 
 .edit-profile__body--edit,
 .edit-content__body--edit,
 .upload-post__body--create,
-.edit-info__body--edit {
+.edit-info__body--edit,
+.add-account__body--add {
     display: flex;
     margin-bottom: 20px;
 }
@@ -1066,7 +1089,12 @@ select {
 .edit-content__body--edit-file,
 .edit-info__body--edit-account,
 .edit-info__body--edit-password,
-.edit-info__body--edit-chuyenmuc {
+.edit-info__body--edit-chuyenmuc,
+.add-account__body--add-account,
+.add-account__body--add-password,
+.add-account__body--add-displayName,
+.add-account__body--add-chuyenmuc,
+.add-account__body--add-background {
     color: var(--white-color);
     font-weight: 600;
     margin-left: 250px;
@@ -1095,7 +1123,10 @@ select {
 .edit-content__body--edit-name-input,
 .upload-post__body--create-title-input,
 .edit-info__body--edit-account-input,
-.edit-info__body--edit-password-input {
+.edit-info__body--edit-password-input,
+.add-account__body--add-account-input,
+.add-account__body--add-password-input,
+.add-account__body--add-displayName-input {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid var(--white-color);
@@ -1116,6 +1147,11 @@ select {
 .upload-post__body--create-chuyenmuc-selected {
     margin-right: 120px;
     width: 600px;
+}
+
+.add-account__body--add-chuyenmuc-selected {
+    margin-right: 200px;
+    width: 400px;
 }
 
 .edit-content__body--edit-content-input,
@@ -1205,6 +1241,22 @@ select {
     color: var(--white-color); 
     height: calc(2rem - 2px);
 }
+
+.add-account__body--add-imgBackground-input {
+    position: absolute;
+    left: 395px;
+    top: 260px;
+    width: 400px;
+    border-bottom: 1px solid var(--white-color);
+    color: var(--white-color); 
+    height: calc(2rem - 2px);
+}
+
+.add-account__body--add-imgBackground-btn {
+    position: absolute;
+    top: 260px;
+    right: 210px;
+}
   
 .edit-profile__body--edit-img-btn {
     position: absolute;
@@ -1254,7 +1306,8 @@ select {
 .upload-post__body--create-file-btn img,
 .upload-post__body--create-video-btn img,
 .upload-post__body--create-imgBackground-btn img,
-.edit-content__body--edit-file-btn img {
+.edit-content__body--edit-file-btn img,
+.add-account__body--add-imgBackground-btn img {
     width: 25px;
     height: 25px;
 }
@@ -1339,6 +1392,22 @@ select {
 /* ====================== Admin =================== */
 .admin-body {
     padding-bottom: 50px;
+}
+
+.admin-body__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 25px;
+    margin-top: 12px;
+}
+
+.add-img:hover {
+    cursor: pointer;
 }
 
 .admin-body__title {
@@ -1450,10 +1519,29 @@ select {
 
 /*====================== Responsive =======================*/
 
+@media (max-width: 1478px) {
+    .admin-body__table-search--link {
+        left: 900px;
+        top: -28px;
+    }
+}
+
+@media (max-width: 1444px) {
+    .admin-body__table--show input {
+        margin-left: 400px;
+    }
+    
+    .admin-body__table-search--link {
+        left: -40px;
+        top: 0;
+    }
+}
+
 @media (max-width: 1410px) {
     .sidebar {
         width: 350px;
     }
+
 }
 
 @media (max-width: 1380px) {
@@ -1471,7 +1559,8 @@ select {
         margin-left: 200px;
     }
 
-    .edit, .create-post {
+    .edit, .create-post,
+    .add-account {
         left: 100px;
         width: 1000px;
     }
@@ -1517,12 +1606,9 @@ select {
     .sidebar-navbar__admin--item {
         padding-left: 10px;
     }
-    
-    .sidebar-navbar__admin--item {
-        margin-left: 30px;
-    }
 
-    .edit, .create-post {
+    .edit, .create-post,
+    .add-account {
         left: 30px;
         width: 900px;
     }
@@ -1616,6 +1702,41 @@ select {
         margin: 30px 0 0 130px;
     }
 
+    .detail-notification-body {
+        margin-left: 14px;
+    }
+
+    .add-account__body--add-account-input,
+    .add-account__body--add-password-input,
+    .add-account__body--add-displayName-input,
+    .add-account__body--add-imgBackground-input,
+    .add-account__body--add-chuyenmuc-selected {
+        width: 320px;
+    }
+
+    .add-account__body--add-imgBackground-input {
+        left: 375px;
+    }
+
+}
+
+@media (max-width: 1058px) {
+    .admin-body__table-search--link {
+        left: 600px;
+        top: -28px;
+    }
+}
+
+@media (max-width: 1044px) {
+    .admin-body__table--show input {
+        margin-left: 200px;
+        width: 250px;
+    }
+
+    .admin-body__table-search--link {
+        left: -40px;
+        top: 0px;
+    }
 }
 
 /* Medium devices (tablets, less than 992px) */
@@ -1658,10 +1779,6 @@ select {
         height: 70px;
     }
 
-    .sidebar-navbar {
-        background-color: antiquewhite;
-    }
-
     .sidebar-navbar__admin--block {
         background-color: var(--nav-color);
         width: 250px;
@@ -1675,14 +1792,17 @@ select {
     }
 
     .sidebar-navbar__phong-khoa,
-    .sidebar-navbar__admin p{
+    .sidebar-navbar__admin p,
+    .sidebar-navbar__admin--item {
         position: absolute;
         border: none;
         top: 10px;
     }
 
     .sidebar-navbar__phong-khoa:hover,
-    .sidebar-navbar__admin p:hover {
+    .sidebar-navbar__admin p:hover,
+    .item-tksinhvien:hover,
+    .item-tkphong:hover {
         background-color: transparent;
         color: var(--red-color);
     }
@@ -1694,9 +1814,18 @@ select {
         font-size: 0.9rem;
     }
 
-    .sidebar-navbar__phong-khoa {
+    .sidebar-navbar__phong-khoa,
+    .sidebar-navbar__admin--item {
         left: 200px;
         font-size: 1.2rem;
+    }
+
+    .item-tkphong {
+        left: 320px;
+    }
+
+    .item-tksinhvien {
+        left: 560px;
     }
 
     .sidebar-navbar__admin p{
@@ -1708,16 +1837,9 @@ select {
         display: block;
     }
 
-    .sidebar-username__img {
-        position: absolute;
-        right: 250px;
-        top: 5px;
-    }
-
+    .sidebar-username__img,
     .sidebar-username__name {
-        position: absolute;
-        right: 120px;
-        top: 20px;
+       display: none;
     }
 
     .admin-body {
@@ -1738,7 +1860,8 @@ select {
         margin-left: 200px;
     }
 
-    .edit, .create-post {
+    .edit, .create-post,
+    .add-account {
         left: 10px;
         width: 750px;
     }
@@ -1837,6 +1960,30 @@ select {
         margin: 0 0 0 45%;
     }
 
+    .detail-notification-body {
+        margin-left: 12px;
+    }
+
+    .add-account {
+        margin-left: 80px;
+    }
+
+    .add-title {
+        margin-left: 200px;
+    }
+
+    .add-account__body--add-account-input,
+    .add-account__body--add-password-input,
+    .add-account__body--add-displayName-input,
+    .add-account__body--add-imgBackground-input,
+    .add-account__body--add-chuyenmuc-selected {
+        width: 240px;
+    }
+
+    .add-account__body--add-imgBackground-input {
+        left: 305px;
+    }
+
 }
 
 /* Small devices (landscape phones, less than 768px) */
@@ -1890,11 +2037,25 @@ select {
     }
 
     .header-search {
-        width: 200px;
+        width: 180px;
+    }
+
+    .sidebar-navbar__phong-khoa,
+    .item-tkphong,
+    .item-tksinhvien {
+        font-size: 1.1rem;
     }
 
     .sidebar-navbar__phong-khoa {
-        left: 180px;
+        left: 150px;
+    }
+
+    .item-tkphong {
+        left: 260px;
+    }
+
+    .item-tksinhvien {
+        left: 480px;
     }
 
     .sidebar-navbar__admin {
@@ -1909,7 +2070,8 @@ select {
         left: 300px;
     }
 
-    .edit, .create-post {
+    .edit, .create-post,
+    .add-account {
         left: 0px;
         width: 580px;
     }
@@ -2039,6 +2201,9 @@ select {
         width: 130px;
     }
 
+    .detail-notification-body {
+        margin-left: 10px;
+    }
 
  }
 
@@ -2071,6 +2236,10 @@ select {
         margin: 30px 0 0 140px;
     }
 
+    .detail-notification-body {
+        margin-left: 8px;
+    }
+
     /*================ Admin page ===============  */
 
     .admin-body {
@@ -2085,7 +2254,30 @@ select {
         left: 200px;
     }
 
-    .edit, .create-post {
+    .sidebar-navbar__phong-khoa,
+    .item-tkphong,
+    .item-tksinhvien {
+        font-size: 1rem;
+
+    }
+
+    .sidebar-navbar__phong-khoa {
+        left: 150px;
+    }
+
+    .item-tkphong {
+        left: 280px;
+        width: 100px;
+        padding: 0;
+    }
+
+    .item-tksinhvien {
+        left: 400px;
+        width: 100px;
+        padding: 0;
+    }
+
+    .edit, .create-post, .add-account {
         width: 500px;
     }
 
@@ -2197,6 +2389,10 @@ select {
         margin-right: 5px;
     }
 
+    .admin-body__table-search--link {
+        left: 340px;
+        top: -28px;
+    }
 }
 
 
