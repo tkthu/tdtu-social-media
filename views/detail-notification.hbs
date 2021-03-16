@@ -21,10 +21,13 @@
                             {{{post.content}}}
                         </p>
                     </div>
-                    <img src="/img/Toàn cảnh TDTU.png" alt="Picture" class="detail-notification-body--picture">
+                    {{#each post.imagesArray}}
+                    <img src="{{{this}}}" alt="Picture" class="detail-notification-body--picture">
+                    {{/each}}
                 </div>
                 <!-- End notification -->
                 <!-- Attached files -->
+                {{#if post.attachmentsArray}}
                 <div class="attached-files">
                     <h5>File đính kèm</h5>
                     <div class="attached-files-list">
@@ -36,26 +39,27 @@
                         {{/each}}
                     </div>
                 </div>
+                {{/if}}                
                 <!-- End attached files -->
 
                 <!-- Comment -->
                 <div class="detail-notification-comment">
                     <div class="comment">
-                        <img src="https://afamilycdn.com/150157425591193600/2020/4/25/photo-1-1587804947662288123715-1587813338690-15878133394051371394553.jpg" alt="img" class="comment--img">
+                        <img src="{{{user.avatarUrl}}}" alt="img" class="comment--img">
                         <textarea class="comment--write" placeholder="Viết bình luận" cols="90"></textarea>
                     </div>
+                    {{#each post.comments}}
                     <div class="comment-other">
                         <div class="comment-other__content">
-                            <img src="https://photo-baomoi.zadn.vn/w700_r1/2019_11_25_329_33089213/4e07b5631420fd7ea431.jpg" alt="img" class="comment-other--img">
+                            <img src="{{{this.sender.avatarUrl}}}" alt="img" class="comment-other--img">
                             <div class="comment-other__box">
-                                <h6 class="comment-other__box--username">Hoa Thành</h6>
-                                <p class="comment-other__box--text">Hello
-                                    Thái tử điện hạ.
-                                    Vì người tử trận là vinh quang chí cao vô thượng của ta.
-                                    Người ta thương vẫn còn trên đời này.
-                                    Ta nguyện vĩnh viễn không siêu sinh.
-                                    Ta sẽ trở lại. Điện hạ, chờ ta.
+                                <h6 class="comment-other__box--username">{{{this.sender.displayName}}}</h6>
+                                <p class="comment-other__box--text">
+                                    {{{this.content}}}
                                 </p>
+                                {{#if this.imageUrl}}
+                                <img src="{{{this.imageUrl}}}" alt="Picture" class="detail-notification-body--picture">
+                                {{/if}}
                             </div>
                         </div>
                         <div class="comment-other__reply-and-time">
@@ -63,6 +67,8 @@
                             <span class="comment-other__reply-time">. 1 phút</span>
                         </div>
                     </div>
+                    {{/each}}
+                    
                     <a href="#" class="comment-readmore">Xem thêm bình luận</a>
                 </div>
                 <!-- End comment -->
