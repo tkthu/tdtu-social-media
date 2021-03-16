@@ -6,7 +6,7 @@ const Post = new Schema({
     name: { type: String },
     content: { type: String },
     createdAt: { type: String, default: new Date().toISOString() },
-    lastEdited: { type: String, default: new Date().toISOString() },
+    lastEdited: { type: String, default: undefined },
     imagesArray: {type: Array},
     attachmentsArray: {type: Array},
     commentsCount: {type: Number, default: 0},

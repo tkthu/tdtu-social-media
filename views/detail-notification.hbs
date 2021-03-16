@@ -6,7 +6,14 @@
                         <img src="{{{post.sender.avatarUrl}}}" alt="Img" class="main-posted__user--img">
                         <div class="main-posted__user-info">
                             <h6 class="main-posted__user--name">{{{post.sender.displayName}}}</h6>
-                            <p class="main-posted__user--name-date">{{{post.createdAt}}}</p>
+                            <p class="main-posted__user--name-date">
+                                {{#if post.lastEdited}}
+                                Last edited: {{fromNow post.createdAt}}
+                                {{else}}
+                                {{fromNow post.createdAt}}
+                                {{/if}}
+                                
+                            </p>
                         </div>
                     </div>
                     <h4 class="detail-notification--title">
@@ -64,7 +71,13 @@
                         </div>
                         <div class="comment-other__reply-and-time">
                             <a href="#" class="comment-other__reply">Trả lời</a>
-                            <span class="comment-other__reply-time">. 1 phút</span>
+                            <span class="comment-other__reply-time">.
+                                {{#if this.lastEdited}}
+                                Last edited: {{fromNow this.createdAt}}
+                                {{else}}
+                                {{fromNow this.createdAt}}
+                                {{/if}}
+                            </span>
                         </div>
                     </div>
                     {{/each}}

@@ -8,7 +8,7 @@ const User = new Schema({
     displayName: { type: String },
     avatarUrl: { type: String, default: "/img/no-face.png" },
     createdAt: { type: String, default: new Date().toISOString() },
-    lastEdited: { type: String, default: new Date().toISOString() },
+    lastEdited: { type: String, default: undefined },
     staffInfo: {
         authorized: { type: Array },
     },
