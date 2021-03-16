@@ -25,7 +25,7 @@
 },{
   "_id": "51800001",
   "username": "51800001",
-  "password": "B123",
+  "password": "B123456",
   "displayName": "Trần Thị B",
   "avatarUrl": "/upload/51800001/TrThB_avatar.jpg",
   "createdAt": "2021-02-18T17:42:45.674Z",
@@ -37,12 +37,15 @@
   "userType": "student"
 },{
   "_id": "51800816",
+  "staffInfo": {
+    "authorized": []
+  },
   "avatarUrl": "https://lh6.googleusercontent.com/-dX5rmv_O1wo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmbxRoBVA27aUyS7WZpzUX9I4TEtw/s96-c/photo.jpg",
-  "createdAt": "2021-02-23T11:03:40.862Z",
-  "lastEdited": "2021-02-23T11:03:40.862Z",
+  "createdAt": "2021-03-16T15:50:19.710Z",
+  "lastEdited": "2021-03-16T15:50:19.710Z",
+  "userType": "student",
   "username": "51800816",
-  "password": "[passHolder]",
+  "password": "thu123",
   "displayName": "Thái Kim Thư",
-  "__v": 0,
-  "userType": "student"
+  "__v": 0
 }]

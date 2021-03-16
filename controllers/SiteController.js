@@ -47,6 +47,7 @@ class SiteController{
                 name: postFound.name,
                 content: postFound.content,                
                 createdAt: postFound.createdAt,
+                lastEdited: postFound.lastEdited,
                 commentsCount: postFound.commentsCount,
                 department: postFound.department,
                 sender: postFound.sender,

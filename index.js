@@ -4,6 +4,10 @@ const path = require('path');
 const credentials = require('./credentials');
 const route = require('./routes/index');
 
+const dayjs = require('dayjs');
+const relativeTime = require('dayjs/plugin/relativeTime');
+dayjs.extend(relativeTime)
+
 const db = require('./config/db/index');
 db.connect();
 
@@ -17,7 +21,10 @@ app.engine('.hbs', exphbs({
         },
         getFileName: function(value, options) {
             return value.split('\\').pop().split('/').pop();
-        }
+        },
+        fromNow: function(value, options) {
+            return dayjs(value).fromNow();
+        },
     }
 }));
 app.set('view engine', '.hbs');

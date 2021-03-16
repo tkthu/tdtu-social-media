@@ -18,7 +18,7 @@
   },
   "sender": {
     "id": "NgVA256",
-    "name": "Nguyễn Văn A",
+    "displayName": "Nguyễn Văn A",
     "avatarUrl": "/img/no-face.png"
   }
 },{
@@ -41,7 +41,7 @@
   },
   "sender": {
     "id": "NgVA256",
-    "name": "Nguyễn Văn A",
+    "displayName": "Nguyễn Văn A",
     "avatarUrl": "/img/no-face.png"
   }
 },{
@@ -59,7 +59,7 @@
   "commentsCount": 0,
   "sender": {
     "id": "51800001",
-    "name": "Trần Thị B",
+    "displayName": "Trần Thị B",
     "avatarUrl": "/upload/51800001/TrThB_avatar.jpg"
   }
 }]
