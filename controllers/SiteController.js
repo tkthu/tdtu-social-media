@@ -1,3 +1,5 @@
+const userModel = require('../models/user.model');
+const postModel = require('../models/post.model');
 class SiteController{
 
     // [GET] /
@@ -9,7 +11,19 @@ class SiteController{
     userPage(req, res){
         const userId = req.params.userId;
         console.log("userId = " + userId);
-        res.render("personal",{user: req.user});
+        //TODO: find user
+        userModel.findById(userId,(err,userFound) => {
+            if (err) return console.log('error: ' + err);
+            else if (userFound === null) {// không tìm thấy user           
+                return res.end('not found user')
+            }
+            const pageOwner = {
+                username: userFound.username,
+                avatarUrl: userFound.avatarUrl,
+                displayName: userFound.displayName,
+            }
+            return res.render("personal",{user: req.user, pageOwner});
+        });
     }
 
     // [GET] /:userId/posts/:postId
@@ -17,7 +31,30 @@ class SiteController{
         const userId = req.params.userId;
         const postId = req.params.postId;
         console.log("userId = " + userId + " | postId = " + postId);
-        res.render("detail-notification",{user: req.user});
+        
+        postModel.findOne({
+            _id: postId,
+            
+        },(err,postFound)=>{
+            if (err) return console.log('error: ' + err);
+            else if (postFound === null) {// không tìm thấy post           
+                return res.end('not found post')
+            }
+            
+            const post = {
+                name: postFound.name,
+                content: postFound.content,                
+                createdAt: postFound.createdAt,
+                //commentsCount: postFound.commentsCount,
+                department: postFound.department,
+                sender: postFound.sender,
+                imagesArray: postFound.imagesArray,
+                attachmentsArray: postFound.attachmentsArray,
+            }
+            console.log("postFound.getFileName() ",post.fileName)
+            return res.render("detail-notification",{user: req.user,post});
+        });
+        
     }
 
 }

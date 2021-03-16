@@ -14,6 +14,9 @@ app.engine('.hbs', exphbs({
         inc: function(value, options){return parseInt(value) + 1;},
         ifEquals: function(arg1, arg2, options) {
             return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+        },
+        getFileName: function(value, options) {
+            return value.split('\\').pop().split('/').pop();
         }
     }
 }));

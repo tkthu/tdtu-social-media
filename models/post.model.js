@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const Post = new Schema({
-    _id:{ type: String},
+    _id:{ type: Schema.Types.ObjectId},
     name: { type: String },
     content: { type: String },
     createdAt: { type: String, default: new Date().toISOString() },
@@ -16,7 +16,7 @@ const Post = new Schema({
     },
     sender: {
         id: {type: String},
-        name: {type: String},
+        displayName: {type: String},
         avatarUrl: {type: String},
     }
 });
