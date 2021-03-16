@@ -871,7 +871,7 @@ select {
 .detail-notification-body--picture {
     width: 70%;
     height: 500px;
-    margin: 0 auto;
+    margin: 2% auto;
     display: block;
 }
 
