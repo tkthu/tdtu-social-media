@@ -67,7 +67,47 @@ class SiteController{
                 avatarUrl: userFound.avatarUrl,
                 displayName: userFound.displayName,
             }
-            return res.render("personal",{user: req.user, pageOwner});
+
+            postModel.find({"sender.id":pageOwner.username})
+            .then( postsFound => {
+                if (postsFound === null){
+                    throw new Error('not found posts')
+                }
+                var posts = postsFound.map( post => {                
+                    return {
+                        _id: post._id,
+                        name: post.name,
+                        content: post.content,                
+                        createdAt: post.createdAt,
+                        lastEdited: post.lastEdited,
+                        commentsCount: post.commentsCount,
+                        department: post.department,
+                        sender: post.sender,
+                        imagesArray: post.imagesArray,
+                        attachmentsArray: post.attachmentsArray,
+                    }
+
+                })
+
+                posts.map(post => {
+                    
+                    commentModel.find({postId:post._id})
+                    .then((commentArr) => {
+                        post.comments = commentArr.map((comment) => {
+                            return {
+                                content: comment.content,
+                                createdAt: comment.createdAt,
+                                lastEdited: comment.lastEdited,
+                                imageUrl: comment.imageUrl,  
+                                sender: comment.sender,
+                            }
+                        });
+                    })
+                })
+                console.log(req.user)
+                return res.render("personal",{user: req.user, pageOwner,posts});
+            })
+            
         })
         .catch(err => {
             console.log(err)

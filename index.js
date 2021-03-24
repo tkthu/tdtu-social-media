@@ -25,6 +25,14 @@ app.engine('.hbs', exphbs({
         fromNow: function(value, options) {
             return dayjs(value).fromNow();
         },
+        cutDown: function(post, options) {
+            var content = post.content;
+            const minlen = 200;
+            if (content.length > minlen){
+                content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
+            }
+            return content;
+        },
     }
 }));
 app.set('view engine', '.hbs');

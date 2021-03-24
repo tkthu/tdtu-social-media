@@ -26,12 +26,12 @@
 
     {{!-------------- post-content --------------}}
     <div class="main-posted__content">
-
-        <h5 class="main-posted__content-title">{{{name}}}</h5>
+        <a href="/{{post.sender.id}}/posts/{{post._id}}"><h5 class="main-posted__content-title">{{{name}}}</h5></a>
+        
         <p class="detail-notification--dpment">
             {{{post.department.name}}}
         </p>
-        <p class="main-posted__content-content">{{{post.content}}}</p>
+        <p class="main-posted__content-content">{{{cutDown post}}}</p>
         
     </div>
 

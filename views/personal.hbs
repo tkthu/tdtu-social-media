@@ -15,9 +15,7 @@
                 {{/ifEquals}}
 
                 {{#each posts}}
-                {{> post-fb user=user post=this}}
-                {{else}}{{!-- sau này sẽ xóa else --}}
-                {{> post-fb}}
+                {{> post-fb user=../user post=this}}
                 {{/each}}
                 
 
