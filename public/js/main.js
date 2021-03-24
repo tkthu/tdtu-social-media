@@ -187,32 +187,31 @@ function editContentPosted() {
 
 // Hiện bảng tạo bài viết tại trang chủ
 function createPost() {
-    var x = document.querySelector(".upload-post");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+  var form = document.querySelector("#upload-post");
+  if (form.style.display === "none") {
+    form.style.display = "block";
+  } else {
+    form.style.display = "none";
+  }
 }
 
-// // Hiện bảng tạo bài viết tại cá nhân
-// function createPostAtPersonal() {
-//   var x = document.querySelector(".upload-post");
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }
+function closeCreatePost() {
+  var form = document.querySelector("#upload-post");
+  if (form.style.display === "none") {
+    form.style.display = "block";
+  } else {
+    form.style.display = "none";
+  }
+}
+
 
 //============= Tắt bảng sửa thông tin, bài viết ======================
 var closeEditProfile = document.querySelector(".edit-profile__header--close");
 var closeEditContent = document.querySelector(".edit-content__header--close");
-var closeCreatePost = document.querySelector(".upload-post__header--close");
 
 var editProfile = document.querySelector(".edit-profile");
 var editContent = document.querySelector(".edit-content");
-var uploadPost = document.querySelector(".upload-post");
+
 
 closeEditProfile.addEventListener("click", () => {
   if (editProfile.style.display === "block") {
@@ -232,14 +231,21 @@ closeEditContent.addEventListener("click", () => {
   }
 });
 
-closeCreatePost.addEventListener("click", () => {//////////////////
-  if (uploadPost.style.display === "block") {
-    uploadPost.style.display = "none";
-  }
-  else {
-    uploadPost.style.display = "block";
-  }
-});
+// $(".upload-post__header--close").click(e => {
+//   var uploadPost = $(".upload-post");
+//   if (uploadPost.style.display === "block") {
+//     uploadPost.style.display = "none";
+//   }
+//   else {
+//     uploadPost.style.display = "block";
+//   }
+// })
+
+
+
+// closeCreatePost.addEventListener("click", () => {//////////////////
+  
+// });
 
 // function closeCreatePost() {
 //   var x = document.querySelector(".upload-post");

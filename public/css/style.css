@@ -2395,6 +2395,7 @@ select {
     }
 }
 
-
-
-
+/* cursor style*/
+.pointer:hover {
+    cursor: pointer;
+}
