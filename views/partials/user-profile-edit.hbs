@@ -1,0 +1,54 @@
+<div id="edit-profile" class="edit-profile edit">
+    <div class="edit-profile__header">
+        <img src="/img/logo tdt.png" alt="logo" class="edit-profile__header--logo edit-logo">
+        <h1 class="edit-profile__header--text">Chỉnh sửa thông tin cá nhân</h1>
+        <img src="/img/close.png" alt="close.png" class="edit-profile__header--close pointer" onclick="closeEditUserProfile()">
+    </div>
+    <div class="edit-profile__body">
+        <div class="edit-profile__body--edit">
+            <label class="edit-profile__body--edit-name edit-title" for="name">Họ tên</label>
+            <input class="edit-profile__body--edit-name-input" type="text" value="Vương Nhất Bác">
+        </div>
+        <div class="edit-profile__body--edit">
+            <label class="edit-profile__body--edit-khoa edit-title" for="khoa">Khoa</label>
+            <input class="edit-profile__body--edit-khoa-input" type="text" value="Công nghệ thông tin">
+        </div>
+        <div class="edit-profile__body--edit">
+            <label class="edit-profile__body--edit-lop edit-title" for="lop">Lớp</label>
+            <input class="edit-profile__body--edit-lop-input" type="text" value="18050402">
+        </div>
+        <div class="edit-profile__body--edit">
+            <label class="edit-profile__body--edit-img edit-title" for="img">Ảnh đại diện</label>
+            <div class="inputfile-box">
+                <input type="file" id="fileImg" class="inputfile" onchange='uploadFileImg(this)'>
+                <label for="fileImg">
+                    <span id="file-img" class="edit-profile__body--edit-img-input"></span>
+                    <span class="edit-profile__body--edit-img-btn">
+                    <img src="/img/camera.png" alt="camera.png">
+                    </span>
+                </label>
+                </div>
+        </div>
+        <div class="edit-profile__body--edit">
+            <label class="edit-profile__body--edit-background edit-title" for="background">Hình nền</label>
+            <div class="inputfile-box">
+                <input type="file" id="imgBg" class="inputfile" onchange="uploadFileImgBackground(this)">
+                <label for="imgBg">
+                    <span class="edit-profile__body--edit-imgBackground-input"></span>
+                    <span class="edit-profile__body--edit-imgBackground-btn">
+                    <img src="/img/picture.png" alt="picture.png">
+                    </span>
+                </label>
+                </div>
+        </div>
+        <div class="edit-profile__body--edit">
+            <label class="edit-profile__body--edit-born-place edit-title" for="noisinh">Nơi sinh</label>
+            <input class="edit-profile__body--edit-born-place-input" type="text" value="Thành phố hồ Chí Minh">
+        </div>
+        <div class="edit-profile__body--edit">
+            <label class="edit-profile__body--edit-live-place edit-title" for="songtai">Sống tại</label>
+            <input class="edit-profile__body--edit-live-place-input" type="text" value="Thành phố Hồ Chí Minh">
+        </div>
+    </div>
+    <button class="edit-profile__btnSave" type="submit">Lưu</button>
+</div>

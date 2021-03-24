@@ -25,7 +25,7 @@
         <h6 class="main-posted__user--name">{{{post.sender.displayName}}}</h6>
         <p class="main-posted__user--name-date">{{{post.createdAt}}}</p>
     </div>
-    {{!-- {{#ifEquals post.sender.id user.username}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)--> --}}
+    {{#ifEquals post.sender.id user.username}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)-->
     <div class="main-posted__user--edit-and-delete">
         <a href="#" class="main-posted__user--edit-link" onclick="editContentPosted()">
             <img src="/img/edit.png" alt="edit.png" class="main-posted__user--edit">
@@ -34,6 +34,6 @@
             <img src="/img/trash.png" alt="trash.png" class="main-posted__user--delete">
         </a>
     </div>
-    {{!-- {{/ifEquals}} --}}
+    {{/ifEquals}}
     
 </div>

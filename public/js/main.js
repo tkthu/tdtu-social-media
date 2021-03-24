@@ -165,25 +165,21 @@ function editInfoPhongKhoa() {
 
 }
 
-// Hiện bảng sửa thông tin cá nhân
-function editInfoUser() {
-    var x = document.querySelector(".edit-profile");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+// Hiện bảng sửa user profile
+function editUserProfile() {
+  var form = document.querySelector("#edit-profile");
+  form.style.display = "block";
+}
+
+function closeEditUserProfile() {
+var form = document.querySelector("#edit-profile");
+form.style.display = "none";
 }
 
 // Hiện bảng sửa nội dung bài đăng
 function editContentPosted() {
     var form = document.querySelector("#edit-content");
     form.style.display = "block";
-}
-
-// Hiện bảng có chắc muốn xóa
-function delConfirm() {
-  $('#confirm-del').modal('show');
 }
 
 function closeEditContentPosted() {
@@ -202,23 +198,12 @@ function closeCreatePost() {
   form.style.display = "none";
 }
 
+// Hiện bảng có chắc muốn xóa
+function delConfirm() {
+  $('#confirm-del').modal('show');
+}
 
 //============= Tắt bảng sửa thông tin, bài viết ======================
-// var closeEditProfile = document.querySelector(".edit-profile__header--close");
-
-// var editProfile = document.querySelector(".edit-profile");
-
-
-// closeEditProfile.addEventListener("click", () => {
-//   if (editProfile.style.display === "block") {
-//     editProfile.style.display = "none";
-//   }
-//   else {
-//     editProfile.style.display = "block";
-//   }
-// });
-
-
 function closeInfoPhongKhoa() {
   var x = document.querySelector(".edit-info-phongKhoa");
   if (x.style.display === "block") {
