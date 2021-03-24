@@ -1,87 +1,23 @@
+{{!-- input: user(người đang login) , posts(mảng các post) --}}
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="main-notification">
-                        <div class="main-notification__header">
-                            <h4 class="main-notification__header--title">Thông báo</h4>
-                            <div class="main-notification__header--see-all">
-                                <a href="/notifications" class="main-notification__header--see-all-link">
-                                    Xem tất cả
-                                </a>
-                            </div>
-                        </div>
-                        <div class="main-notification__body unread-notification">
-                            <div class="main-notification__body--name-and-time">
-                                <p class="main-notification__body--name">[TDT Creative Language Center]</p>
-                                <span class="main-notification__body--time">03/02/2021 . 16:15</span>
-                            </div>
-                            <a href="/userId/posts/postId" class="main-notification__body--title-link">
-                                <h6 class="main-notification__body--title">
-                                    Thông báo khai giảng các khóa học tiếng anh tháng 03/2021
-                                </h6>
-                            </a>
-                            
-                            <p class="main-notification__body--content">
-                                Trung tâm Ngôn ngữ Sáng tạo thông báo khai giảng các khóa
-                                học ngoại ngữ tháng 3/2021 tại CLC như sau:
-                            </p>
-                        </div>
+<div class="row">
+    <div class="col-lg-3">
+        {{> notifi-col}}
+    </div>
 
-                    </div>
-                </div>
-
-                <div class="col-lg-9">
-                    <div class="container">
-                        <div class="main">
-                            <!-- Up post -->
-                            {{> add-post user=user}}
+    <div class="col-lg-9">
+        <div class="container">
+            <div class="main">
+                {{> add-post user=user}}  
                 
-                            <div class="main-posted"> 
-                                <div class="main-posted__user">
-                                    <img src="{{{user.avatarUrl}}}" alt="Img" class="main-posted__user--img">
-                                    <div class="main-posted__user-info">
-                                        <h6 class="main-posted__user--name">{{{user.displayName}}}</h6>
-                                        <p class="main-posted__user--name-date">8 tháng 2 năm 2021 lúc 18:00</p>
-                                    </div>
-                                </div>
-                                <div class="main-posted__show">
-                                    <img src="/img/tdtu-2.jpg" alt="Img" class="main-posted__show-img">
-                                </div>
-                                <div class="main-posted__content">
-                                    <h5 class="main-posted__content-title">Tiêu đề</h5>
-                                    <p class="main-posted__content-content">Nội dung bài viết</p>
-                                </div>
-                                <hr>
-                                <div class="comment">
-                                    <img src="{{{user.avatarUrl}}}" alt="img" class="comment--img">
-                                    <textarea class="comment--write" placeholder="Viết bình luận" cols="85"></textarea>
-                                </div>
-                                <div class="comment-other">
-                                    <div class="comment-other__content">
-                                        <img src="https://photo-baomoi.zadn.vn/w700_r1/2019_11_25_329_33089213/4e07b5631420fd7ea431.jpg" alt="img" class="comment-other--img">
-                                        <div class="comment-other__box">
-                                            <h6 class="comment-other__box--username">Hoa Thành</h6>
-                                            <p class="comment-other__box--text">Hello
-                                                Thái tử điện hạ.
-                                                Vì người tử trận là vinh quang chí cao vô thượng của ta.
-                                                Người ta thương vẫn còn trên đời này.
-                                                Ta nguyện vĩnh viễn không siêu sinh.
-                                                Ta sẽ trở lại. Điện hạ, chờ ta.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment-other__reply-and-time">
-                                        <a href="#" class="comment-other__reply">Trả lời</a>
-                                        <span class="comment-other__reply-time">. 1 phút</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="comment-readmore">Xem thêm 10 bình luận</a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
+                {{#each posts}}
+                {{> post-fb user=user post=this}}
+                {{else}}{{!-- sau này sẽ xóa else --}}
+                {{> post-fb}}
+                {{/each}}
+                
             </div>
         </div>
     </div>
+
+</div>

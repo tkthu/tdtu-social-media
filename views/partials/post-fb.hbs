@@ -1,0 +1,33 @@
+{{!-- input: user, post --}}
+{{!-- 
+    user:{// người đang login
+        username : ...,
+        displayName :  ...,
+        avatarUrl :  ...,
+        userType: ...,
+    },
+    post:{
+        createdAt: "2021-02-18T17:23:42.562Z",
+        lastEdited: null,
+        comments: [],
+        sender: {
+            id: "NgVA256",
+            displayName: "Nguyễn Văn A",
+            avatarUrl: "/img/no-face.png"
+        },
+        ...
+    }
+
+ --}}
+
+<div class="main-posted"> 
+    {{> post-header user=user post=post}}
+    <div class="main-posted__content">
+        <h5 class="main-posted__content-title">Tiêu đề</h5>
+        <p class="main-posted__content-content">Nội dung bài viết</p>
+    </div>
+    {{> image-section}}
+    {{> attachment-section}}    
+    <hr>
+    {{> comment-section user=user comments=post.comments}}
+</div>

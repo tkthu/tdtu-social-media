@@ -1,4 +1,12 @@
-{{!-- input: user --}}
+{{!-- input: user(người đang login)--}}
+{{!-- 
+    user:{
+        username : ...,
+        displayName :  ...,
+        avatarUrl :  ...,
+        userType: ...,
+    },
+--}}
 
 <div class="main-up-post">
     <div class="main-up-post-frame">
@@ -6,11 +14,6 @@
             <img src="{{{user.avatarUrl}}}" alt="img" class="main-up-post-frame__username--img">
             <textarea class="main-up-post-frame__username--write" placeholder="Bạn đang nghĩ gì ..." cols="80" rows="2" onclick="createPost()"></textarea>
         </div>
-
-        <!-- Upload post -->
-        {{> post-detail-form}}
-        <!-- End upload post -->
-
         <div class="main-up-post-frame__choosen">
             <div class="main-up-post-frame__choosen-file">
                 <a href="#" class="main-up-post-frame__choosen-file-link">
@@ -33,3 +36,7 @@
         </div>
     </div>
 </div>
+
+<!-- Upload post -->
+{{> post-detail-form}}
+<!-- End upload post -->
