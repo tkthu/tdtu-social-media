@@ -1,6 +1,6 @@
-{{!-- input: user, post --}}
+{{!-- input: user(người đang login) , posts(mảng các post) --}}
 {{!-- 
-    user:{// người đang login
+    user:{
         username : ...,
         displayName :  ...,
         avatarUrl :  ...,
@@ -30,12 +30,7 @@
         <a href="#" class="main-posted__user--edit-link" onclick="editContentPosted()">
             <img src="/img/edit.png" alt="edit.png" class="main-posted__user--edit">
         </a>
-
-        <!-- Edit content post -->
-        {{> post-detail-form-edit}}
-        <!-- End content post -->
-
-        <a href="#" class="main-posted__user--delete-link" >
+        <a href="#" class="main-posted__user--delete-link" onclick="delConfirm()" >
             <img src="/img/trash.png" alt="trash.png" class="main-posted__user--delete">
         </a>
     </div>

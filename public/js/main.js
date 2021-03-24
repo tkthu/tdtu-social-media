@@ -46,9 +46,9 @@ function onSignIn(googleUser) {
 
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
+  window.location.replace('/logout');
   auth2.signOut().then(function () {
-    console.log('User signed out.');
-    window.location.replace('/logout')    
+    console.log('User signed out.');     
   });  
 }
 
@@ -179,6 +179,11 @@ function editInfoUser() {
 function editContentPosted() {
     var form = document.querySelector(".edit-content");
     form.style.display = "block";
+}
+
+function delConfirm() {
+  var form = document.querySelector(".confirm-del");
+  form.style.display = "block";
 }
 
 function closeEditContentPosted() {
