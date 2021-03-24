@@ -1,0 +1,11 @@
+{{!-- input: attachArr(mảng các attachment) --}}
+
+
+<div class="attached-files-list">
+    {{#each attachArr}}
+    <a href="{{{this}}}" class="attached-files-content">
+        {{inc @index}}. {{getFileName this}}
+        <br>
+    </a>
+    {{/each}}
+</div>

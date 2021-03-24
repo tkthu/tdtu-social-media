@@ -1,0 +1,35 @@
+{{!-- input: comment--}}
+{{!-- 
+    comment: {
+        content: ...,
+        createdAt: ...,
+        lastEdited: ...,
+        imageUrl: ...,  
+        sender: ...,
+    }
+--}}
+
+<div class="comment-other">
+    <div class="comment-other__content">
+        <img src="{{{this.sender.avatarUrl}}}" alt="img" class="comment-other--img">
+        <div class="comment-other__box">
+            <h6 class="comment-other__box--username">{{{this.sender.displayName}}}</h6>
+            <p class="comment-other__box--text">
+                {{{this.content}}}
+            </p>
+            {{#if this.imageUrl}}
+            <img src="{{{this.imageUrl}}}" alt="Picture" class="detail-notification-body--picture">
+            {{/if}}
+        </div>
+    </div>
+    <div class="comment-other__reply-and-time">
+        <a href="#" class="comment-other__reply">Trả lời</a>
+        <span class="comment-other__reply-time">.
+            {{#if this.lastEdited}}
+            Last edited: {{fromNow this.createdAt}}
+            {{else}}
+            {{fromNow this.createdAt}}
+            {{/if}}
+        </span>
+    </div>
+</div>
