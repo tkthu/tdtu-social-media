@@ -14,10 +14,11 @@ class SiteController{
         const userId = req.params.userId;
         console.log("userId = " + userId);
         //TODO: find user
-        userModel.findById(userId,(err,userFound) => {
-            if (err) return res.end('error: ' + err);
-            else if (userFound === null) {// không tìm thấy user           
-                return res.end('not found user')
+        userModel.findById(userId)
+        .then((userFound) => {
+            console.log(userFound)
+            if (userFound == null) {// không tìm thấy user  
+                throw new Error('not found user')
             }
             const pageOwner = {
                 username: userFound.username,
@@ -25,7 +26,11 @@ class SiteController{
                 displayName: userFound.displayName,
             }
             return res.render("personal",{user: req.user, pageOwner});
-        });
+        })
+        .catch(err => {
+            console.log(err)
+            return res.end("somthing went wrong ... | "+err);
+        }) 
     }
 
     // [GET] /:userId/posts/:postId
@@ -37,13 +42,13 @@ class SiteController{
         postModel.findOne({
             _id: postId,
             "sender.id": userId,//
-        },(err,postFound)=>{
-            if (err) return console.log('error: ' + err);
-            else if (postFound === null) {// không tìm thấy post           
-                return res.end('not found post')
+        })
+        .then((postFound)=>{
+            if (postFound === null) {// không tìm thấy post           
+                throw new Error('not found post')
             }
-            
-            var post = {
+
+            req.post = {
                 name: postFound.name,
                 content: postFound.content,                
                 createdAt: postFound.createdAt,
@@ -54,23 +59,26 @@ class SiteController{
                 imagesArray: postFound.imagesArray,
                 attachmentsArray: postFound.attachmentsArray,
             }
-            var comments = []
-            commentModel.find({postId},(err,commentArr) => {
-                if (err) return res.end('error: ' + err);
-                comments = commentArr.map((comment) => {
-                    return {
-                        content: comment.content,
-                        createdAt: comment.createdAt,
-                        lastEdited: comment.lastEdited,
-                        imageUrl: comment.imageUrl,  
-                        sender: comment.sender,
-                    }
-                });
-                post.comments = comments;
-                return res.render("detail-notification",{user: req.user,post});
-
-            });    
-        });
+            
+            return commentModel.find({postId});    
+        })
+        .then((commentArr) => {
+            req.post.comments = commentArr.map((comment) => {
+                return {
+                    content: comment.content,
+                    createdAt: comment.createdAt,
+                    lastEdited: comment.lastEdited,
+                    imageUrl: comment.imageUrl,  
+                    sender: comment.sender,
+                }
+            });
+            return res.render("detail-notification",{user: req.user,post:req.post});
+        })
+        .catch(err => {
+            console.log(err)
+            return res.end("somthing went wrong ... | "+err);
+        }) 
+    
         
     }
 

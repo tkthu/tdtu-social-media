@@ -34,7 +34,7 @@ function onSignIn(googleUser) {
               firstTimeLogin(username,displayName,imageUrl);    
             }else if (json.code === 0){// đăng nhập thành công
               window.location.replace('/');
-            }            
+            }        
         })
         .catch(err => {
             console.log(`error: ${err}`);            
@@ -85,13 +85,19 @@ $('#confirm-set-pass').click(e => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)     
   })
-  .then(result => result.json())
+  .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+          throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json()
+  })
   .then(json => {
-    if(json.code === 1){// user đã có tài khoản
-      console.log(`error: ${json.msg}`);     
-    }else if (json.code === 0){// đăng kí thành công
+    if (json.code === 0){// đăng kí thành công
       window.location.replace('/');
-    }    
+    }
+    else{
+      //1: user đã có tài khoản
+      console.log(`error: ${json.msg}`);   
+    }  
   })
   .catch(e => console.log(e))
 })

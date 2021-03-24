@@ -38,9 +38,9 @@ class LoginController{
         }
 
         const {username, password} = req.body;
-        userModel.findOne({username, password},(err,user)=>{
-            if (err) return console.log('error: ' + err);
-            else if (user === null) {
+        userModel.findOne({username, password})
+        .then((user)=>{
+            if (user === null) {
                 req.flash('error', "Sai tên đăng nhập hoặc mật khẩu");                
                 return res.redirect('/login');
             }
@@ -48,7 +48,11 @@ class LoginController{
             console.log("đăng nhập thành công")
             req.session.username = username;
             return res.redirect(303,'/');
-        });
+        })
+        .catch(err => {
+            console.log(err)
+            return res.end("somthing went wrong ... | "+err);
+        }) 
         
     }
 
@@ -56,8 +60,8 @@ class LoginController{
     ggAuth(req, res){
         const {username} = req.body;
 
-        userModel.findById(username,(err,user)=>{
-            if (err) return res.status(500).json('database failure');
+        userModel.findById(username)
+        .then((user)=>{
             if (user === null) {
                 // user đăng nhập lần đầu => tạo mới user trong database
                 return res.status(200).json({
@@ -71,6 +75,11 @@ class LoginController{
             return res.status(200).json({
                 code: 0,
                 msg: 'login with google successfully'
+            });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg: err
             });
         })
         
