@@ -20,14 +20,32 @@
 
  --}}
 
-<div class="main-posted"> 
+<div class="main-posted">
+    {{!-------------- post-header --------------}}
     {{> post-header user=user post=post}}
+
+    {{!-------------- post-content --------------}}
     <div class="main-posted__content">
+
         <h5 class="main-posted__content-title">Tiêu đề</h5>
+        <p class="detail-notification--dpment">
+            {{{post.department.name}}}
+        </p>
         <p class="main-posted__content-content">Nội dung bài viết</p>
+        
     </div>
-    {{> image-section}}
-    {{> attachment-section}}    
+
+    {{!-------------- image-section --------------}}
+    {{> image-section imgArray=post.imagesArray}}
+
+    {{!-------------- attachment-section --------------}}
+    {{#if post.attachmentsArray}}
+        <hr>
+        <h6>File đính kèm</h6>
+        {{> attachment-section attachArr=post.attachmentsArray}}
+    {{/if}}
+
+    {{!-------------- comment-section --------------}}
     <hr>
     {{> comment-section user=user comments=post.comments}}
 </div>

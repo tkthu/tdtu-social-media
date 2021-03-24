@@ -1,90 +1,56 @@
+{{!-- input: user(người đang login) , post --}}
+{{!-- 
+    user:{
+        username : ...,
+        displayName :  ...,
+        avatarUrl :  ...,
+        userType: ...,
+    },
+    post:{
+        createdAt: "2021-02-18T17:23:42.562Z",
+        lastEdited: null,
+        comments: [],
+        sender: {
+            id: "NgVA256",
+            displayName: "Nguyễn Văn A",
+            avatarUrl: "/img/no-face.png"
+        },
+        ...
+    }
 
-            <div class="container">
-                <!-- Notification -->
-                <div class="detail-notification">
-                    <div class="main-posted__user">
-                        <img src="{{{post.sender.avatarUrl}}}" alt="Img" class="main-posted__user--img">
-                        <div class="main-posted__user-info">
-                            <h6 class="main-posted__user--name">{{{post.sender.displayName}}}</h6>
-                            <p class="main-posted__user--name-date">
-                                {{#if post.lastEdited}}
-                                Last edited: {{fromNow post.createdAt}}
-                                {{else}}
-                                {{fromNow post.createdAt}}
-                                {{/if}}
-                                
-                            </p>
-                        </div>
-                    </div>
-                    <h4 class="detail-notification--title">
-                        {{{post.name}}}
-                    </h4>
-                    <!-- Nếu là sinh viên vào xem thì thêm class="sinhvien-xem" để bỏ đi -->
-                    <p class="detail-notification--date">
-                        {{{post.department.name}}}
-                    </p>
-                    <div class="detail-notification-body">
-                        <p class="detail-notification-body--content">
-                            {{{post.content}}}
-                        </p>
-                    </div>
-                    {{#each post.imagesArray}}
-                    <img src="{{{this}}}" alt="Picture" class="detail-notification-body--picture">
-                    {{/each}}
-                </div>
-                <!-- End notification -->
-                <!-- Attached files -->
-                {{#if post.attachmentsArray}}
-                <div class="attached-files">
-                    <h5>File đính kèm</h5>
-                    <div class="attached-files-list">
-                        {{#each post.attachmentsArray}}
-                        <a href="{{{this}}}" class="attached-files-content">
-                            {{inc @index}}. {{getFileName this}}
-                            <br>
-                        </a>
-                        {{/each}}
-                    </div>
-                </div>
-                {{/if}}                
-                <!-- End attached files -->
+ --}}
 
-                <!-- Comment -->
-                <div class="detail-notification-comment">
-                    <div class="comment">
-                        <img src="{{{user.avatarUrl}}}" alt="img" class="comment--img">
-                        <textarea class="comment--write" placeholder="Viết bình luận" cols="90"></textarea>
-                    </div>
-                    {{#each post.comments}}
-                    <div class="comment-other">
-                        <div class="comment-other__content">
-                            <img src="{{{this.sender.avatarUrl}}}" alt="img" class="comment-other--img">
-                            <div class="comment-other__box">
-                                <h6 class="comment-other__box--username">{{{this.sender.displayName}}}</h6>
-                                <p class="comment-other__box--text">
-                                    {{{this.content}}}
-                                </p>
-                                {{#if this.imageUrl}}
-                                <img src="{{{this.imageUrl}}}" alt="Picture" class="detail-notification-body--picture">
-                                {{/if}}
-                            </div>
-                        </div>
-                        <div class="comment-other__reply-and-time">
-                            <a href="#" class="comment-other__reply">Trả lời</a>
-                            <span class="comment-other__reply-time">.
-                                {{#if this.lastEdited}}
-                                Last edited: {{fromNow this.createdAt}}
-                                {{else}}
-                                {{fromNow this.createdAt}}
-                                {{/if}}
-                            </span>
-                        </div>
-                    </div>
-                    {{/each}}
-                    
-                    <a href="#" class="comment-readmore">Xem thêm bình luận</a>
-                </div>
-                <!-- End comment -->
-            </div>
+<div class="detail-notification">
+    {{!-------------- post-header --------------}}
+    {{> post-header user=user post=post}}
+    {{!-------------- post-content --------------}}
+    <div class="main-posted__content">
+
+        <h4 class="detail-notification--title">{{{post.name}}}</h4>
+        <p class="detail-notification--dpment">
+            {{{post.department.name}}}
+        </p>
+        <div class="detail-notification-body"><p class="detail-notification-body--content">{{{post.content}}}</p></div> 
+               
+    </div>
+</div>
+{{!-------------- image-section --------------}}
+{{> image-section imgArray=post.imagesArray}}
+{{!-------------- attachment-section --------------}}
+{{#if post.attachmentsArray}}
+    <div class="attached-files">
+        <h5>File đính kèm</h5>
+        <div class="attached-files-list">        
+            {{> attachment-section attachArr=post.attachmentsArray}}
         </div>
     </div>
+{{/if}}
+{{!-------------- comment-section --------------}}
+<div class="detail-notification-comment">
+    {{> comment-section user=user comments=post.comments}}
+</div>
+
+{{!-------------- popup --------------}}
+{{> post-detail-add}}
+{{> post-detail-edit}}
+{{> confirm-delete item-name="user Nguyễn Văn A" item-id="xxx"}}

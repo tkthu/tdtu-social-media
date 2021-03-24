@@ -475,10 +475,6 @@ body {
     margin-top: 10px;
 }
 
-.main-posted__content-title {
-
-}
-
 .main-posted__content-content {
     color: var(--text-color);
 }
@@ -847,7 +843,7 @@ select {
     display: none;
 }
 
-.detail-notification--date {
+.detail-notification--dpment {
     text-align: end;
     color: var(--gray-color);
     font-style: italic;

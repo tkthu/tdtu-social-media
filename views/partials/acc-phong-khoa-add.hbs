@@ -1,0 +1,195 @@
+<div class="add-account">
+    <div class="add-account__header">
+        <img src="/img/logo tdt.png" alt="logo" class="add-account__header--logo add-logo">
+        <h1 class="add-account__header--text">Thêm tài khoản</h1>
+        <img src="/img/close.png" alt="close.png" class="add-account__header--close" onclick="closeAddAccount()">
+    </div>
+    <div class="add-account__body">
+        <div class="add-account__body--add">
+            <label class="add-account__body--add-account add-title" for="username">Tài khoản</label>
+            <input class="add-account__body--add-account-input" type="text" value="admin">
+        </div>
+        <div class="add-account__body--add">
+            <label class="add-account__body--add-password add-title" for="password">Mật khẩu</label>
+            <input class="add-account__body--add-password-input" type="password" value="123456">
+        </div>
+        <div class="add-account__body--add">
+            <label class="add-account__body--add-displayName add-title" for="displayName">Tên hiển thị</label>
+            <input class="add-account__body--add-displayName-input" type="text" value="admin">
+        </div>
+
+        <div class="add-account__body--add">
+            <label class="add-account__body--add-background add-title" for="background">Ảnh</label>
+            <div class="inputfile-box">
+                <input type="file" id="imgAddAccount" class="inputfile" onchange="uploadAddImg(this)">
+                <label for="imgAddAccount">
+                    <span id="add-imgAccount" class="add-account__body--add-imgBackground-input"></span>
+                    <span class="add-account__body--add-imgBackground-btn">
+                        <img src="/img/picture.png" alt="picture.png">
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="add-account__body--add">
+            <label class="add-account__body--add-chuyenmuc add-title" for="chuyenmuc">Chuyên mục</label>
+        </div>
+                        <div class="list-chuyenmuc">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="checkbox-chuyenmuc">
+                        <input type="checkbox">
+                        <label for="chuyenmuc">Phòng CTHSSV</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
