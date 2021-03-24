@@ -1,0 +1,19 @@
+{{!-- input: item-name, item-id --}}
+{{!-- 
+    item là vật muốn xóa
+
+ --}}
+
+<div id="confirm-del" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Bạn có muốn xóa <strong id="product-name">{{{item-name}}}</strong> ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-confirm-del" data-id="{{{item-id}}}">Delete</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

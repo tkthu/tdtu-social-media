@@ -1,0 +1,59 @@
+{{!-- input: pageOwner, user(người đang login) --}}
+{{!-- 
+    pageOwner:{// người chủ của trang nhà
+        username : ...,
+        displayName :  ...,
+        avatarUrl :  ...,
+        userType: ...,
+    },
+    user:{
+        username : ...,
+        displayName :  ...,
+        avatarUrl :  ...,
+        userType: ...,
+    },
+ --}}
+
+<div class="profile-user">
+    <img src="{{{pageOwner.avatarUrl}}}" alt="img" class="profile-user__img">
+    <h6 class="profile-user__name">{{{pageOwner.displayName}}}</h6>
+    <div class="profile-user__title">
+        <h6>Giới thiệu</h6>
+        {{#ifEquals pageOwner.username user.username}} <!-- chỉ user là chủ của trang nhà mới sửa được profile của mình-->
+        <div class="profile-user__edit">
+            <a href="#" class="profile-user__edit-link" onclick="editUserProfile()">
+                <img src="/img/edit.png" alt="edit.png" class="profile-user__edit-img">
+                Chỉnh sửa
+            </a>
+        </div>
+        {{/ifEquals}}        
+    </div>
+    <div class="profile-user__info">
+        <ul>
+            <li>
+                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                Khoa: Công nghệ thông tin
+            </li>
+            <li>
+                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                Ngành: Mạng máy tính và truyền thông dữ liệu
+            </li>
+            <li>
+                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                MSSV: 51800508
+            </li>
+            <li>
+                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                Lớp: 18050402
+            </li>
+            <li>
+                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                Sống tại Thành phố Hồ Chí Minh
+            </li>
+            <li>
+                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                Đến từ Thành phố Hồ Chí Minh
+            </li>
+        </ul>
+    </div>
+</div>

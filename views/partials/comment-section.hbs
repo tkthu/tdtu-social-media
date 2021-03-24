@@ -1,0 +1,16 @@
+{{!-- input: user, comments --}}
+{{!-- 
+    user:{// người đang login
+        username : ...,
+        displayName :  ...,
+        avatarUrl :  ...,
+        userType: ...,
+    },
+    comments:[],
+--}}
+{{> add-comment user=user}}
+{{#each comments}}
+{{> comment comment=this}}{{!-- chưa test trùng tên biến comment --}}
+{{/each}}
+
+<a href="#" class="comment-readmore">Xem thêm 10 bình luận</a>

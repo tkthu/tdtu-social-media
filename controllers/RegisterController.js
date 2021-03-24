@@ -5,15 +5,16 @@ class RegisterController{
     register(req, res){
         const {username, displayName, imageUrl, password, userType, staffInfo, studentInfo} = req.body;
 
-        userModel.findById(username,(err,user) => {
-            if (err) return res.status(500).json('database failure');
+        userModel.findById(username)
+        .then((user) => {
             if (user !== null) {// user đã có tải khoản
                 return res.status(200).json({
-                    code:1,
-                    msg:'user đã có tải khoản'
+                    code: 1,
+                    msg: 'user đã có tải khoản'
                 });
             }
-            new userModel({
+             
+            return new userModel({
                 _id: username,
                 username: username,
                 password: password,
@@ -25,11 +26,18 @@ class RegisterController{
                 studentInfo: studentInfo,
                 userType: userType || "staff",
             }).save();
+        })
+        .then(() => {
             return res.status(200).json({
                 code:0,
                 msg:'đăng kí tài khoản cho user thành công'
             });
-        });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg: err
+            });
+        })
         
     }
 }

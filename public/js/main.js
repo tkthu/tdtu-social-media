@@ -34,7 +34,7 @@ function onSignIn(googleUser) {
               firstTimeLogin(username,displayName,imageUrl);    
             }else if (json.code === 0){// đăng nhập thành công
               window.location.replace('/');
-            }            
+            }        
         })
         .catch(err => {
             console.log(`error: ${err}`);            
@@ -46,9 +46,9 @@ function onSignIn(googleUser) {
 
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
+  window.location.replace('/logout');
   auth2.signOut().then(function () {
-    console.log('User signed out.');
-    window.location.replace('/logout')    
+    console.log('User signed out.');     
   });  
 }
 
@@ -85,13 +85,19 @@ $('#confirm-set-pass').click(e => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)     
   })
-  .then(result => result.json())
+  .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+          throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json()
+  })
   .then(json => {
-    if(json.code === 1){// user đã có tài khoản
-      console.log(`error: ${json.msg}`);     
-    }else if (json.code === 0){// đăng kí thành công
+    if (json.code === 0){// đăng kí thành công
       window.location.replace('/');
-    }    
+    }
+    else{
+      //1: user đã có tài khoản
+      console.log(`error: ${json.msg}`);   
+    }  
   })
   .catch(e => console.log(e))
 })
@@ -165,91 +171,45 @@ function editInfoPhongKhoa() {
 
 }
 
-// Hiện bảng sửa thông tin cá nhân
-function editInfoUser() {
-    var x = document.querySelector(".edit-profile");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+// Hiện bảng sửa user profile
+function editUserProfile() {
+  var form = document.querySelector("#edit-profile");
+  form.style.display = "block";
+}
+
+function closeEditUserProfile() {
+var form = document.querySelector("#edit-profile");
+form.style.display = "none";
 }
 
 // Hiện bảng sửa nội dung bài đăng
 function editContentPosted() {
-    var x = document.querySelector(".edit-content");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+    var form = document.querySelector("#edit-content");
+    form.style.display = "block";
 }
 
-// Hiện bảng tạo bài viết tại trang chủ
+function closeEditContentPosted() {
+  var form = document.querySelector("#edit-content");
+  form.style.display = "none";
+}
+
+// Hiện bảng tạo bài viết
 function createPost() {
-    var x = document.querySelector(".upload-post-home");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+  var form = document.querySelector("#upload-post");
+  form.style.display = "block";
 }
 
-// Hiện bảng tạo bài viết tại cá nhân
-function createPostAtPersonal() {
-  var x = document.querySelector(".upload-post");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
+function closeCreatePost() {
+  var form = document.querySelector("#upload-post");
+  form.style.display = "none";
+}
+
+// Hiện bảng có chắc muốn xóa
+function delConfirm() {
+  $('#confirm-del').modal('show');
 }
 
 //============= Tắt bảng sửa thông tin, bài viết ======================
-var closeEditProfile = document.querySelector(".edit-profile__header--close");
-var closeEditContent = document.querySelector(".edit-content__header--close");
-var closeCreatePost = document.querySelector(".upload-post__header--close");
-
-var editProfile = document.querySelector(".edit-profile");
-var editContent = document.querySelector(".edit-content");
-var uploadPost = document.querySelector(".upload-post");
-
-closeEditProfile.addEventListener("click", () => {
-  if (editProfile.style.display === "block") {
-    editProfile.style.display = "none";
-  }
-  else {
-    editProfile.style.display = "block";
-  }
-});
-
-closeEditContent.addEventListener("click", () => {
-  if (editContent.style.display === "block") {
-    editContent.style.display = "none";
-  }
-  else {
-    editContent.style.display = "block";
-  }
-});
-
-closeCreatePost.addEventListener("click", () => {
-  if (uploadPost.style.display === "block") {
-    uploadPost.style.display = "none";
-  }
-  else {
-    uploadPost.style.display = "block";
-  }
-});
-
-function closeCreatePostHome() {
-  var x = document.querySelector(".upload-post-home");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-
 function closeInfoPhongKhoa() {
   var x = document.querySelector(".edit-info-phongKhoa");
   if (x.style.display === "block") {
