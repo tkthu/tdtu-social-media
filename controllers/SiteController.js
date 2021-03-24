@@ -6,14 +6,56 @@ class SiteController{
 
     // [GET] /
     index(req, res){
-        res.render("home",{user: req.user});
+
+        postModel.find({})
+        .then( postsFound => {
+            if (postsFound === null){
+                throw new Error('not found posts')
+            }
+            var posts = postsFound.map( post => {                
+                return {
+                    _id: post._id,
+                    name: post.name,
+                    content: post.content,                
+                    createdAt: post.createdAt,
+                    lastEdited: post.lastEdited,
+                    commentsCount: post.commentsCount,
+                    department: post.department,
+                    sender: post.sender,
+                    imagesArray: post.imagesArray,
+                    attachmentsArray: post.attachmentsArray,
+                }
+
+            })
+
+            posts.map(post => {
+                
+                commentModel.find({postId:post._id})
+                .then((commentArr) => {
+                    post.comments = commentArr.map((comment) => {
+                        return {
+                            content: comment.content,
+                            createdAt: comment.createdAt,
+                            lastEdited: comment.lastEdited,
+                            imageUrl: comment.imageUrl,  
+                            sender: comment.sender,
+                        }
+                    });
+                })
+            })
+            console.log(req.user)
+            res.render("home",{user: req.user,posts});
+        })
+        .catch(err => {
+            console.log(err)
+            return res.end("somthing went wrong ... | "+err);
+        })
     }
 
     // [GET] /:userId
     userPage(req, res){
         const userId = req.params.userId;
         console.log("userId = " + userId);
-        //TODO: find user
         userModel.findById(userId)
         .then((userFound) => {
             console.log(userFound)
