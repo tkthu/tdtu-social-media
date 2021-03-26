@@ -1,10 +1,32 @@
+{{!-- input: users(mảng các user) --}}
 {{!-- 
-    users:{
-        username : ...,
-        displayName :  ...,
-        avatarUrl :  ...,
-        userType: ...,
-    },
+    users:[
+        {
+            staffInfo: { authorized: [] },
+            studentInfo: { class: '18050202', faculty: 'Công nghệ thông tin' },
+            avatarUrl: '/upload/51800001/TrThB_avatar.jpg',
+            createdAt: '2021-02-18T17:42:45.674Z',
+            userType: 'student',
+            _id: '51800001',
+            username: '51800001',
+            password: 'B123456',
+            displayName: 'Trần Thị B',
+            lastEdited: '2021-02-18T17:42:45.674Z'
+        },
+        {
+            staffInfo: ...,
+            studentInfo: ...,
+            avatarUrl: ...,
+            createdAt: ...,
+            userType: ...,
+            _id: ....,
+            username: ....,
+            password: ...,
+            displayName: ....,
+            lastEdited: ....
+        },
+        ...
+    ]
     
  --}}
 
@@ -43,11 +65,18 @@
                         <th scope="row">{{inc @index}}</th>
                         <td class="user-name">
                             <img src="{{this.avatarUrl}}" alt="img" class="user-img">
-                            {{this.username}}
+                            <a href="/{{this._id}}">{{this.username}}</a>
                         </td>
                         <td class="user-content">{{this.displayName}}</td>
                         <td>{{this.username}}</td>
-                        <td>{{this.lastEdited}}</td>
+                        <td>
+                            {{#if this.lastEdited}}
+                            {{fromNow this.lastEdited}} (edited)
+                            {{else}}
+                            {{fromNow this.createdAt}}
+                            {{/if}} 
+
+                        </td>
                         <td>
                             <a href="#" class="trash-link" onclick="editInfoStudent()">
                                 <img src="/img/edit.png" alt="edit.png" class="trash-img" >

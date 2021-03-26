@@ -6,6 +6,8 @@ class ManagerController{
     staffsPage(req, res, next){        
         Users.find({userType: "staff"}) // Tìm user với userType là "staff"
         .then((users) => {
+            console.log(multipleMongooseToObject(users))
+
             res.render('admin-acc-phong-khoa', {
                 user: req.user,
                 users: multipleMongooseToObject(users)
@@ -18,6 +20,8 @@ class ManagerController{
     studentsPage(req, res, next){       
         Users.find({userType: "student"})  // Tìm user với userType là "student"
         .then((users) => {
+            console.log(multipleMongooseToObject(users))
+            
             res.render('admin-acc-student', {
                 user: req.user,
                 users: multipleMongooseToObject(users)
