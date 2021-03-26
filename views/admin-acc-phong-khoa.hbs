@@ -1,3 +1,22 @@
+{{!-- input: users(mảng các user) --}}
+{{!-- 
+    users:[
+        {
+            staffInfo: ...,
+            studentInfo: ...,
+            avatarUrl: ...,
+            createdAt: ...,
+            userType: ...,
+            _id: ....,
+            username: ....,
+            password: ...,
+            displayName: ....,
+            lastEdited: ....
+        },
+        ...
+    ]
+    
+ --}}
 
 <div class="container">
     <div class="admin-body">
@@ -32,25 +51,34 @@
                 </tr>
                 </thead>
                 <tbody>
+                    {{#each users}}     <!-- Lấy dữ liệu đổ vào bảng tài khoản phòng/khoa -->
                     <tr>
-                    <th scope="row">1</th>
-                    <td class="user-name">
-                        <img src="https://cf.shopee.vn/file/fa1e577c09e920e8cb9c73134229291b" alt="img" class="user-img">
-                        Lam Trạm
-                    </td>
-                    <td class="user-content">Lam Vong Cơ</td>
-                    <td>13162</td>
-                    <td>14/02/2020</td>
-                    <td>
-                        <a href="#" class="trash-link" onclick="editInfoPhongKhoa()">
-                            <img src="/img/edit.png" alt="edit.png" class="trash-img" >
-                        </a>
-                        |
-                        <a href="#" class="trash-link">
-                            <img src="/img/trash.png" alt="trash.png" class="trash-img" >
-                        </a>
-                    </td>
+                        <th scope="row">{{inc @index}}</th>
+                        <td class="user-name">
+                            <img src="{{this.avatarUrl}}" alt="img" class="user-img">
+                            <a href="/{{this._id}}">{{this.username}}</a>
+                        </td>
+                        <td class="user-content">{{this.displayName}}</td>
+                        <td>{{this.username}}</td>
+                        <td>
+                            {{#if this.lastEdited}}
+                            {{fromNow this.lastEdited}} (edited)
+                            {{else}}
+                            {{fromNow this.createdAt}}
+                            {{/if}} 
+                        </td>
+                        <td>
+                            <a href="#" class="trash-link" onclick="editInfoPhongKhoa()">
+                                <img src="/img/edit.png" alt="edit.png" class="trash-img" >
+                            </a>
+                            |
+                            <a href="#" class="trash-link">
+                                <img src="/img/trash.png" alt="trash.png" class="trash-img" >
+                            </a>
+                        </td>
                     </tr>
+                    {{/each}}
+                    
 
                 </tbody>
                 <thead>
