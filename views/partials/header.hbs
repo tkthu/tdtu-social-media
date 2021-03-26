@@ -1,3 +1,14 @@
+{{!-- input: user(người đang login) --}}
+{{!-- 
+    user:{
+        username : ...,
+        displayName :  ...,
+        avatarUrl :  ...,
+        userType: ...,
+    },
+    
+ --}}
+
     <div class="row">
         <div class="col-sm-3 col-sideBar">
             <!-- Sidebar -->
@@ -6,7 +17,7 @@
                     <img src="/img/logo tdt.png" alt="logo TDTU" class="sidebar-logo">
                 </a>
                 <div class="sidebar-username">
-                    <img class="sidebar-username__img" src="{{{user.avatarUrl}}}" alt="Logo user">
+                    <img class="sidebar-username__img" src="{{{user.avatarUrl}}}" alt="Logo user"> 
                     <h6 class="sidebar-username__name">
                         {{{user.displayName}}}
                     </h6>
