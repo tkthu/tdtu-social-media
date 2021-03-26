@@ -1,4 +1,4 @@
-<div id="upload-post" class="upload-post create-post">
+<form id="upload-post" class="upload-post create-post" action="/" method="POST">
     <div class="upload-post__header">
         <img src="/img/logo tdt.png" alt="logo" class="upload-post__header--logo">
         <h1 class="upload-post__header--text">Tạo bài viết</h1>
@@ -6,11 +6,11 @@
     </div>    
     <div class="upload-post__body">
         <div class="upload-post__body--create">
-            <label class="upload-post__body--create-title create-title" for="title" placeholder="Tiêu đề">Tiêu đề</label>
-            <input class="upload-post__body--create-title-input" type="text" placeholder="Tiêu đề">
+            <label class="upload-post__body--create-title create-title" for="title" placeholder="Tiêu đề" >Tiêu đề</label>
+            <input class="upload-post__body--create-title-input" type="text" placeholder="Tiêu đề" name="title">
         </div>
         <div class="upload-post__body--create">
-            <label class="upload-post__body--upload-post create-title" for="noidung">Nội dung</label>
+            <label class="upload-post__body--upload-post create-title" for="noidung" name="content">Nội dung</label>
             <textarea class="upload-post__body--upload-post-input" cols="80" rows="10" placeholder="Bạn đang nghĩ gì ..."></textarea>
         </div>
         <div class="upload-post__body--create">
@@ -82,4 +82,4 @@
 
     </div>
     <button class="upload-post__btnSave" type="submit">Đăng bài</button>
-</div>
+</form>

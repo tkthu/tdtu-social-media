@@ -102,6 +102,31 @@ $('#confirm-set-pass').click(e => {
   .catch(e => console.log(e))
 })
 
+$('#upload-post__btnSave').click(e => {
+  e.preventDefault();
+  
+  fetch("/post",{
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)     
+  })
+  .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+          throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json()
+  })
+  .then(json => {
+    if (json.code === 0){// đăng kí thành công
+      window.location.replace('/');
+    }
+    else{
+      //1: user đã có tài khoản
+      console.log(`error: ${json.msg}`);   
+    }  
+  })
+  .catch(e => console.log(e))
+
+})
 
 
 // --------- Chỉnh sửa profile ---------

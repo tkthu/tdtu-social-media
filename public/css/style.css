@@ -1311,7 +1311,7 @@ select {
 
 .edit-profile__btnSave,
 .edit-content__btnSave,
-.upload-post__btnSave,
+#upload-post__btnSave,
 .btn-change-password,
 .edit-info__btnSave {
     outline: none;

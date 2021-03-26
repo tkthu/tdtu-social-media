@@ -43,11 +43,9 @@ class SiteController{
                     });
                 })
             })
-            console.log(req.user)
             res.render("home",{user: req.user,posts});
         })
         .catch(err => {
-            console.log(err)
             return res.end("somthing went wrong ... | "+err);
         })
     }
@@ -55,10 +53,8 @@ class SiteController{
     // [GET] /:userId
     userPage(req, res){
         const userId = req.params.userId;
-        console.log("userId = " + userId);
         userModel.findById(userId)
         .then((userFound) => {
-            console.log(userFound)
             if (userFound == null) {// không tìm thấy user  
                 throw new Error('not found user')
             }
@@ -104,13 +100,11 @@ class SiteController{
                         });
                     })
                 })
-                console.log(req.user)
                 return res.render("personal",{user: req.user, pageOwner,posts});
             })
             
         })
         .catch(err => {
-            console.log(err)
             return res.end("somthing went wrong ... | "+err);
         }) 
     }
@@ -119,8 +113,7 @@ class SiteController{
     postDetail(req, res) {
         const userId = req.params.userId;
         const postId = req.params.postId;
-        console.log("userId = " + userId + " | postId = " + postId);
-        
+
         postModel.findOne({
             _id: postId,
             "sender.id": userId,//
@@ -157,7 +150,6 @@ class SiteController{
             return res.render("detail-notification",{user: req.user,post:req.post});
         })
         .catch(err => {
-            console.log(err)
             return res.end("somthing went wrong ... | "+err);
         }) 
     

@@ -50,8 +50,7 @@ class LoginController{
             return res.redirect(303,'/');
         })
         .catch(err => {
-            console.log(err)
-            return res.end("somthing went wrong ... | "+err);
+            return res.end("somthing went wrong ... | " + err);
         }) 
         
     }

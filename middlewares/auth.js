@@ -13,7 +13,7 @@ const checkAuth = async (req,res,next) => {
             avatarUrl :  user.avatarUrl,
             userType: user.userType,
         };
-        console.log(req.user);
+        console.log("req.user: " ,req.user, '\n');
     })
     next();
 }

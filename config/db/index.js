@@ -12,9 +12,9 @@ async function connect() {
             //     socketOptions:{keepAlive:1}
             // }
         });
-        console.log('Connect successfully')
+        console.log('Connect to database successfully')
     } catch (error) {
-        console.log('Connect failure')
+        console.log('Connect to database failure')
     }
 }
 
