@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-var credentials = require('../../credentials')
+var credentials = require('../../../credentials')
 
 async function connect() {
     try {

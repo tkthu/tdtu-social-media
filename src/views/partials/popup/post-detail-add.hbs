@@ -31,17 +31,15 @@
             <textarea class="upload-post__body--upload-post-input" cols="80" rows="10" placeholder="Bạn đang nghĩ gì ..." name="content"></textarea>
         </div>
         <div class="upload-post__body--create">
-            {{#if user.staffInfo}}
+            {{#ifEquals user.userType "staff"}}
                 <label class="upload-post__body--create-chuyenmuc create-title" for="chuyenmuc">Chuyên mục</label>              
                 <select class="upload-post__body--create-chuyenmuc-selected" name="chuyenmuc">
-                    <option value="common">Thông thường</option>
+                    <option id="common" value="common">Thông thường</option>
                     {{#each user.staffInfo.authorized}}
                         <option id="{{this.id}}" value="{{this.id}}">{{this.name}}</option>
                     {{/each}}
                 </select>
-            {{else}}
-                <input type="hidden" name="chuyenmuc" value="common">
-            {{/if}}
+            {{/ifEquals}}
         </div>
         
         <div class="upload-post__body--create">

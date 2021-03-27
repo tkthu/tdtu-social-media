@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const {upload} = require('../middlewares/fileUpload')
+const {upload} = require('../util/middlewares/fileUpload')
 
-const apiController = require('../controllers/ApiController');
+const apiController = require('../src/controllers/ApiController');
 
 // router.get('/posts',apiController.test);// lấy toàn bộ post
 // router.get('/post/:postId',apiController.test);// lấy 1 post

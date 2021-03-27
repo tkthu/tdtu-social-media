@@ -1,6 +1,6 @@
-const userModel = require('../models/user.model');
+const userModel = require('../../src/models/user.model');
 
-const checkAuth = (req,res,next) => {
+const checkAuth = async (req,res,next) => {
     //TODO: Chuyển thành token...
 
     //nếu chưa đăng nhập thì chuyển qua trang login
@@ -8,7 +8,7 @@ const checkAuth = (req,res,next) => {
         return res.redirect(303,'/login');
     }
     const username = req.session.username;
-    userModel.findOne({username})
+    await userModel.findOne({username})
     .then((user)=>{
         req.user = {
             username : user.username,

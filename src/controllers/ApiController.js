@@ -1,18 +1,27 @@
 const postModel = require('../models/post.model');
+const mogoose = require('mongoose')
 
 class ApiController{
 
     // [POST] /post
     addPost(req, res){
-        const imagesArray = req.files.fileImg.map( fi => {
-            return fi.path.replace("public","");
-        })
-        const attachmentsArray = req.files.file.map( fi => {
-            return fi.path.replace("public","");
-        })
+        var imagesArray = undefined;
+        var attachmentsArray = undefined;
+        if(req.files.fileImg !== undefined){
+            imagesArray = req.files.fileImg.map( fi => {
+                return fi.path.replace("public","");
+            })
+        }
+        if(req.files.file !== undefined){
+            attachmentsArray = req.files.file.map( fi => {
+                return fi.path.replace("public","");
+            })
+        }        
 
         const post = {
+            _id: mogoose.Types.ObjectId(),
             name: req.body.title,
+            createdAt: new Date().toISOString(),
             content: req.body.content,
             department: {
                 id: req.body.chuyenmuc,

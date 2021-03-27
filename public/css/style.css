@@ -1165,7 +1165,7 @@ select {
 /*---- Input file image ----*/
 
 .inputfile {
-    display: block;
+    display: none;
 }
   
 .edit-profile__body--edit-img-input {

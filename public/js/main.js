@@ -110,7 +110,9 @@ $('#upload-post').submit(e => {
   if( formData.get('userId').trim() === "" ){
     return;
   }
-  formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
+  if (formData.has('chuyenmuc')){
+    formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
+  }  
   for (var pair of formData) {
     console.log(pair[0] +"  : "+ pair[1]);
   }
@@ -125,6 +127,10 @@ $('#upload-post').submit(e => {
   })
   .then(json => {
     if (json.code === 0){// đăng post thành công
+      closeCreatePost();
+      var markup =  Handlebars.templates['post-fb']({post: json.data})
+      
+      $('.main').append(markup)
       console.log("post: ", json.data)
     }
   })

@@ -22,13 +22,13 @@
 
  --}}
 
-<div class="main-posted">
+ <div class="main-posted">
     {{!-------------- post-header --------------}}
-    {{> post-header user=user post=post}}
+    {{> share-with-client/post-header postOwnerId=user.username post=post}}
 
     {{!-------------- post-content --------------}}
     <div class="main-posted__content">
-        <a href="/{{post.sender.id}}/posts/{{post._id}}"><h5 class="main-posted__content-title">{{{name}}}</h5></a>
+        <a href="/{{post.sender.id}}/posts/{{post._id}}"><h5 class="main-posted__content-title">{{{post.name}}}</h5></a>
         
         <p class="detail-notification--dpment">
             {{{post.department.name}}}
@@ -38,16 +38,16 @@
     </div>
 
     {{!-------------- image-section --------------}}
-    {{> image-section imgArray=post.imagesArray}}
+    {{> share-with-client/image-section imgArray=post.imagesArray}}
 
     {{!-------------- attachment-section --------------}}
     {{#if post.attachmentsArray}}
         <hr>
         <h6>File đính kèm</h6>
-        {{> attachment-section attachArr=post.attachmentsArray}}
+        {{> share-with-client/attachment-section attachArr=post.attachmentsArray}}
     {{/if}}
 
     {{!-------------- comment-section --------------}}
     <hr>
-    {{> comment-section user=user comments=post.comments}}
+    {{> share-with-client/comment-section user=user comments=post.comments}}
 </div>

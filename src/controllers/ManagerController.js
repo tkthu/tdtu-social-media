@@ -1,5 +1,5 @@
 const Users = require('../models/user.model')
-const { multipleMongooseToObject } = require('../util/mongoose')
+const { multipleMongooseToObject } = require('../../util/mongoose')
 class ManagerController{
 
     // [GET] /staffs
