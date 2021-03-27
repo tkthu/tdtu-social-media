@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const Post = new Schema({
-    _id:{ type: Schema.Types.ObjectId},
+    _id:{ type: Schema.Types.ObjectId, default: mongoose.Types.ObjectId() },
     name: { type: String },
     content: { type: String },
     createdAt: { type: String, default: new Date().toISOString() },

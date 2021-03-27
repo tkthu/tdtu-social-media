@@ -6,11 +6,10 @@ const route = require('./routes/index');
 
 const dayjs = require('dayjs');
 const relativeTime = require('dayjs/plugin/relativeTime');
-dayjs.extend(relativeTime)
+dayjs.extend(relativeTime);
 
 const db = require('./config/db/index');
 db.connect();
-
 const app = express();
 app.engine('.hbs', exphbs({
     extname: ".hbs",

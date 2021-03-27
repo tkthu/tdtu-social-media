@@ -1165,7 +1165,7 @@ select {
 /*---- Input file image ----*/
 
 .inputfile {
-    display: none;
+    display: block;
 }
   
 .edit-profile__body--edit-img-input {
@@ -1310,7 +1310,7 @@ select {
 /* ------- End input file image ------- */
 
 .edit-profile__btnSave,
-.edit-content__btnSave,
+#edit-content__btnSave,
 #upload-post__btnSave,
 .btn-change-password,
 .edit-info__btnSave {
@@ -1325,8 +1325,8 @@ select {
 }
 
 .edit-profile__btnSave:hover,
-.edit-content__btnSave:hover,
-.upload-post__btnSave:hover,
+#edit-content__btnSave:hover,
+#upload-post__btnSave:hover,
 .btn-change-password:hover,
 .edit-info__btnSave:hover {
     background-color: var(--white-color);
@@ -1616,8 +1616,8 @@ select {
     }
 
     .edit-profile__btnSave,
-    .edit-content__btnSave,
-    .upload-post__btnSave,
+    #edit-content__btnSave,
+    #upload-post__btnSave,
     .btn-change-password,
     .edit-info__btnSave {
         margin-left: 320px;
@@ -2078,8 +2078,8 @@ select {
     }
 
     .edit-profile__btnSave,
-    .edit-content__btnSave,
-    .upload-post__btnSave,
+    #edit-content__btnSave,
+    #upload-post__btnSave,
     .btn-change-password,
     .edit-info__btnSave {
         margin-left: 230px;
@@ -2278,8 +2278,8 @@ select {
     }
 
     .edit-profile__btnSave,
-    .edit-content__btnSave,
-    .upload-post__btnSave,
+    #edit-content__btnSave,
+    #upload-post__btnSave,
     .btn-change-password,
     .edit-info__btnSave {
         margin-left: 200px;

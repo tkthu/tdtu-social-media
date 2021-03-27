@@ -102,29 +102,33 @@ $('#confirm-set-pass').click(e => {
   .catch(e => console.log(e))
 })
 
-$('#upload-post__btnSave').click(e => {
+$('#upload-post').submit(e => {
   e.preventDefault();
-  
-  fetch("/post",{
+
+  var formData = new FormData($('#upload-post')[0]);
+  //TODO: kt userId có empty
+  if( formData.get('userId').trim() === "" ){
+    return;
+  }
+  formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
+  for (var pair of formData) {
+    console.log(pair[0] +"  : "+ pair[1]);
+  }
+  fetch("/api/post",{
       method : 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)     
+      body:  formData
   })
   .then(resp => {            
       if(resp.status < 200 || resp.status >= 300)
-          throw new Error(`Request failed with status ${resp.status}`)
-      return resp.json()
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
   })
   .then(json => {
-    if (json.code === 0){// đăng kí thành công
-      window.location.replace('/');
+    if (json.code === 0){// đăng post thành công
+      console.log("post: ", json.data)
     }
-    else{
-      //1: user đã có tài khoản
-      console.log(`error: ${json.msg}`);   
-    }  
   })
-  .catch(e => console.log(e))
+  .catch(e => console.log("error ___ ",e))
 
 })
 

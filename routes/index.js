@@ -8,6 +8,10 @@ const apiRouter = require('./api');
 const {checkAuth,checkAdmin} = require('../middlewares/auth')
 
 function route(app){
+    app.use((req,res,next)=>{
+        console.log('-------------------refresh----------------------')
+        next()
+    })
     app.use('/logout',(req,res,next) =>{
         req.session.destroy();
         console.log('Đã logout')

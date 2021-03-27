@@ -1,10 +1,12 @@
-{{!-- input: user(người đang login) , post--}}
+{{!-- input: user(người đang login) , post --}}
 {{!-- 
     user:{
-        username : ...,
-        displayName :  ...,
-        avatarUrl :  ...,
-        userType: ...,
+        username: 'NgVA256',
+        displayName: 'Nguyễn Văn A',
+        avatarUrl: '/img/no-face.png',
+        userType: 'staff',
+        staffInfo: { authorized: [ [Object], [Object] ] },
+        studentInfo: {}
     },
     post:{
         createdAt: "2021-02-18T17:23:42.562Z",
@@ -17,7 +19,7 @@
         },
         ...
     }
- --}}
+--}}
  
 <div class="main-posted__user">
     <img src="{{{post.sender.avatarUrl}}}" alt="Img" class="main-posted__user--img">

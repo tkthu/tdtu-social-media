@@ -17,8 +17,14 @@
   "lastEdited": null,
   "staffInfo": {
     "authorized": [
-      "602e9cb11054c06b8fd7dc1e",
-      "602e9df21054c06b8fd7dc1f"
+      {
+        "id": "602e9cb11054c06b8fd7dc1e",
+        "name": "PHÒNG CTHSSV"
+      },
+      {
+        "id": "602e9df21054c06b8fd7dc1f",
+        "name": "PHÒNG ĐẠI HỌC"
+      }
     ]
   },
   "userType": "staff"
