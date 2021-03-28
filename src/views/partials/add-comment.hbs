@@ -10,7 +10,10 @@
     }
 --}}
 
-<div class="comment">
+<form class="comment" action="/" method="POST" enctype="multipart/form-data">
     <img src="{{{user.avatarUrl}}}" alt="img" class="comment--img">
-    <textarea class="comment--write" placeholder="Viết bình luận" cols="90"></textarea>
-</div>
+    <input class="comment--write" placeholder="Viết bình luận" name="cmt">
+    <input type="hidden" name="senderId" value="{{{user.username}}}">
+    <input type="hidden" name="avatarUrl" value="{{{user.avatarUrl}}}">
+    <input type="hidden" name="displayName" value="{{{user.displayName}}}">
+</form>

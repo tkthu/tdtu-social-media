@@ -1,10 +1,13 @@
 const postModel = require('../models/post.model');
+const commentModel = require('../models/comment.model');
+
 const mogoose = require('mongoose')
 
 class ApiController{
 
     // [POST] /post
     addPost(req, res){
+        //TODO: chỉ hiện vài post
         var imagesArray = undefined;
         var attachmentsArray = undefined;
         if(req.files.fileImg !== undefined){
@@ -37,7 +40,7 @@ class ApiController{
         }
 
         new postModel(post).save()
-        .then(resp => {
+        .then(() => {
             return res.status(200).json({
                 code:0,
                 msg:'đăng post thành công',
@@ -71,12 +74,47 @@ class ApiController{
 
     // [POST] /post/:postId/comment
     addComment(req, res){
-        var post = {};
-        return res.status(200).json({
-            code:0,
-            msg:'đăng comment thành công',
-            data: post
-        });
+        //TODO: chỉ hiện vài comment
+        //TODO: đăng hình
+
+        const {postId} = req.params;
+        postModel.findById(postId)
+        .then((postFound)=>{
+            postFound.commentsCount = postFound.commentsCount + 1;
+            return postFound.save();
+        })
+        .then(resultPost => {
+            
+            req.comment = {
+                _id: mogoose.Types.ObjectId(),
+                content: req.body.cmt,
+                createdAt: new Date().toISOString(),
+                sender: {
+                    id: req.body.senderId,
+                    displayName: req.body.displayName,
+                    avatarUrl: req.body.avatarUrl,
+                },
+                receiverId : resultPost.sender.id,
+                postId,
+            }
+            console.log("req.comment  " ,req.comment)
+            return new commentModel(req.comment).save();
+        })
+        .then((re) => {
+            console.log("re  " ,re)
+            return res.status(200).json({
+                code:0,
+                msg:'đăng comment thành công',
+                data: {
+                    comment: req.comment,
+                }
+            });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'đăng comment thất bại với lỗi ' + err,
+            });
+        })
     }
 
     // [DELETE] /post/:postId/comment/:commentId

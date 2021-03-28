@@ -124,6 +124,7 @@ class SiteController{
             }
 
             req.post = {
+                _id: post._id,
                 name: postFound.name,
                 content: postFound.content,                
                 createdAt: postFound.createdAt,

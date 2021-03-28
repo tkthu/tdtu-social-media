@@ -1,0 +1,38 @@
+{{!-- input: comment--}}
+{{!-- 
+    comment: {
+        content: ...,
+        createdAt: ...,
+        lastEdited: ...,
+        imageUrl: ...,  
+        sender: ...,
+    }
+--}}
+<script id="comment_template" type="text/x-handlebars-template">
+
+    <div class="comment-other">
+        <div class="comment-other__content">
+            <img src="\{{{comment.sender.avatarUrl}}}" alt="img" class="comment-other--img">
+            <div class="comment-other__box">
+                <h6 class="comment-other__box--username">\{{{comment.sender.displayName}}}</h6>
+                <p class="comment-other__box--text">
+                    \{{{comment.content}}}
+                </p>
+                \{{#if comment.imageUrl}}
+                <img src="\{{{comment.imageUrl}}}" alt="Picture" class="detail-notification-body--picture">
+                \{{/if}}
+            </div>
+        </div>
+        <div class="comment-other__reply-and-time">
+            <a href="#" class="comment-other__reply">Trả lời</a>
+            <span class="comment-other__reply-time">.
+                \{{#if comment.lastEdited}}
+                \{{fromNow comment.lastEdited}} (edited)
+                \{{else}}
+                \{{fromNow comment.createdAt}}
+                \{{/if}}   
+            </span>
+        </div>
+    </div>
+
+</script>

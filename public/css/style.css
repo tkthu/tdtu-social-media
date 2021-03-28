@@ -491,14 +491,12 @@ hr {
 }
 
 .comment--write {
-    resize: none;
-    outline: none;
-    overflow: hidden;
     border-radius: 30px;
     padding-left: 20px;
     padding-top: 7px;
     margin-left: 10px;
     height: 40px;
+    width: 80%;
     border-color: var(--line-color);
 }
 

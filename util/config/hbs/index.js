@@ -24,7 +24,7 @@ const hbs = exphbs.create({
             return dayjs(value).fromNow();
         },
         cutDown: function(post, options) {
-            if(post !== undefined){
+            if(post !== undefined && post.content !== undefined){
                 var content = post.content;
                 const minlen = 200;
                 if (content.length > minlen){

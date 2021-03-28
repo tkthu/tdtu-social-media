@@ -11,8 +11,11 @@
     comments:[],
 --}}
 {{> add-comment user=user}}
-{{#each comments}}
-{{> comment comment=this}}{{!-- chưa test trùng tên biến comment --}}
-{{/each}}
+<div class="other-comment-section">
+    {{#each comments}}
+    {{> comment comment=this}}
+    {{/each}}
+</div>
+
 
 <a href="#" class="comment-readmore">Xem thêm 10 bình luận</a>

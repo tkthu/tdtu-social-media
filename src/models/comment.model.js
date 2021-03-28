@@ -12,7 +12,9 @@ const Comment = new Schema({
         displayName: {type: String},
         avatarUrl: {type: String},
     },
+    receiverId:{ type: String},
     postId:{ type: Schema.Types.ObjectId},
+    
 });
 
 module.exports = mongoose.model('Comment', Comment);
