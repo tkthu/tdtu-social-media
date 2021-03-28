@@ -41,7 +41,10 @@ class ApiController{
             return res.status(200).json({
                 code:0,
                 msg:'đăng post thành công',
-                data: post
+                data: {
+                    post,
+                    user: req.user,
+                }
             });
         })
         .catch(err => {

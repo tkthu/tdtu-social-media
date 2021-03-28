@@ -15,7 +15,7 @@
                 {{/ifEquals}}
 
                 {{#each posts}}
-                {{> share-with-client/post-fb user=../user post=this}}
+                {{> post-fb user=../user post=this}}
                 {{/each}}
                 
 
@@ -26,7 +26,7 @@
 
 
 {{!-------------- popup --------------}}
-{{> popup/user-profile-edit}}
-{{> popup/post-detail-add}}
-{{> popup/post-detail-edit}}
-{{> popup/confirm-delete item-name="user Nguyễn Văn A" item-id="xxx"}}
+{{> user-profile-edit}}
+{{> post-detail-add}}
+{{> post-detail-edit}}
+{{> confirm-delete item-name="user Nguyễn Văn A" item-id="xxx"}}

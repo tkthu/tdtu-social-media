@@ -1,0 +1,118 @@
+{{!-- input: user(người đang login) , post --}}
+{{!-- 
+    user:{
+        username: 'NgVA256',
+        displayName: 'Nguyễn Văn A',
+        avatarUrl: '/img/no-face.png',
+        userType: 'staff',
+        staffInfo: { authorized: [ [Object], [Object] ] },
+        studentInfo: {}
+    },
+    post:{
+        createdAt: "2021-02-18T17:23:42.562Z",
+        lastEdited: null,
+        comments: [],
+        sender: {
+            id: "NgVA256",
+            displayName: "Nguyễn Văn A",
+            avatarUrl: "/img/no-face.png"
+        },
+        ...
+    }
+
+ --}}
+<script id="post-fb_template" type="text/x-handlebars-template">
+
+    <div class="main-posted">
+        {{!-------------- post-header --------------}}
+        <div class="main-posted__user">
+            <img src="\{{{post.sender.avatarUrl}}}" alt="Img" class="main-posted__user--img">
+            <div class="main-posted__user-info">
+                <h6 class="main-posted__user--name">\{{{post.sender.displayName}}}</h6>
+                <p class="main-posted__user--name-date">
+                    \{{#if post.lastEdited}}
+                    \{{fromNow post.lastEdited}} (edited)
+                    \{{else}}
+                    \{{fromNow post.createdAt}}
+                    \{{/if}}            
+                </p>
+            </div>
+            \{{#ifEquals post.sender.id user.username}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)-->
+            <div class="main-posted__user--edit-and-delete">
+                <a href="#" class="main-posted__user--edit-link" onclick="editContentPosted()">
+                    <img src="/img/edit.png" alt="edit.png" class="main-posted__user--edit">
+                </a>
+                <a href="#" class="main-posted__user--delete-link" onclick="delConfirm()" >
+                    <img src="/img/trash.png" alt="trash.png" class="main-posted__user--delete">
+                </a>
+            </div>
+            \{{/ifEquals}}  
+        </div>
+
+        {{!-------------- post-content --------------}}
+        <div class="main-posted__content">
+            <a href="/\{{post.sender.id}}/posts/\{{post._id}}"><h5 class="main-posted__content-title">\{{{post.name}}}</h5></a>
+            
+            <p class="detail-notification--dpment">
+                \{{{post.department.name}}}
+            </p>
+            <p class="main-posted__content-content">\{{{cutDown post}}}</p>
+            
+        </div>
+
+        {{!-------------- image-section --------------}}
+        \{{#each post.imagesArray}}
+        <img src="\{{{this}}}" alt="Picture" class="detail-notification-body--picture">
+        \{{/each}}
+
+        {{!-------------- attachment-section --------------}}
+        \{{#if post.attachmentsArray}}
+            <hr>
+            <h6>File đính kèm</h6>
+            <div class="attached-files-list">
+                \{{#each post.attachmentsArray}}
+                <a href="\{{{this}}}" class="attached-files-content">
+                    \{{inc @index}}. \{{getFileName this}}
+                    <br>
+                </a>
+                \{{/each}}
+            </div>
+        \{{/if}}
+
+        {{!-------------- comment-section --------------}}
+        <hr>
+        <div class="comment">
+            <img src="\{{{user.avatarUrl}}}" alt="img" class="comment--img">
+            <textarea class="comment--write" placeholder="Viết bình luận" cols="90"></textarea>
+        </div>
+        \{{#each post.comments}}
+        <div class="comment-other">
+            <div class="comment-other__content">
+                <img src="\{{{this.sender.avatarUrl}}}" alt="img" class="comment-other--img">
+                <div class="comment-other__box">
+                    <h6 class="comment-other__box--username">\{{{this.sender.displayName}}}</h6>
+                    <p class="comment-other__box--text">
+                        \{{{this.content}}}
+                    </p>
+                    \{{#if this.imageUrl}}
+                    <img src="\{{{this.imageUrl}}}" alt="Picture" class="detail-notification-body--picture">
+                    \{{/if}}
+                </div>
+            </div>
+            <div class="comment-other__reply-and-time">
+                <a href="#" class="comment-other__reply">Trả lời</a>
+                <span class="comment-other__reply-time">.
+                    \{{#if this.lastEdited}}
+                    Last edited: \{{fromNow this.createdAt}}
+                    \{{else}}
+                    \{{fromNow this.createdAt}}
+                    \{{/if}}
+                </span>
+            </div>
+        </div>
+        \{{/each}}
+
+        <a href="#" class="comment-readmore">Xem thêm 10 bình luận</a>
+    </div>
+
+</script>

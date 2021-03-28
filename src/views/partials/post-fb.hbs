@@ -24,7 +24,7 @@
 
  <div class="main-posted">
     {{!-------------- post-header --------------}}
-    {{> share-with-client/post-header postOwnerId=user.username post=post}}
+    {{> post-header postOwnerId=user.username post=post}}
 
     {{!-------------- post-content --------------}}
     <div class="main-posted__content">
@@ -38,16 +38,16 @@
     </div>
 
     {{!-------------- image-section --------------}}
-    {{> share-with-client/image-section imgArray=post.imagesArray}}
+    {{> image-section imgArray=post.imagesArray}}
 
     {{!-------------- attachment-section --------------}}
     {{#if post.attachmentsArray}}
         <hr>
         <h6>File đính kèm</h6>
-        {{> share-with-client/attachment-section attachArr=post.attachmentsArray}}
+        {{> attachment-section attachArr=post.attachmentsArray}}
     {{/if}}
 
     {{!-------------- comment-section --------------}}
     <hr>
-    {{> share-with-client/comment-section user=user comments=post.comments}}
+    {{> comment-section user=user comments=post.comments}}
 </div>

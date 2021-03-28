@@ -5,7 +5,11 @@ dayjs.extend(relativeTime);
 
 const hbs = exphbs.create({
     extname: ".hbs",
-    partialsDir: 'src/views/partials',
+    partialsDir: [
+        'src/views/partials',
+        'src/views/partials/popup',
+        'src/views/partials/share-with-client',
+    ],
     layoutsDir: 'src/views/layouts',
     defaultLayout:'main',
     helpers: {
@@ -20,12 +24,16 @@ const hbs = exphbs.create({
             return dayjs(value).fromNow();
         },
         cutDown: function(post, options) {
-            var content = post.content;
-            const minlen = 200;
-            if (content.length > minlen){
-                content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
+            if(post !== undefined){
+                var content = post.content;
+                const minlen = 200;
+                if (content.length > minlen){
+                    content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
+                }
+                return content;
             }
-            return content;
+            return "";
+            
         },
     }
 });

@@ -10,9 +10,9 @@
     },
     comments:[],
 --}}
-{{> share-with-client/add-comment user=user}}
+{{> add-comment user=user}}
 {{#each comments}}
-{{> share-with-client/comment comment=this}}{{!-- chưa test trùng tên biến comment --}}
+{{> comment comment=this}}{{!-- chưa test trùng tên biến comment --}}
 {{/each}}
 
 <a href="#" class="comment-readmore">Xem thêm 10 bình luận</a>

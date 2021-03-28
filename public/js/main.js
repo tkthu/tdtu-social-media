@@ -128,10 +128,38 @@ $('#upload-post').submit(e => {
   .then(json => {
     if (json.code === 0){// đăng post thành công
       closeCreatePost();
-      var markup =  Handlebars.templates['post-fb']({post: json.data})
       
-      $('.main').append(markup)
-      console.log("post: ", json.data)
+      Handlebars.registerHelper('cutDown', function(post, options) {
+        if(post !== undefined){
+            var content = post.content;
+            const minlen = 200;
+            if (content.length > minlen){
+                content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
+            }
+            return content;
+        }
+        return "";
+        
+      });
+      Handlebars.registerHelper('inc', function(value, options){return parseInt(value) + 1;});
+      Handlebars.registerHelper('fromNow', function(value, options) {
+        return "a minute ago"
+      });
+      Handlebars.registerHelper('getFileName', function(value, options) {
+        return value.split('\\').pop().split('/').pop();
+      });
+      Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+        return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+      });
+      var template = Handlebars.compile($('#post-fb_template').html());
+      var context = {
+        post : json.data.post,
+        user : json.data.user,
+      }
+      var html = template(context);
+      $('.main').append(html);
+
+      console.log("context: ", context)
     }
   })
   .catch(e => console.log("error ___ ",e))
