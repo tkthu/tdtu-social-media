@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "602ea2341054c06b8fd7dc26"
+  },
+  "name": "THÔNG BÁO Về việc thực hiện các biện pháp phòng, chống dịch bệnh COVID-19",
+  "content": "Thực hiện Chỉ thị số 05/CT-TTg ngày 28/01/2021 của Thủ tướng Chính phủ về một số biện pháp cấp bách phòng, chống dịch COVID-19, Thông báo số 67/TB-VP ngày 28/01/2021 của Văn phòng UBND TP. Hồ Chí Minh; Chỉ thị số 79/CT-BGDĐT ngày 28/01/2021 của Bộ Giáo dục và Đào tạo; các văn bản hướng dẫn của Bộ Y tế và các cơ quan chức năng; nhằm đảm bảo sức khỏe và an toàn cho cộng đồng, tiếp tục thực hiện các hoạt động dạy – học trong tình trạng mới, Trường Đại học Tôn Đức Thắng thông báo:\n\n1. Yêu cầu học sinh, sinh viên, học viên, nghiên cứu sinh (gọi chung là HSSV) có lịch sử di chuyển đến các địa phương, khu vực thuộc vùng dịch của tỉnh Hải Dương, Quảng Ninh hoặc các địa điểm được Bộ Y tế thông tin khoanh vùng trong thời gian từ ngày 07/01/2021 đến ngày 27/01/2021 hoặc có tiếp xúc với người có đi qua vùng dịch trong thời gian trên, chủ động thực hiện khai báo y tế với địa phương và báo về Đơn vị quản lý/Khoa/Phòng/Ban chức năng của Trường để nắm bắt thông tin và kịp thời có các biện pháp phòng, chống dịch bệnh theo Hướng dẫn của Trung tâm Kiểm soát bệnh tật TPHCM (HCDC) (đính kèm Hướng dẫn).\n\n2. Đối với HSSV nội trú ở Ký túc xá của Trường có quê ở các tỉnh, thành thuộc vùng dịch đang thực hiện các biện pháp cách ly theo yêu cầu của Bộ Y tế và cơ quan chức năng, chủ động báo cáo với Ký túc xá để Nhà trường bố trí sắp xếp cho HSSV ở lại khu nội trú đón Tết xa nhà và đảm bảo việc thực hiện các biện pháp phòng, chống dịch bệnh.\n\n3. HSSVchủ động thực hiện các biện pháp phòng, chống dịch bệnh COVID-19 theo khuyến cáo của Bộ Y tế và cơ quan chức năng; thực hiện nghiêm túc “Thông điệp 5K”: Khẩu trang – Khử khuẩn – Khoảng cách – Không tập trung – Khai báo y tế. Khi có biểu hiện sốt, ho, khó thở hoặc nghi ngờ mắc COVID-19 báo cáo ngay với cơ quan y tế ở địa phương và thông tin đến Đơn vị quản lý/Khoa/Phòng/Ban chức năng của Nhà trường để có giải pháp kịp thời; đồng thời tuân thủ các hướng dẫn về phòng, chống dịch bệnh theo quy định.\n\n       4. HSSV thực hiện các biện pháp phòng, chống dịch bệnh: đeo khẩu trang, rửa tay sát khuẩn, đo thân nhiệt…khi vào Trường; theo dõi và báo cáo ngay các dấu hiệu, trường hợp bất thường xảy ra cho Đơn vị quản lý/Khoa/Phòng/Ban chức năng của Nhà trường. ",
+  "createdAt": "2021-02-18T17:23:42.562Z",
+  "lastEdited": null,
+  "imagesArray": [
+    "/upload/NgVA256/huong-dan-(20210129_075049_416).jpeg",
+    "/upload/NgVA256/thong-diep-5k-(20210129_075049_433).jpg"
+  ],
+  "attachmentsArray": null,
+  "commentsCount": 0,
+  "department": {
+    "id": "602e9cb11054c06b8fd7dc1e",
+    "name": "PHÒNG CTHSSV"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  }
+},{
+  "_id": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "name": "Lịch thi MOS đợt tháng 03/2021",
+  "content": "Phòng Đại học gửi đến sinh viên Lịch thi MOS đợt tháng 03/2021 gồm 2 file:\n\n1. Chính thức lịch thi MOS đợt tháng 03/2021 \n2. Dự kiến Danh sách thi MOS đợt tháng 03/2021.\n\nSinh viên xem chi tiết trong file đính kèm.",
+  "createdAt": "2021-02-18T17:23:40.722Z",
+  "lastEdited": "2021-02-18T17:31:41.761Z",
+  "imagesArray": null,
+  "attachmentsArray": [
+    "/upload/NgVA256/chinh-thuc-lich-thi-mos-dot-t03-2021--exam-schedule-mos-in-the-month-of-03-2021-(20210202_092118_547).xlsx",
+    "/upload/NgVA256/du-kien-danh-sach-thi-mos-dot-t03-2021--exam-list-mos-in-the-month-of-03-2021-(20210202_092118_559).xlsx"
+  ],
+  "commentsCount": 2,
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  }
+},{
+  "_id": {
+    "$oid": "602eaa904f6ed80d0ddcd615"
+  },
+  "name": "góc Pass đồ",
+  "content": "Em đã học xong tiếng anh và muốn pass lại mấy cuốn sách",
+  "createdAt": "2021-02-18T17:59:03.499Z",
+  "lastEdited": null,
+  "imagesArray": [
+    "/upload/51800001/sach.jpg"
+  ],
+  "attachmentsArray": null,
+  "commentsCount": 0,
+  "sender": {
+    "id": "51800001",
+    "displayName": "Trần Thị B",
+    "avatarUrl": "/upload/51800001/TrThB_avatar.jpg"
+  }
+}]

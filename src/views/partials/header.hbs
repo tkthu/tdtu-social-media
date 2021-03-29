@@ -1,0 +1,102 @@
+{{!-- input: user(người đang login) --}}
+{{!-- 
+    user:{
+        username: 'NgVA256',
+        displayName: 'Nguyễn Văn A',
+        avatarUrl: '/img/no-face.png',
+        userType: 'staff',
+        staffInfo: { authorized: [ [Object], [Object] ] },
+        studentInfo: {}
+    },
+    
+ --}}
+<div class="header">
+    <div class="header__searching">
+        <input class="header-search" type="text" placeholder="Tìm kiếm">
+        <a class="header__searching--link" href="#">
+            <img class="header__searching--loupe" src="/img/loupe.png" alt="loupe.png">
+        </a>
+    </div>
+    <a href="/{{user.username}}" class="header-username-link">
+        <div class="header-username">
+            <img class="header-username__img" src="{{{user.avatarUrl}}}" alt="Logo user">
+            <p class="header-username__name">
+                {{{user.displayName}}}
+            </p>
+        </div>
+    </a>
+    <div class="header-nav">
+        <div class="header-nav__notification">
+            <a href="/notifications">
+                <img src="/img/bell.png" alt="icon bell" class="header-nav__notification--logo">
+            </a>                        
+            <h6 class="header-nav__notification--number">2</h6>
+            <!-- Header notification -->
+            <div class="header-notification">
+                <div class="header-notification__header">
+                    <h4 class="header-notification__header--title">Thông báo</h4>
+                    <div class="header-notification__header--see-all">
+                        <a href="/notifications" class="header-notification__header--see-all-link">
+                            Xem tất cả
+                        </a>
+                    </div>
+                </div>
+                <div class="header-notification__body unread-notification">
+                    <div class="header-notification__body--name-and-time">
+                        <p class="header-notification__body--name">[TDT Creative Language Center]</p>
+                        <span class="header-notification__body--time">03/02/2021 . 16:15</span>
+                    </div>
+                    <a href="/userId/posts/postId" class="header-notification__body--title-link">
+                        <h6 class="header-notification__body--title">
+                            Thông báo khai giảng các khóa học tiếng anh tháng 03/2021
+                        </h6>
+                    </a>
+                    <p class="header-notification__body--content">
+                        Trung tâm Ngôn ngữ Sáng tạo thông báo khai giảng các khóa
+                        học ngoại ngữ tháng 3/2021 tại CLC như sau:
+                    </p>
+                </div>
+                <div class="header-notification__body unread-notification">
+                    <div class="header-notification__body--name-and-time">
+                        <p class="header-notification__body--name">[TDT Creative Language Center]</p>
+                        <span class="header-notification__body--time">03/02/2021 . 16:15</span>
+                    </div>
+                    <a href="/userId/posts/postId" class="header-notification__body--title-link">
+                        <h6 class="header-notification__body--title">
+                            Thông báo khai giảng các khóa học tiếng anh tháng 03/2021
+                        </h6>
+                    </a>
+                    <p class="header-notification__body--content">
+                        Trung tâm Ngôn ngữ Sáng tạo thông báo khai giảng các khóa
+                        học ngoại ngữ tháng 3/2021 tại CLC như sau:
+                    </p>
+                </div>
+                <div class="header-notification__body">
+                    <div class="header-notification__body--name-and-time">
+                        <p class="header-notification__body--name">[TDT Creative Language Center]</p>
+                        <span class="header-notification__body--time">03/02/2021 . 16:15</span>
+                    </div>
+                    <a href="/userId/posts/postId" class="header-notification__body--title-link">
+                        <h6 class="header-notification__body--title">
+                            Thông báo khai giảng các khóa học tiếng anh tháng 03/2021
+                        </h6>
+                    </a>
+                    <p class="header-notification__body--content">
+                        Trung tâm Ngôn ngữ Sáng tạo thông báo khai giảng các khóa
+                        học ngoại ngữ tháng 3/2021 tại CLC như sau:
+                    </p>
+                </div>
+            </div>
+            <!-- End header notification-->
+        </div>
+
+        <div class="header-nav__logout">
+            <a href="#" onclick="signOut();">
+                <img src="/img/exit.png" alt="icon bell" class="header-nav__logout--logo">
+            </a>
+        </div>
+
+        <!-- <i class="fa fa-bars"></i> -->
+
+    </div>
+</div>  

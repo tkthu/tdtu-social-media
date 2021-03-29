@@ -1,0 +1,34 @@
+[{
+  "_id": {
+    "$oid": "602ea4ee1054c06b8fd7dc2a"
+  },
+  "content": "Thầy chưa kèm file ạ",
+  "createdAt": "2021-02-18T17:34:25.229Z",
+  "lastEdited": null,
+  "imageUrl": "/upload/51800001/screenshot.png",
+  "sender": {
+    "id": "51800001",
+    "displayName": "Trần Thị B",
+    "avatarUrl": "/upload/51800001/TrThB_avatar.jpg"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  }
+},{
+  "_id": {
+    "$oid": "6060b24bfc03510afc836933"
+  },
+  "createdAt": "2021-03-28T16:43:55.304Z",
+  "content": "Thầy mới sửa lại đó em",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+}]
