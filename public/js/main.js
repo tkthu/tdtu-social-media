@@ -1,3 +1,14 @@
+const socket = io();
+
+socket.on('notifi-alert', post => {
+  var template = Handlebars.compile($('#instant-notifi').html());
+  var context = {
+    post,
+  }
+  var html = template(context);
+  $('#alert-section').append(html);
+})
+
 function init() {
   gapi.load('auth2', function() {
     gapi.auth2.init(
@@ -45,10 +56,11 @@ function onSignIn(googleUser) {
 }
 
 function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
   window.location.replace('/logout');
+  var auth2 = gapi.auth2.getAuthInstance();  
   auth2.signOut().then(function () {
-    console.log('User signed out.');     
+    console.log('User signed out.');
+    window.location.replace('/logout');   
   });  
 }
 
@@ -57,6 +69,31 @@ function firstTimeLogin(username,displayName,imageUrl) {
   $('#confirm-set-pass').attr('data-username',username);
   $('#confirm-set-pass').attr('data-display-name',displayName);
   $('#confirm-set-pass').attr('data-image-url',imageUrl);  
+}
+
+function setupHelperHbs(){
+  Handlebars.registerHelper('cutDown', function(post, options) {
+    if(post !== undefined && post.content !== undefined){
+        var content = post.content;
+        const minlen = 200;
+        if (content.length > minlen){
+            content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
+        }
+        return content;
+    }
+    return "";
+    
+  });
+  Handlebars.registerHelper('inc', function(value, options){return parseInt(value) + 1;});
+  Handlebars.registerHelper('fromNow', function(value, options) {
+    return "a few seconds ago"
+  });
+  Handlebars.registerHelper('getFileName', function(value, options) {
+    return value.split('\\').pop().split('/').pop();
+  });
+  Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  });
 }
 
 $('#confirm-set-pass').click(e => {
@@ -102,6 +139,76 @@ $('#confirm-set-pass').click(e => {
   .catch(e => console.log(e))
 })
 
+$('.comment').submit( e => {
+  e.preventDefault();
+  setupHelperHbs();
+
+  const postElement = $(e.target).parent('.main-posted');  
+  const postId = postElement.attr('id') ;
+
+  var formData = new FormData(e.target);
+  fetch(`/api/post/${postId}/comment`,{
+    method : 'POST',
+    body:  formData
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// đăng comment thành công
+      $(e.target).children('.comment--write').val('');
+      
+      var template = Handlebars.compile($('#comment_template').html());
+      
+      var context = {
+        comment : json.data.comment,
+      }
+      console.log("context ", context)
+      var html = template(context);
+      postElement.children('.other-comment-section').append(html);
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+})
+
+$('#upload-post').submit(e => {
+  e.preventDefault();
+
+  var formData = new FormData(e.target);
+  if (formData.has('chuyenmuc')){
+    formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
+  }
+  
+  fetch("/api/post",{
+    method : 'POST',
+    body:  formData
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// đăng post thành công
+      closeCreatePost();      
+      setupHelperHbs();
+      var template = Handlebars.compile($('#post-fb_template').html());
+      var context = {
+        post : json.data.post,
+        user : json.data.user,
+      }
+      var html = template(context);
+      $('.main').append(html);
+      if(json.data.broadcast){
+        socket.emit('post-success', json.data.post);
+      }
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+
+})
 
 
 // --------- Chỉnh sửa profile ---------
@@ -142,7 +249,7 @@ function uploadAddImg(target) {
 
 // Hiện bảng tạo thêm tài khoản phòng khoa
 function addAccountDepartments() {
-  var x = document.querySelector(".add-account");
+  var x = document.querySelector("#add-account");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -152,7 +259,7 @@ function addAccountDepartments() {
 
 // Hiện bảng sửa thông tin sinh viên
 function editInfoStudent() {
-    var x = document.querySelector(".edit-info");
+    var x = document.querySelector("#edit-info");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
@@ -162,7 +269,7 @@ function editInfoStudent() {
 
 // Hiện bảng sửa thông tin phòng/khoa
 function editInfoPhongKhoa() {
-    var x = document.querySelector(".edit-info-phongKhoa");
+    var x = document.querySelector("#edit-info-phongKhoa");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
@@ -197,11 +304,13 @@ function closeEditContentPosted() {
 function createPost() {
   var form = document.querySelector("#upload-post");
   form.style.display = "block";
+  //TODO: clear input
 }
 
 function closeCreatePost() {
   var form = document.querySelector("#upload-post");
   form.style.display = "none";
+
 }
 
 // Hiện bảng có chắc muốn xóa
@@ -211,7 +320,7 @@ function delConfirm() {
 
 //============= Tắt bảng sửa thông tin, bài viết ======================
 function closeInfoPhongKhoa() {
-  var x = document.querySelector(".edit-info-phongKhoa");
+  var x = document.querySelector("#edit-info-phongKhoa");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {
@@ -220,7 +329,7 @@ function closeInfoPhongKhoa() {
 }
 
 function closeInfoStudent() {
-  var x = document.querySelector(".edit-info");
+  var x = document.querySelector("#edit-info");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {
@@ -229,7 +338,7 @@ function closeInfoStudent() {
 }
 
 function closeAddAccount() {
-  var x = document.querySelector(".add-account");
+  var x = document.querySelector("#add-account");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {

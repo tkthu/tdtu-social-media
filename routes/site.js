@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const siteController = require('../controllers/SiteController');
+const siteController = require('../src/controllers/SiteController');
 
 router.get('/',siteController.index);// trang chu
 router.get('/:userId',siteController.userPage);// trang nha user

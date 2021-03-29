@@ -1,0 +1,21 @@
+{{!-- input: user(người đang login), comments --}}
+{{!-- 
+    user:{
+        username: 'NgVA256',
+        displayName: 'Nguyễn Văn A',
+        avatarUrl: '/img/no-face.png',
+        userType: 'staff',
+        staffInfo: { authorized: [ [Object], [Object] ] },
+        studentInfo: {}
+    },
+    comments:[],
+--}}
+{{> add-comment user=user}}
+<div class="other-comment-section">
+    {{#each comments}}
+    {{> comment comment=this}}
+    {{/each}}
+</div>
+
+
+<a href="#" class="comment-readmore">Xem thêm 10 bình luận</a>

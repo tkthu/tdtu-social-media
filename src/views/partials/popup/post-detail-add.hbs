@@ -1,0 +1,80 @@
+{{!-- input: user(người đang login) --}}
+{{!-- 
+    user:{
+        username: 'NgVA256',
+        displayName: 'Nguyễn Văn A',
+        avatarUrl: '/img/no-face.png',
+        userType: 'staff',
+        staffInfo: { authorized: [ [Object], [Object] ] },
+        studentInfo: {}
+    },
+    
+ --}}
+
+<form id="upload-post" class="create-post" action="/" method="POST" enctype="multipart/form-data">
+    <div class="myModal upload-post">
+        <div class="upload-post__header">
+            <img src="/img/logo tdt.png" alt="logo" class="upload-post__header--logo">
+            <h1 class="upload-post__header--text">Tạo bài viết</h1>
+            <img src="/img/close.png" alt="close.png" class="upload-post__header--close pointer" onclick="closeCreatePost()">
+        </div>    
+        <div class="upload-post__body">
+            {{!-- --------------hidden-------------- --}}
+            <input type="hidden" name="userId" value="{{user.username}}">
+            {{!-- --------------End of hidden-------------- --}}
+
+            <div class="upload-post__body--create">
+                <label class="upload-post__body--create-title create-title" for="title" placeholder="Tiêu đề" >Tiêu đề</label>
+                <input class="upload-post__body--create-title-input" type="text" placeholder="Tiêu đề" name="title">
+            </div>
+            <div class="upload-post__body--create">
+                <label class="upload-post__body--upload-post create-title" for="noidung">Nội dung</label>
+                <textarea class="upload-post__body--upload-post-input" cols="80" rows="10" placeholder="Bạn đang nghĩ gì ..." name="content"></textarea>
+            </div>
+            <div class="upload-post__body--create">
+                {{#ifEquals user.userType "staff"}}
+                    <label class="upload-post__body--create-chuyenmuc create-title" for="chuyenmuc">Chuyên mục</label>              
+                    <select class="upload-post__body--create-chuyenmuc-selected" name="chuyenmuc">
+                        {{#each user.staffInfo.authorized}}
+                            <option id="{{this.id}}" value="{{this.id}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                {{/ifEquals}}
+            </div>
+            
+            <div class="upload-post__body--create">
+                <label class="upload-post__body--create-file create-title" for="file">File đính kèm</label>
+                <div class="inputfile-box">
+                    <input type="file" id="file" class="inputfile" onchange="uploadNewFile(this)" name="file" 
+                    accept="application/msword, application/vnd.ms-excel, 
+                        application/vnd.ms-powerpoint,text/plain, application/pdf" 
+                    multiple >
+                    <label for="file">
+                        <span id="file-text" class="upload-post__body--create-file-input"></span>
+                        <span class="upload-post__body--create-file-btn">
+                            <img src="/img/file.png" alt="file.png">
+                        </span>
+                    </label>
+                </div>
+            </div>
+            {{!-- TODO: embed clip từ youtube --}}
+            
+            <div class="upload-post__body--create">
+                <label class="upload-post__body--create-background create-title" for="background">Hình đính kèm</label>
+                <div class="inputfile-box">
+                    <input type="file" id="fileImg" class="inputfile" onchange="uploadNewImage(this)" name="fileImg" 
+                    accept="image/*" 
+                    multiple >
+                    <label for="fileImg">
+                        <span id="file-imgBackground" class="upload-post__body--create-imgBackground-input"></span>
+                        <span class="upload-post__body--create-imgBackground-btn">
+                            <img src="/img/picture.png" alt="picture.png">
+                        </span>
+                    </label>
+                </div>
+            </div>
+            
+        </div>
+        <button id="upload-post__btnSave" class="pointer" type="submit">Đăng bài</button>
+    </div>
+</form>

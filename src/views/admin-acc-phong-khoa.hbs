@@ -1,0 +1,123 @@
+{{!-- input: users(mảng các user) --}}
+{{!-- 
+    users:[
+        {
+            staffInfo: ...,
+            studentInfo: ...,
+            avatarUrl: ...,
+            createdAt: ...,
+            userType: ...,
+            _id: ....,
+            username: ....,
+            password: ...,
+            displayName: ....,
+            lastEdited: ....
+        },
+        ...
+    ]
+    
+ --}}
+
+<div class="admin-body">
+    <div class="admin-body__header">
+        <h2 class="admin-body__title">Tài khoản Phòng/Khoa</h2>
+        <img class="admin-body__add add-img" src="/img/add.png" alt="button add" data-toggle="modal" data-target="#myModal" onclick="addAccountDepartments()">
+    </div>
+    <div class="admin-body__table">
+        <h6>Thông tin tài khoản phòng/khoa</h6>
+        <div class="admin-body__table--show">
+            <span>Show</span>
+            <select id="show-posted">
+                <option value="5">5</option>
+                <option value="5">10</option>
+                <option value="5">15</option>
+                <option value="5">20</option>
+            </select>
+            <input type="text" placeholder="Tìm kiếm">
+            <a class="admin-body__table-search--link" href="#">
+                <img class="admin-body__table-search--loupe" src="/img/loupe.png" alt="loupe.png">
+            </a>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tài khoản</th>
+                <th scope="col">Họ tên</th>
+                <th scope="col">Mã nhân viên</th>
+                <th scope="col">Ngày cập nhật</th>
+                <th scope="col">Sửa | Xóa</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#each users}}     <!-- Lấy dữ liệu đổ vào bảng tài khoản phòng/khoa -->
+                <tr>
+                    <th scope="row">{{inc @index}}</th>
+                    <td class="user-name">
+                        <img src="{{this.avatarUrl}}" alt="img" class="user-img">
+                        <a href="/{{this._id}}">{{this.username}}</a>
+                    </td>
+                    <td class="user-content">{{this.displayName}}</td>
+                    <td>{{this.username}}</td>
+                    <td>
+                        {{#if this.lastEdited}}
+                        {{fromNow this.lastEdited}} (edited)
+                        {{else}}
+                        {{fromNow this.createdAt}}
+                        {{/if}} 
+                    </td>
+                    <td>
+                        <a href="#" class="trash-link" onclick="editInfoPhongKhoa()">
+                            <img src="/img/edit.png" alt="edit.png" class="trash-img" >
+                        </a>
+                        |
+                        <a href="#" class="trash-link">
+                            <img src="/img/trash.png" alt="trash.png" class="trash-img" >
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+                
+
+            </tbody>
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tài khoản</th>
+                    <th scope="col">Họ tên</th>
+                    <th scope="col">Mã nhân viên</th>
+                    <th scope="col">Ngày cập nhật</th>
+                    <th scope="col">Sửa | Xóa</th>
+                </tr>
+            </thead>
+        </table>
+        <div class="table-pagination">
+            <p>Showing 1 to 10 of 27</p>
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only"></span>
+                    </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only"></span>
+                    </a>
+                    </li>
+                </ul>
+                </nav>
+        </div>
+    </div>
+
+</div>
+
+{{!-------------- popup --------------}}
+{{> acc-phong-khoa-edit}}
+{{> acc-phong-khoa-add}}
+{{> confirm-delete item-name="user Nguyễn Văn A" item-id="xxx"}}

@@ -1,0 +1,58 @@
+{{!-- input: user(người đang login) , post --}}
+{{!-- 
+    user:{
+        username: 'NgVA256',
+        displayName: 'Nguyễn Văn A',
+        avatarUrl: '/img/no-face.png',
+        userType: 'staff',
+        staffInfo: { authorized: [ [Object], [Object] ] },
+        studentInfo: {}
+    },
+    post:{
+        createdAt: "2021-02-18T17:23:42.562Z",
+        lastEdited: null,
+        comments: [],
+        sender: {
+            id: "NgVA256",
+            displayName: "Nguyễn Văn A",
+            avatarUrl: "/img/no-face.png"
+        },
+        ...
+    }
+
+ --}}
+
+<div class="detail-notification">
+    {{!-------------- post-header --------------}}
+    {{> post-header postOwnerId=user.username post=post}}
+    {{!-------------- post-content --------------}}
+    <div class="main-posted__content">
+
+        <h4 class="detail-notification--title">{{{post.name}}}</h4>
+        <p class="detail-notification--dpment">
+            {{{post.department.name}}}
+        </p>
+        <div class="detail-notification-body"><p class="detail-notification-body--content">{{{post.content}}}</p></div> 
+               
+    </div>
+</div>
+{{!-------------- image-section --------------}}
+{{> image-section imgArray=post.imagesArray}}
+{{!-------------- attachment-section --------------}}
+{{#if post.attachmentsArray}}
+    <div class="attached-files">
+        <h5>File đính kèm</h5>
+        <div class="attached-files-list">        
+            {{> attachment-section attachArr=post.attachmentsArray}}
+        </div>
+    </div>
+{{/if}}
+{{!-------------- comment-section --------------}}
+<div class="detail-notification-comment">
+    {{> comment-section user=user comments=post.comments}}
+</div>
+
+{{!-------------- popup --------------}}
+{{> post-detail-add}}
+{{> post-detail-edit}}
+{{> confirm-delete item-name="user Nguyễn Văn A" item-id="xxx"}}

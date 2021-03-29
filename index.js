@@ -1,41 +1,19 @@
 const express = require('express');
-const exphbs = require('express-handlebars');
 const path = require('path');
 const credentials = require('./credentials');
 const route = require('./routes/index');
 
-const dayjs = require('dayjs');
-const relativeTime = require('dayjs/plugin/relativeTime');
-dayjs.extend(relativeTime)
-
-const db = require('./config/db/index');
+const db = require('./util/config/db');
 db.connect();
 
 const app = express();
-app.engine('.hbs', exphbs({
-    extname: ".hbs",
-    helpers: {
-        inc: function(value, options){return parseInt(value) + 1;},
-        ifEquals: function(arg1, arg2, options) {
-            return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
-        },
-        getFileName: function(value, options) {
-            return value.split('\\').pop().split('/').pop();
-        },
-        fromNow: function(value, options) {
-            return dayjs(value).fromNow();
-        },
-        cutDown: function(post, options) {
-            var content = post.content;
-            const minlen = 200;
-            if (content.length > minlen){
-                content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
-            }
-            return content;
-        },
-    }
-}));
-app.set('view engine', '.hbs');
+
+const {setupViewEngine} = require('./util/config/hbs');
+setupViewEngine(app);
+
+const http = require('http');
+const server = http.createServer(app);
+const io = require('socket.io')(server);
 
 app.use(express.static(path.join(__dirname , 'public')));
 app.use(express.json());
@@ -45,8 +23,15 @@ app.use(require('cookie-parser')(credentials.cookieSecret));
 app.use(require('express-session')({ saveUninitialized: false, resave:true, secret: credentials.sessionSecret }));
 app.use(require('express-flash')());
 
+io.on('connection', socket => {
+    console.log("kết nối socket")
+
+    socket.on('post-success', post => {
+        io.emit('notifi-alert', post)
+        console.log('nhận được post-success từ 1 user ', post)
+    })
+})
 
 route(app);
 
-
-app.listen(credentials.port,()=>{console.log(`http://localhost:${credentials.port}`)})
+server.listen(credentials.port,()=>{console.log(`http://localhost:${credentials.port}`)})
