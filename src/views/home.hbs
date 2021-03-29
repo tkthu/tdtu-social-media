@@ -1,20 +1,20 @@
 {{!-- input: user(người đang login) , posts(mảng các post) --}}
 
 <div class="row">
-    <div class="col-lg-3">
+    <div class="col-xl-3 col-lg-12">
         {{> notifi-col}}
     </div>
 
-    <div class="col-lg-9">
-        <div class="container">
-            <div class="main">
-                {{> add-post user=user}}  
-                
-                {{#each posts}}
-                {{> post-fb user=../user post=this}}
-                {{/each}}
-                
-            </div>
+    <div class="col-xl-9 col-lg-12">
+        <div class="main">
+
+            {{> add-post user=user}}  
+            
+            
+            {{#each posts}}
+            {{> post-fb user=../user post=this}}
+            {{/each}}
+            
         </div>
     </div>
 </div>

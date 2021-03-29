@@ -562,6 +562,7 @@ hr {
     border-radius: 20px;
     background-color: var(--nav-color);
     padding-bottom: 40px;
+    margin-bottom: 2%;
 }
 
 .main-notification__header,
@@ -901,6 +902,7 @@ select {
     background-color: var(--white-color);
     border-radius: 20px;
     padding: 20px 0;
+    margin-bottom: 2%;
 }
 
 .profile-user__img {
@@ -1437,15 +1439,6 @@ select {
     margin-left: 500px;
 }
 
-/* .admin-body__table--show::after {
-    content: "\25BC";
-    display: block;
-    color: var(--text-color-primary);
-    position: absolute;
-    left: 550px;
-    top: 206px;
-} */
-
 .user-name,
 .user-content {
     text-overflow: ellipsis;
@@ -1942,14 +1935,6 @@ select {
         border-radius: 20px;
     }
 
-    .main-notification,
-    .profile-user {
-        width: 673px;
-        display: block;
-        margin: 20px auto;
-        border-radius: 20px;
-    }
-
     .main-posted__user--edit-and-delete {
         margin: 0 0 0 45%;
     }
@@ -2168,12 +2153,6 @@ select {
         top: 610px;
     }
 
-    .main-notification,
-    .profile-user {
-        width: 495px;
-        margin: 20px auto;
-    }
-
     .main-posted__user--edit-and-delete {
         margin: 0 0 0 35%;
     }
@@ -2366,12 +2345,6 @@ select {
     .upload-post__body--create-imgBackground-input,
     .upload-post__body--create-imgBackground-btn {
         top: 590px;
-    }
-
-    .main-notification,
-    .profile-user {
-        width: 436px;
-        margin: 20px auto;
     }
 
     .main-posted__user--edit-and-delete {

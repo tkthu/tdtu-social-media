@@ -1,73 +1,71 @@
 {{!-- input: posts(mảng các post) --}}
 
-<div class="container">
     <!-- Notification -->
-    <div class="notification-body">
-        <!-- Filter notification -->
-        <div class="notification-body__filter">
-            <div class="notification-body__filter--1">
-                <input type="text" class="notification-body__filter--search" placeholder="Tìm kiếm thông báo">
-                <div class="notification-body__filter--chuyenmuc">
-                    <select name="chuyenmuc">
-                        <option value="Phong/Khoa">Chọn Phòng/Khoa</option>
-                        <option value="CTHSSV">Phòng Công tác học sinh sinh viên</option>
-                        <option value="daihoc">Phòng Đại học</option>
-                        <option value="saudaihoc" >Phòng Sau đại học</option>
-                        <option value="dientoan">Phòng điện toán và máy tính</option>
-                        <option value="khaothi">Phòng khảo thí và kiểm định chất lượng</option>
-                        <option value="taichinh">Phòng tài chính</option>
-                        <option value="CLC">TDT Creative Language Center</option>
-                        <option value="tinhoc">Trung tâm tin học</option>
-                        <option value="SDTC">Trung tâm đào tạo phát triển xã hội (SDTC)</option>
-                        <option value="ATEM">Trung tâm phát triển khoa học quản lý và công nghệ ứng dụng (ATEM)</option>
-                        <option value="doanhnghiep">Trung tâm hợp tác doanh nghiệp và cựu sinh viên</option>
-                        <option value="khoaluat">Khoa Luật</option>
-                        <option value="ngoaingu-tinhoc">Trung tâm Ngoại ngữ - Tin học - Bồi dưỡng văn hóa</option>
-                        <option value="IBEP">Viện chính sách kinh tế và kinh doanh (IBEP)</option>
-                        <option value="mythuatcongnghiep">Khoa Mỹ thuật công nghiệp</option>
-                        <option value="dien-dientu">Khoa Điện - điện tử</option>
-                        <option value="cntt">Khoa Công nghệ thông tin</option>
-                        <option value="baoholaodong">Khoa Môi trường và bảo hộ lao động</option>
-                        <option value="laodongcongdoan">Khoa Lao động công đoàn</option>
-                        <option value="taichinhnganhang">Khoa Tài chính ngân hàng</option>
-                        <option value="giaoducquocte">Khoa giáo dục quốc tế</option>
-                    </select>
-                </div>
-                
+<div class="notification-body">
+    <!-- Filter notification -->
+    <div class="notification-body__filter">
+        <div class="notification-body__filter--1">
+            <input type="text" class="notification-body__filter--search" placeholder="Tìm kiếm thông báo">
+            <div class="notification-body__filter--chuyenmuc">
+                <select name="chuyenmuc">
+                    <option value="Phong/Khoa">Chọn Phòng/Khoa</option>
+                    <option value="CTHSSV">Phòng Công tác học sinh sinh viên</option>
+                    <option value="daihoc">Phòng Đại học</option>
+                    <option value="saudaihoc" >Phòng Sau đại học</option>
+                    <option value="dientoan">Phòng điện toán và máy tính</option>
+                    <option value="khaothi">Phòng khảo thí và kiểm định chất lượng</option>
+                    <option value="taichinh">Phòng tài chính</option>
+                    <option value="CLC">TDT Creative Language Center</option>
+                    <option value="tinhoc">Trung tâm tin học</option>
+                    <option value="SDTC">Trung tâm đào tạo phát triển xã hội (SDTC)</option>
+                    <option value="ATEM">Trung tâm phát triển khoa học quản lý và công nghệ ứng dụng (ATEM)</option>
+                    <option value="doanhnghiep">Trung tâm hợp tác doanh nghiệp và cựu sinh viên</option>
+                    <option value="khoaluat">Khoa Luật</option>
+                    <option value="ngoaingu-tinhoc">Trung tâm Ngoại ngữ - Tin học - Bồi dưỡng văn hóa</option>
+                    <option value="IBEP">Viện chính sách kinh tế và kinh doanh (IBEP)</option>
+                    <option value="mythuatcongnghiep">Khoa Mỹ thuật công nghiệp</option>
+                    <option value="dien-dientu">Khoa Điện - điện tử</option>
+                    <option value="cntt">Khoa Công nghệ thông tin</option>
+                    <option value="baoholaodong">Khoa Môi trường và bảo hộ lao động</option>
+                    <option value="laodongcongdoan">Khoa Lao động công đoàn</option>
+                    <option value="taichinhnganhang">Khoa Tài chính ngân hàng</option>
+                    <option value="giaoducquocte">Khoa giáo dục quốc tế</option>
+                </select>
             </div>
-            <div class="notification-body__filter--2">
-                <div class="form-check notification-body__filter-check">
-                    <input class="notification-body__filter-check-input" type="checkbox" name="unread">
-                    <label class="notification-body__filter-check-label" for="unReadNotification">
-                        Chưa xem
-                    </label>
-                </div>
-                <div class="notification-body__filter-fromDate">
-                    <label class="notification-body__filter-fromDate-label" for="unReadNotification">
-                        Từ ngày
-                    </label>
-                    <input class="notification-body__filter-fromDate-input" type="date" name="from-date" value="fromDate" placeholder="Từ ngày">
-                </div>
-                <div class="notification-body__filter-toDate">
-                    <label class="notification-body__filter-toDate-label" for="unReadNotification">
-                        Đến ngày
-                    </label>
-                    <input class="notification-body__filter-toDate-input" type="date" name="to-date" value="toDate" placeholder="Từ ngày">
-                </div>
-                <button class="notification-body__filter-delete">Xóa</button>
-                <button class="notification-body__filter-search">Tìm kiếm</button>
+            
+        </div>
+        <div class="notification-body__filter--2">
+            <div class="form-check notification-body__filter-check">
+                <input class="notification-body__filter-check-input" type="checkbox" name="unread">
+                <label class="notification-body__filter-check-label" for="unReadNotification">
+                    Chưa xem
+                </label>
             </div>
+            <div class="notification-body__filter-fromDate">
+                <label class="notification-body__filter-fromDate-label" for="unReadNotification">
+                    Từ ngày
+                </label>
+                <input class="notification-body__filter-fromDate-input" type="date" name="from-date" value="fromDate" placeholder="Từ ngày">
+            </div>
+            <div class="notification-body__filter-toDate">
+                <label class="notification-body__filter-toDate-label" for="unReadNotification">
+                    Đến ngày
+                </label>
+                <input class="notification-body__filter-toDate-input" type="date" name="to-date" value="toDate" placeholder="Từ ngày">
+            </div>
+            <button class="notification-body__filter-delete">Xóa</button>
+            <button class="notification-body__filter-search">Tìm kiếm</button>
         </div>
-        <!-- End filter notification -->
-
-        <!-- All notification -->
-        <div class="notification-body__all">
-            {{#each posts}}
-            {{> post-notifi post=this}}
-            {{/each}}
-        </div>
-        <!-- End all notification -->
     </div>
-    <!-- End notification -->
+    <!-- End filter notification -->
+
+    <!-- All notification -->
+    <div class="notification-body__all">
+        {{#each posts}}
+        {{> post-notifi post=this}}
+        {{/each}}
+    </div>
+    <!-- End all notification -->
 </div>
+<!-- End notification -->
 
