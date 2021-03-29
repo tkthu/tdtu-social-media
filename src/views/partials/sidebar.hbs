@@ -1,0 +1,43 @@
+{{!-- input: user(người đang login) --}}
+{{!-- 
+    user:{
+        username: 'NgVA256',
+        displayName: 'Nguyễn Văn A',
+        avatarUrl: '/img/no-face.png',
+        userType: 'staff',
+        staffInfo: { authorized: [ [Object], [Object] ] },
+        studentInfo: {}
+    },
+    
+ --}}
+<div class="sidebar">
+    <a href="/" class="sidebar-logo-link">
+        <img src="/img/logo tdt.png" alt="logo TDTU" class="sidebar-logo">
+    </a>
+    <div class="sidebar-username">
+        <img class="sidebar-username__img" src="{{{user.avatarUrl}}}" alt="Logo user"> 
+        <h6 class="sidebar-username__name">
+            {{{user.displayName}}}
+        </h6>
+    </div>
+    <div class="sidebar-navbar">
+        <a href="/notifications/departments" class="sidebar-navbar__phong-khoa-link">
+            <div class="sidebar-navbar__phong-khoa">
+                Phòng/Khoa
+            </div>
+        </a>
+        {{#ifEquals user.username 'admin'}}
+        <a href="/manager/staffs" class="sidebar-navbar__admin--item-link">
+            <div class="sidebar-navbar__admin--item item-tkphong">
+                Tài khoản Phòng/Khoa
+            </div>
+        </a>
+        <a href="/manager/students" class="sidebar-navbar__admin--item-link">
+            <div class="sidebar-navbar__admin--item item-tksinhvien">
+                Tài khoản sinh viên
+            </div>
+        </a>
+        {{/ifEquals}}                  
+
+    </div>
+</div>

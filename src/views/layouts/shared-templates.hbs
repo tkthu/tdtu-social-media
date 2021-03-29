@@ -12,10 +12,16 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>tdt social media</title>
 </head>
-<body>
-    {{> header}}
-    <div class="container">
-        {{{body}}}
+<body class="row">
+    <div class="col-lg-3">
+        {{> sidebar}}
+    </div>
+    
+    <div class="col-lg-9">
+        <div class="container">
+            {{> header}}    
+            {{{body}}}
+        </div>
     </div>
 
     {{> post-fb_template }}
