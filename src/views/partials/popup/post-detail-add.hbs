@@ -34,7 +34,6 @@
             {{#ifEquals user.userType "staff"}}
                 <label class="upload-post__body--create-chuyenmuc create-title" for="chuyenmuc">Chuyên mục</label>              
                 <select class="upload-post__body--create-chuyenmuc-selected" name="chuyenmuc">
-                    <option id="common" value="common">Thông thường</option>
                     {{#each user.staffInfo.authorized}}
                         <option id="{{this.id}}" value="{{this.id}}">{{this.name}}</option>
                     {{/each}}

@@ -25,6 +25,11 @@ app.use(require('express-flash')());
 
 io.on('connection', socket => {
     console.log("kết nối socket")
+
+    socket.on('post-success', post => {
+        io.emit('notifi-alert', post)
+        console.log('nhận được post-success từ 1 user ', post)
+    })
 })
 
 route(app);

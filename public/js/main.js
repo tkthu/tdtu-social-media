@@ -1,5 +1,14 @@
 const socket = io();
 
+socket.on('notifi-alert', post => {
+  var template = Handlebars.compile($('#instant-notifi').html());
+  var context = {
+    post,
+  }
+  var html = template(context);
+  $('#alert-section').append(html);
+})
+
 function init() {
   gapi.load('auth2', function() {
     gapi.auth2.init(
@@ -192,6 +201,9 @@ $('#upload-post').submit(e => {
       }
       var html = template(context);
       $('.main').append(html);
+      if(json.data.broadcast){
+        socket.emit('post-success', json.data.post);
+      }
     }
   })
   .catch(e => console.log("error ___ ",e))

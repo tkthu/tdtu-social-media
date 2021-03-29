@@ -40,13 +40,14 @@ class ApiController{
         }
 
         new postModel(post).save()
-        .then(() => {
+        .then((resultPost) => {
             return res.status(200).json({
                 code:0,
                 msg:'đăng post thành công',
                 data: {
                     post,
                     user: req.user,
+                    broadcast: resultPost.department.id ? true: false, // chỉ broadcast khi post thuộc chuyên mục nào đó
                 }
             });
         })
