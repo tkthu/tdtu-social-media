@@ -142,7 +142,7 @@ function uploadAddImg(target) {
 
 // Hiện bảng tạo thêm tài khoản phòng khoa
 function addAccountDepartments() {
-  var x = document.querySelector(".add-account");
+  var x = document.querySelector("#add-account");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -152,7 +152,7 @@ function addAccountDepartments() {
 
 // Hiện bảng sửa thông tin sinh viên
 function editInfoStudent() {
-    var x = document.querySelector(".edit-info");
+    var x = document.querySelector("#edit-info");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
@@ -162,7 +162,7 @@ function editInfoStudent() {
 
 // Hiện bảng sửa thông tin phòng/khoa
 function editInfoPhongKhoa() {
-    var x = document.querySelector(".edit-info-phongKhoa");
+    var x = document.querySelector("#edit-info-phongKhoa");
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
@@ -202,6 +202,7 @@ function createPost() {
 function closeCreatePost() {
   var form = document.querySelector("#upload-post");
   form.style.display = "none";
+
 }
 
 // Hiện bảng có chắc muốn xóa
@@ -211,7 +212,7 @@ function delConfirm() {
 
 //============= Tắt bảng sửa thông tin, bài viết ======================
 function closeInfoPhongKhoa() {
-  var x = document.querySelector(".edit-info-phongKhoa");
+  var x = document.querySelector("#edit-info-phongKhoa");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {
@@ -220,7 +221,7 @@ function closeInfoPhongKhoa() {
 }
 
 function closeInfoStudent() {
-  var x = document.querySelector(".edit-info");
+  var x = document.querySelector("#edit-info");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {
@@ -229,7 +230,7 @@ function closeInfoStudent() {
 }
 
 function closeAddAccount() {
-  var x = document.querySelector(".add-account");
+  var x = document.querySelector("#add-account");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {
