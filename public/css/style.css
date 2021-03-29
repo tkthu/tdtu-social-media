@@ -1838,15 +1838,15 @@ select {
         left: 400px;
     }
 
-    .upload-post__body--create-video-input,
+    /* .upload-post__body--create-video-input,
     .upload-post__body--create-video-btn  {
         top: 540px;
         left: 400px;
-    }
+    } */
 
     .upload-post__body--create-imgBackground-input,
     .upload-post__body--create-imgBackground-btn {
-        top: 585px;
+        top: 540px;
         left: 400px;
     }
 
