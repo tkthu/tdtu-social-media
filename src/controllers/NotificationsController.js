@@ -1,8 +1,23 @@
+const post =  require('../models/post.model')
 class NotificationsController{
 
     // [GET] /
     index(req, res){      
-        res.render("all-notification",{user: req.user});
+        post.find({})
+            .then(post => {
+                if (post === null){
+                    throw new Error('not found posts')
+                }
+               
+
+                res.render('all-notification',{ 
+                    post : multipleMongooseToObject(post)
+                })
+            })
+            .catch(err => {
+                return res.end("somthing went wrong ... | "+err);
+            })
+        
     }
 
     // [GET] /departments
