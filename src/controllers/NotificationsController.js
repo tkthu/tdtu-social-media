@@ -8,7 +8,6 @@ class NotificationsController{
                 if (post === null){
                     throw new Error('not found posts')
                 }
-               
 
                 res.render('all-notification',{ post })
             })
