@@ -10,9 +10,7 @@ class NotificationsController{
                 }
                
 
-                res.render('all-notification',{ 
-                    post : multipleMongooseToObject(post)
-                })
+                res.render('all-notification',{ post })
             })
             .catch(err => {
                 return res.end("somthing went wrong ... | "+err);
