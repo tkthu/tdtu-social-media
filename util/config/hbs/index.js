@@ -21,6 +21,9 @@ const hbs = exphbs.create({
             return value.split('\\').pop().split('/').pop();
         },
         fromNow: function(value, options) {
+            if (dayjs(value).isBefore(dayjs(new Date().toISOString()),"day")){
+                return dayjs(value).format('DD/MM/YYYY');
+            }
             return dayjs(value).fromNow();
         },
         cutDown: function(post, options) {

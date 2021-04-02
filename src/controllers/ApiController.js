@@ -1,13 +1,19 @@
 const postModel = require('../models/post.model');
 const commentModel = require('../models/comment.model');
 
+const unreadNotifiModel = require('../models/unreadNotifi.model');
+const userModel = require('../models/user.model');
+
 const mogoose = require('mongoose')
+
+//TODO: rename post name thành title
 
 class ApiController{
 
     // [POST] /post
     addPost(req, res){
         //TODO: chỉ hiện vài post
+        
         var imagesArray = undefined;
         var attachmentsArray = undefined;
         if(req.files.fileImg !== undefined){
@@ -41,6 +47,24 @@ class ApiController{
 
         new postModel(post).save()
         .then((resultPost) => {
+            //TODO: thêm vào unread-notifications cho các user hiện tại. (nên là trigger)
+            if(resultPost.department.id){
+                userModel.find({ _id: {$ne: resultPost.sender.id}})
+                .then(users => {
+                    users.map( user => {
+                        new unreadNotifiModel({
+                            _id: mogoose.Types.ObjectId(),
+                            senderId: resultPost.sender.id,
+                            postId: resultPost._id,
+                            receiverId: user.username,
+                            title: resultPost.name,
+                            department: resultPost.department.name,
+                            postCreatedAt: resultPost.createdAt,
+                        }).save()
+                    })                
+                })
+            }
+
             return res.status(200).json({
                 code:0,
                 msg:'đăng post thành công',

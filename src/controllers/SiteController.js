@@ -1,35 +1,32 @@
 const userModel = require('../models/user.model');
 const postModel = require('../models/post.model');
 const commentModel = require('../models/comment.model');
+const unreadNotifiModel = require('../models/unreadNotifi.model');
+
+const {multipleMongooseToObject} = require('../../util/mongoose')
 
 class SiteController{
 
     // [GET] /
     index(req, res){
 
-        postModel.find({})
+        unreadNotifiModel.find({receiverId: req.user.username})
+        .then(notifisFound => {
+            if (notifisFound === null){
+                throw new Error('not found notifications');
+            }
+            console.log("notifisFound ", notifisFound)
+            req.unreadNotifis = multipleMongooseToObject(notifisFound);
+
+            return postModel.find({});
+        })
         .then( postsFound => {
             if (postsFound === null){
-                throw new Error('not found posts')
+                throw new Error('not found posts');
             }
-            var posts = postsFound.map( post => {                
-                return {
-                    _id: post._id,
-                    name: post.name,
-                    content: post.content,                
-                    createdAt: post.createdAt,
-                    lastEdited: post.lastEdited,
-                    commentsCount: post.commentsCount,
-                    department: post.department,
-                    sender: post.sender,
-                    imagesArray: post.imagesArray,
-                    attachmentsArray: post.attachmentsArray,
-                }
-
-            })
+            var posts = multipleMongooseToObject(postsFound);
 
             posts.map(post => {
-                
                 commentModel.find({postId:post._id})
                 .then((commentArr) => {
                     post.comments = commentArr.map((comment) => {
@@ -43,7 +40,7 @@ class SiteController{
                     });
                 })
             })
-            res.render("home",{user: req.user,posts});
+            res.render("home",{user: req.user,posts, unreadNotifis: req.unreadNotifis});
         })
         .catch(err => {
             return res.end("somthing went wrong ... | "+err);
@@ -112,16 +109,22 @@ class SiteController{
     // [GET] /:userId/posts/:postId
     postDetail(req, res) {
         const userId = req.params.userId;
-        const postId = req.params.postId;
+        const postId = req.params.postId;        
 
         postModel.findOne({
             _id: postId,
-            "sender.id": userId,//
+            "sender.id": userId,
         })
         .then((postFound)=>{
             if (postFound === null) {// không tìm thấy post           
                 throw new Error('not found post')
             }
+
+            //delete unread-notifications
+            unreadNotifiModel.findOneAndDelete({postId, receiverId: req.user.username })
+            .then( delNotifi => {
+                console.log(" đã đọc thông báo ",delNotifi)
+            })
 
             req.post = {
                 _id: postFound._id,
