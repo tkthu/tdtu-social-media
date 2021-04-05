@@ -26,13 +26,13 @@
     <div class="admin-body__table">
         <h6>Thông tin tài khoản phòng/khoa</h6>
         <div class="admin-body__table--show">
-            <span>Show</span>
+            {{!-- <span>Show</span>
             <select id="show-posted">
                 <option value="5">5</option>
                 <option value="5">10</option>
                 <option value="5">15</option>
                 <option value="5">20</option>
-            </select>
+            </select> --}}
             <input type="text" placeholder="Tìm kiếm">
             <a class="admin-body__table-search--link" href="#">
                 <img class="admin-body__table-search--loupe" src="/img/loupe.png" alt="loupe.png">
@@ -44,7 +44,6 @@
                 <th scope="col">STT</th>
                 <th scope="col">Tài khoản</th>
                 <th scope="col">Họ tên</th>
-                <th scope="col">Mã nhân viên</th>
                 <th scope="col">Ngày cập nhật</th>
                 <th scope="col">Sửa | Xóa</th>
             </tr>
@@ -58,7 +57,6 @@
                         <a href="/{{this._id}}">{{this.username}}</a>
                     </td>
                     <td class="user-content">{{this.displayName}}</td>
-                    <td>{{this.username}}</td>
                     <td>
                         {{#if this.lastEdited}}
                         {{fromNow this.lastEdited}} (edited)
@@ -71,13 +69,12 @@
                             <img src="/img/edit.png" alt="edit.png" class="trash-img" >
                         </a>
                         |
-                        <a href="#" class="trash-link">
+                        <a href="#" class="trash-link" data-toggle="modal" data-target="#confirm-del">
                             <img src="/img/trash.png" alt="trash.png" class="trash-img" >
                         </a>
                     </td>
                 </tr>
                 {{/each}}
-                
 
             </tbody>
             <thead>
@@ -85,14 +82,13 @@
                     <th scope="col">STT</th>
                     <th scope="col">Tài khoản</th>
                     <th scope="col">Họ tên</th>
-                    <th scope="col">Mã nhân viên</th>
                     <th scope="col">Ngày cập nhật</th>
                     <th scope="col">Sửa | Xóa</th>
                 </tr>
             </thead>
         </table>
         <div class="table-pagination">
-            <p>Showing 1 to 10 of 27</p>
+            {{!-- <p>Showing 1 to 10 of 27</p> --}}
             <nav>
                 <ul class="pagination">
                     <li class="page-item">
@@ -111,10 +107,9 @@
                     </a>
                     </li>
                 </ul>
-                </nav>
+            </nav>
         </div>
     </div>
-
 </div>
 
 {{!-------------- popup --------------}}

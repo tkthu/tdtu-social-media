@@ -1463,6 +1463,10 @@ select {
     text-overflow: ellipsis;
 }
 
+.user-name a {
+    text-decoration: none;
+}
+
 .user-img {
     width: 25px;
     height: 25px;
@@ -1480,14 +1484,14 @@ select {
 
 .table-pagination {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 0 30px;
     padding-bottom: 20px;
 }
 
-.table-pagination p {
+/* .table-pagination p {
     color: var(--gray-color);
-}
+} */
 
 /* --------------- Chỉnh sửa thông tin ------------- */
 .list-chuyenmuc {
@@ -2944,11 +2948,6 @@ select {
     .notification-body__filter-fromDate,
     .notification-body__filter-toDate {
         margin-right: 5px;
-    }
-
-    .admin-body__table-search--link {
-        left: 340px;
-        top: -28px;
     }
 
     .add-account__body--add-imgBackground-input {
