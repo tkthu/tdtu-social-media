@@ -1,4 +1,4 @@
-{{!-- input: user(người đang login), comments --}}
+{{!-- input: user(người đang login), comments, total(tổng số comment), current(số comment đã hiện) --}}
 {{!-- 
     user:{
         username: 'NgVA256',
@@ -9,6 +9,9 @@
         studentInfo: {}
     },
     comments:[],
+    total: 0,
+    current: 0,
+
 --}}
 {{> add-comment user=user}}
 <div class="other-comment-section">
@@ -17,5 +20,11 @@
     {{/each}}
 </div>
 
-
-<a href="#" class="comment-readmore">Xem thêm 10 bình luận</a>
+{{#ifEquals total current}}
+{{else}}
+<a href="#" class="comment-readmore">
+    Xem thêm
+    <span class="cmtCount" data-total-count="{{total}}" data-current-count="{{current}}">10</span>
+    bình luận
+</a>
+{{/ifEquals}}

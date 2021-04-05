@@ -10,7 +10,7 @@ const {exposeTemplates} = require('../util/middlewares/exposeTemplates')
 
 function route(app){
     app.use((req,res,next)=>{
-        console.log('-------------------refresh----------------------')
+        console.log('-------------------new request----------------------')
         next()
     })
     app.use('/logout',(req,res,next) =>{

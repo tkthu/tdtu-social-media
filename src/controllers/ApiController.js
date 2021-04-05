@@ -6,14 +6,70 @@ const userModel = require('../models/user.model');
 
 const mogoose = require('mongoose')
 
+const {multipleMongooseToObject} = require('../../util/mongoose')
+
 //TODO: rename post name thành title
 
 class ApiController{
 
-    // [POST] /post
-    addPost(req, res){
-        //TODO: chỉ hiện vài post
+    // [GET] /posts?page=   &user=
+    getPosts(req, res){
+        // mỗi lần chỉ hiện 10 bài có createdAt hoặc lastEdited mới nhất
+        // hiện kèm theo 2 comment cũ nhất
+        const pageNum = parseInt(req.query.page);
+        const postPerPage = 10;
+        const cmtNum = 1;
+        const cmtPerPost = 2;
+
+        const senderId = req.query.user !== "" ? req.query.user : {$ne: null}
+        console.log("{senderId} ", {"sender.id" :senderId})
+        postModel.find({"sender.id" :senderId}).sort({createdAt: -1, lastEdited: -1}).skip((pageNum-1)*postPerPage).limit(postPerPage)
+        .then(postsFound => {
+            if (postsFound === null){
+                throw new Error('not found posts');
+            }
+            if (postsFound.length === 0 ){
+                return res.status(200).json({
+                    code:1,
+                    msg:'hết post',
+                });
+            }
+
+            var posts = multipleMongooseToObject(postsFound);
+
+            var promiseArr = []
+            posts.forEach(post => {
+                promiseArr.push(
+                    commentModel.find({postId:post._id}).sort({createdAt: -1}).skip((cmtNum-1)*cmtPerPost).limit(cmtPerPost)
+                    .then((commentArr) => {
+                        post.comments = multipleMongooseToObject(commentArr);
+                    })
+                )                
+            })
+
+            Promise.all(promiseArr)
+            .then( ()=>{
+                return res.status(200).json({
+                    code:0,
+                    msg:'lấy 10 post thành công',
+                    data: {
+                        posts,
+                        user: req.user,                    
+                    }
+                });
+            })
+
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'lấy 10 post thất bại với lỗi ' + err,
+            });
+        })
         
+    }
+
+    // [POST] /post
+    addPost(req, res){        
         var imagesArray = undefined;
         var attachmentsArray = undefined;
         if(req.files.fileImg !== undefined){
@@ -95,6 +151,43 @@ class ApiController{
             data: post
         });
 
+    }
+
+    /* -------------------------------------------- */
+    // [GET] /post/:postId/comments
+    getComments(req, res){
+        // mỗi lần chỉ hiện thêm 10 comment có createdAt mới nhất
+        const {postId} = req.params;
+
+        const cmtNum = 1;
+        const cmtPerPost = 10;
+
+        commentModel.find({postId:post._id}).sort({createdAt: -1}).skip((cmtNum-1)*cmtPerPost).limit(cmtPerPost)
+        .then((commentArr) => {
+            comments = commentArr.map((comment) => {
+                return {
+                    content: comment.content,
+                    createdAt: comment.createdAt,
+                    lastEdited: comment.lastEdited,
+                    imageUrl: comment.imageUrl,  
+                    sender: comment.sender,
+                }
+            });
+            return res.status(200).json({
+                code:0,
+                msg:'lấy 10 comment thành công',
+                data: {
+                    comments                 
+                }
+            });
+
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'lấy 10 comment thất bại với lỗi ' + err,
+            });
+        })
+        
     }
 
     // [POST] /post/:postId/comment

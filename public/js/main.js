@@ -1,4 +1,6 @@
 const socket = io();
+var curPostPage = 1;
+var curCmtPage = 1;
 
 socket.on('notifi-alert', post => {
   var template = Handlebars.compile($('#instant-notifi').html());
@@ -8,6 +10,53 @@ socket.on('notifi-alert', post => {
   var html = template(context);
   $('#alert-section').append(html);
 })
+
+if ($('.main').length){
+  load10Post();
+  window.onscroll = function() {
+    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+      load10Post();    
+    }
+  }
+}
+
+function loadMoreCmt(){
+
+}
+
+function load10Post() {
+  const pageOwner = window.location.pathname.split('/').pop();
+  fetch(`/api/posts?page=${curPostPage}&user=${pageOwner}`,{
+    method : 'GET'
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// lấy 10 post thành công
+      closeCreatePost();      
+      setupHelperHbs();
+      var template = Handlebars.compile($('#post-fb_template').html());
+      json.data.posts.forEach(post => {
+        var context = {
+          post ,
+          user : json.data.user,
+        }
+        var html = template(context);
+        $('.main').append(html);
+        console.log("thêm post ", post)
+        
+      });
+      curPostPage = curPostPage + 1;
+    }
+    else if(json.code === 1){// hết post
+      console.log("hết post")
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+}
 
 function init() {
   gapi.load('auth2', function() {
@@ -72,6 +121,7 @@ function firstTimeLogin(username,displayName,imageUrl) {
 }
 
 function setupHelperHbs(){
+  dayjs.extend(window.dayjs_plugin_relativeTime)
   Handlebars.registerHelper('cutDown', function(post, options) {
     if(post !== undefined && post.content !== undefined){
         var content = post.content;
@@ -86,7 +136,10 @@ function setupHelperHbs(){
   });
   Handlebars.registerHelper('inc', function(value, options){return parseInt(value) + 1;});
   Handlebars.registerHelper('fromNow', function(value, options) {
-    return "a few seconds ago"
+    if (dayjs(value).isBefore(dayjs(new Date().toISOString()),"day")){
+        return dayjs(value).format('DD/MM/YYYY');
+    }
+    return dayjs(value).fromNow();
   });
   Handlebars.registerHelper('getFileName', function(value, options) {
     return value.split('\\').pop().split('/').pop();
@@ -167,7 +220,7 @@ $('.comment').submit( e => {
       }
       console.log("context ", context)
       var html = template(context);
-      postElement.children('.other-comment-section').append(html);
+      postElement.children('.other-comment-section').prepend(html);
     }
   })
   .catch(e => console.log("error ___ ",e))
@@ -200,7 +253,7 @@ $('#upload-post').submit(e => {
         user : json.data.user,
       }
       var html = template(context);
-      $('.main').append(html);
+      $('.main').prepend(html);
       if(json.data.broadcast){
         socket.emit('post-success', json.data.post);
       }
@@ -285,8 +338,8 @@ function editUserProfile() {
 }
 
 function closeEditUserProfile() {
-var form = document.querySelector("#edit-profile");
-form.style.display = "none";
+  var form = document.querySelector("#edit-profile");
+  form.style.display = "none";
 }
 
 // Hiện bảng sửa nội dung bài đăng

@@ -105,7 +105,7 @@
                     <a href="#" class="comment-other__reply">Trả lời</a>
                     <span class="comment-other__reply-time">.
                         \{{#if this.lastEdited}}
-                        Last edited: \{{fromNow this.createdAt}}
+                        \{{fromNow this.lastEdited}} (edited)
                         \{{else}}
                         \{{fromNow this.createdAt}}
                         \{{/if}}
@@ -114,8 +114,12 @@
             </div>
             \{{/each}}
         </div>
-
-        <a href="#" class="comment-readmore">Xem thêm 10 bình luận</a>
+{{!-- ?????????????????? --}}
+        <a href="#" class="comment-readmore">
+            Xem thêm
+            <span class="cmtCount" data-total-count="\{{total}}" data-current-count="\{{comments.length}}">10</span>
+            bình luận
+        </a>
     </div>
 
 </script>

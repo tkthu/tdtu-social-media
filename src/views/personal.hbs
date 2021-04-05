@@ -5,15 +5,14 @@
         {{> user-profile pageOwner=pageOwner}}
     </div>
 
-    <div class="col-xl-9 col-lg-12">
+    <div class="col-xl-9 col-lg-12">        
+        {{#ifEquals pageOwner.username user.username}} <!-- chỉ user mới được tải bài lên trang của mình -->
+        {{> add-post user=pageOwner}}
+        {{/ifEquals}}
         <div class="main">
-            {{#ifEquals pageOwner.username user.username}} <!-- chỉ user mới được tải bài lên trang của mình -->
-            {{> add-post user=pageOwner}}
-            {{/ifEquals}}
-
-            {{#each posts}}
+            {{!-- {{#each posts}}
             {{> post-fb user=../user post=this}}
-            {{/each}}            
+            {{/each}} --}}
 
         </div>
     </div>
