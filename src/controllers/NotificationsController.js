@@ -10,10 +10,10 @@ class NotificationsController{
             if (postsFound === null){
                 throw new Error('not found posts')
             }
-            var posts = postsFound.map( post => {  // ông psu hlen6 thử. để tui coi máy tui chạy được ko okieelaaa push rồi á
-                
+            var posts = postsFound.map( post => {  
 
-                return {// ông trueyn26 cái này vô. thì giờ lấy ra sài thôi
+
+                return {
                     _id: post._id,
                     name: post.name,
                     content: post.content,                
@@ -27,8 +27,8 @@ class NotificationsController{
                 }
 
             })
-            console.log("postsFound ", postsFound)// dòng này chạy được mà
-            res.render("all-notification",{postsFound});// ông truyền postsFound vào all-notification.hbs
+            
+            res.render("all-notification",{user: req.user,posts});
         })
              
         .catch(err => {
