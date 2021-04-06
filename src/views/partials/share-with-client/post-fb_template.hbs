@@ -81,9 +81,9 @@
 
         {{!-------------- comment-section --------------}}
         <hr>
-        <form class="comment" action="/" method="POST" enctype="multipart/form-data">
+        <form class="comment" enctype="multipart/form-data">
             <img src="\{{{user.avatarUrl}}}" alt="img" class="comment--img">
-            <input class="comment--write" placeholder="Viết bình luận" name="cmt" >
+            <input class="comment--write" placeholder="Viết bình luận" name="cmt">
             <input type="hidden" name="senderId" value="\{{{user.username}}}">
         </form>
         <div class="other-comment-section">
@@ -114,10 +114,9 @@
             </div>
             \{{/each}}
         </div>
-{{!-- ?????????????????? --}}
-        <a href="#" class="comment-readmore">
+        <a href="#" class="comment-readmore" >
             Xem thêm
-            <span class="cmtCount" data-total-count="\{{total}}" data-current-count="\{{comments.length}}">10</span>
+            <span class="cmtCount" data-total-count="\{{{total}}}" data-current-count="\{{{current}}}">10</span>
             bình luận
         </a>
     </div>

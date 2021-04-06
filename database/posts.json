@@ -62,4 +62,44 @@
     "displayName": "Trần Thị B",
     "avatarUrl": "/upload/51800001/TrThB_avatar.jpg"
   }
+},{
+  "_id": {
+    "$oid": "6065f5a49770ff069c489ac2"
+  },
+  "createdAt": "2021-04-01T16:32:36.789Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "commentsCount": 0,
+  "name": "Lịch thi cuối kỳ HK2/20-21 dành cho sv khóa cũ - môn kết thúc sớm của khoa Dược",
+  "content": "Phòng Đại học gửi đến các sinh viên thông tin Danh sách thi chính thức các lớp tiếng Anh HK1/20-21 (Thi ngày 03/04/2021)\r\nLưu ý:\r\n- Sinh viên phải có mặt tại phòng thi trước giờ thi ít nhất 30 phút\r\n- Sinh viên xem danh sách thi trong file đính kèm.\r\n- Các trường hợp thắc mắc về danh sách thi vui lòng liên hệ phòng Đại học (A0005) hoặc email: phongdaihoc@tdtu.edu.vn \r\n- Các ngày thi sau (nếu có) sẽ được cập nhật danh sách mỗi ngày, sinh viên vui lòng theo dõi thông tin thường xuyên.\r\n- Các trường hợp không đủ điều kiện dự thi do chuyên cần có thể sẽ không có thể trong danh sách chính thức trên phòng thi, sinh viên phải cập nhật lịch thi thường xuyên để nắm thông tin khi có thay đổi.",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6065f6a19770ff069c489ac3"
+  },
+  "createdAt": "2021-04-01T16:36:49.106Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "commentsCount": 0,
+  "name": "Thông tin hoãn thi dành cho sinh viên bị trùng lịch thi tiếng Anh ở HK1/20-21 với học kỳ quân đội đang học tại cơ sở Bảo Lộc & Nha Trang",
+  "content": "Do số lượng sinh viên ở các ca thi có hạn nên không xử lý hết được cho các trường hợp xin chuyển lịch thi tiếng Anh HK1/20-21 do trùng với lịch học HK quân đội tại cơ sở Nha Trang & Bảo Lộc, vì vậy sinh viên sẽ được giải quyết cho phép hoãn thi. Sinh viên vui lòng đăng nhập student's portal -> vào phần nộp đơn trực tuyến để xin hoãn thi từ 16-18/03/2021 như thông báo trong lịch thi.\r\n\r\nCác trường hợp hoãn thi thì sinh viên sẽ đăng ký dự thi lại vào các đợt thi sắp tới mà phòng Đại học sẽ tổ chức. Sinh viên vui lòng theo dõi thông tin thường xuyên.",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
 }]

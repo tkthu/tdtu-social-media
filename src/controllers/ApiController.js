@@ -15,7 +15,7 @@ class ApiController{
     // [GET] /posts?page=   &user=
     getPosts(req, res){
         // mỗi lần chỉ hiện 10 bài có createdAt hoặc lastEdited mới nhất
-        // hiện kèm theo 2 comment cũ nhất
+        // hiện kèm theo 2 comment mới nhất
         const pageNum = parseInt(req.query.page);
         const postPerPage = 10;
         const cmtNum = 1;
@@ -51,7 +51,7 @@ class ApiController{
             .then( ()=>{
                 return res.status(200).json({
                     code:0,
-                    msg:'lấy 10 post thành công',
+                    msg:`lấy ${postPerPage} comment thành công`,
                     data: {
                         posts,
                         user: req.user,                    
@@ -154,28 +154,28 @@ class ApiController{
     }
 
     /* -------------------------------------------- */
-    // [GET] /post/:postId/comments
+    // [GET] /post/:postId/comments?page=
     getComments(req, res){
-        // mỗi lần chỉ hiện thêm 10 comment có createdAt mới nhất
+        // mỗi lần chỉ hiện thêm 2 comment có createdAt mới nhất
         const {postId} = req.params;
 
-        const cmtNum = 1;
-        const cmtPerPost = 10;
+        const cmtNum = parseInt(req.query.page);
+        const cmtPerPost = 2;
 
-        commentModel.find({postId:post._id}).sort({createdAt: -1}).skip((cmtNum-1)*cmtPerPost).limit(cmtPerPost)
+        commentModel.find({postId}).sort({createdAt: -1}).skip((cmtNum-1)*cmtPerPost).limit(cmtPerPost)
         .then((commentArr) => {
-            comments = commentArr.map((comment) => {
-                return {
-                    content: comment.content,
-                    createdAt: comment.createdAt,
-                    lastEdited: comment.lastEdited,
-                    imageUrl: comment.imageUrl,  
-                    sender: comment.sender,
-                }
-            });
+            if(commentArr.length === 0){
+                return res.status(200).json({
+                    code:1,
+                    msg:`hết comment`,
+                });
+            }
+            const comments = multipleMongooseToObject(commentArr);
+            console.log("comments ", comments)
+
             return res.status(200).json({
                 code:0,
-                msg:'lấy 10 comment thành công',
+                msg:`lấy ${cmtPerPost} comment thành công`,
                 data: {
                     comments                 
                 }
@@ -183,16 +183,16 @@ class ApiController{
 
         })
         .catch(err => {
+            console.log("err ", err)
             return res.status(500).json({
-                msg:'lấy 10 comment thất bại với lỗi ' + err,
+                msg:`lấy ${cmtPerPost} comment thất bại với lỗi: ${err}`,
             });
         })
         
     }
 
     // [POST] /post/:postId/comment
-    addComment(req, res){
-        //TODO: chỉ hiện vài comment
+    addComment(req, res){        
         //TODO: đăng hình
 
         const {postId} = req.params;
@@ -208,9 +208,9 @@ class ApiController{
                 content: req.body.cmt,
                 createdAt: new Date().toISOString(),
                 sender: {
-                    id: req.body.senderId,
-                    displayName: req.body.displayName,
-                    avatarUrl: req.body.avatarUrl,
+                    id: req.user.username,
+                    displayName: req.user.displayName,
+                    avatarUrl: req.user.avatarUrl,
                 },
                 receiverId : resultPost.sender.id,
                 postId,

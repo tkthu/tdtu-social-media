@@ -1,6 +1,7 @@
 const socket = io();
 var curPostPage = 1;
-var curCmtPage = 1;
+var cmtPerPage = 2;
+const curCmtPage = 1
 
 socket.on('notifi-alert', post => {
   var template = Handlebars.compile($('#instant-notifi').html());
@@ -11,7 +12,57 @@ socket.on('notifi-alert', post => {
   $('#alert-section').append(html);
 })
 
-if ($('.main').length){
+function reloadEventListener(){
+  $('.comment').submit( e => {
+    e.preventDefault();    
+    setupHelperHbs();
+  
+    const postElement = $(e.target).parent('.main-posted');  
+    const postId = postElement.attr('id') ;
+  
+    var formData = new FormData(e.target);
+    fetch(`/api/post/${postId}/comment`,{
+      method : 'POST',
+      body:  formData
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// đăng comment thành công
+        $(e.target).children('.comment--write').val('');
+        
+        var template = Handlebars.compile($('#comment_template').html());
+        
+        var context = {
+          comment : json.data.comment,
+        }
+        console.log("context ", context)
+        var html = template(context);
+
+        postElement.find('.other-comment-section').prepend(html);
+        postElement.find('.cmtCount').data(
+          'total-count', 
+          postElement.find('.cmtCount').data('total-count') + 1
+        )
+        postElement.find('.cmtCount').data(
+          'current-count', 
+          postElement.find('.cmtCount').data('current-count') + 1
+        )
+      }
+    })
+    .catch(e => console.log("error ___ ",e))
+  })
+  $('.comment-readmore').click(e => {
+    e.preventDefault();
+    loadMoreCmt(e);
+  });
+}
+
+/* ------------------- load thêm 10 post khi kéo xuống cuối trang ------------------ */
+if ($('.main').length){// nếu trang có class main
   load10Post();
   window.onscroll = function() {
     if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
@@ -19,11 +70,6 @@ if ($('.main').length){
     }
   }
 }
-
-function loadMoreCmt(){
-
-}
-
 function load10Post() {
   const pageOwner = window.location.pathname.split('/').pop();
   fetch(`/api/posts?page=${curPostPage}&user=${pageOwner}`,{
@@ -43,13 +89,16 @@ function load10Post() {
         var context = {
           post ,
           user : json.data.user,
-        }
+          total: post.commentsCount,
+          current:post.comments.length,
+        }        
         var html = template(context);
         $('.main').append(html);
         console.log("thêm post ", post)
         
       });
       curPostPage = curPostPage + 1;
+      reloadEventListener();
     }
     else if(json.code === 1){// hết post
       console.log("hết post")
@@ -57,6 +106,59 @@ function load10Post() {
   })
   .catch(e => console.log("error ___ ",e))
 }
+/* End of ------------ load thêm 10 post khi kéo xuống cuối trang ------------------ */
+
+/* ------------------------ nút xem thêm comment --------------------------- */
+
+function loadMoreCmt(e){
+  const postElement = $(e.target).parent('.main-posted');  
+  const postId = postElement.attr('id') ;
+  const totalCount = postElement.find('.cmtCount').data('total-count');
+  const curCount = postElement.find('.cmtCount').data('current-count');
+  // const curCmtPage = curCount/cmtPerPage
+
+  const curCmtPage = 1
+
+  fetch(`/api/post/${postId}/comments?page=${curCmtPage + 1}`,{
+    method : 'GET'
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// lấy 10 comment thành công
+      $(e.target).children('.comment--write').val('');
+      
+      var template = Handlebars.compile($('#comment_template').html());
+      
+      json.data.comments.forEach(cmt => {
+        var context = {
+          comment: cmt ,
+        }        
+        var html = template(context);
+        postElement.children('.other-comment-section').append(html);
+        postElement.find('.cmtCount').data(
+          'total-count', 
+          postElement.find('.cmtCount').data('total-count') + 1
+        )
+        postElement.find('.cmtCount').data(
+          'current-count', 
+          postElement.find('.cmtCount').data('current-count') + 1
+        )
+        
+              
+      });
+      curCmtPage = curCmtPage + 1
+      
+    }else if (json.code === 1){
+      console.log("hết comment")
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+}
+/* End of ----------------- nút xem thêm comment --------------------------- */
 
 function init() {
   gapi.load('auth2', function() {
@@ -192,40 +294,6 @@ $('#confirm-set-pass').click(e => {
   .catch(e => console.log(e))
 })
 
-$('.comment').submit( e => {
-  e.preventDefault();
-  setupHelperHbs();
-
-  const postElement = $(e.target).parent('.main-posted');  
-  const postId = postElement.attr('id') ;
-
-  var formData = new FormData(e.target);
-  fetch(`/api/post/${postId}/comment`,{
-    method : 'POST',
-    body:  formData
-  })
-  .then(resp => {            
-    if(resp.status < 200 || resp.status >= 300)
-      throw new Error(`Request failed with status ${resp.status}`)
-    return resp.json();
-  })
-  .then(json => {
-    if (json.code === 0){// đăng comment thành công
-      $(e.target).children('.comment--write').val('');
-      
-      var template = Handlebars.compile($('#comment_template').html());
-      
-      var context = {
-        comment : json.data.comment,
-      }
-      console.log("context ", context)
-      var html = template(context);
-      postElement.children('.other-comment-section').prepend(html);
-    }
-  })
-  .catch(e => console.log("error ___ ",e))
-})
-
 $('#upload-post').submit(e => {
   e.preventDefault();
 
@@ -251,6 +319,8 @@ $('#upload-post').submit(e => {
       var context = {
         post : json.data.post,
         user : json.data.user,
+        total: json.data.post.commentsCount,
+        current: json.data.post.comments.length,
       }
       var html = template(context);
       $('.main').prepend(html);
