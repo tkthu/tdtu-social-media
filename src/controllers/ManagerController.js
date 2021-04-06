@@ -8,21 +8,23 @@ class ManagerController{
 
     // [GET] /staffs
     staffsPage(req, res, next){    
-        var {search} = req.query
-        // var data = Users.Filter((item) => {
-        //     return item.search
-        // })    
+        var data;
         Users.find({userType: "staff"})
         .then((users) => {
             req.users = users;
+            var {search} = req.query
+            data = users.filter((item) => {
+                return item.id === parseInt(search)
+            })
             return Departments.find();
         })
         .then((departments) => {
+            
             res.render('admin-acc-phong-khoa', { 
                 department: multipleMongooseToObject(departments),
                 user: req.user,
                 users: multipleMongooseToObject(req.users),
-                // data: data
+                data: data
             })
         })
         .catch(next);
@@ -39,6 +41,26 @@ class ManagerController{
                 return fi.path.replace("public","");
             })
         }
+        var authorized = []
+        var obj, temp;
+        if(Array.isArray(req.body.chuyenmuc)) {
+            for (let cm in req.body.chuyenmuc) {
+                temp = req.body.chuyenmuc[cm].split('_')
+                obj = {
+                    id: temp[0],
+                    name: temp[1]
+                }
+                authorized.push(obj)
+            }
+        }   
+        else {
+            temp = req.body.chuyenmuc.split('_')
+            obj = {
+                id: temp[0],
+                name: temp[1]
+            }
+            authorized.push(obj)
+        }
 
         const addStaff = {
             _id: mogoose.Types.ObjectId(),
@@ -47,7 +69,7 @@ class ManagerController{
             displayName: req.body.displayName,
             createdAt: new Date().toISOString(),
             staffInfo: {
-                authorized: req.body.chuyenmuc,
+                authorized
             },
             userType: "staff",
         }

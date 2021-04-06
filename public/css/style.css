@@ -1505,6 +1505,11 @@ select {
     overflow-x: hidden;
 }
 
+.checkbox-chuyenmuc > label {
+    color: var(--white-color);
+    margin-left: 7px;
+}
+
 /* =================== Animation =============== */
 @keyframes fadeIn {
     from {
