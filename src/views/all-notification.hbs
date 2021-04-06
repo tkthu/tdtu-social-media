@@ -56,16 +56,22 @@
             <button class="notification-body__filter-delete">Xóa</button>
             <button class="notification-body__filter-search">Tìm kiếm</button>
         </div>
+
+        {{!-- mayu16 cái cũ dau roi?    Có cái cũ nào đâu bà --}}
     </div>
     <!-- End filter notification -->
 
     <!-- All notification -->
     <div class="notification-body__all">
-        {{#each post}}
-        {{> post-notifi post=this}}
+        {{#each postsFound}}
+        {{> post-notifi post=this}} 
         {{/each}}
     </div>
     <!-- End all notification -->
 </div>
 <!-- End notification -->
+
+
+
+
 
