@@ -9,7 +9,7 @@
         {{#ifEquals pageOwner.username user.username}} <!-- chỉ user mới được tải bài lên trang của mình -->
         {{> add-post user=pageOwner}}
         {{/ifEquals}}
-        <div class="main">
+        <div class="main" data-current-page="1" data-offset="0">
             {{!-- {{#each posts}}
             {{> post-fb user=../user post=this}}
             {{/each}} --}}

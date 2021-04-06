@@ -12,18 +12,17 @@ const {multipleMongooseToObject} = require('../../util/mongoose')
 
 class ApiController{
 
-    // [GET] /posts?page=   &user=
+    // [GET] /posts?page=   &user=    &offset=
     getPosts(req, res){
-        // mỗi lần chỉ hiện 10 bài có createdAt hoặc lastEdited mới nhất
+        // mỗi lần chỉ hiện 10 bài có createdAt mới nhất
         // hiện kèm theo 2 comment mới nhất
         const pageNum = parseInt(req.query.page);
-        const postPerPage = 10;
-        const cmtNum = 1;
-        const cmtPerPost = 2;
+        const offset = parseInt(req.query.offset);
+        const postPerPage = 2;
 
         const senderId = req.query.user !== "" ? req.query.user : {$ne: null}
         console.log("{senderId} ", {"sender.id" :senderId})
-        postModel.find({"sender.id" :senderId}).sort({createdAt: -1, lastEdited: -1}).skip((pageNum-1)*postPerPage).limit(postPerPage)
+        postModel.find({"sender.id" :senderId}).sort({createdAt: -1}).skip( offset + (pageNum-1)*postPerPage).limit(postPerPage)
         .then(postsFound => {
             if (postsFound === null){
                 throw new Error('not found posts');
@@ -37,27 +36,14 @@ class ApiController{
 
             var posts = multipleMongooseToObject(postsFound);
 
-            var promiseArr = []
-            posts.forEach(post => {
-                promiseArr.push(
-                    commentModel.find({postId:post._id}).sort({createdAt: -1}).skip((cmtNum-1)*cmtPerPost).limit(cmtPerPost)
-                    .then((commentArr) => {
-                        post.comments = multipleMongooseToObject(commentArr);
-                    })
-                )                
-            })
-
-            Promise.all(promiseArr)
-            .then( ()=>{
-                return res.status(200).json({
-                    code:0,
-                    msg:`lấy ${postPerPage} comment thành công`,
-                    data: {
-                        posts,
-                        user: req.user,                    
-                    }
-                });
-            })
+            return res.status(200).json({
+                code:0,
+                msg:`lấy ${postPerPage} comment thành công`,
+                data: {
+                    posts,
+                    user: req.user,       
+                }
+            });
 
         })
         .catch(err => {

@@ -1,15 +1,32 @@
-const socket = io();
-var curPostPage = 1;
-var cmtPerPage = 2;
-const curCmtPage = 1
+$(document).ready( () => {
+  const socket = io();
+  socket.on('notifi-alert', post => {
+    var template = Handlebars.compile($('#instant-notifi').html());
+    var context = {
+      post,
+    }
+    var html = template(context);
+    $('#alert-section').append(html);
+  })
 
-socket.on('notifi-alert', post => {
-  var template = Handlebars.compile($('#instant-notifi').html());
-  var context = {
-    post,
+  var cmtPerPage = 2;
+  const curCmtPage = 1;
+  load10Post();
+
+  // reloadEventListener();
+
+
+  if ($('.main').length){// nếu trang có class main
+    var timeout;
+    clearTimeout(timeout);  
+    timeout = setTimeout(function() {
+      window.onscroll = function() {      
+        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight)         
+          load10Post();
+      }
+    }, 500);    
   }
-  var html = template(context);
-  $('#alert-section').append(html);
+
 })
 
 function reloadEventListener(){
@@ -62,17 +79,17 @@ function reloadEventListener(){
 }
 
 /* ------------------- load thêm 10 post khi kéo xuống cuối trang ------------------ */
-if ($('.main').length){// nếu trang có class main
-  load10Post();
-  window.onscroll = function() {
-    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-      load10Post();    
-    }
-  }
-}
-function load10Post() {
+
+async function load10Post() {
+  const postContainerElement = $('.main');
+
+  const curPostPage = postContainerElement.data('current-page');
+  const offset = postContainerElement.data('offset');
   const pageOwner = window.location.pathname.split('/').pop();
-  fetch(`/api/posts?page=${curPostPage}&user=${pageOwner}`,{
+
+  console.log("current post page", postContainerElement.data('current-page'));
+
+  await fetch(`/api/posts?page=${curPostPage}&user=${pageOwner}&offset=${offset}`,{
     method : 'GET'
   })
   .then(resp => {            
@@ -81,7 +98,7 @@ function load10Post() {
     return resp.json();
   })
   .then(json => {
-    if (json.code === 0){// lấy 10 post thành công
+    if (json.code === 0){// lấy n post thành công
       closeCreatePost();      
       setupHelperHbs();
       var template = Handlebars.compile($('#post-fb_template').html());
@@ -89,22 +106,18 @@ function load10Post() {
         var context = {
           post ,
           user : json.data.user,
-          total: post.commentsCount,
-          current:post.comments.length,
         }        
         var html = template(context);
-        $('.main').append(html);
-        console.log("thêm post ", post)
-        
+        postContainerElement.append(html);
+        console.log("load thêm post ", post);     
       });
-      curPostPage = curPostPage + 1;
-      reloadEventListener();
+      postContainerElement.data('current-page', curPostPage + 1);
     }
     else if(json.code === 1){// hết post
-      console.log("hết post")
+      console.log("hết post");
     }
   })
-  .catch(e => console.log("error ___ ",e))
+  .catch(e => console.log("error ___ ",e));  
 }
 /* End of ------------ load thêm 10 post khi kéo xuống cuối trang ------------------ */
 
@@ -113,8 +126,6 @@ function load10Post() {
 function loadMoreCmt(e){
   const postElement = $(e.target).parent('.main-posted');  
   const postId = postElement.attr('id') ;
-  const totalCount = postElement.find('.cmtCount').data('total-count');
-  const curCount = postElement.find('.cmtCount').data('current-count');
   // const curCmtPage = curCount/cmtPerPage
 
   const curCmtPage = 1
@@ -294,15 +305,17 @@ $('#confirm-set-pass').click(e => {
   .catch(e => console.log(e))
 })
 
-$('#upload-post').submit(e => {
+$('#upload-post').submit( async (e) => {
   e.preventDefault();
+
+  const postContainerElement = $('.main');
 
   var formData = new FormData(e.target);
   if (formData.has('chuyenmuc')){
     formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
   }
   
-  fetch("/api/post",{
+  await fetch("/api/post",{
     method : 'POST',
     body:  formData
   })
@@ -319,11 +332,10 @@ $('#upload-post').submit(e => {
       var context = {
         post : json.data.post,
         user : json.data.user,
-        total: json.data.post.commentsCount,
-        current: json.data.post.comments.length,
       }
       var html = template(context);
-      $('.main').prepend(html);
+      postContainerElement.prepend(html);
+      postContainerElement.data('offset',postContainerElement.data('offset') + 1);
       if(json.data.broadcast){
         socket.emit('post-success', json.data.post);
       }
