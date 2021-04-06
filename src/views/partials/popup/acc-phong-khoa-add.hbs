@@ -7,19 +7,19 @@
         </div>
         <div class="add-account__body">
             {{!-- --------------hidden-------------- --}}
-            <input type="hidden" name="userId" value="{{username}}">
+            <input type="hidden" name="userId" value="{{user.username}}">
             {{!-- --------------End of hidden-------------- --}}
             <div class="add-account__body--add">
                 <label class="add-account__body--add-account add-title" for="username">Tài khoản</label>
-                <input class="add-account__body--add-account-input" type="text" name="username" value="{{username}}">
+                <input class="add-account__body--add-account-input" type="text" name="username">
             </div>
             <div class="add-account__body--add">
                 <label class="add-account__body--add-password add-title" for="password">Mật khẩu</label>
-                <input class="add-account__body--add-password-input" type="password" name="password" value="{{password}}">
+                <input class="add-account__body--add-password-input" type="password" name="password">
             </div>
             <div class="add-account__body--add">
                 <label class="add-account__body--add-displayName add-title" for="displayName">Tên hiển thị</label>
-                <input class="add-account__body--add-displayName-input" type="text" name="displayName" value="{{displayName}}">
+                <input class="add-account__body--add-displayName-input" type="text" name="displayName">
             </div>
 
             <div class="add-account__body--add">

@@ -45,7 +45,6 @@ class ManagerController{
             username: req.body.username,
             password: bcrypt.hashSync(req.body.password,10),
             displayName: req.body.displayName,
-            imagesArray,
             createdAt: new Date().toISOString(),
             staffInfo: {
                 authorized: req.body.chuyenmuc,
