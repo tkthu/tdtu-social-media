@@ -7,80 +7,32 @@ $(document).ready( () => {
     }
     var html = template(context);
     $('#alert-section').append(html);
-  })
+  })  
 
-  var cmtPerPage = 2;
-  const curCmtPage = 1;
-  load10Post();
-
-  // reloadEventListener();
-
-
+  var loadingMorePage = false;
   if ($('.main').length){// nếu trang có class main
-    var timeout;
-    clearTimeout(timeout);  
-    timeout = setTimeout(function() {
-      window.onscroll = function() {      
-        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight)         
-          load10Post();
+    loadMorePost();
+    window.onscroll = function() {
+      const reachBottom = () => window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+      if(!loadingMorePage){
+        if(reachBottom()){
+          loadingMorePage = true;
+          loadMorePost();
+        }
       }
-    }, 500);    
+      if(!reachBottom()){
+        loadingMorePage = false;
+      }
+    }
+
+  }
+  if ($('.detail-posted').length){// nếu trang có class main
+    loadMoreCmt();
   }
 
 })
-
-function reloadEventListener(){
-  $('.comment').submit( e => {
-    e.preventDefault();    
-    setupHelperHbs();
-  
-    const postElement = $(e.target).parent('.main-posted');  
-    const postId = postElement.attr('id') ;
-  
-    var formData = new FormData(e.target);
-    fetch(`/api/post/${postId}/comment`,{
-      method : 'POST',
-      body:  formData
-    })
-    .then(resp => {            
-      if(resp.status < 200 || resp.status >= 300)
-        throw new Error(`Request failed with status ${resp.status}`)
-      return resp.json();
-    })
-    .then(json => {
-      if (json.code === 0){// đăng comment thành công
-        $(e.target).children('.comment--write').val('');
-        
-        var template = Handlebars.compile($('#comment_template').html());
-        
-        var context = {
-          comment : json.data.comment,
-        }
-        console.log("context ", context)
-        var html = template(context);
-
-        postElement.find('.other-comment-section').prepend(html);
-        postElement.find('.cmtCount').data(
-          'total-count', 
-          postElement.find('.cmtCount').data('total-count') + 1
-        )
-        postElement.find('.cmtCount').data(
-          'current-count', 
-          postElement.find('.cmtCount').data('current-count') + 1
-        )
-      }
-    })
-    .catch(e => console.log("error ___ ",e))
-  })
-  $('.comment-readmore').click(e => {
-    e.preventDefault();
-    loadMoreCmt(e);
-  });
-}
-
-/* ------------------- load thêm 10 post khi kéo xuống cuối trang ------------------ */
-
-async function load10Post() {
+/* ------------------- ajax load them post và comment ------------------ */
+async function loadMorePost() {
   const postContainerElement = $('.main');
 
   const curPostPage = postContainerElement.data('current-page');
@@ -89,7 +41,7 @@ async function load10Post() {
 
   console.log("current post page", postContainerElement.data('current-page'));
 
-  await fetch(`/api/posts?page=${curPostPage}&user=${pageOwner}&offset=${offset}`,{
+  return await fetch(`/api/posts?page=${curPostPage}&user=${pageOwner}&offset=${offset}`,{
     method : 'GET'
   })
   .then(resp => {            
@@ -99,7 +51,7 @@ async function load10Post() {
   })
   .then(json => {
     if (json.code === 0){// lấy n post thành công
-      closeCreatePost();      
+      closeCreatePost();
       setupHelperHbs();
       var template = Handlebars.compile($('#post-fb_template').html());
       json.data.posts.forEach(post => {
@@ -117,20 +69,17 @@ async function load10Post() {
       console.log("hết post");
     }
   })
-  .catch(e => console.log("error ___ ",e));  
+  .catch(e => console.log("error ___ ",e));
+  
 }
-/* End of ------------ load thêm 10 post khi kéo xuống cuối trang ------------------ */
 
-/* ------------------------ nút xem thêm comment --------------------------- */
-
-function loadMoreCmt(e){
-  const postElement = $(e.target).parent('.main-posted');  
+async function loadMoreCmt(){
+  const postElement = $('.detail-posted');  
   const postId = postElement.attr('id') ;
-  // const curCmtPage = curCount/cmtPerPage
+  const curCmtPage = postElement.data('current-page') ;
+  const offset = postElement.data('offset') ;
 
-  const curCmtPage = 1
-
-  fetch(`/api/post/${postId}/comments?page=${curCmtPage + 1}`,{
+  await fetch(`/api/post/${postId}/comments?page=${curCmtPage}&offset=${offset}`,{
     method : 'GET'
   })
   .then(resp => {            
@@ -139,9 +88,8 @@ function loadMoreCmt(e){
     return resp.json();
   })
   .then(json => {
-    if (json.code === 0){// lấy 10 comment thành công
-      $(e.target).children('.comment--write').val('');
-      
+    if (json.code === 0){// lấy 10 comment thành công      
+      setupHelperHbs();      
       var template = Handlebars.compile($('#comment_template').html());
       
       json.data.comments.forEach(cmt => {
@@ -149,27 +97,19 @@ function loadMoreCmt(e){
           comment: cmt ,
         }        
         var html = template(context);
-        postElement.children('.other-comment-section').append(html);
-        postElement.find('.cmtCount').data(
-          'total-count', 
-          postElement.find('.cmtCount').data('total-count') + 1
-        )
-        postElement.find('.cmtCount').data(
-          'current-count', 
-          postElement.find('.cmtCount').data('current-count') + 1
-        )
-        
-              
+        postElement.find('.other-comment-section').append(html);
+
       });
-      curCmtPage = curCmtPage + 1
+      postElement.data('current-page', curCmtPage + 1);
       
     }else if (json.code === 1){
-      console.log("hết comment")
+      console.log("hết comment");
+      postElement.find('.comment-readmore').hide();
     }
   })
   .catch(e => console.log("error ___ ",e))
 }
-/* End of ----------------- nút xem thêm comment --------------------------- */
+/* End of ------------ ajax load them post và comment --------------------------- */
 
 function init() {
   gapi.load('auth2', function() {
@@ -345,6 +285,53 @@ $('#upload-post').submit( async (e) => {
 
 })
 
+$('.comment').submit( e => {
+  e.preventDefault();    
+  setupHelperHbs();
+
+  const postElement = $(e.target).parent('.detail-notification');  
+  const postId = postElement.attr('id') ;
+
+  var formData = new FormData(e.target);
+  fetch(`/api/post/${postId}/comment`,{
+    method : 'POST',
+    body:  formData
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// đăng comment thành công
+      $(e.target).children('.comment--write').val('');
+      
+      var template = Handlebars.compile($('#comment_template').html());
+      
+      var context = {
+        comment : json.data.comment,
+      }
+      console.log("context ", context)
+      var html = template(context);
+
+      postElement.find('.other-comment-section').prepend(html);
+      postElement.find('.cmtCount').data(
+        'total-count', 
+        postElement.find('.cmtCount').data('total-count') + 1
+      )
+      postElement.find('.cmtCount').data(
+        'current-count', 
+        postElement.find('.cmtCount').data('current-count') + 1
+      )
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+})
+
+$('.comment-readmore').click(e => {
+  e.preventDefault();
+  loadMoreCmt(e);
+});
 
 // --------- Chỉnh sửa profile ---------
 function uploadFileImg(target) {

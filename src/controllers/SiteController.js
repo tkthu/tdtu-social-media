@@ -67,13 +67,8 @@ class SiteController{
                 console.log(" đã đọc thông báo ",delNotifi);
             })
 
-            req.post = mongooseToObject(postFound);
-            
-            return commentModel.find({postId});    
-        })
-        .then((commentArr) => {
-            req.post.comments = multipleMongooseToObject(commentArr);
-            return res.render("detail-notification",{user: req.user,post:req.post});
+            const post = mongooseToObject(postFound);
+            return res.render("detail-notification",{user: req.user,post}); 
         })
         .catch(err => {
             return res.end("somthing went wrong ... | "+err);

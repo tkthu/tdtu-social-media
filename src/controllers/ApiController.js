@@ -15,10 +15,9 @@ class ApiController{
     // [GET] /posts?page=   &user=    &offset=
     getPosts(req, res){
         // mỗi lần chỉ hiện 10 bài có createdAt mới nhất
-        // hiện kèm theo 2 comment mới nhất
         const pageNum = parseInt(req.query.page);
         const offset = parseInt(req.query.offset);
-        const postPerPage = 2;
+        const postPerPage = 10;
 
         const senderId = req.query.user !== "" ? req.query.user : {$ne: null}
         console.log("{senderId} ", {"sender.id" :senderId})
@@ -142,11 +141,11 @@ class ApiController{
     /* -------------------------------------------- */
     // [GET] /post/:postId/comments?page=
     getComments(req, res){
-        // mỗi lần chỉ hiện thêm 2 comment có createdAt mới nhất
+        // mỗi lần chỉ hiện thêm 4 comment có createdAt mới nhất
         const {postId} = req.params;
 
         const cmtNum = parseInt(req.query.page);
-        const cmtPerPost = 2;
+        const cmtPerPost = 4;
 
         commentModel.find({postId}).sort({createdAt: -1}).skip((cmtNum-1)*cmtPerPost).limit(cmtPerPost)
         .then((commentArr) => {

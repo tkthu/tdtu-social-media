@@ -9,6 +9,7 @@
         studentInfo: {}
     },
     post:{
+        _id: ... ,
         createdAt: "2021-02-18T17:23:42.562Z",
         lastEdited: null,
         comments: [],
@@ -23,34 +24,39 @@
 
  --}}
 
-<div class="detail-notification">
-    {{!-------------- post-header --------------}}
-    {{> post-header postOwnerId=user.username post=post}}
-    {{!-------------- post-content --------------}}
-    <div class="main-posted__content">
+<div class="detail-posted" id="{{post._id}}"  data-current-page="1" data-offset="0" >
+    <div class="detail-notification">
+        {{!-------------- post-header --------------}}
+        {{> post-header postOwnerId=user.username post=post}}
+        {{!-------------- post-content --------------}}
+        <div class="main-posted__content">
 
-        <h4 class="detail-notification--title">{{{post.name}}}</h4>
-        <p class="detail-notification--dpment">
-            {{{post.department.name}}}
-        </p>
-        <div class="detail-notification-body"><p class="detail-notification-body--content">{{{post.content}}}</p></div> 
-               
-    </div>
-</div>
-{{!-------------- image-section --------------}}
-{{> image-section imgArray=post.imagesArray}}
-{{!-------------- attachment-section --------------}}
-{{#if post.attachmentsArray}}
-    <div class="attached-files">
-        <h5>File đính kèm</h5>
-        <div class="attached-files-list">        
-            {{> attachment-section attachArr=post.attachmentsArray}}
+            <h4 class="detail-notification--title">{{{post.name}}}</h4>
+            <p class="detail-notification--dpment">
+                {{{post.department.name}}}
+            </p>
+            <div class="detail-notification-body"><p class="detail-notification-body--content">{{{post.content}}}</p></div> 
+                
         </div>
+        
     </div>
-{{/if}}
-{{!-------------- comment-section --------------}}
-<div class="detail-notification-comment">
-    {{> comment-section user=user comments=post.comments total=post.commentsCount}}
+    {{!-------------- image-section --------------}}
+    {{> image-section imgArray=post.imagesArray}}
+    {{!-------------- attachment-section --------------}}
+    {{#if post.attachmentsArray}}
+        <div class="attached-files">
+            <h5>File đính kèm</h5>
+            <div class="attached-files-list">        
+                {{> attachment-section attachArr=post.attachmentsArray}}
+            </div>
+        </div>
+    {{/if}}
+    {{!-------------- comment-section --------------}}
+    <div class="detail-notification-comment">
+        {{> comment-section user=user comments=post.comments total=post.commentsCount}}
+    </div>
+
+    
 </div>
 
 {{!-------------- popup --------------}}

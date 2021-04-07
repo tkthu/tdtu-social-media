@@ -500,8 +500,8 @@ hr {
 }
 
 .comment-other {
-    /* display: flex; */
     margin-left: 30px;
+    margin-right: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -864,7 +864,6 @@ select {
 
 .detail-notification-body--picture {
     width: 70%;
-    height: 500px;
     margin: 2% auto;
     display: block;
 }
