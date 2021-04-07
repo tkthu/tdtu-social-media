@@ -19,20 +19,17 @@ post: { lấy được post mà
 }
 
  --}}
-<div class="notification-body-item">
-    <img src="{{{post.sender.avatarUrl}}}" alt="Img" class="main-posted__user--img">
-    <div class="notification-user">
-        <a href="/{{post.sender.id}}/posts/{{post._id}}" class="notification-body--item-title-link">
-        <h6 class="notification-body--item-title">{{{post.sender.displayName}}}</h6>
-        <p class="">
-            {{ post.name}}
-        </p>
+
+{{!-- input: post --}}
+
+<div class="notification-body--item">
+    <a href="/{{post.sender.id}}/posts/{{post._id}}" class="notification-body--item-title-link">
+    <h6 class="notification-body--item-title">
+        {{ post.name}}
+    </h6>
     </a>
-    </div>
-    <div class="notification-content">
-        <p class="notification-body--item-content">
-        {{ post.content}}
+    <p class="notification-body--item-content">
+        {{{cutDown post}}}
     </p>
-    </div>
-    <p class="notification-body--item-date">{{ post.createdAt}}</p>
+    <p class="notification-body--item-date">{{post.department.name}} | {{fromNow post.createdAt}}</p>
 </div>

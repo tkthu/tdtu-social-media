@@ -1,18 +1,15 @@
 const postNofi =  require('../models/post.model')
-const commentModel = require('../models/comment.model');
 class NotificationsController{
 
     // [GET] /
     index(req, res){      
         
-        postNofi.find({})
+        postNofi.find({department: {$ne: null}})
         .then( postsFound => {
             if (postsFound === null){
                 throw new Error('not found posts')
             }
-            var posts = postsFound.map( post => {  
-
-
+            var posts = postsFound.map( post => { 
                 return {
                     _id: post._id,
                     name: post.name,
@@ -25,12 +22,9 @@ class NotificationsController{
                     department: post.department,
                     sender: post.sender,
                 }
-
-            })
-            
+            })            
             res.render("all-notification",{user: req.user,posts});
-        })
-             
+        })             
         .catch(err => {
             return res.end("somthing went wrong ... | "+err);
         })
