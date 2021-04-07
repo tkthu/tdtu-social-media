@@ -797,10 +797,14 @@ select {
     border-radius: 20px;
 }
 
-.notification-body--item-title-link {
+.notification-body--item-title-link , .main-posted__content-title {
     text-decoration: none;
     color: var(--bg-color);
     text-transform: uppercase;
+}
+
+.main-posted__content-title{
+    text-decoration: none;
 }
 
 .notification-body--item-title {

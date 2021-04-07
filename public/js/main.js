@@ -22,7 +22,7 @@ socket.on('post-alert', data => {
       post : data.post,
     }
     const html = template(context);
-    $('#alert-section').append(html);
+    $('#alert-section').prepend(html);
   }
 })
 
