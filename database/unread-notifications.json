@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "6065f62b66786906f4e032b6"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6065f5a49770ff069c489ac2"
+  },
+  "receiverId": "51800001",
+  "title": "Lịch thi cuối kỳ HK2/20-21 dành cho sv khóa cũ - môn kết thúc sớm của khoa Dược",
+  "department": "PHÒNG ĐẠI HỌC",
+  "postCreatedAt": "2021-04-01T16:32:36.789Z"
+},{
+  "_id": {
+    "$oid": "6065f77866786906f4e032b9"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6065f5a49770ff069c489ac2"
+  },
+  "receiverId": "admin",
+  "title": "Lịch thi cuối kỳ HK2/20-21 dành cho sv khóa cũ - môn kết thúc sớm của khoa Dược",
+  "department": "PHÒNG ĐẠI HỌC",
+  "postCreatedAt": "2021-04-01T16:32:36.789Z"
+},{
+  "_id": {
+    "$oid": "6065f7c866786906f4e032bb"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6065f6a19770ff069c489ac3"
+  },
+  "receiverId": "51800001",
+  "title": "Thông tin hoãn thi dành cho sinh viên bị trùng lịch thi tiếng Anh ở HK1/20-21 với học kỳ quân đội đang học tại cơ sở Bảo Lộc & Nha Trang",
+  "department": "PHÒNG ĐẠI HỌC",
+  "postCreatedAt": "2021-04-01T16:36:49.106Z"
+}]

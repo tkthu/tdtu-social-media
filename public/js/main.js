@@ -1,23 +1,148 @@
 const socket = io();
+socket.on('post-alert', data => {
+  // hiện post
+  const postContainerElement = $('.main');
+  setupHelperHbs();
+  const template = Handlebars.compile($('#post-fb_template').html());
+  const context = {
+    post : data.post,
+    user : data.user,
+  };
+  const html = template(context);
+  postContainerElement.prepend(html);
+  postContainerElement.data(
+    'offset',
+    postContainerElement.data('offset') + 1
+  );
 
-socket.on('notifi-alert', post => {
-  var template = Handlebars.compile($('#instant-notifi').html());
-  var context = {
-    post,
+  // hiện alert
+  if(data.broadcast){
+    const template = Handlebars.compile($('#instant-notifi').html());
+    const context = {
+      post : data.post,
+    }
+    const html = template(context);
+    $('#alert-section').append(html);
   }
-  var html = template(context);
-  $('#alert-section').append(html);
 })
 
-function init() {
-  gapi.load('auth2', function() {
-    gapi.auth2.init(
-      {
-        client_id: '166513767436-l8pgm3hatt7ev99qvechpj63mgu2cttd.apps.googleusercontent.com'
+socket.on('comment', data => {
+  // hiện comment
+  const postElement = $('.detail-posted');
+  if(postElement.attr('id') == data.comment.postId){
+    setupHelperHbs();
+    const template = Handlebars.compile($('#comment_template').html());      
+    const context = {
+      comment : data.comment,
+    };
+    const html = template(context);
+    postElement.find('.other-comment-section').prepend(html);
+    postElement.data(
+      'offset',
+      postElement.data('offset') + 1
+    );
+  }
+})
+
+var loadingMorePage = false;
+if ($('.main').length){// nếu trang có class main
+  loadMorePost();
+  window.onscroll = function() {
+    const reachBottom = () => window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+    if(!loadingMorePage){
+      if(reachBottom()){
+        loadingMorePage = true;
+        loadMorePost();
       }
-    )
-  });
+    }
+    if(!reachBottom()){
+      loadingMorePage = false;
+    }
+  }
 }
+if ($('.detail-posted').length){// nếu trang có class main
+  loadMoreCmt();
+}
+
+/* ------------------- ajax load them post và comment ------------------ */
+async function loadMorePost() {
+  const postContainerElement = $('.main');
+
+  const curPostPage = postContainerElement.data('current-page');
+  const offset = postContainerElement.data('offset');
+  const pageOwner = window.location.pathname.split('/').pop();
+
+  console.log("current post page", postContainerElement.data('current-page'));
+
+  return await fetch(`/api/posts?page=${curPostPage}&user=${pageOwner}&offset=${offset}`,{
+    method : 'GET'
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// lấy n post thành công
+      closeCreatePost();
+      setupHelperHbs();
+      var template = Handlebars.compile($('#post-fb_template').html());
+      json.data.posts.forEach(post => {
+        var context = {
+          post ,
+          user : json.data.user,
+        }        
+        var html = template(context);
+        postContainerElement.append(html);
+        console.log("load thêm post ", post);     
+      });
+      postContainerElement.data('current-page', curPostPage + 1);
+    }
+    else if(json.code === 1){// hết post
+      console.log("hết post");
+    }
+  })
+  .catch(e => console.log("error ___ ",e));
+  
+}
+
+async function loadMoreCmt(){
+  const postElement = $('.detail-posted');  
+  const postId = postElement.attr('id') ;
+  const curCmtPage = postElement.data('current-page') ;
+  const offset = postElement.data('offset') ;
+
+  await fetch(`/api/post/${postId}/comments?page=${curCmtPage}&offset=${offset}`,{
+    method : 'GET'
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// lấy 10 comment thành công      
+      setupHelperHbs();      
+      var template = Handlebars.compile($('#comment_template').html());
+      
+      json.data.comments.forEach(cmt => {
+        var context = {
+          comment: cmt ,
+        }        
+        var html = template(context);
+        postElement.find('.other-comment-section').append(html);
+
+      });
+      postElement.data('current-page', curCmtPage + 1);
+      
+    }else if (json.code === 1){
+      console.log("hết comment");
+      postElement.find('.comment-readmore').hide();
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+}
+/* End of ------------ ajax load them post và comment --------------------------- */
 
 function onSignIn(googleUser) {
     const email = googleUser.getBasicProfile().getEmail();
@@ -41,7 +166,7 @@ function onSignIn(googleUser) {
         })
         .then(json => {
             if(json.code === 1){// đăng nhập email lần đầu
-              gapi.auth2.getAuthInstance().signOut();
+              signOut();
               firstTimeLogin(username,displayName,imageUrl);    
             }else if (json.code === 0){// đăng nhập thành công
               window.location.replace('/');
@@ -56,12 +181,25 @@ function onSignIn(googleUser) {
 }
 
 function signOut() {
-  window.location.replace('/logout');
-  var auth2 = gapi.auth2.getAuthInstance();  
-  auth2.signOut().then(function () {
-    console.log('User signed out.');
-    window.location.replace('/logout');   
-  });  
+  gapi.load('auth2', function() {
+    gapi.auth2.init(
+      {
+        client_id: '166513767436-l8pgm3hatt7ev99qvechpj63mgu2cttd.apps.googleusercontent.com'
+      }
+    ).then( () => {
+      var auth2 = gapi.auth2.getAuthInstance();  
+      if(auth2.isSignedIn.get()){
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+          window.location.replace('/logout');   
+        });
+      }else{
+        window.location.replace('/logout');
+      }
+    })
+  })
+  
+  
 }
 
 function firstTimeLogin(username,displayName,imageUrl) {
@@ -72,6 +210,7 @@ function firstTimeLogin(username,displayName,imageUrl) {
 }
 
 function setupHelperHbs(){
+  dayjs.extend(window.dayjs_plugin_relativeTime)
   Handlebars.registerHelper('cutDown', function(post, options) {
     if(post !== undefined && post.content !== undefined){
         var content = post.content;
@@ -86,7 +225,10 @@ function setupHelperHbs(){
   });
   Handlebars.registerHelper('inc', function(value, options){return parseInt(value) + 1;});
   Handlebars.registerHelper('fromNow', function(value, options) {
-    return "a few seconds ago"
+    if (dayjs(value).isBefore(dayjs(new Date().toISOString()),"day")){
+        return dayjs(value).format('DD/MM/YYYY');
+    }
+    return dayjs(value).fromNow();
   });
   Handlebars.registerHelper('getFileName', function(value, options) {
     return value.split('\\').pop().split('/').pop();
@@ -139,12 +281,37 @@ $('#confirm-set-pass').click(e => {
   .catch(e => console.log(e))
 })
 
-$('.comment').submit( e => {
+$('#upload-post').submit( async (e) => {
   e.preventDefault();
-  setupHelperHbs();
 
-  const postElement = $(e.target).parent('.main-posted');  
-  const postId = postElement.attr('id') ;
+  var formData = new FormData(e.target);
+  if (formData.has('chuyenmuc')){
+    formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
+  }
+  
+  await fetch("/api/post",{
+    method : 'POST',
+    body:  formData
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// đăng post thành công
+      closeCreatePost();
+      socket.emit('post-success', json.data);
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+
+})
+
+$('.comment').submit( e => {
+  e.preventDefault(); 
+
+  const postId = $('.detail-posted').attr('id') ;
 
   var formData = new FormData(e.target);
   fetch(`/api/post/${postId}/comment`,{
@@ -159,57 +326,16 @@ $('.comment').submit( e => {
   .then(json => {
     if (json.code === 0){// đăng comment thành công
       $(e.target).children('.comment--write').val('');
-      
-      var template = Handlebars.compile($('#comment_template').html());
-      
-      var context = {
-        comment : json.data.comment,
-      }
-      console.log("context ", context)
-      var html = template(context);
-      postElement.children('.other-comment-section').append(html);
+      socket.emit('comment-success', json.data);
     }
   })
   .catch(e => console.log("error ___ ",e))
 })
 
-$('#upload-post').submit(e => {
+$('.comment-readmore').click(e => {
   e.preventDefault();
-
-  var formData = new FormData(e.target);
-  if (formData.has('chuyenmuc')){
-    formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
-  }
-  
-  fetch("/api/post",{
-    method : 'POST',
-    body:  formData
-  })
-  .then(resp => {            
-    if(resp.status < 200 || resp.status >= 300)
-      throw new Error(`Request failed with status ${resp.status}`)
-    return resp.json();
-  })
-  .then(json => {
-    if (json.code === 0){// đăng post thành công
-      closeCreatePost();      
-      setupHelperHbs();
-      var template = Handlebars.compile($('#post-fb_template').html());
-      var context = {
-        post : json.data.post,
-        user : json.data.user,
-      }
-      var html = template(context);
-      $('.main').append(html);
-      if(json.data.broadcast){
-        socket.emit('post-success', json.data.post);
-      }
-    }
-  })
-  .catch(e => console.log("error ___ ",e))
-
-})
-
+  loadMoreCmt(e);
+});
 
 // --------- Chỉnh sửa profile ---------
 function uploadFileImg(target) {
@@ -285,8 +411,8 @@ function editUserProfile() {
 }
 
 function closeEditUserProfile() {
-var form = document.querySelector("#edit-profile");
-form.style.display = "none";
+  var form = document.querySelector("#edit-profile");
+  form.style.display = "none";
 }
 
 // Hiện bảng sửa nội dung bài đăng

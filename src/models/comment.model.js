@@ -5,8 +5,7 @@ const Comment = new Schema({
     _id:{ type: Schema.Types.ObjectId},
     content: { type: String},
     createdAt: { type: String, default: new Date().toISOString() },
-    lastEdited: { type: String, default: undefined },
-    imageUrl: { type: String},    
+    lastEdited: { type: String, default: undefined },  
     sender: {
         id: {type: String},
         displayName: {type: String},
