@@ -1,36 +1,51 @@
-$(document).ready( () => {
-  const socket = io();
-  socket.on('notifi-alert', post => {
-    var template = Handlebars.compile($('#instant-notifi').html());
-    var context = {
+const socket = io();
+socket.on('post-alert', data => {
+
+  // hiện post
+  const postContainerElement = $('.main');
+  closeCreatePost();      
+  setupHelperHbs();
+  const template = Handlebars.compile($('#post-fb_template').html());
+  const context = {
+    post : data.post,
+    user : data.user,
+  }
+  const html = template(context);
+  postContainerElement.prepend(html);
+  postContainerElement.data('offset',postContainerElement.data('offset') + 1);
+
+  // hiện alert
+  if(data.broadcast){
+    const template = Handlebars.compile($('#instant-notifi').html());
+    const context = {
       post,
     }
-    var html = template(context);
+    const html = template(context);
     $('#alert-section').append(html);
-  })  
+  }
 
-  var loadingMorePage = false;
-  if ($('.main').length){// nếu trang có class main
-    loadMorePost();
-    window.onscroll = function() {
-      const reachBottom = () => window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
-      if(!loadingMorePage){
-        if(reachBottom()){
-          loadingMorePage = true;
-          loadMorePost();
-        }
-      }
-      if(!reachBottom()){
-        loadingMorePage = false;
+})  
+
+var loadingMorePage = false;
+if ($('.main').length){// nếu trang có class main
+  loadMorePost();
+  window.onscroll = function() {
+    const reachBottom = () => window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+    if(!loadingMorePage){
+      if(reachBottom()){
+        loadingMorePage = true;
+        loadMorePost();
       }
     }
-
+    if(!reachBottom()){
+      loadingMorePage = false;
+    }
   }
-  if ($('.detail-posted').length){// nếu trang có class main
-    loadMoreCmt();
-  }
+}
+if ($('.detail-posted').length){// nếu trang có class main
+  loadMoreCmt();
+}
 
-})
 /* ------------------- ajax load them post và comment ------------------ */
 async function loadMorePost() {
   const postContainerElement = $('.main');
@@ -111,16 +126,6 @@ async function loadMoreCmt(){
 }
 /* End of ------------ ajax load them post và comment --------------------------- */
 
-function init() {
-  gapi.load('auth2', function() {
-    gapi.auth2.init(
-      {
-        client_id: '166513767436-l8pgm3hatt7ev99qvechpj63mgu2cttd.apps.googleusercontent.com'
-      }
-    )
-  });
-}
-
 function onSignIn(googleUser) {
     const email = googleUser.getBasicProfile().getEmail();
     const displayName = googleUser.getBasicProfile().getName();
@@ -143,7 +148,7 @@ function onSignIn(googleUser) {
         })
         .then(json => {
             if(json.code === 1){// đăng nhập email lần đầu
-              gapi.auth2.getAuthInstance().signOut();
+              signOut();
               firstTimeLogin(username,displayName,imageUrl);    
             }else if (json.code === 0){// đăng nhập thành công
               window.location.replace('/');
@@ -158,12 +163,25 @@ function onSignIn(googleUser) {
 }
 
 function signOut() {
-  window.location.replace('/logout');
-  var auth2 = gapi.auth2.getAuthInstance();  
-  auth2.signOut().then(function () {
-    console.log('User signed out.');
-    window.location.replace('/logout');   
-  });  
+  gapi.load('auth2', function() {
+    gapi.auth2.init(
+      {
+        client_id: '166513767436-l8pgm3hatt7ev99qvechpj63mgu2cttd.apps.googleusercontent.com'
+      }
+    ).then( () => {
+      var auth2 = gapi.auth2.getAuthInstance();  
+      if(auth2.isSignedIn.get()){
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+          window.location.replace('/logout');   
+        });
+      }else{
+        window.location.replace('/logout');
+      }
+    })
+  })
+  
+  
 }
 
 function firstTimeLogin(username,displayName,imageUrl) {
@@ -248,8 +266,6 @@ $('#confirm-set-pass').click(e => {
 $('#upload-post').submit( async (e) => {
   e.preventDefault();
 
-  const postContainerElement = $('.main');
-
   var formData = new FormData(e.target);
   if (formData.has('chuyenmuc')){
     formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
@@ -266,19 +282,7 @@ $('#upload-post').submit( async (e) => {
   })
   .then(json => {
     if (json.code === 0){// đăng post thành công
-      closeCreatePost();      
-      setupHelperHbs();
-      var template = Handlebars.compile($('#post-fb_template').html());
-      var context = {
-        post : json.data.post,
-        user : json.data.user,
-      }
-      var html = template(context);
-      postContainerElement.prepend(html);
-      postContainerElement.data('offset',postContainerElement.data('offset') + 1);
-      if(json.data.broadcast){
-        socket.emit('post-success', json.data.post);
-      }
+      socket.emit('post-success', json.data);
     }
   })
   .catch(e => console.log("error ___ ",e))
