@@ -139,15 +139,16 @@ class ApiController{
     }
 
     /* -------------------------------------------- */
-    // [GET] /post/:postId/comments?page=
+    // [GET] /post/:postId/comments?page=    &offset=
     getComments(req, res){
         // mỗi lần chỉ hiện thêm 4 comment có createdAt mới nhất
         const {postId} = req.params;
 
         const cmtNum = parseInt(req.query.page);
+        const offset = parseInt(req.query.offset);
         const cmtPerPost = 4;
 
-        commentModel.find({postId}).sort({createdAt: -1}).skip((cmtNum-1)*cmtPerPost).limit(cmtPerPost)
+        commentModel.find({postId}).sort({createdAt: -1}).skip(offset + (cmtNum-1)*cmtPerPost).limit(cmtPerPost)
         .then((commentArr) => {
             if(commentArr.length === 0){
                 return res.status(200).json({

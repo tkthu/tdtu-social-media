@@ -31,9 +31,9 @@ io.on('connection', socket => {
         console.log('nhận được post-success từ 1 user ', data)
     })
 
-    socket.on('comment-success', comment => {
-        io.emit('comment', comment)
-        console.log('nhận được comment-success từ 1 user ', comment)
+    socket.on('comment-success', data => {
+        io.emit('comment', data)
+        console.log('nhận được comment-success từ 1 user ', data)
     })
 })
 

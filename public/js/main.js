@@ -1,30 +1,48 @@
 const socket = io();
 socket.on('post-alert', data => {
-
   // hiện post
   const postContainerElement = $('.main');
-  closeCreatePost();      
   setupHelperHbs();
   const template = Handlebars.compile($('#post-fb_template').html());
   const context = {
     post : data.post,
     user : data.user,
-  }
+  };
   const html = template(context);
   postContainerElement.prepend(html);
-  postContainerElement.data('offset',postContainerElement.data('offset') + 1);
+  postContainerElement.data(
+    'offset',
+    postContainerElement.data('offset') + 1
+  );
 
   // hiện alert
   if(data.broadcast){
     const template = Handlebars.compile($('#instant-notifi').html());
     const context = {
-      post,
+      post : data.post,
     }
     const html = template(context);
     $('#alert-section').append(html);
   }
+})
 
-})  
+socket.on('comment', data => {
+  // hiện comment
+  const postElement = $('.detail-posted');
+  if(postElement.attr('id') == data.comment.postId){
+    setupHelperHbs();
+    const template = Handlebars.compile($('#comment_template').html());      
+    const context = {
+      comment : data.comment,
+    };
+    const html = template(context);
+    postElement.find('.other-comment-section').prepend(html);
+    postElement.data(
+      'offset',
+      postElement.data('offset') + 1
+    );
+  }
+})
 
 var loadingMorePage = false;
 if ($('.main').length){// nếu trang có class main
@@ -282,6 +300,7 @@ $('#upload-post').submit( async (e) => {
   })
   .then(json => {
     if (json.code === 0){// đăng post thành công
+      closeCreatePost();
       socket.emit('post-success', json.data);
     }
   })
@@ -290,11 +309,9 @@ $('#upload-post').submit( async (e) => {
 })
 
 $('.comment').submit( e => {
-  e.preventDefault();    
-  setupHelperHbs();
+  e.preventDefault(); 
 
-  const postElement = $(e.target).parent('.detail-notification');  
-  const postId = postElement.attr('id') ;
+  const postId = $('.detail-posted').attr('id') ;
 
   var formData = new FormData(e.target);
   fetch(`/api/post/${postId}/comment`,{
@@ -309,24 +326,7 @@ $('.comment').submit( e => {
   .then(json => {
     if (json.code === 0){// đăng comment thành công
       $(e.target).children('.comment--write').val('');
-      
-      var template = Handlebars.compile($('#comment_template').html());
-      
-      var context = {
-        comment : json.data.comment,
-      }
-      console.log("context ", context)
-      var html = template(context);
-
-      postElement.find('.other-comment-section').prepend(html);
-      postElement.find('.cmtCount').data(
-        'total-count', 
-        postElement.find('.cmtCount').data('total-count') + 1
-      )
-      postElement.find('.cmtCount').data(
-        'current-count', 
-        postElement.find('.cmtCount').data('current-count') + 1
-      )
+      socket.emit('comment-success', json.data);
     }
   })
   .catch(e => console.log("error ___ ",e))
