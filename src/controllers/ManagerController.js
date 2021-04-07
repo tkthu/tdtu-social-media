@@ -4,33 +4,38 @@ const { multipleMongooseToObject } = require('../../util/mongoose')
 const bcrypt = require('bcrypt')
 const mogoose = require('mongoose')
 
-class ManagerController{
+class ManagerController{    
 
     // [GET] /staffs
     staffsPage(req, res, next){    
         var data;
+
         Users.find({userType: "staff"})
         .then((users) => {
             req.users = users;
-            var {search} = req.query
-            data = users.filter((item) => {
-                return item.id === parseInt(search)
+            var {search, page} = req.query
+            // console.log(search, page)
+            data = multipleMongooseToObject(req.users).find((user) => {
+                var result = user.displayName.toLowerCase();
+                // if(result.indexOf(search) !== -1) {
+                //     data.push(result)
+                // }
+                // console.log(result.indexOf(search))
+                return result.indexOf(search) !== -1
             })
+            // console.log(data)
+            console.log(search)
             return Departments.find();
         })
         .then((departments) => {
-            
             res.render('admin-acc-phong-khoa', { 
                 department: multipleMongooseToObject(departments),
                 user: req.user,
                 users: multipleMongooseToObject(req.users),
-                data: data
+                users: data
             })
         })
         .catch(next);
-
-        
-
     }
 
     // [POST] /staffs
