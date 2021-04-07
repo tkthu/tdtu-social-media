@@ -1,35 +1,41 @@
 [{
   "_id": "admin",
   "username": "admin",
-  "password": "123456",
+  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
   "displayName": "Quản lý",
   "avatarUrl": "/upload/admin/TDT_logo.png",
   "createdAt": "2021-02-18T16:21:45.133Z",
-  "lastEdited": "2021-02-18T16:21:45.133Z",
+  "lastEdited": null,
   "userType": "admin"
 },{
   "_id": "NgVA256",
   "username": "NgVA256",
-  "password": "random123",
+  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
   "displayName": "Nguyễn Văn A",
   "avatarUrl": "/img/no-face.png",
   "createdAt": "2021-02-18T16:34:27.235Z",
-  "lastEdited": "2021-02-18T16:34:27.235Z",
+  "lastEdited": null,
   "staffInfo": {
     "authorized": [
-      "602e9cb11054c06b8fd7dc1e",
-      "602e9df21054c06b8fd7dc1f"
+      {
+        "id": "602e9cb11054c06b8fd7dc1e",
+        "name": "PHÒNG CTHSSV"
+      },
+      {
+        "id": "602e9df21054c06b8fd7dc1f",
+        "name": "PHÒNG ĐẠI HỌC"
+      }
     ]
   },
   "userType": "staff"
 },{
   "_id": "51800001",
   "username": "51800001",
-  "password": "B123",
+  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
   "displayName": "Trần Thị B",
   "avatarUrl": "/upload/51800001/TrThB_avatar.jpg",
   "createdAt": "2021-02-18T17:42:45.674Z",
-  "lastEdited": "2021-02-18T17:42:45.674Z",
+  "lastEdited": null,
   "studentInfo": {
     "class": "18050202",
     "faculty": "Công nghệ thông tin"
@@ -37,14 +43,17 @@
   "userType": "student"
 },{
   "_id": "51800816",
+  "staffInfo": {
+    "authorized": []
+  },
   "avatarUrl": "https://lh6.googleusercontent.com/-dX5rmv_O1wo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmbxRoBVA27aUyS7WZpzUX9I4TEtw/s96-c/photo.jpg",
-  "createdAt": "2021-02-23T11:03:40.862Z",
-  "lastEdited": "2021-02-23T11:03:40.862Z",
+  "createdAt": "2021-03-24T12:59:31.592Z",
+  "userType": "student",
   "username": "51800816",
-  "password": "[passHolder]",
+  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
   "displayName": "Thái Kim Thư",
-  "__v": 0,
-  "userType": "student"
+  "lastEdited": "2021-03-24T12:59:31.592Z",
+  "__v": 0
 },{
   "_id": "51801005",
   "staffInfo": {
@@ -55,7 +64,7 @@
   "lastEdited": "2021-03-14T16:08:17.919Z",
   "userType": "student",
   "username": "51801005",
-  "password": "123456",
+  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
   "displayName": "Trần Ngọc Phương Nhi",
   "__v": 0
 },{
