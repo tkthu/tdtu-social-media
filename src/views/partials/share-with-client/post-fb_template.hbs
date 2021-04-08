@@ -31,7 +31,7 @@
                 <h6 class="main-posted__user--name">\{{{post.sender.displayName}}}</h6>
                 <p class="main-posted__user--name-date">
                     \{{#if post.lastEdited}}
-                    \{{fromNow post.lastEdited}} (edited)
+                    \{{fromNow post.createdAt}} ( \{{fromNow post.lastEdited}} edited)
                     \{{else}}
                     \{{fromNow post.createdAt}}
                     \{{/if}}            

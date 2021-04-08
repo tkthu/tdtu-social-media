@@ -40,12 +40,6 @@ class ManagerController{
 
     // [POST] /staffs
     staffsAdd(req, res, next){
-        var imagesArray = undefined;
-        if(req.files.image !== undefined) {
-            imagesArray = req.files.image.map( fi => {
-                return fi.path.replace("public","");
-            })
-        }
         var authorized = []
         var obj, temp;
         if(Array.isArray(req.body.chuyenmuc)) {

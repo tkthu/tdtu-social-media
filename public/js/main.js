@@ -226,7 +226,7 @@ function setupHelperHbs(){
   Handlebars.registerHelper('inc', function(value, options){return parseInt(value) + 1;});
   Handlebars.registerHelper('fromNow', function(value, options) {
     if (dayjs(value).isBefore(dayjs(new Date().toISOString()),"day")){
-        return dayjs(value).format('DD/MM/YYYY');
+      return dayjs(value).format('DD/MM/YYYY HH:mm');
     }
     return dayjs(value).fromNow();
   });

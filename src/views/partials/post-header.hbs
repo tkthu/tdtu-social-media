@@ -20,10 +20,10 @@
         <h6 class="main-posted__user--name">{{{post.sender.displayName}}}</h6>
         <p class="main-posted__user--name-date">
             {{#if post.lastEdited}}
-            {{fromNow post.lastEdited}} (edited)
+            {{fromNow post.createdAt}} ( {{fromNow post.lastEdited}} edited)
             {{else}}
             {{fromNow post.createdAt}}
-            {{/if}}            
+            {{/if}}          
         </p>
     </div>
     {{#ifEquals post.sender.id postOwnerId}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)-->

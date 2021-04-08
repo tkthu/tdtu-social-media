@@ -23,11 +23,11 @@
         <div class="comment-other__reply-and-time">
             <a href="#" class="comment-other__reply">Trả lời</a>
             <span class="comment-other__reply-time">.
-                \{{#if comment.lastEdited}}
-                \{{fromNow comment.lastEdited}} (edited)
+                \{{#if post.lastEdited}}
+                \{{fromNow post.createdAt}} ( \{{fromNow post.lastEdited}} edited)
                 \{{else}}
-                \{{fromNow comment.createdAt}}
-                \{{/if}}   
+                \{{fromNow post.createdAt}}
+                \{{/if}} 
             </span>
         </div>
     </div>

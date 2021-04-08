@@ -22,7 +22,7 @@ const hbs = exphbs.create({
         },
         fromNow: function(value, options) {
             if (dayjs(value).isBefore(dayjs(new Date().toISOString()),"day")){
-                return dayjs(value).format('DD/MM/YYYY');
+                return dayjs(value).format('DD/MM/YYYY HH:mm');
             }
             return dayjs(value).fromNow();
         },
