@@ -74,7 +74,8 @@ class ManagerController{
         }
 
         new Users(addStaff).save()
-        .then((resultAdd) => {
+        .then((resultAdd) => {// cái này . bà ko cần hiện json lên. bà redirect về /manager/staffs là được rồi
+            // khi nào dùng ajax bà mới cần trả vầ json
             return res.status(200).json({
                 code:0,
                 msg:'Thêm staff thành công',
@@ -88,18 +89,6 @@ class ManagerController{
                 msg:'Thêm mới staff thất bại với lỗi ' + err,
             });
         })
-    }
- 
-    // [GET] /students
-    studentsPage(req, res, next){       
-        Users.find({userType: "student"})  // Tìm user với userType là "student"
-        .then((users) => {            
-            res.render('admin-acc-student', {
-                user: req.user,
-                users: multipleMongooseToObject(users)
-            });
-        })
-        .catch(next);
     }
 
 }

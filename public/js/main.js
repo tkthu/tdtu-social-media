@@ -198,8 +198,6 @@ function signOut() {
       }
     })
   })
-  
-  
 }
 
 function firstTimeLogin(username,displayName,imageUrl) {
