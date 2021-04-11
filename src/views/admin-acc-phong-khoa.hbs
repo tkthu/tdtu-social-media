@@ -82,25 +82,47 @@
         </table>
         <div class="table-pagination">
             {{!-- <p>Showing 1 to 10 of 27</p> --}}
+            {{#if pages}}
             <nav id="pagination">
                 <ul class="pagination">
-                    <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only"></span>
-                    </a>
+                    {{#ifEquals 1 1}}
+                    <li class="page-item disable" name="page">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only"></span>
+                        </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only"></span>
-                    </a>
+                    {{else}}
+                    <li class="page-item" name="page">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only"></span>
+                        </a>
                     </li>
+                    {{/ifEquals}}
+                    {{#for current pages}}
+                        <li class="page-item">
+                            <a class="page-link" href="/manager/staffs?page={{current}}" name="page">{{current}}</a>
+                        </li>
+                    {{/for}}
+                    {{#ifEquals current pages}}
+                    <li class="page-item disable">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    {{else}}
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    {{/ifEquals}}
                 </ul>
             </nav>
+            {{/if}}
         </div>
     </form>
 </div>

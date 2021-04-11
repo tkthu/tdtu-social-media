@@ -38,6 +38,18 @@ const hbs = exphbs.create({
             return "";
             
         },
+        for: function(current,pages, options) {
+            var ret = "";
+            var i = (Number(current) > 3 ? Number(current) - 2 : 1);
+            for(i; i <= (Number(current) + 2) && i <= pages; i++) {
+                ret = ret + options.fn(current[i]);
+                if(current == i) {
+                    ret = i
+                }
+            }
+            return ret;
+        },
+
     }
 });
 

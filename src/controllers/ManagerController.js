@@ -8,32 +8,29 @@ class ManagerController{
 
     // [GET] /staffs
     staffsPage(req, res, next){    
-        var data;
+        let search = req.query.search ? {$regex:req.query.search} : {$ne: null};
+        let page = parseInt(req.query.page);
+        let perPage = 10;
 
-        Users.find({userType: "staff"})
+        Users.find({userType: "staff", username: search})
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
         .then((users) => {
             req.users = users;
-            var {search, page} = req.query
-            // console.log(search, page)
-            data = multipleMongooseToObject(req.users).find((user) => {
-                var result = user.displayName.toLowerCase();
-                // if(result.indexOf(search) !== -1) {
-                //     data.push(result)
-                // }
-                // console.log(result.indexOf(search))
-                return result.indexOf(search) !== -1
-            })
-            // console.log(data)
-            console.log(search)
             return Departments.find();
         })
         .then((departments) => {
-            res.render('admin-acc-phong-khoa', { 
-                department: multipleMongooseToObject(departments),
-                user: req.user,
-                users: multipleMongooseToObject(req.users),
-                users: data
+            Users.countDocuments((err, count) => {
+                if(err) return next(err);
+                res.render('admin-acc-phong-khoa', { 
+                    department: multipleMongooseToObject(departments),
+                    user: req.user,
+                    users: multipleMongooseToObject(req.users),
+                    current: page,
+                    pages: Math.ceil(count / perPage)
+                })
             })
+            
         })
         .catch(next);
     }
@@ -74,15 +71,8 @@ class ManagerController{
         }
 
         new Users(addStaff).save()
-        .then((resultAdd) => {// cái này . bà ko cần hiện json lên. bà redirect về /manager/staffs là được rồi
-            // khi nào dùng ajax bà mới cần trả vầ json
-            return res.status(200).json({
-                code:0,
-                msg:'Thêm staff thành công',
-                data: {
-                    addStaff
-                }
-            });
+        .then((resultAdd) => {
+            res.redirect('/manager/staffs')
         })
         .catch(err => {
             return res.status(500).json({
