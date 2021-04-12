@@ -5,7 +5,7 @@ const {upload} = require('../util/middlewares/fileUpload')
 const apiController = require('../src/controllers/ApiController');
 
 router.get('/posts', apiController.getPosts);// lấy nhiều post
-// router.get('/post/:postId',apiController.test);// lấy 1 post
+router.get('/post/:postId',apiController.getOnePost);// lấy 1 post
 router.post('/post', upload.fields([{name:"fileImg"},{name:'file'}]), apiController.addPost);// thêm post
 router.delete('/post/:postId',apiController.delPost)// xóa post
 

@@ -409,23 +409,37 @@ function editUserProfile() {
   //TODO: fetch user rồi hiện lên popup
 }
 
+//============================ Post =====================================
 // Hiện bảng sửa nội dung bài đăng
-function editContentPosted() {
+function editContentPosted(target) {
     var form = document.querySelector("#edit-content");
     form.style.display = "block";
 
-    //TODO: fetch post rồi hiện lên popup
+    const postId = $(target).data('item-id');
+    fetch(`/api/post/${postId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 post thành công
+        const post = json.data.post
+        $('.edit-content__body--edit-content-input').html(post.content);
+      }
+    })
+    .catch(e => console.log("error ___ ",e));
 }
 
 // Hiện bảng tạo bài viết
 function createPost() {
   var form = document.querySelector("#upload-post");
   form.style.display = "block";
-  //TODO: clear input
+  form.reset();
 }
-
-
-
+//============================ Xóa =====================================
 // Hiện popup có chắc muốn xóa
 function delConfirm(target) {
   $('#confirm-del').modal('show');

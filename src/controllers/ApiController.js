@@ -8,7 +8,7 @@ const {unlink}  = require('fs/promises')
 
 const mogoose = require('mongoose')
 
-const {multipleMongooseToObject} = require('../../util/mongoose')
+const {multipleMongooseToObject, mongooseToObject} = require('../../util/mongoose')
 
 //TODO: rename post name thành title
 
@@ -39,7 +39,7 @@ class ApiController{
 
             return res.status(200).json({
                 code:0,
-                msg:`lấy ${postPerPage} comment thành công`,
+                msg:`lấy ${postPerPage} post thành công`,
                 data: {
                     posts,
                     user: req.user,       
@@ -50,6 +50,34 @@ class ApiController{
         .catch(err => {
             return res.status(500).json({
                 msg:'lấy 10 post thất bại với lỗi ' + err,
+            });
+        })
+        
+    }
+    // [GET] /post/:postId
+    getOnePost(req, res){
+        // mỗi lần chỉ hiện 10 bài có createdAt mới nhất
+        const {postId} = req.params;
+
+        postModel.findOne({_id: postId})
+        .then(postFound => {
+            if (postFound === null){
+                throw new Error('not found post');
+            }
+            return res.status(200).json({
+                code:0,
+                msg:`lấy post thành công`,
+                data: {
+                    post : mongooseToObject(postFound),
+                    user: req.user,
+                }
+            });
+
+        })
+        .catch(err => {
+            console.log("errer ", err)
+            return res.status(500).json({
+                msg:'lấy post thất bại với lỗi ' + err,
             });
         })
         
