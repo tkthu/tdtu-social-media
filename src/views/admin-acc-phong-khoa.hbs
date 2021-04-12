@@ -27,7 +27,7 @@
         <h6>Thông tin tài khoản phòng/khoa</h6>
         <div class="admin-body__table--show">
             <input id="search" name="search" type="text" placeholder="Tìm kiếm" onkeyup="myFunction()">
-            <a class="admin-body__table-search--link" href="">
+            <a class="admin-body__table-search--link" href="#">
                 <img class="admin-body__table-search--loupe" src="/img/loupe.png" alt="loupe.png">
             </a>
         </div>
@@ -82,47 +82,13 @@
         </table>
         <div class="table-pagination">
             {{!-- <p>Showing 1 to 10 of 27</p> --}}
-            {{#if pages}}
             <nav id="pagination">
                 <ul class="pagination">
-                    {{#ifEquals 1 1}}
-                    <li class="page-item disable" name="page">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>
-                    {{else}}
-                    <li class="page-item" name="page">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>
-                    {{/ifEquals}}
-                    {{#for current pages}}
-                        <li class="page-item">
-                            <a class="page-link" href="/manager/staffs?page={{current}}" name="page">{{current}}</a>
-                        </li>
-                    {{/for}}
-                    {{#ifEquals current pages}}
-                    <li class="page-item disable">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>
-                    {{else}}
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only"></span>
-                        </a>
-                    </li>
-                    {{/ifEquals}}
+                    {{#pagination current pages otherQuery}}
+                    <li class="page-item">{{{this.aTagHTML}}}</li>
+                    {{/pagination}}
                 </ul>
             </nav>
-            {{/if}}
         </div>
     </form>
 </div>

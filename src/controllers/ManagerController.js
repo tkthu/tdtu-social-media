@@ -26,8 +26,9 @@ class ManagerController{
                     department: multipleMongooseToObject(departments),
                     user: req.user,
                     users: multipleMongooseToObject(req.users),
-                    current: page,
-                    pages: Math.ceil(count / perPage)
+                    current: page ? page : 1,
+                    pages: Math.ceil(count / perPage),
+                    otherQuery: `search=${ search ? search : "" }`
                 })
             })
             
