@@ -44,6 +44,21 @@ socket.on('comment', data => {
   }
 })
 
+socket.on('deleted-post', data => {
+  if($(`.detail-posted`).length){// đang ở trang chi tiết thông báo
+    alert('post này đã bị xóa');
+    window.location.replace("/");
+  }else if ($(`.main`).length){// đang ở trang nhà hoặc chủ
+    $(`#${data.postId}`).remove();
+    //update offset
+    const postContainerElement = $('.main');
+    postContainerElement.data(
+    'offset',
+    postContainerElement.data('offset') - 1
+    );
+  }
+})
+
 var loadingMorePage = false;
 if ($('.main').length){// nếu trang có class main
   loadMorePost();
@@ -279,7 +294,7 @@ $('#confirm-set-pass').click(e => {
   .catch(e => console.log(e))
 })
 
-$('#upload-post').submit( async (e) => {
+$('#upload-post').submit( (e) => {
   e.preventDefault();
 
   var formData = new FormData(e.target);
@@ -287,7 +302,7 @@ $('#upload-post').submit( async (e) => {
     formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
   }
   
-  await fetch("/api/post",{
+  fetch("/api/post",{
     method : 'POST',
     body:  formData
   })
@@ -374,31 +389,15 @@ function uploadAddImg(target) {
 // Hiện bảng tạo thêm tài khoản phòng khoa
 function addAccountDepartments() {
   var x = document.querySelector("#add-account");
-  if (x.style.display === "none") {
     x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
-// Hiện bảng sửa thông tin sinh viên
-function editInfoStudent() {
-    var x = document.querySelector("#edit-info");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
 }
 
 // Hiện bảng sửa thông tin phòng/khoa
 function editInfoPhongKhoa() {
     var x = document.querySelector("#edit-info-phongKhoa");
-    if (x.style.display === "none") {
       x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+
+      //TODO: fetch user rồi hiện lên popup
 
 }
 
@@ -406,22 +405,16 @@ function editInfoPhongKhoa() {
 function editUserProfile() {
   var form = document.querySelector("#edit-profile");
   form.style.display = "block";
-}
 
-function closeEditUserProfile() {
-  var form = document.querySelector("#edit-profile");
-  form.style.display = "none";
+  //TODO: fetch user rồi hiện lên popup
 }
 
 // Hiện bảng sửa nội dung bài đăng
 function editContentPosted() {
     var form = document.querySelector("#edit-content");
     form.style.display = "block";
-}
 
-function closeEditContentPosted() {
-  var form = document.querySelector("#edit-content");
-  form.style.display = "none";
+    //TODO: fetch post rồi hiện lên popup
 }
 
 // Hiện bảng tạo bài viết
@@ -431,41 +424,65 @@ function createPost() {
   //TODO: clear input
 }
 
-function closeCreatePost() {
-  var form = document.querySelector("#upload-post");
-  form.style.display = "none";
 
-}
 
-// Hiện bảng có chắc muốn xóa
-function delConfirm() {
+// Hiện popup có chắc muốn xóa
+function delConfirm(target) {
   $('#confirm-del').modal('show');
+  $('#del-item-name').html($(target).data("item-name"));
+  $('.btn-confirm-del').data('item-id', $(target).data("item-id"));
+  $('.btn-confirm-del').data('item-type', $(target).data("item-type"));
 }
 
+$('.btn-confirm-del').click( e => {
+  //TODO: delete item
+  $('#confirm-del').modal('hide');
+
+  const itemType = $(e.target).data('item-type');
+  const itemId = $(e.target).data('item-id');
+  if( itemType == "post" ){//xóa post
+    deletePost(itemId);
+  }
+})
+
+function deletePost(postId){
+  fetch(`/api/post/${postId}`,{
+    method : 'DELETE',
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// xóa post thành công
+      socket.emit('delete-post-success', json.data);
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+}
 //============= Tắt bảng sửa thông tin, bài viết ======================
 function closeInfoPhongKhoa() {
   var x = document.querySelector("#edit-info-phongKhoa");
-  if (x.style.display === "block") {
     x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-
-function closeInfoStudent() {
-  var x = document.querySelector("#edit-info");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
 }
 
 function closeAddAccount() {
   var x = document.querySelector("#add-account");
-  if (x.style.display === "block") {
     x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
+}
+
+function closeCreatePost() {
+  var form = document.querySelector("#upload-post");
+  form.style.display = "none";
+}
+
+function closeEditContentPosted() {
+  var form = document.querySelector("#edit-content");
+  form.style.display = "none";
+}
+
+function closeEditUserProfile() {
+  var form = document.querySelector("#edit-profile");
+  form.style.display = "none";
 }

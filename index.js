@@ -35,6 +35,11 @@ io.on('connection', socket => {
         io.emit('comment', data)
         console.log('nhận được comment-success từ 1 user ', data)
     })
+
+    socket.on('delete-post-success', data => {
+        io.emit('deleted-post', data)
+        console.log('nhận được kết quả xóa post từ 1 user', data)
+    })
 })
 
 route(app);

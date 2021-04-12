@@ -4,6 +4,8 @@ const commentModel = require('../models/comment.model');
 const unreadNotifiModel = require('../models/unreadNotifi.model');
 const userModel = require('../models/user.model');
 
+const {unlink}  = require('fs/promises')
+
 const mogoose = require('mongoose')
 
 const {multipleMongooseToObject} = require('../../util/mongoose')
@@ -126,15 +128,56 @@ class ApiController{
 
     // [DELETE] /post/:postId
     delPost(req, res){   
-        //TODO: kiểm tra user này có quyền xóa post này ko
-        //TODO: xóa luôn attachment
-
-        var post = {};
-        return res.status(200).json({
-            code:0,
-            msg:'xóa post thành công',
-            data: post
-        });
+        //TODO: xóa notificaition     
+        const {postId} = req.params;
+        postModel.findOne({_id: postId})
+        .then(postFound => {
+            console.log('postFound ',postFound)
+            if(postFound == null){
+                return res.status(500).json({
+                    msg:'không tìm thấy post',
+                });
+            }
+            // kiểm tra user này có quyền xóa post này ko
+            if (postFound.sender.id != req.user.username){
+                return res.status(403).json({
+                    msg:'bạn không có quyền xóa post này',
+                });
+            }
+            
+            // xóa hết attachment
+            var promises = [];
+            postFound.imagesArray.forEach(imageLink => {
+                promises.push(unlink(`.\\public${imageLink}`));
+            });
+            return Promise.all(promises);       
+        })
+        .then(() => {// đã xóa hết attchment
+            return postModel.deleteOne({_id: postId});            
+        })
+        .then(() => {// đã xóa post
+            return commentModel.deleteMany({postId})
+        })
+        .then( () => {// xóa hết unread-notifications
+            //TODO: xóa unread-notifications hiện tại. (nên là trigger)
+            return unreadNotifiModel.deleteMany({postId})// không cần đợi    
+        })
+        .then(() => {// đã xóa hết comment
+            return res.status(200).json({
+                code:0,
+                msg:'xóa post thành công',
+                data: {
+                    postId,
+                }
+            });
+        })
+        .catch(err => {
+            console.log("err ",err)
+            return res.status(500).json({
+                msg:'xóa post thất bại với lỗi ' + err,
+            });
+        })
+        
 
     }
 
@@ -178,9 +221,7 @@ class ApiController{
     }
 
     // [POST] /post/:postId/comment
-    addComment(req, res){        
-        //TODO: đăng hình
-
+    addComment(req, res){
         const {postId} = req.params;
         postModel.findById(postId)
         .then((postFound)=>{

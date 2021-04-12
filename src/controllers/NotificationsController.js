@@ -26,7 +26,7 @@ class NotificationsController{
             res.render("all-notification",{user: req.user,posts});
         })             
         .catch(err => {
-            return res.end("somthing went wrong ... | "+err);
+            return res.render('error-page', { user: req.user, errorMsg: `${err}`} );
         })
         
     }

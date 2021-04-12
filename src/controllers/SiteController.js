@@ -20,7 +20,7 @@ class SiteController{
             return res.render("home",{user: req.user, unreadNotifis: req.unreadNotifis});
         })    
         .catch(err => {
-            return res.end("somthing went wrong ... | "+err);
+            return res.render('error-page', { user: req.user, errorMsg: `${err}`} );
         })
     }
 
@@ -30,7 +30,7 @@ class SiteController{
         userModel.findById(userId)
         .then((userFound) => {
             if (userFound == null) {// không tìm thấy user  
-                throw new Error('not found user')
+                throw new Error('user không tồn tại hoặc đã bị xóa.')
             }
             const pageOwner = {
                 username: userFound.username,
@@ -42,7 +42,7 @@ class SiteController{
             
         })
         .catch(err => {
-            return res.end("somthing went wrong ... | "+err);
+            return res.render('error-page', { user: req.user, errorMsg: `${err}`} );
         }) 
         
     }
@@ -58,7 +58,7 @@ class SiteController{
         })
         .then((postFound)=>{
             if (postFound === null) {// không tìm thấy post           
-                throw new Error('not found post')
+                throw new Error('post không tồn tại hoặc đã bị xóa.')
             }
 
             //delete unread-notifications // không cần đợi
@@ -71,7 +71,7 @@ class SiteController{
             return res.render("detail-notification",{user: req.user,post}); 
         })
         .catch(err => {
-            return res.end("somthing went wrong ... | "+err);
+            return res.render('error-page', { user: req.user, errorMsg: `${err}`} );
         }) 
     
         

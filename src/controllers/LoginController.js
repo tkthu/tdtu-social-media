@@ -61,7 +61,7 @@ class LoginController{
             return res.redirect(303,'/');
         })
         .catch(err => {
-            return res.end("somthing went wrong ... | " + err);
+            return res.render('error-page', { user: req.user, errorMsg: `${err}`} );
         }) 
         
     }

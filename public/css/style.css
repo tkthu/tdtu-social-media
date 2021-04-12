@@ -25,6 +25,16 @@ body {
     background-color: var(--bg-color);
 }
 
+#error-message{
+    text-align: center;
+    padding: 5%;
+    border-radius: 30px;
+    background-color: var(--white-color);
+}
+
+.sad-face-img{
+    width: 10vh;
+}
 /*====================== Login page ======================*/
 .login-background {
     background-image: url(../img/Toàn\ cảnh\ TDTU.png);
@@ -61,6 +71,8 @@ body {
     position: relative;
     margin: auto;
 }
+
+
 
 .login-form {
     width: 500px;
@@ -172,10 +184,6 @@ body {
     color: var(--text-color);
 }
 
-/* .not-admin {
-    display: none;
-} */
-
 .sidebar-navbar__phong-khoa,
 .sidebar-navbar__admin p,
 .sidebar-navbar__admin--item {
@@ -214,10 +222,6 @@ body {
 }
 
 
-/* .sidebar-navbar__btn--close, .sidebar-navbar__btn--open {
-    text-decoration: none;
-} */
-
 .fa-bars {
     font-size: 36px;
     color: var(--white-color);
@@ -227,16 +231,6 @@ body {
     /* display: none; */
 }
 
-/* .sidebar-navbar__btn--close-img{
-    transform: rotate(180deg);
-    margin-left: 300px;
-}
-
-.sidebar-navbar__btn--close-img, 
-.sidebar-navbar__btn--open-img {
-    width: 40px;
-    height: 40px;
-} */
 
 /* ------ Header ------ */
 .header {

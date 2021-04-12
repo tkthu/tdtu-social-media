@@ -26,9 +26,9 @@
     <div class="main-posted" id="\{{post._id}}">
         {{!-------------- post-header --------------}}
         <div class="main-posted__user">
-            <img src="\{{{post.sender.avatarUrl}}}" alt="Img" class="main-posted__user--img">
+            <img src="\{{post.sender.avatarUrl}}" alt="Img" class="main-posted__user--img">
             <div class="main-posted__user-info">
-                <h6 class="main-posted__user--name">\{{{post.sender.displayName}}}</h6>
+                <h6 class="main-posted__user--name">\{{post.sender.displayName}}</h6>
                 <p class="main-posted__user--name-date">
                     \{{#if post.lastEdited}}
                     \{{fromNow post.createdAt}} ( \{{fromNow post.lastEdited}} edited)
@@ -38,20 +38,20 @@
                 </p>
             </div>
             \{{#ifEquals post.sender.id user.username}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)-->
-            <div class="main-posted__user--edit-and-delete">
-                <a href="#" class="main-posted__user--edit-link" onclick="editContentPosted()">
-                    <img src="/img/edit.png" alt="edit.png" class="main-posted__user--edit">
-                </a>
-                <a href="#" class="main-posted__user--delete-link" onclick="delConfirm()" >
-                    <img src="/img/trash.png" alt="trash.png" class="main-posted__user--delete">
-                </a>
-            </div>
+                <div class="main-posted__user--edit-and-delete">
+                    <a href="#" class="main-posted__user--edit-link" onclick="editContentPosted()">
+                        <img src="/img/edit.png" alt="edit.png" class="main-posted__user--edit">
+                    </a>
+                    <a href="#" class="main-posted__user--delete-link" data-item-name="\{{post.name}}" data-item-id="\{{post._id}}" data-item-type="post" onclick="delConfirm(this)" >
+                        <img src="/img/trash.png" alt="trash.png" class="main-posted__user--delete">
+                    </a>
+                </div>
             \{{/ifEquals}}  
         </div>
 
         {{!-------------- post-content --------------}}
         <div class="main-posted__content">
-            <h5><a href="/\{{post.sender.id}}/posts/\{{post._id}}" class="main-posted__content-title">\{{{post.name}}}</a></h5>
+            <h5><a href="/\{{post.sender.id}}/posts/\{{post._id}}" class="main-posted__content-title">\{{post.name}}</a></h5>
             
             <p class="detail-notification--dpment">
                 \{{{post.department.name}}}
