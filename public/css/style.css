@@ -1449,15 +1449,17 @@ select {
 
 .admin-body__table--show {
     margin: 0 30px;
+    text-align: center;
 }
 
-.admin-body__table--show input {
+.admin-body__table--show input:nth-child(1) {
     width: 300px;
+    height: 36px;
     outline: none;
     border-radius: 30px;
     border: none;
     padding: 3px 20px;
-    margin-left: 400px;
+
 }
 
 .user-name,
@@ -1646,10 +1648,10 @@ select {
         margin-left: 80px;
     }
 
-    .admin-body__table--show input {
+    /* .admin-body__table--show input {
         width: 300px;
         margin-left: 200px;
-    }
+    } */
 
     .edit, .create-post,
     .add-account {
@@ -2027,10 +2029,10 @@ select {
 }
 
 @media (max-width: 1044px) {
-    .admin-body__table--show input {
+    /* .admin-body__table--show input {
         margin-left: 200px;
         width: 250px;
-    }
+    } */
 
     .admin-body__table-search--link {
         left: -40px;
@@ -2084,6 +2086,10 @@ select {
 
     .btn {
         margin: 20px 0 0 100px;
+    }
+
+    .admin-body__table--show input:nth-child(2) {
+        margin: 0;
     }
 
     .login-with__google {
@@ -2181,10 +2187,10 @@ select {
         margin-right: 0px;
     }
 
-    .admin-body__table--show input {
+    /* .admin-body__table--show input {
         width: 200px;
         margin-left: 200px;
-    }
+    } */
 
     .edit, .create-post,
     .add-account {
@@ -2481,9 +2487,9 @@ select {
         width: 550px;
     }
 
-    .admin-body__table--show input {
+    /* .admin-body__table--show input {
         margin-left: 100px;
-    }
+    } */
 
     .header-nav {
         margin-right: 0px;
@@ -2810,6 +2816,10 @@ select {
         margin: 0;
     }
 
+    .admin-body__table--show input:nth-child(1) {
+        margin-bottom: 10px;
+    }
+
     .login-with__google {
         margin: 30px 0 0 140px;
     }
@@ -2824,9 +2834,9 @@ select {
         width: 480px;
     }
 
-    .admin-body__table--show input {
+    /* .admin-body__table--show input {
         margin-left: 50px;
-    }
+    } */
 
     .sidebar-navbar__admin--block {
         left: 200px;
