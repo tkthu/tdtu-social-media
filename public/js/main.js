@@ -359,6 +359,8 @@ function uploadNewImage(target) {
 }
 
 function uploadNewFile(target) {
+  console.log("target.files ",target.files)
+  console.log("target ",target)
     document.querySelector(".upload-post__body--create-file-input").innerHTML = target.files[0].name;
 }
 
