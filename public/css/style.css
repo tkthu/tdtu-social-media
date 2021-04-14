@@ -24,6 +24,10 @@ html {
 body {
     background-color: var(--bg-color);
 }
+.custom-file-container {
+    width: 60%;
+    margin: 0 auto;
+}
 
 #error-message{
     text-align: center;
@@ -977,6 +981,8 @@ select {
     background-color: var(--bg-color);
     border: 3px solid var(--red-color);
     width: 65%;
+    height: 80%;
+    overflow-y:scroll;
     padding-bottom: 30px;
     border-radius: 20px;
     margin: 0 auto;
@@ -1058,24 +1064,6 @@ select {
     margin-bottom: 20px;
 }
 
-/* .edit-content__body--edit div::after {
-    content: "\25BC";
-    display: block;
-    position: absolute;
-    top: 168px;
-    right: 130px;
-    color: var(--bg-color);
-} */
-
-/* .upload-post__body--create div::after {
-    content: "\25BC";
-    display: block;
-    position: absolute;
-    top: 430px;
-    right: 130px;
-    color: var(--bg-color);
-} */
-
 .edit-profile__body--edit-name,
 .edit-profile__body--edit-khoa,
 .edit-profile__body--edit-lop,
@@ -1092,7 +1080,6 @@ select {
 .upload-post__body--create-chuyenmuc,
 .upload-post__body--create-file,
 .upload-post__body--create-video,
-.upload-post__body--create-background,
 .edit-content__body--edit-file,
 .edit-info__body--edit-account,
 .edit-info__body--edit-password,
@@ -1117,7 +1104,6 @@ select {
 .upload-post__body--create-chuyenmuc,
 .upload-post__body--create-file,
 .upload-post__body--create-video,
-.upload-post__body--create-background,
 .edit-content__body--edit-file {
     margin-left: 10%;
 }
