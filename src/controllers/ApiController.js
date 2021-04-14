@@ -57,15 +57,18 @@ class ApiController{
     addPost(req, res){        
         var imagesArray = undefined;
         var attachmentsArray = undefined;
-        if(req.files.fileImg !== undefined){
-            imagesArray = req.files.fileImg.map( fi => {
-                return fi.path.replace("public","");
-            })
-        }
         if(req.files.file !== undefined){
-            attachmentsArray = req.files.file.map( fi => {
+            imagesArray = req.files.attachmentFile
+            .filter(fi => fi.mimetype.startsWith('image/') )
+            .map( fi => {
                 return fi.path.replace("public","");
-            })
+            });
+
+            attachmentsArray = req.files.attachmentFile
+            .filter(fi => !fi.mimetype.startsWith('image/') )
+            .map( fi => {
+                return fi.path.replace("public","");
+            });
         }        
 
         const post = {
@@ -84,6 +87,7 @@ class ApiController{
             },
             imagesArray,
             attachmentsArray,
+            videoIdArray : req.body.videoId
         }
 
         new postModel(post).save()

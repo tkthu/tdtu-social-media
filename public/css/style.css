@@ -987,6 +987,9 @@ select {
     margin: 5px;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
 
 #edit-profile,
 #edit-content,
@@ -1010,10 +1013,13 @@ select {
     background-color: var(--bg-color);
     border: 3px solid var(--red-color);
     width: 65%;
+    max-height: 80%;
     padding-bottom: 30px;
     border-radius: 20px;
     margin: 0 auto;
     margin-top: 20px;
+
+    overflow-y: auto;
 }
 
 .edit-content {

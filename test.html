@@ -1,4 +1,5 @@
-<div class="input-file-feild">
-    <input type="file" name="attachmentFile" style="color:white" />
-    <span onclick="removeParent(this)" style="color:white" >&times;</span>
+<div class="input-video-field">
+    <iframe src="https://www.youtube.com/embed/${videoId}"></iframe>
+    <input type="hidden" name="videoId" value="${videoId}">
+    <span onclick="removeParent(this)" style="color:white; vertical-align: top;" class="pointer" >&times;</span>
 </div>

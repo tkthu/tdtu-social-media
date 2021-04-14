@@ -4,8 +4,8 @@ const fs = require('fs');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         
-        console.log("multer file  ", file )
-        console.log("multer req.body ", req.body)
+        // console.log("multer file  ", file )
+        // console.log("multer req.body ", req.body)
         const {userId} = req.body;
         const dir = `./public/upload/${userId}`;
 

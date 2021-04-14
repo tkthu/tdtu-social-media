@@ -282,10 +282,21 @@ $('#confirm-set-pass').click(e => {
 $('#upload-post').submit( async (e) => {
   e.preventDefault();
 
+  //TODO: kiểm tra validate
   var formData = new FormData(e.target);
+  if (formData.get('title').trim() == ""){
+    alert('post phải có tiêu đề')
+    return false;
+  }
   if (formData.has('chuyenmuc')){
     formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
   }
+
+  console.log("formData")
+  for (var pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+  }
+  
   
   await fetch("/api/post",{
     method : 'POST',
@@ -355,8 +366,8 @@ function uploadPostFile(target) {
 
 // -------------- Tạo bài viết --------------
 function addFileInput(){
-  if ($( ".popup-attachment-section").children().length == 0 || $( ".input-file-feild input").last().get(0).files.length != 0){
-    $('#upload-post').find('.popup-attachment-section').append(`<div class="input-file-feild">
+  if ($( ".popup-attachment-section").children().length == 0 || $( ".input-file-field input").last().get(0).files.length != 0){
+    $('#upload-post').find('.popup-attachment-section').append(`<div class="input-file-field">
     <input type="file" name="attachmentFile" style="color:white" />
     <span class="pointer" onclick="removeParent(this)" style="color:white" >&times;</span>
     </div>
@@ -368,14 +379,33 @@ function removeParent(target){
   target.parentNode.remove()
 }
 
-$('.popup-input').on('keypress',function(e) {
+$('#clip-url').on('keypress',function(e) {
   if(e.which == 13) {
-    const link = $(e.target).val();
-    $(e.target).val('');
-      alert('You pressed enter!');
-      $('#upload-post').find('.popup-youtube-section').append(`
-        <iframe src="${link}"></iframe>
-      `)
+    e.preventDefault()
+    var link = $(e.target).val();
+    var videoId;
+    var newval = '';
+
+    if (newval = link.match(/(\?|&)v=([^&#]+)/)) {
+      videoId = newval.pop();
+    } else if (newval = link.match(/(\.be\/)+([^\/]+)/)) {
+      videoId = newval.pop();
+    } else if (newval = link.match(/(\embed\/)+([^\/]+)/)) {
+      videoId = newval.pop().replace('?rel=0','');
+    }
+    // https://www.youtube.com/watch?v=YSuo0j2xsj8
+    // http://youtu.be/YSuo0j2xsj8
+    // www.youtube.com/embed/YSuo0j2xsj8
+
+    $('#upload-post').find('.popup-youtube-section').append(`
+    <div class="input-video-field">
+        <iframe src="https://www.youtube.com/embed/${videoId}"></iframe>
+        <input type="hidden" name="videoId" value="${videoId}">
+        <span onclick="removeParent(this)" style="color:white; vertical-align: top;" class="pointer" >&times;</span>
+    </div>
+
+    `)
+    $(e.target).val("")
   }
 });
 // -------------- Tạo tài khoản phòng khoa --------------
@@ -418,34 +448,42 @@ function editInfoPhongKhoa() {
 function editUserProfile() {
   var form = document.querySelector("#edit-profile");
   form.style.display = "block";
+  $("body").addClass("modal-open");
 }
 
 function closeEditUserProfile() {
   var form = document.querySelector("#edit-profile");
   form.style.display = "none";
+$("body").removeClass("modal-open");
+  
+  
 }
 
 // Hiện bảng sửa nội dung bài đăng
 function editContentPosted() {
     var form = document.querySelector("#edit-content");
     form.style.display = "block";
+    $("body").addClass("modal-open");
 }
 
 function closeEditContentPosted() {
   var form = document.querySelector("#edit-content");
   form.style.display = "none";
+$("body").removeClass("modal-open");
 }
 
 // Hiện bảng tạo bài viết
 function createPost() {
   var form = document.querySelector("#upload-post");
   form.style.display = "block";
+  $("body").addClass("modal-open");
   //TODO: clear input
 }
 
 function closeCreatePost() {
   var form = document.querySelector("#upload-post");
   form.style.display = "none";
+$("body").removeClass("modal-open");
 
 }
 
