@@ -129,7 +129,9 @@ body {
     width: 100%;
     margin: 2px;
 }
-
+#file-attach-btn{
+    display: none;
+}
 .err-msg {
     color: var(--red-color);
 }
@@ -962,12 +964,13 @@ select {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid var(--white-color);
+    color: var(--white-color);
     width: 100%;
 }
 .popup-input::placeholder,
 .popup-input-textarea::placeholder {
     color: var(--white-color);
-    opacity: 0.8;
+    opacity: 0.5;
 }
 .popup-input-selection{
     width: 100%;

@@ -354,20 +354,30 @@ function uploadPostFile(target) {
 }
 
 // -------------- Tạo bài viết --------------
-function uploadNewImage(target) {
-    document.querySelector(".upload-post__body--create-imgBackground-input").innerHTML = target.files[0].name;
+function addFileInput(){
+  if ($( ".popup-attachment-section").children().length == 0 || $( ".input-file-feild input").last().get(0).files.length != 0){
+    $('#upload-post').find('.popup-attachment-section').append(`<div class="input-file-feild">
+    <input type="file" name="attachmentFile" style="color:white" />
+    <span class="pointer" onclick="removeParent(this)" style="color:white" >&times;</span>
+    </div>
+  `)
+  }
 }
 
-function uploadNewFile(target) {
-  console.log("target.files ",target.files)
-  console.log("target ",target)
-    document.querySelector(".upload-post__body--create-file-input").innerHTML = target.files[0].name;
+function removeParent(target){
+  target.parentNode.remove()
 }
 
-function uploadVideo(target) {
-    document.querySelector(".upload-post__body--create-video-input").innerHTML = target.files[0].name;
-}
-
+$('.popup-input').on('keypress',function(e) {
+  if(e.which == 13) {
+    const link = $(e.target).val();
+    $(e.target).val('');
+      alert('You pressed enter!');
+      $('#upload-post').find('.popup-youtube-section').append(`
+        <iframe src="${link}"></iframe>
+      `)
+  }
+});
 // -------------- Tạo tài khoản phòng khoa --------------
 function uploadAddImg(target) {
   document.querySelector(".add-account__body--add-imgBackground-input").innerHTML = target.files[0].name;
