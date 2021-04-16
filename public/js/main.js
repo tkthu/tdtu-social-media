@@ -59,19 +59,6 @@ socket.on('deleted-post', data => {
   }
 })
 
-var upload = new FileUploadWithPreview("myUniqueUploadId", {
-  showDeleteButtonOnImages: true,
-  text: {
-      chooseFile: "chọn file đính kèm",
-      browse: "Browse",
-      selectedCount: "File đính kèm",
-  },
-  presetFiles: [
-      "./img/no-face.png",
-      "https://images.unsplash.com/photo-1557090495-fc9312e77b28?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
-  ],
-});
-
 var loadingMorePage = false;
 if ($('.main').length){// nếu trang có class main
   loadMorePost();
