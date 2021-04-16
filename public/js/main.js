@@ -59,6 +59,7 @@ socket.on('deleted-post', data => {
   }
 })
 
+//=============== ajax load thêm post và comment  =============================
 var loadingMorePage = false;
 if ($('.main').length){// nếu trang có class main
   loadMorePost();
@@ -78,8 +79,11 @@ if ($('.main').length){// nếu trang có class main
 if ($('.detail-posted').length){// nếu trang có class main
   loadMoreCmt();
 }
+$('.comment-readmore').click(e => {
+  e.preventDefault();
+  loadMoreCmt(e);
+});
 
-/* ------------------- ajax load them post và comment ------------------ */
 async function loadMorePost() {
   const postContainerElement = $('.main');
 
@@ -156,8 +160,8 @@ async function loadMoreCmt(){
   })
   .catch(e => console.log("error ___ ",e))
 }
-/* End of ------------ ajax load them post và comment --------------------------- */
 
+//======================Login, logout, register =======================================
 function onSignIn(googleUser) {
     const email = googleUser.getBasicProfile().getEmail();
     const displayName = googleUser.getBasicProfile().getName();
@@ -221,35 +225,6 @@ function firstTimeLogin(username,displayName,imageUrl) {
   $('#confirm-set-pass').attr('data-image-url',imageUrl);  
 }
 
-function setupHelperHbs(){
-  dayjs.extend(window.dayjs_plugin_relativeTime)
-  Handlebars.registerHelper('cutDown', function(post, options) {
-    if(post !== undefined && post.content !== undefined){
-        var content = post.content;
-        const minlen = 200;
-        if (content.length > minlen){
-            content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
-        }
-        return content;
-    }
-    return "";
-    
-  });
-  Handlebars.registerHelper('inc', function(value, options){return parseInt(value) + 1;});
-  Handlebars.registerHelper('fromNow', function(value, options) {
-    if (dayjs(value).isBefore(dayjs(new Date().toISOString()),"day")){
-      return dayjs(value).format('DD/MM/YYYY HH:mm');
-    }
-    return dayjs(value).fromNow();
-  });
-  Handlebars.registerHelper('getFileName', function(value, options) {
-    return value.split('\\').pop().split('/').pop();
-  });
-  Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
-    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
-  });
-}
-
 $('#confirm-set-pass').click(e => {
   e.preventDefault()
 
@@ -293,6 +268,7 @@ $('#confirm-set-pass').click(e => {
   .catch(e => console.log(e))
 })
 
+//====================== đăng post, comment =======================================
 $('#upload-post').submit( (e) => {
   e.preventDefault();
 
@@ -355,11 +331,6 @@ $('.comment').submit( e => {
   .catch(e => console.log("error ___ ",e))
 })
 
-$('.comment-readmore').click(e => {
-  e.preventDefault();
-  loadMoreCmt(e);
-});
-
 // --------- Chỉnh sửa profile ---------
 function uploadFileImg(target) {
     document.getElementById("file-img").innerHTML = target.files[0].name;
@@ -369,31 +340,16 @@ function uploadFileImgBackground(target) {
     document.querySelector(".edit-profile__body--edit-imgBackground-input").innerHTML = target.files[0].name;
 }
 
-// ---------------- Chỉnh sửa nội dung post ------------------
-function uploadPostImg(target) {
-    document.querySelector(".edit-content__body--edit-imgBackground-input").innerHTML = target.files[0].name;
-}
-
-function uploadPostFile(target) {
-    document.querySelector(".edit-content__body--edit-file-input").innerHTML = target.files[0].name;
-}
-
 // -------------- Tạo bài viết --------------
-function addFileInput(){
-  if ($( ".popup-attachment-section").children().length == 0 || $( ".input-file-field input").last().get(0).files.length != 0){
-    $('#upload-post').find('.popup-attachment-section').append(`<div class="input-file-field">
-    <input type="file" name="attachmentFile" style="color:white" />
-    <span class="pointer" onclick="removeParent(this)" style="color:white" >&times;</span>
-    </div>
-  `)
+function addFileInput(target){
+  var form = $(target).parents('form');
+  var container = form.find('.popup-attachment-section');
+  if (container.children().length == 0 || container.find(".input-file input").last().get(0).files.length != 0){
+    addAttachmentInput(container);
   }
 }
 
-function removeParent(target){
-  target.parentNode.remove()
-}
-
-$('#clip-url').on('keypress',function(e) {
+$('.input-clip-url').on('keypress',function(e) {
   if(e.which == 13) {
     e.preventDefault()
     var link = $(e.target).val();
@@ -411,22 +367,14 @@ $('#clip-url').on('keypress',function(e) {
     // http://youtu.be/YSuo0j2xsj8
     // www.youtube.com/embed/YSuo0j2xsj8
 
-    $('#upload-post').find('.popup-youtube-section').append(`
-    <div class="input-video-field">
-        <iframe src="https://www.youtube.com/embed/${videoId}"></iframe>
-        <input type="hidden" name="videoId" value="${videoId}">
-        <span onclick="removeParent(this)" style="color:white; vertical-align: top;" class="pointer" >&times;</span>
-    </div>
-
-    `)
+    var form = $(e.target).parents('form')
+    var container = form.find('.popup-youtube-section');
+    addEmbedVideoInput(container, videoId);
     $(e.target).val("")
   }
 });
-// -------------- Tạo tài khoản phòng khoa --------------
-function uploadAddImg(target) {
-  document.querySelector(".add-account__body--add-imgBackground-input").innerHTML = target.files[0].name;
-}
 
+// -------------- Tạo tài khoản phòng khoa --------------
 // Hiện bảng tạo thêm tài khoản phòng khoa
 function addAccountDepartments() {
   var x = document.querySelector("#add-account");
@@ -445,8 +393,7 @@ function editInfoPhongKhoa() {
 function editUserProfile() {
   var form = document.querySelector("#edit-profile");
   form.style.display = "block";
-  //TODO: fetch user rồi hiện lên popup
-  
+  //TODO: fetch user rồi hiện lên popup  
 }
 
 function closeEditUserProfile() {
@@ -456,7 +403,7 @@ function closeEditUserProfile() {
 
 //============================ Post =====================================
 // Hiện bảng sửa nội dung bài đăng
-function editContentPosted(target) {
+function editContentPosted(target) { 
   var form = document.querySelector("#edit-content");
   form.style.display = "block";
 
@@ -472,7 +419,13 @@ function editContentPosted(target) {
   .then(json => {
     if (json.code === 0){// lấy 1 post thành công
       const post = json.data.post
-      $('.edit-content__body--edit-content-input').html(post.content);
+      $('#edit-content__body--tieude').val(post.name);
+      $('#edit-content__body--noidung').html(post.content);
+
+      var container = $('#edit-content .popup-youtube-section');
+      post.videoIdArray.forEach( videoId => {
+        addEmbedVideoInput(container, videoId);
+      })
 
       //TODO: hiện những cái còn lại
     }
@@ -480,23 +433,10 @@ function editContentPosted(target) {
   .catch(e => console.log("error ___ ",e));    
 }
 
-function closeEditContentPosted() {
-  var form = document.querySelector("#edit-content");
-  form.style.display = "none";
-}
-
 // Hiện bảng tạo bài viết
 function createPost() {
   var form = $("#upload-post");
-  form.css('display','block')
-  form.trigger("reset");
-  form.find('.popup-youtube-section').html('');
-  form.find('.popup-attachment-section').html('');
-
-}
-function closeCreatePost() {
-  var form = document.querySelector("#upload-post");
-  form.style.display = "none";
+  form.css('display','block');
 }
 
 //============================ Xóa =====================================
@@ -516,7 +456,7 @@ $('.btn-confirm-del').click( e => {
     deletePost(itemId);
   }
 })
-
+//=============== Xóa thông tin, bài viết =============================
 function deletePost(postId){
   fetch(`/api/post/${postId}`,{
     method : 'DELETE',
@@ -544,12 +484,77 @@ function closeAddAccount() {
     x.style.display = "none";
 }
 
-function closeEditContentPosted() {
-  var form = document.querySelector("#edit-content");
-  form.style.display = "none";
-}
-
 function closeEditUserProfile() {
   var form = document.querySelector("#edit-profile");
   form.style.display = "none";
+}
+
+function closeCreatePost() {
+  var form = $("#upload-post");
+  form.css('display','none');
+  resetPostDetailForm(form);
+}
+
+function closeEditContentPosted() {
+  var form = $("#edit-content");
+  form.css('display','none');
+  resetPostDetailForm(form);
+}
+
+function resetPostDetailForm(form){
+  form.trigger("reset");
+  form.find('.popup-youtube-section').html('');
+  form.find('.popup-attachment-section').html('');
+}
+
+function setupHelperHbs(){
+  dayjs.extend(window.dayjs_plugin_relativeTime)
+  Handlebars.registerHelper('cutDown', function(post, options) {
+    if(post !== undefined && post.content !== undefined){
+        var content = post.content;
+        const minlen = 200;
+        if (content.length > minlen){
+            content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
+        }
+        return content;
+    }
+    return "";
+    
+  });
+  Handlebars.registerHelper('inc', function(value, options){return parseInt(value) + 1;});
+  Handlebars.registerHelper('fromNow', function(value, options) {
+    if (dayjs(value).isBefore(dayjs(new Date().toISOString()),"day")){
+      return dayjs(value).format('DD/MM/YYYY HH:mm');
+    }
+    return dayjs(value).fromNow();
+  });
+  Handlebars.registerHelper('getFileName', function(value, options) {
+    return value.split('\\').pop().split('/').pop();
+  });
+  Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  });
+}
+
+function addEmbedVideoInput (container, videoId){
+  container.append(`
+    <div class="input-video-embed">
+        <iframe src="https://www.youtube.com/embed/${videoId}"></iframe>
+        <input type="hidden" name="videoId" value="${videoId}">
+        <span onclick="removeParent(this)" style="color:white; vertical-align: top;" class="pointer" >&times;</span>
+    </div>
+    `)
+}
+
+function addAttachmentInput (container){
+  container.append(`
+    <div class="input-file">
+    <input type="file" name="attachmentFile" style="color:white" />
+    <span class="pointer" onclick="removeParent(this)" style="color:white" >&times;</span>
+    </div>
+  `)
+}
+
+function removeParent(target){
+  target.parentNode.remove()
 }

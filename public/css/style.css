@@ -149,7 +149,8 @@ body {
     width: 100%;
     margin: 2px;
 }
-#file-attach-btn{
+#edit-content__body--attach-btn,
+#upload-post__body--attach-btn{
     display: none;
 }
 .err-msg {
@@ -1079,14 +1080,12 @@ select {
 }
 
 .edit-profile__body,
-.edit-content__body,
 .edit-info__body,
 .add-account__body {
     margin-top: 20px;
 }
 
 .edit-profile__body--edit,
-.edit-content__body--edit,
 .edit-info__body--edit,
 .add-account__body--add {
     display: flex;
@@ -1100,11 +1099,6 @@ select {
 .edit-profile__body--edit-background,
 .edit-profile__body--edit-born-place,
 .edit-profile__body--edit-live-place,
-.edit-content__body--edit-name,
-.edit-content__body--edit-chuyenmuc,
-.edit-content__body--edit-background,
-.edit-content__body--edit-content,
-.edit-content__body--edit-file,
 .edit-info__body--edit-account,
 .edit-info__body--edit-password,
 .edit-info__body--edit-chuyenmuc,
@@ -1119,20 +1113,11 @@ select {
     flex: 1;
 }
 
-.edit-content__body--edit-name,
-.edit-content__body--edit-chuyenmuc,
-.edit-content__body--edit-background,
-.edit-content__body--edit-content,
-.edit-content__body--edit-file {
-    margin-left: 10%;
-}
-
 .edit-profile__body--edit-name-input,
 .edit-profile__body--edit-khoa-input,
 .edit-profile__body--edit-lop-input,
 .edit-profile__body--edit-born-place-input,
 .edit-profile__body--edit-live-place-input,
-.edit-content__body--edit-name-input,
 .edit-info__body--edit-account-input,
 .edit-info__body--edit-password-input,
 .add-account__body--add-account-input,
@@ -1148,30 +1133,9 @@ select {
     margin-right: 20%;
 }
 
-.edit-content__body--edit-name-input {
-    margin-right: 120px;
-    width: 600px;
-}
-
-.edit-content__body--edit-chuyenmuc-selected{
-    margin-right: 120px;
-    width: 600px;
-}
-
 .add-account__body--add-chuyenmuc-selected {
     margin-right: 200px;
     width: 400px;
-}
-
-.edit-content__body--edit-content-input {
-    background-color: transparent;
-    border: 1px solid var(--white-color);
-    position: relative;
-    right: 120px;
-    color: var(--white-color);
-    resize: none;
-    outline: none;
-    padding-left: 10px;
 }
 
 /*---- Input file image ----*/
@@ -1199,27 +1163,6 @@ select {
     color: var(--white-color); 
     height: calc(2rem - 2px);
 }
-
-.edit-content__body--edit-imgBackground-input {
-    position: absolute;
-    left: 540px;
-    top: 230px;
-    width: 600px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-
-.edit-content__body--edit-file-input {
-    position: absolute;
-    left: 540px;
-    top: 274px;
-    width: 600px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-
 
 .add-account__body--add-imgBackground-input {
     position: absolute;
@@ -1249,23 +1192,9 @@ select {
     right: 490px;
 }
 
-.edit-content__body--edit-imgBackground-btn {
-    position: absolute;
-    top: 225px;
-    right: 386px;
-}
-
-.edit-content__body--edit-file-btn {
-    position: absolute;
-    top: 270px;
-    right: 380px;
-}
-
 
 .edit-profile__body--edit-img-btn img,
 .edit-profile__body--edit-imgBackground-btn img,
-.edit-content__body--edit-imgBackground-btn img,
-.edit-content__body--edit-file-btn img,
 .add-account__body--add-imgBackground-btn img {
     width: 25px;
     height: 25px;
@@ -1484,16 +1413,6 @@ select {
     .add-account__body--add-imgBackground-input {
         left: 645px;
     }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 500px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 400px;
-    }
 }
 
 @media (max-width: 1478px) {
@@ -1505,19 +1424,6 @@ select {
     .edit-profile__body--edit-img-input,
     .edit-profile__body--edit-imgBackground-input {
         left: 620px;
-    }
-
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-content-input {
-        width: 480px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 590px;
     }
 
 }
@@ -1542,17 +1448,6 @@ select {
     .sidebar {
         width: 350px;
     }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 544px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 375px;
-    }
-
 }
 
 @media (max-width: 1380px) {
@@ -1570,7 +1465,6 @@ select {
         margin-left: 200px;
     }
 
-    .edit, .create-post,
     .add-account {
         left: 100px;
         width: 1000px;
@@ -1584,20 +1478,6 @@ select {
     .edit-profile__body--edit-imgBackground-input {
         left: 550px;
     }
-
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-content-input {
-        width: 400px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 590px;
-    }
-
 }
 
 @media (max-width: 1320px) {
@@ -1614,11 +1494,6 @@ select {
     .add-account__body--add-imgBackground-btn {
         right: 400px;
     }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 553px;
-    }
 }
 
 @media (max-width: 1280px) {
@@ -1630,11 +1505,6 @@ select {
     .edit-profile__body--edit-imgBackground-input {
         left: 460px;
     }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 518px;
-    }
 }
 
 @media (max-width: 1230px) {
@@ -1645,19 +1515,6 @@ select {
 
     .add-account__body--add-imgBackground-btn {
         right: 340px;
-    }
-
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-content-input {
-        width: 350px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 526px;
     }
 }
 
@@ -1697,7 +1554,6 @@ select {
         padding-left: 10px;
     }
 
-    .edit, .create-post,
     .add-account {
         left: 30px;
         width: 900px;
@@ -1711,16 +1567,6 @@ select {
 
     .btn-change-password {
         margin-left: 300px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 498px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 336px;
     }
 
     .edit-profile__body--edit-img-input,
@@ -1759,27 +1605,6 @@ select {
 
 }
 
-@media(max-width: 1176px) {
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-imgBackground-btn {
-        top: 274px;
-    }
-
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-file-btn {
-        top: 320px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 480px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 336px;
-    }
-}
 
 @media (max-width: 1152px) {
     .edit-profile__body--edit-name-input,
@@ -1831,12 +1656,6 @@ select {
     .edit-profile__body--edit-imgBackground-input {
         top: 380px;
     }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 460px;
-    }
-
 }
 
 @media(max-width: 1110px) {
@@ -1864,19 +1683,6 @@ select {
     .admin-body__table-search--link {
         left: 600px;
         top: -28px;
-    }
-
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-content-input {
-        width: 280px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 456px;
     }
 
 }
@@ -2018,7 +1824,6 @@ select {
         margin-left: 200px;
     }
 
-    .edit, .create-post,
     .add-account {
         left: 10px;
         width: 750px;
@@ -2053,20 +1858,6 @@ select {
     .edit-profile__body--edit-img-btn,
     .edit-profile__body--edit-imgBackground-btn {
         left: 630px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 400px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn {
-        top: 270px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 285px;
     }
 
     .main {
@@ -2126,30 +1917,8 @@ select {
         margin-left: 30px;
     }
 
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        margin-right: 70px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 400px;
-    }
-
 }
 
-@media (max-width: 910px) {
-
-}
-
-@media(max-width: 870px) {
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 332px;
-    }
-}
 
 @media (max-width: 840px) {
     .edit-profile__body--edit-name-input,
@@ -2277,8 +2046,7 @@ select {
     .sidebar-navbar__admin--block {
         left: 300px;
     }
-
-    .edit, .create-post,
+    
     .add-account {
         left: 0px;
         width: 580px;
@@ -2309,28 +2077,6 @@ select {
     .edit-profile__body--edit-img-btn,
     .edit-profile__body--edit-imgBackground-btn {
         left: 500px;
-    }
-
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        width: 200px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 347px;
-    }
-    
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 200px;
-    }
-
-    .edit-content__body--edit-content-input {
-        margin-top: 60px;
-        height: 150px;
     }
 
     .main-posted__user--edit-and-delete {
@@ -2367,23 +2113,6 @@ select {
     }
 
  }
-
-@media (max-width: 712px) {
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 300px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-imgBackground-btn {
-        top: 300px;
-    }
-
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-file-btn {
-        top: 350px;
-    }
-}
 
 @media(max-width: 680px) {
     .upload-post,
@@ -2423,23 +2152,6 @@ select {
         right: 185px;
     }
 
-}
-
-@media (max-width: 630px) {
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 100px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-imgBackground-btn {
-        top: 260px;
-    }
-
-    .edit-content__body--edit-file-btn,
-    .edit-content__body--edit-file-input {
-        top: 300px;
-    }
 }
 
 @media(max-width: 576px) {
@@ -2554,7 +2266,7 @@ select {
         width: 250px;
     }
 
-    .edit, .create-post, .add-account {
+    .add-account {
         width: 500px;
     }
 
@@ -2579,11 +2291,6 @@ select {
         left: 350px;
     }
 
-    .edit-content__body--edit-content-input {
-        margin-top: 60px;
-        height: 150px;
-    }
-
     .edit-profile__btnSave,
     .edit-content__btnSave,
     .btn-change-password,
@@ -2606,11 +2313,6 @@ select {
 
     .add-account__body--add-imgBackground-btn {
         right: 124px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 220px;
     }
 }
 

@@ -11,7 +11,7 @@
     
  --}}
 
-<form id="upload-post" class="create-post" action="/" method="POST" enctype="multipart/form-data">
+<form id="upload-post" action="/" method="POST" enctype="multipart/form-data">
     <div class="myModal container">
         <div class="upload-post__header">
             <img src="/img/logo tdt.png" alt="logo" class="upload-post__header--logo">
@@ -41,31 +41,31 @@
             {{!-- tiêu đề --}}
             <div class="row" >
                 <div class="col-lg-2">
-                    <label for="title" placeholder="Tiêu đề" class="popup-label">Tiêu đề</label>
+                    <label for="tieude-add" placeholder="Tiêu đề" class="popup-label">Tiêu đề</label>
                 </div>
                 <div class="col-lg-10">
-                    <input type="text" placeholder="Tiêu đề" name="title" class="popup-input" id="title">
+                    <input type="text" placeholder="Tiêu đề" name="title" class="popup-input" id="upload-post__body--tieude">
                 </div>
             </div>
             {{!-- nội dung --}}
             <div class="row" > 
                 <div class="col-lg-2">
-                    <label for="noidung" class="popup-label">Nội dung</label>
+                    <label for="noidung-add" class="popup-label">Nội dung</label>
                 </div>
                 <div class="col-lg-10">
-                    <textarea placeholder="Bạn đang nghĩ gì ..." name="content" class="popup-input-textarea" id="noidung"></textarea>
+                    <textarea placeholder="Bạn đang nghĩ gì ..." name="content" class="popup-input-textarea" id="upload-post__body--noidung"></textarea>
                 </div>
             </div>
             {{!-- Youtube url --}}
             <div class="row" > 
                 <div class="col-lg-2">
-                    <label for="clip-url" class="popup-label">Youtube url</label>
+                    <label for="clip-url-add" class="popup-label">Youtube url</label>
                 </div>
                 <div class="col-lg-10">
-                    <input type="text" placeholder="https://..." class="popup-input" id="clip-url">
+                    <input type="text" placeholder="https://..." class="popup-input input-clip-url" id="upload-post__body--clip-url">
                 </div>
             </div>
-
+            {{!-- Youtube embed clip --}}
             <div class="row" >
                 <span class="col-lg-2">                         
                 </span>
@@ -74,9 +74,7 @@
                 
                     </div>
                 </div>
-            </div>
-
-            
+            </div>            
             {{!-- thêm input --}}
             <div class="row" >
                 <span class="col-lg-2">                         
@@ -86,16 +84,15 @@
 
                     </div>
                 </div>
-            </div>
-            
+            </div>          
 
             {{!-- 3 nút cuối --}}
             <div class="row" >
                 <div class="col-lg-2">
-                    <label for="file-attach-btn" class="btn btn-outline-light">
+                    <label for="upload-post__body--attach-btn" class="btn btn-outline-light">
                         <img src="img/attachment.png"  alt="attachment">           
                     </label>
-                    <input type="button" name="attachmentFile" id="file-attach-btn" onclick="addFileInput()">
+                    <input type="button" name="attachmentFile" id="upload-post__body--attach-btn" onclick="addFileInput(this)">
                     
                 </div>
                 <span class="col-lg-8">
