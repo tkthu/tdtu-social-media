@@ -28,17 +28,17 @@ io.on('connection', socket => {
 
     socket.on('post-success', data => {
         io.emit('post-alert', data)
-        console.log('nhận được post-success từ 1 user ', data)
+        // console.log('nhận được post-success từ 1 user ', data)
     })
 
     socket.on('comment-success', data => {
         io.emit('comment', data)
-        console.log('nhận được comment-success từ 1 user ', data)
+        // console.log('nhận được comment-success từ 1 user ', data)
     })
 
     socket.on('delete-post-success', data => {
         io.emit('deleted-post', data)
-        console.log('nhận được kết quả xóa post từ 1 user', data)
+        // console.log('nhận được kết quả xóa post từ 1 user', data)
     })
 })
 

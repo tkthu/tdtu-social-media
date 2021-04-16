@@ -62,7 +62,12 @@
 
         {{!-------------- image-section --------------}}
         \{{#each post.imagesArray}}
-        <img src="\{{{this}}}" alt="Picture" class="detail-notification-body--picture">
+        <img src="\{{this}}" alt="Picture" class="detail-notification-body--picture">
+        \{{/each}}
+
+        {{!-------------- video-section --------------}}
+        \{{#each post.videoIdArray}}
+        <iframe class="embed-video" src="https://www.youtube.com/embed/\{{this}}"></iframe>
         \{{/each}}
 
         {{!-------------- attachment-section --------------}}

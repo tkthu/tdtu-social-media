@@ -42,6 +42,10 @@
     </div>
     {{!-------------- image-section --------------}}
     {{> image-section imgArray=post.imagesArray}}
+    {{!-------------- video-section --------------}}
+    {{#each post.videoIdArray}}
+    <iframe class="embed-video" src="https://www.youtube.com/embed/{{this}}"></iframe>
+    {{/each}}
     {{!-------------- attachment-section --------------}}
     {{#if post.attachmentsArray}}
         <div class="attached-files">

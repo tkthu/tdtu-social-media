@@ -39,6 +39,10 @@ body {
 .sad-face-img{
     width: 10vh;
 }
+
+.embed-video{
+    width: auto;
+}
 /*====================== Login page ======================*/
 .login-background {
     background-image: url(../img/Toàn\ cảnh\ TDTU.png);
@@ -983,10 +987,6 @@ select {
 }
 .row {
     margin: 5px;
-}
-
-body.modal-open {
-    overflow: hidden;
 }
 
 #edit-profile,

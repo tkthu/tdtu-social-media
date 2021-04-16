@@ -87,7 +87,8 @@ class ApiController{
     addPost(req, res){        
         var imagesArray = undefined;
         var attachmentsArray = undefined;
-        if(req.files.file !== undefined){
+        console.log("req.files.attachmentFile ", req.files.attachmentFile)
+        if(req.files.attachmentFile !== undefined){
             imagesArray = req.files.attachmentFile
             .filter(fi => fi.mimetype.startsWith('image/') )
             .map( fi => {
@@ -99,7 +100,9 @@ class ApiController{
             .map( fi => {
                 return fi.path.replace("public","");
             });
-        }        
+        }
+        console.log("imagesArray ", imagesArray);
+        console.log("attachmentsArray ", attachmentsArray);     
 
         const post = {
             _id: mogoose.Types.ObjectId(),

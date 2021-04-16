@@ -99,7 +99,6 @@ async function loadMorePost() {
   })
   .then(json => {
     if (json.code === 0){// lấy n post thành công
-      closeCreatePost();
       setupHelperHbs();
       var template = Handlebars.compile($('#post-fb_template').html());
       json.data.posts.forEach(post => {
@@ -309,7 +308,7 @@ $('#upload-post').submit( (e) => {
 
   console.log("formData")
   for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
+    console.log(pair[0], ', ' , pair[1]); 
   }
   
   
@@ -437,9 +436,8 @@ function addAccountDepartments() {
 // Hiện bảng sửa thông tin phòng/khoa
 function editInfoPhongKhoa() {
     var x = document.querySelector("#edit-info-phongKhoa");
-      x.style.display = "block";
-
-      //TODO: fetch user rồi hiện lên popup
+    x.style.display = "block";
+    //TODO: fetch user rồi hiện lên popup
 
 }
 
@@ -447,7 +445,6 @@ function editInfoPhongKhoa() {
 function editUserProfile() {
   var form = document.querySelector("#edit-profile");
   form.style.display = "block";
-  $("body").addClass("modal-open");
   //TODO: fetch user rồi hiện lên popup
   
 }
@@ -455,7 +452,6 @@ function editUserProfile() {
 function closeEditUserProfile() {
   var form = document.querySelector("#edit-profile");
   form.style.display = "none";
-  $("body").removeClass("modal-open");
 }
 
 //============================ Post =====================================
@@ -463,7 +459,6 @@ function closeEditUserProfile() {
 function editContentPosted(target) {
   var form = document.querySelector("#edit-content");
   form.style.display = "block";
-  $("body").addClass("modal-open");
 
   const postId = $(target).data('item-id');
   fetch(`/api/post/${postId}`,{
@@ -488,20 +483,20 @@ function editContentPosted(target) {
 function closeEditContentPosted() {
   var form = document.querySelector("#edit-content");
   form.style.display = "none";
-  $("body").removeClass("modal-open");
 }
 
 // Hiện bảng tạo bài viết
 function createPost() {
-  var form = document.querySelector("#upload-post");
-  form.style.display = "block";
-  $("body").addClass("modal-open");
-  form.reset();
+  var form = $("#upload-post");
+  form.css('display','block')
+  form.trigger("reset");
+  form.find('.popup-youtube-section').html('');
+  form.find('.popup-attachment-section').html('');
+
 }
 function closeCreatePost() {
   var form = document.querySelector("#upload-post");
   form.style.display = "none";
-  $("body").removeClass("modal-open");
 }
 
 //============================ Xóa =====================================
@@ -547,11 +542,6 @@ function closeInfoPhongKhoa() {
 function closeAddAccount() {
   var x = document.querySelector("#add-account");
     x.style.display = "none";
-}
-
-function closeCreatePost() {
-  var form = document.querySelector("#upload-post");
-  form.style.display = "none";
 }
 
 function closeEditContentPosted() {
