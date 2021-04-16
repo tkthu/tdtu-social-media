@@ -297,10 +297,21 @@ $('#confirm-set-pass').click(e => {
 $('#upload-post').submit( (e) => {
   e.preventDefault();
 
+  //TODO: kiểm tra validate
   var formData = new FormData(e.target);
+  if (formData.get('title').trim() == ""){
+    alert('post phải có tiêu đề')
+    return false;
+  }
   if (formData.has('chuyenmuc')){
     formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
   }
+
+  console.log("formData")
+  for (var pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+  }
+  
   
   fetch("/api/post",{
     method : 'POST',
@@ -369,18 +380,49 @@ function uploadPostFile(target) {
 }
 
 // -------------- Tạo bài viết --------------
-function uploadNewImage(target) {
-    document.querySelector(".upload-post__body--create-imgBackground-input").innerHTML = target.files[0].name;
+function addFileInput(){
+  if ($( ".popup-attachment-section").children().length == 0 || $( ".input-file-field input").last().get(0).files.length != 0){
+    $('#upload-post').find('.popup-attachment-section').append(`<div class="input-file-field">
+    <input type="file" name="attachmentFile" style="color:white" />
+    <span class="pointer" onclick="removeParent(this)" style="color:white" >&times;</span>
+    </div>
+  `)
+  }
 }
 
-function uploadNewFile(target) {
-    document.querySelector(".upload-post__body--create-file-input").innerHTML = target.files[0].name;
+function removeParent(target){
+  target.parentNode.remove()
 }
 
-function uploadVideo(target) {
-    document.querySelector(".upload-post__body--create-video-input").innerHTML = target.files[0].name;
-}
+$('#clip-url').on('keypress',function(e) {
+  if(e.which == 13) {
+    e.preventDefault()
+    var link = $(e.target).val();
+    var videoId;
+    var newval = '';
 
+    if (newval = link.match(/(\?|&)v=([^&#]+)/)) {
+      videoId = newval.pop();
+    } else if (newval = link.match(/(\.be\/)+([^\/]+)/)) {
+      videoId = newval.pop();
+    } else if (newval = link.match(/(\embed\/)+([^\/]+)/)) {
+      videoId = newval.pop().replace('?rel=0','');
+    }
+    // https://www.youtube.com/watch?v=YSuo0j2xsj8
+    // http://youtu.be/YSuo0j2xsj8
+    // www.youtube.com/embed/YSuo0j2xsj8
+
+    $('#upload-post').find('.popup-youtube-section').append(`
+    <div class="input-video-field">
+        <iframe src="https://www.youtube.com/embed/${videoId}"></iframe>
+        <input type="hidden" name="videoId" value="${videoId}">
+        <span onclick="removeParent(this)" style="color:white; vertical-align: top;" class="pointer" >&times;</span>
+    </div>
+
+    `)
+    $(e.target).val("")
+  }
+});
 // -------------- Tạo tài khoản phòng khoa --------------
 function uploadAddImg(target) {
   document.querySelector(".add-account__body--add-imgBackground-input").innerHTML = target.files[0].name;
@@ -405,42 +447,63 @@ function editInfoPhongKhoa() {
 function editUserProfile() {
   var form = document.querySelector("#edit-profile");
   form.style.display = "block";
-
+  $("body").addClass("modal-open");
   //TODO: fetch user rồi hiện lên popup
+  
+}
+
+function closeEditUserProfile() {
+  var form = document.querySelector("#edit-profile");
+  form.style.display = "none";
+  $("body").removeClass("modal-open");
 }
 
 //============================ Post =====================================
 // Hiện bảng sửa nội dung bài đăng
 function editContentPosted(target) {
-    var form = document.querySelector("#edit-content");
-    form.style.display = "block";
+  var form = document.querySelector("#edit-content");
+  form.style.display = "block";
+  $("body").addClass("modal-open");
 
-    const postId = $(target).data('item-id');
-    fetch(`/api/post/${postId}`,{
-      method : 'GET',
-    })
-    .then(resp => {            
-      if(resp.status < 200 || resp.status >= 300)
-        throw new Error(`Request failed with status ${resp.status}`)
-      return resp.json();
-    })
-    .then(json => {
-      if (json.code === 0){// lấy 1 post thành công
-        const post = json.data.post
-        $('.edit-content__body--edit-content-input').html(post.content);
+  const postId = $(target).data('item-id');
+  fetch(`/api/post/${postId}`,{
+    method : 'GET',
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// lấy 1 post thành công
+      const post = json.data.post
+      $('.edit-content__body--edit-content-input').html(post.content);
 
-        //TODO: hiện những cái còn lại
-      }
-    })
-    .catch(e => console.log("error ___ ",e));
+      //TODO: hiện những cái còn lại
+    }
+  })
+  .catch(e => console.log("error ___ ",e));    
+}
+
+function closeEditContentPosted() {
+  var form = document.querySelector("#edit-content");
+  form.style.display = "none";
+  $("body").removeClass("modal-open");
 }
 
 // Hiện bảng tạo bài viết
 function createPost() {
   var form = document.querySelector("#upload-post");
   form.style.display = "block";
+  $("body").addClass("modal-open");
   form.reset();
 }
+function closeCreatePost() {
+  var form = document.querySelector("#upload-post");
+  form.style.display = "none";
+  $("body").removeClass("modal-open");
+}
+
 //============================ Xóa =====================================
 // Hiện popup có chắc muốn xóa
 function delConfirm(target) {
@@ -451,9 +514,7 @@ function delConfirm(target) {
 }
 
 $('.btn-confirm-del').click( e => {
-  //TODO: delete item
   $('#confirm-del').modal('hide');
-
   const itemType = $(e.target).data('item-type');
   const itemId = $(e.target).data('item-id');
   if( itemType == "post" ){//xóa post

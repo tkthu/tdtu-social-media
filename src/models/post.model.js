@@ -9,6 +9,7 @@ const Post = new Schema({
     lastEdited: { type: String, default: undefined },
     imagesArray: {type: Array},
     attachmentsArray: {type: Array},
+    videoIdArray: {type: Array},
     commentsCount: {type: Number, default: 0},
     department: {
         id: {type: String},
@@ -19,6 +20,7 @@ const Post = new Schema({
         displayName: {type: String},
         avatarUrl: {type: String},
     }
+    
 });
 
 module.exports = mongoose.model('Post', Post);
