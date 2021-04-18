@@ -41,7 +41,8 @@ body {
 }
 
 .embed-video{
-    width: auto;
+    width: 100%;
+    height: 500px;
 }
 /*====================== Login page ======================*/
 .login-background {
@@ -469,11 +470,6 @@ body {
     height: 400px;
 }
 
-.main-posted__content {
-    margin-left: 30px;
-    margin-top: 10px;
-}
-
 .main-posted__content-content {
     color: var(--text-color);
 }
@@ -785,10 +781,6 @@ select {
     border: none;
     color: var(--bg-color);
     font-weight: 700;
-}
-
-.notification-body__all {
-
 }
 
 .notification-body--item {

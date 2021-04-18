@@ -31,7 +31,7 @@
                 <h6 class="main-posted__user--name">\{{post.sender.displayName}}</h6>
                 <p class="main-posted__user--name-date">
                     \{{#if post.lastEdited}}
-                    \{{fromNow post.createdAt}} ( \{{fromNow post.lastEdited}} edited)
+                    \{{fromNow post.createdAt}} <br> (edited \{{fromNow post.lastEdited}})
                     \{{else}}
                     \{{fromNow post.createdAt}}
                     \{{/if}}            
@@ -50,39 +50,39 @@
         </div>
 
         {{!-------------- post-content --------------}}
-        <div class="main-posted__content">
+        <div class="main-posted__content container">
             <h5><a href="/\{{post.sender.id}}/posts/\{{post._id}}" class="main-posted__content-title">\{{post.name}}</a></h5>
             
             <p class="detail-notification--dpment">
                 \{{{post.department.name}}}
             </p>
             <p class="main-posted__content-content">\{{{cutDown post}}}</p>
+
+            {{!-------------- image-section --------------}}
+            \{{#each post.imagesArray}}
+            <img src="\{{this}}" alt="Picture" class="detail-notification-body--picture">
+            \{{/each}}
+
+            {{!-------------- video-section --------------}}
+            \{{#each post.videoIdArray}}
+            <iframe class="embed-video" src="https://www.youtube.com/embed/\{{this}}" allowfullscreen></iframe>
+            \{{/each}}
+
+            {{!-------------- attachment-section --------------}}
+            \{{#if post.attachmentsArray}}
+                <hr>
+                <h6>File đính kèm</h6>
+                <div class="attached-files-list">
+                    \{{#each post.attachmentsArray}}
+                    <a href="\{{{this}}}" class="attached-files-content">
+                        \{{inc @index}}. \{{getFileName this}}
+                        <br>
+                    </a>
+                    \{{/each}}
+                </div>
+            \{{/if}}
             
         </div>
-
-        {{!-------------- image-section --------------}}
-        \{{#each post.imagesArray}}
-        <img src="\{{this}}" alt="Picture" class="detail-notification-body--picture">
-        \{{/each}}
-
-        {{!-------------- video-section --------------}}
-        \{{#each post.videoIdArray}}
-        <iframe class="embed-video" src="https://www.youtube.com/embed/\{{this}}"></iframe>
-        \{{/each}}
-
-        {{!-------------- attachment-section --------------}}
-        \{{#if post.attachmentsArray}}
-            <hr>
-            <h6>File đính kèm</h6>
-            <div class="attached-files-list">
-                \{{#each post.attachmentsArray}}
-                <a href="\{{{this}}}" class="attached-files-content">
-                    \{{inc @index}}. \{{getFileName this}}
-                    <br>
-                </a>
-                \{{/each}}
-            </div>
-        \{{/if}}
     </div>
 
 </script>
