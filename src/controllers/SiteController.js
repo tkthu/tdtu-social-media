@@ -14,7 +14,6 @@ class SiteController{
             if (notifisFound === null){
                 throw new Error('not found notifications');
             }
-            console.log("notifisFound ", notifisFound)
             req.unreadNotifis = multipleMongooseToObject(notifisFound);
 
             return res.render("home",{user: req.user, unreadNotifis: req.unreadNotifis});

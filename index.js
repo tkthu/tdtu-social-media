@@ -40,6 +40,11 @@ io.on('connection', socket => {
         io.emit('deleted-post', data)
         // console.log('nhận được kết quả xóa post từ 1 user', data)
     })
+
+    socket.on('edit-post-success', data => {
+        io.emit('edit-post', data)
+        // console.log('nhận được kết quả edit post từ 1 user', data)
+    })
 })
 
 route(app);

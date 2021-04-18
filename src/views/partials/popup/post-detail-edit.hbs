@@ -1,4 +1,4 @@
-{{!-- input: user(người đang login) , post --}}
+{{!-- input: user(người đang login) --}}
 {{!-- 
     user:{
         username: 'NgVA256',
@@ -7,18 +7,6 @@
         userType: 'staff',
         staffInfo: { authorized: [ [Object], [Object] ] },
         studentInfo: {}
-    },
-    post:{
-        createdAt: "2021-02-18T17:23:42.562Z",
-        lastEdited: null,
-        comments: [],
-        sender: {
-            id: "NgVA256",
-            displayName: "Nguyễn Văn A",
-            avatarUrl: "/img/no-face.png"
-        },
-        commentsCount: 0,
-        ...
     }
 
  --}}
@@ -32,15 +20,16 @@
         <div class="edit-content__body">
             {{!-- --------------hidden-------------- --}}
             <input type="hidden" name="userId" value="{{user.username}}">
+            <input type="hidden" name="postId" value="xxx" id="edit-content__body--postId">
             {{!-- --------------End of hidden-------------- --}}
             {{!-- chuyên mục --}}
             {{#ifEquals user.userType "staff"}}
                 <div class="row" >
                     <div class="col-lg-2">
-                        <label for="chuyenmuc" class="popup-label">Chuyên mục</label>
+                        <label for="edit-content__body--chuyenmuc" class="popup-label">Chuyên mục</label>
                     </div>
                     <div class="col-lg-10">
-                        <select name="chuyenmuc" class="popup-input-selection">
+                        <select name="chuyenmuc" class="popup-input-selection" id="edit-content__body--chuyenmuc">
                             {{#each user.staffInfo.authorized}}
                                 <option id="{{this.id}}" value="{{this.id}}">{{this.name}}</option>
                             {{/each}}
@@ -84,7 +73,17 @@
 
                     </div>
                 </div>
-            </div>            
+            </div>
+            {{!-- input cũ --}}
+            <div class="row" >
+                <span class="col-lg-2">                         
+                </span>
+                <div class="col-lg-10">
+                    <div class="popup-attachment-old-section" >
+
+                    </div>
+                </div>
+            </div>    
             {{!-- thêm input --}}
             <div class="row" >
                 <span class="col-lg-2">                         
@@ -102,7 +101,7 @@
                     <label for="edit-content__body--attach-btn" class="btn btn-outline-light">
                         <img src="img/attachment.png"  alt="attachment">           
                     </label>
-                    <input type="button" name="attachmentFile" id="edit-content__body--attach-btn" onclick="addFileInput(this)">
+                    <input type="button" name="attachmentFile" id="edit-content__body--attach-btn" onclick="addFileInputTag(this)">
                     
                 </div>
                 <span class="col-lg-8">

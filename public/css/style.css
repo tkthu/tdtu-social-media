@@ -993,14 +993,14 @@ select {
 #edit-profile,
 #edit-content,
 #upload-post,
-.upload-post-home,
+/* .upload-post-home, */
 #edit-info,
 #edit-info-phongKhoa,
 #add-account {
     background-color: rgba(0, 0, 0,0.3);
     width: 100%;
     height: 100%;
-    position: fixed;
+    position:fixed;
     top: 0;
     left: 0;
     display: none;
@@ -1021,9 +1021,6 @@ select {
     overflow-y: auto;
 }
 
-.edit-content {
-    top: 70px;
-}
 
 .edit-info {
     top: 200px;
@@ -1202,7 +1199,6 @@ select {
 /* ------- End input file image ------- */
 
 .edit-profile__btnSave,
-#edit-content__btnSave,
 .btn-change-password,
 .edit-info__btnSave {
     outline: none;
@@ -1220,7 +1216,6 @@ select {
 }
 
 .edit-profile__btnSave:hover,
-#edit-content__btnSave:hover,
 .btn-change-password:hover,
 .edit-info__btnSave:hover {
     background-color: var(--white-color);
@@ -2115,11 +2110,9 @@ select {
  }
 
 @media(max-width: 680px) {
-    .upload-post,
     .edit-profile,
     .edit-info,
-    .edit-info-phongKhoa,
-    .edit-content {
+    .edit-info-phongKhoa {
         width: 90%;
     }
 
@@ -2245,11 +2238,9 @@ select {
     }
 
     .edit-profile,
-    .upload-post,
     .edit-info,
     .edit-info-phongKhoa,
-    .add-account,
-    .edit-content {
+    .add-account {
         width: 100%;
     }
 
@@ -2292,7 +2283,6 @@ select {
     }
 
     .edit-profile__btnSave,
-    .edit-content__btnSave,
     .btn-change-password,
     .edit-info__btnSave {
         margin-left: 50%;

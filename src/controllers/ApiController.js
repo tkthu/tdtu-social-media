@@ -22,7 +22,6 @@ class ApiController{
         const postPerPage = 10;
 
         const senderId = req.query.user !== "" ? req.query.user : {$ne: null}
-        console.log("{senderId} ", {"sender.id" :senderId})
         postModel.find({"sender.id" :senderId}).sort({createdAt: -1}).skip( offset + (pageNum-1)*postPerPage).limit(postPerPage)
         .then(postsFound => {
             if (postsFound === null){
@@ -75,7 +74,6 @@ class ApiController{
 
         })
         .catch(err => {
-            console.log("errer ", err)
             return res.status(500).json({
                 msg:'lấy post thất bại với lỗi ' + err,
             });
@@ -84,10 +82,9 @@ class ApiController{
     }
 
     // [POST] /post
-    addPost(req, res){        
+    addPost(req, res){    
         var imagesArray = undefined;
-        var attachmentsArray = undefined;
-        console.log("req.files.attachmentFile ", req.files.attachmentFile)
+        var attachmentsArray = undefined;        
         if(req.files.attachmentFile !== undefined){
             imagesArray = req.files.attachmentFile
             .filter(fi => fi.mimetype.startsWith('image/') )
@@ -102,7 +99,12 @@ class ApiController{
             });
         }
         console.log("imagesArray ", imagesArray);
-        console.log("attachmentsArray ", attachmentsArray);     
+        console.log("attachmentsArray ", attachmentsArray);   
+        
+        var videoIdArray = undefined;
+        if (req.body.videoId){
+            videoIdArray = Array.isArray(req.body.videoId) ? req.body.videoId : [req.body.videoId]
+        }
 
         const post = {
             _id: mogoose.Types.ObjectId(),
@@ -120,7 +122,7 @@ class ApiController{
             },
             imagesArray,
             attachmentsArray,
-            videoIdArray : req.body.videoId
+            videoIdArray : videoIdArray
         }
 
         new postModel(post).save()
@@ -142,7 +144,7 @@ class ApiController{
                     })                
                 })
             }
-
+            console.log('add post', post);
             return res.status(200).json({
                 code:0,
                 msg:'đăng post thành công',
@@ -161,13 +163,100 @@ class ApiController{
         
     }
 
+    // [POST] /post/:postId
+    editPost(req, res){
+        console.log('eddiiiiiiiiiiitttttttttt')
+        const {postId} = req.params;
+        const {tenchuyenmuc,chuyenmuc,title,content, videoId} = req.body;
+        postModel.findOne({_id: postId})
+        .then( postFound => {
+            if (postFound === null){
+                throw new Error('not found post');
+            }
+
+            req.post = mongooseToObject(postFound);
+
+            console.log('mongooseToObject(postFound) ',mongooseToObject(postFound));
+
+            req.post.name = title;
+            req.post.content = content;
+            if(req.post.department){
+                req.post.department.name = tenchuyenmuc;
+                req.post.department.id = chuyenmuc;
+            }            
+            req.post.lastEdited = new Date().toISOString();
+
+            var videoIdArray = undefined
+            if (videoId ){
+                videoIdArray = Array.isArray(videoId) ? videoId : [videoId];
+                
+            }
+            req.post.videoIdArray = videoIdArray;
+            
+
+            // Kiểm tra attachment cũ đã bị xóa chưa
+            var promises = [];
+            const oldAttachment = req.body.attachmentFileOld !== undefined ? req.body.attachmentFileOld : [];
+            req.post.imagesArray = postFound.imagesArray.filter( imgLink => {
+                if( ! oldAttachment.includes(imgLink)){// User muốn xóa hình này
+                    promises.push(unlink(`.\\public${imgLink}`));
+                } 
+                return oldAttachment.includes(imgLink);// giữa lại hình còn chứa trong oldAttachment
+            })
+            req.post.attachmentsArray = postFound.attachmentsArray.filter( fileLink => {
+                if( ! oldAttachment.includes(fileLink)){// Usre muốn xóa file này
+                    promises.push(unlink(`.\\public${fileLink}`));
+                } 
+                return oldAttachment.includes(fileLink);// giữa lại file còn chứa trong oldAttachment
+            })
+
+            return Promise.all(promises);            
+        })
+        .then( () => {// đã xóa file cũ
+
+            if(req.files.attachmentFile !== undefined){// thêm các file mới
+                const newImagesArray = req.files.attachmentFile
+                .filter(fi => fi.mimetype.startsWith('image/') )
+                .map( fi => {
+                    return fi.path.replace("public","");
+                });
+                req.post.imagesArray.push(...newImagesArray);
+
+                const newAttachmentsArray = req.files.attachmentFile
+                .filter(fi => !fi.mimetype.startsWith('image/') )
+                .map( fi => {
+                    return fi.path.replace("public","");
+                });
+                req.post.attachmentsArray.push(...newAttachmentsArray);
+            }
+
+            return postModel.updateOne({_id:postId},req.post);
+        })
+        .then( () => {
+            console.log("req.post ", req.post)
+            return res.status(200).json({
+                code:0,
+                msg:'edit post thành công',
+                data: {
+                    post: req.post,
+                    user: req.user
+                }
+            });
+        })
+        .catch(err =>{
+            console.log('err ', err)
+            return res.status(500).json({
+                msg:'edit post thất bại với lỗi ' + err,
+            });
+        })        
+    }
+
     // [DELETE] /post/:postId
     delPost(req, res){   
         //TODO: xóa notificaition     
         const {postId} = req.params;
         postModel.findOne({_id: postId})
         .then(postFound => {
-            console.log('postFound ',postFound)
             if(postFound == null){
                 return res.status(500).json({
                     msg:'không tìm thấy post',
@@ -207,7 +296,6 @@ class ApiController{
             });
         })
         .catch(err => {
-            console.log("err ",err)
             return res.status(500).json({
                 msg:'xóa post thất bại với lỗi ' + err,
             });
@@ -235,7 +323,6 @@ class ApiController{
                 });
             }
             const comments = multipleMongooseToObject(commentArr);
-            console.log("comments ", comments)
 
             return res.status(200).json({
                 code:0,
@@ -247,7 +334,6 @@ class ApiController{
 
         })
         .catch(err => {
-            console.log("err ", err)
             return res.status(500).json({
                 msg:`lấy ${cmtPerPost} comment thất bại với lỗi: ${err}`,
             });
@@ -277,11 +363,9 @@ class ApiController{
                 receiverId : resultPost.sender.id,
                 postId,
             }
-            console.log("req.comment  " ,req.comment)
             return new commentModel(req.comment).save();
         })
         .then((re) => {
-            console.log("re  " ,re)
             return res.status(200).json({
                 code:0,
                 msg:'đăng comment thành công',
