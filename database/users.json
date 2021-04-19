@@ -1,4 +1,5 @@
-[{
+[
+{
   "_id": "admin",
   "username": "admin",
   "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
@@ -7,7 +8,8 @@
   "createdAt": "2021-02-18T16:21:45.133Z",
   "lastEdited": null,
   "userType": "admin"
-},{
+},
+{
   "_id": "NgVA256",
   "username": "NgVA256",
   "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
@@ -28,7 +30,8 @@
     ]
   },
   "userType": "staff"
-},{
+},
+{
   "_id": "51800001",
   "username": "51800001",
   "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
@@ -41,7 +44,8 @@
     "faculty": "Công nghệ thông tin"
   },
   "userType": "student"
-},{
+},
+{
   "_id": "51800816",
   "staffInfo": {
     "authorized": []
@@ -54,7 +58,8 @@
   "displayName": "Thái Kim Thư",
   "lastEdited": "2021-03-24T12:59:31.592Z",
   "__v": 0
-},{
+},
+{
   "_id": "51801005",
   "staffInfo": {
     "authorized": []
@@ -67,8 +72,9 @@
   "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
   "displayName": "Trần Ngọc Phương Nhi",
   "__v": 0
-},{
-  "_id": "606c24e569c2723734c3483e",
+},
+{
+  "_id": "tonghalinh",
   "staffInfo": {
     "authorized": [
       {
@@ -88,8 +94,9 @@
   "password": "$2b$10$UJu//CSnL6Q.mF5tbc33nOeXqUxTTBl37UbYBtlkZVfSEYY8yQWbi",
   "displayName": "Tống Hạ Linh",
   "__v": 0
-},{
-  "_id": "606c39e6063f370be8847c73",
+},
+{
+  "_id": "trieuaitam",
   "staffInfo": {
     "authorized": [
       {
@@ -105,8 +112,9 @@
   "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
   "displayName": "Triệu Ái Tâm",
   "__v": 0
-},{
-  "_id": "606c3a6dca13fd22c8cd434a",
+},
+{
+  "_id": "lamhythan",
   "staffInfo": {
     "authorized": [
       {
@@ -126,8 +134,9 @@
   "password": "$2b$10$zx2Gxj9BA3hlPhjQmgelBu5Bq0wLWGV1wDMXBoSRuZ3tLTC1t.you",
   "displayName": "Lam Hy Thần",
   "__v": 0
-},{
-  "_id": "606c3b4ada67d543401fd5f3",
+},
+{
+  "_id": "nguyenthanhdat",
   "staffInfo": {
     "authorized": [
       {
@@ -143,8 +152,9 @@
   "password": "$2b$10$ZC1aqGoXRWJQ6C8TtCMpDuyibg8ef8E/iLVCPlmLFms.aXeqb/GJm",
   "displayName": "Nguyễn Thành Đạt",
   "__v": 0
-},{
-  "_id": "606c5998db863a354c2e5270",
+},
+{
+  "_id": "vuongnhatbac",
   "staffInfo": {
     "authorized": [
       {
@@ -164,8 +174,9 @@
   "password": "$2b$10$YDI7pPqqxDpRW8sFb3jujujdm4ByWDTTKDRLxKI.aRS3fz29uZTz2",
   "displayName": "Vương Nhất Bác",
   "__v": 0
-},{
-  "_id": "606c5a9b9056480ad028314c",
+},
+{
+  "_id": "tieuchien",
   "staffInfo": {
     "authorized": [
       {
@@ -181,8 +192,9 @@
   "password": "$2b$10$g7fWh8JQP//wOvdRP0MEhehqW0FI5Fy6Ih9SDeSuj9PAbaqJjdyXK",
   "displayName": "Tiêu Chiến",
   "__v": 0
-},{
-  "_id": "606c5acf9056480ad028314d",
+},
+{
+  "_id": "nguyanh",
   "staffInfo": {
     "authorized": [
       {
@@ -206,8 +218,9 @@
   "password": "$2b$10$0KSXaEtpLqjur8S1ogEfx..w93bxkVB.KFN4VoRkjCWwSPwz32lmW",
   "displayName": "Ngụy Anh",
   "__v": 0
-},{
-  "_id": "606c5b059056480ad028314e",
+},
+{
+  "_id": "lamtram",
   "staffInfo": {
     "authorized": [
       {
@@ -223,8 +236,9 @@
   "password": "$2b$10$nVyI1.td1tgZIk5Kc3erYujQ4GlJMvYTDUvblK0dV3c739SpL5Ch2",
   "displayName": "Lam Vong Cơ",
   "__v": 0
-},{
-  "_id": "606c5b2b9056480ad028314f",
+},
+{
+  "_id": "hoathanh",
   "staffInfo": {
     "authorized": [
       {
@@ -240,8 +254,9 @@
   "password": "$2b$10$frH6nkxEw5USmrpy6Ykqt.EcfBoRjrQ9Csih04Q6lVXP.GLtmczY2",
   "displayName": "Hoa Thành",
   "__v": 0
-},{
-  "_id": "606c5b409056480ad0283150",
+},
+{
+  "_id": "talien",
   "staffInfo": {
     "authorized": [
       {
@@ -257,8 +272,9 @@
   "password": "$2b$10$kG7aANqVo1ogKua1rXMeBu3WlFouqcqUn/ivChkytufI2X0mnCPQi",
   "displayName": "Tạ Liên",
   "__v": 0
-},{
-  "_id": "606c5b5c9056480ad0283151",
+},
+{
+  "_id": "thamthanhthu",
   "staffInfo": {
     "authorized": [
       {
@@ -275,7 +291,7 @@
   "displayName": "Thẩm Thanh Thu",
   "__v": 0
 },{
-  "_id": "606c5b779056480ad0283152",
+  "_id": "lacbangha",
   "staffInfo": {
     "authorized": [
       {
@@ -292,7 +308,7 @@
   "displayName": "Lạc Băng hà",
   "__v": 0
 },{
-  "_id": "606c5b909056480ad0283153",
+  "_id": "hieutinhtran",
   "staffInfo": {
     "authorized": [
       {
@@ -309,7 +325,7 @@
   "displayName": "Hiểu Tinh Trần",
   "__v": 0
 },{
-  "_id": "606c5bb59056480ad0283154",
+  "_id": "tietduong",
   "staffInfo": {
     "authorized": [
       {
@@ -326,7 +342,7 @@
   "displayName": "Tiết Dương",
   "__v": 0
 },{
-  "_id": "606c5bdb9056480ad0283155",
+  "_id": "suthanhhuyen",
   "staffInfo": {
     "authorized": [
       {
@@ -347,7 +363,7 @@
   "displayName": "Sư Thanh Huyền",
   "__v": 0
 },{
-  "_id": "606c5bf69056480ad0283156",
+  "_id": "hahuyen",
   "staffInfo": {
     "authorized": [
       {
@@ -368,7 +384,7 @@
   "displayName": "Hạ Huyền",
   "__v": 0
 },{
-  "_id": "606c5c179056480ad0283157",
+  "_id": "vusuhoang",
   "staffInfo": {
     "authorized": [
       {
@@ -389,7 +405,7 @@
   "displayName": "Vũ Sư Hoàng",
   "__v": 0
 },{
-  "_id": "606c5c319056480ad0283158",
+  "_id": "phonglienduc",
   "staffInfo": {
     "authorized": [
       {
@@ -410,7 +426,7 @@
   "displayName": "Phong Liên Dực",
   "__v": 0
 },{
-  "_id": "606c5c4e9056480ad0283159",
+  "_id": "lieuthanhca",
   "staffInfo": {
     "authorized": [
       {
@@ -427,7 +443,7 @@
   "displayName": "Liễu Thanh Ca",
   "__v": 0
 },{
-  "_id": "606c5c6b9056480ad028315a",
+  "_id": "truongngochoa",
   "staffInfo": {
     "authorized": [
       {
@@ -444,7 +460,7 @@
   "displayName": "Trương Ngọc Hoa",
   "__v": 0
 },{
-  "_id": "606c5ca79056480ad028315b",
+  "_id": "tranbanglien",
   "staffInfo": {
     "authorized": [
       {
@@ -465,7 +481,7 @@
   "displayName": "Trần Băng Liên",
   "__v": 0
 },{
-  "_id": "606c5cc39056480ad028315c",
+  "_id": "chuthanh",
   "staffInfo": {
     "authorized": [
       {
@@ -486,7 +502,7 @@
   "displayName": "Chu Thanh",
   "__v": 0
 },{
-  "_id": "606c5ceb9056480ad028315d",
+  "_id": "tadoan",
   "staffInfo": {
     "authorized": [
       {
@@ -507,7 +523,7 @@
   "displayName": "Tạ Doãn",
   "__v": 0
 },{
-  "_id": "606c5d149056480ad028315e",
+  "_id": "luugiaphong",
   "staffInfo": {
     "authorized": [
       {

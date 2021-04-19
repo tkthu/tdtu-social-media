@@ -319,7 +319,11 @@ function addFileInputTag(target){
 function addAttachmentInputTag (container){
   container.append(`
     <div class="input-file">
-      <input type="file" name="attachmentFile" style="color:white" />
+      <input type="file" name="attachmentFile" style="color:white"
+        accept="application/msword, application/vnd.ms-excel, 
+        application/vnd.ms-powerpoint, application/pdf,
+        image/*, text/plain"
+      />
       <span class="pointer" onclick="removeParent(this)" style="color:white" >&times;</span>
     </div>
   `)

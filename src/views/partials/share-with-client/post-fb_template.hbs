@@ -39,10 +39,10 @@
             </div>
             \{{#ifEquals post.sender.id user.username}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)-->
                 <div class="main-posted__user--edit-and-delete">
-                    <a href="#" data-item-id="\{{post._id}}" onclick="editContentPosted(this)">
+                    <a data-item-id="\{{post._id}}" onclick="editContentPosted(this)">
                         <img src="/img/edit.png" alt="edit.png">
                     </a>
-                    <a href="#" data-item-name="\{{post.name}}" data-item-id="\{{post._id}}" data-item-type="post" onclick="delConfirm(this)" >
+                    <a data-item-name="\{{post.name}}" data-item-id="\{{post._id}}" data-item-type="post" onclick="delConfirm(this)" >
                         <img src="/img/trash.png" alt="trash.png" >
                     </a>
                 </div>
