@@ -61,18 +61,15 @@ socket.on('deleted-post', data => {
 socket.on('deleted-comment', data => {
   // hiện comment
   $(`#${data.commentId}`).remove();
-    //update offset
-    const postElement = $('.detail-posted');
-    postElement.data(
+  //update offset
+  const postElement = $('.detail-posted');
+  postElement.data(
     'offset',
     postElement.data('offset') - 1
   );
 
 })
-socket.on('edit-post', data => {
-  console.log("edddddddddddddddddddddddddd")
-  console.log("data.post ", data.post)
-  
+socket.on('edit-post', data => {  
   var postElement = $(`#${data.post._id}`);
 
   // hiện post
@@ -84,6 +81,19 @@ socket.on('edit-post', data => {
   };
   const html = template(context);
   postElement.replaceWith(html);
+})
+socket.on('edit-comment', data => {
+  var cmtElement = $(`#${data.comment._id}`);
+
+  // hiện post
+  setupHelperHbs();
+  const template = Handlebars.compile($('#comment_template').html());
+  const context = {
+    comment : data.comment,
+    user : data.user
+  };
+  const html = template(context);
+  cmtElement.replaceWith(html);
 })
 
 
@@ -374,7 +384,7 @@ function createPost() {// Hiện popup tạo bài viết
 $('#upload-post').submit( (e) => { // Submit bài viết
   e.preventDefault();
 
-  //TODO: kiểm tra validate
+  // kiểm tra validate
   var formData = new FormData(e.target);
   if (formData.get('title').trim() == ""){
     alert('post phải có tiêu đề')
@@ -463,7 +473,7 @@ function editContentPosted(target) { // Hiện popup sửa bài viết
 $('#edit-content').submit( (e) => { // Lưu bài viết
   e.preventDefault();
 
-  //TODO: kiểm tra validate
+  // kiểm tra validate
   var formData = new FormData(e.target);
   if (formData.get('title').trim() == ""){
     alert('post phải có tiêu đề')
@@ -548,6 +558,17 @@ $('.comment').submit( e => {
   .catch(e => console.log("error ___ ",e))
 })
 //----------------- Sửa ----------------------------------
+function editComment(target) { // Hiện popup sửa comment
+  const cmtId = $(target).data('item-id');
+
+  var cmtText = $(`#${cmtId} .comment-other__box--text`);
+  cmtText.css('display', "none");
+  var cmtEdit = $(`#${cmtId} .comment-other__box--edit`);
+  cmtEdit.css('display', "block");
+  cmtEdit.val(cmtText.html().trim());
+  cmtEdit.focus();
+  reloadEvent();
+}
 
 //----------------- Xóa -----------------------------------
 function deleteComment(cmtId){
@@ -566,6 +587,54 @@ function deleteComment(cmtId){
   })
   .catch(e => console.log("error ___ ",e))
 }
+function reloadEvent(){
+  $('.comment-other').submit( e => { // Lưu comment
+    e.preventDefault();
+  
+    //TODO: kiểm tra validate
+    var formData = new FormData(e.target);
+    
+    if (formData.has('chuyenmuc')){
+      formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
+    }
+  
+    var cmtId = $(e.target).attr('id');
+    var cmtText = $(`#${cmtId} .comment-other__box--text`);
+    var cmtEdit = $(`#${cmtId} .comment-other__box--edit`);
+    if(formData.get('newCmt').trim() == cmtText.html().trim()){// không có thay đổi
+      alert('ko thay dổi')
+      cmtText.css('display', "block");    
+      cmtEdit.css('display', "none");
+      return false;
+    }
+
+    console.log("formData")
+    for (var pair of formData.entries()) {
+      console.log(pair[0], ', ' , pair[1]); 
+    }  
+
+    fetch(`/api/comment/${cmtId}`,{
+      method : 'POST',
+      body:  formData
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// sửa comment thành công
+        console.log('json.data ', json.data)
+        cmtText.css('display', "block");    
+        cmtEdit.css('display', "none");
+        socket.emit('edit-comment-success', json.data);
+      }
+    })
+    .catch(e => console.log("error ___ ",e))
+  })
+}
+
+
 
 //================================= PROFILE ====================================================================
 // --------------- utils ---------------------------------

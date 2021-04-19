@@ -18,7 +18,7 @@
 --}}
 <script id="comment_template" type="text/x-handlebars-template">
 
-    <div class="comment-other" id="\{{comment._id}}">
+    <form class="comment-other" id="\{{comment._id}}" method="POST" action="/">
         <div class="comment-other__content">
             <img src="\{{{comment.sender.avatarUrl}}}" alt="img" class="comment-other--img">
             <div class="comment-other__box">
@@ -26,13 +26,14 @@
                 <p class="comment-other__box--text">
                     \{{{comment.content}}}
                 </p>
+                <input type="text" name="newCmt" class="comment-other__box--edit">
             </div>
         </div>
         <div class="comment-other__reply-and-time">
             <a href="#" class="comment-other__reply">Trả lời</a>
             <span class="comment-other__reply-time">.
                 \{{#if comment.lastEdited}}
-                \{{fromNow comment.createdAt}} ( \{{fromNow comment.lastEdited}} edited)
+                \{{fromNow comment.createdAt}} (edited \{{fromNow comment.lastEdited}})
                 \{{else}}
                 \{{fromNow comment.createdAt}}
                 \{{/if}} 
@@ -40,17 +41,17 @@
         </div>
         
         \{{#ifEquals comment.sender.id user.username}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)-->
-            <div class=".">
-                <a href="#" data-item-id="\{{comment._id}}" onclick="editContentPosted(this)">
+            <div>
+                <a data-item-id="\{{comment._id}}" onclick="editComment(this)">
                     <img src="/img/edit.png" alt="edit.png">
                 </a>
-                <a href="#" data-item-name="bình luận này" data-item-id="\{{comment._id}}" data-item-type="comment" onclick="delConfirm(this)" >
+                <a data-item-name="bình luận này" data-item-id="\{{comment._id}}" data-item-type="comment" onclick="delConfirm(this)" >
                     <img src="/img/trash.png" alt="trash.png" >
                 </a>
             </div>
         \{{/ifEquals}}  
         <hr>
-    </div>
+    </form>
     
 
 </script>

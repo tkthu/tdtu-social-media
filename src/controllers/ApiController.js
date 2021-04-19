@@ -98,8 +98,6 @@ class ApiController{
                 return fi.path.replace("public","");
             });
         }
-        console.log("imagesArray ", imagesArray);
-        console.log("attachmentsArray ", attachmentsArray);   
         
         var videoIdArray = undefined;
         if (req.body.videoId){
@@ -144,7 +142,6 @@ class ApiController{
                     })                
                 })
             }
-            console.log('add post', post);
             return res.status(200).json({
                 code:0,
                 msg:'đăng post thành công',
@@ -165,7 +162,6 @@ class ApiController{
 
     // [POST] /post/:postId
     editPost(req, res){
-        console.log('eddiiiiiiiiiiitttttttttt')
         const {postId} = req.params;
         const {tenchuyenmuc,chuyenmuc,title,content, videoId} = req.body;
         postModel.findOne({_id: postId})
@@ -175,9 +171,6 @@ class ApiController{
             }
 
             req.post = mongooseToObject(postFound);
-
-            console.log('mongooseToObject(postFound) ',mongooseToObject(postFound));
-
             req.post.name = title;
             req.post.content = content;
             if(req.post.department){
@@ -233,7 +226,6 @@ class ApiController{
             return postModel.updateOne({_id:postId},req.post);
         })
         .then( () => {
-            console.log("req.post ", req.post)
             return res.status(200).json({
                 code:0,
                 msg:'edit post thành công',
@@ -244,7 +236,6 @@ class ApiController{
             });
         })
         .catch(err =>{
-            console.log('err ', err)
             return res.status(500).json({
                 msg:'edit post thất bại với lỗi ' + err,
             });
@@ -345,15 +336,12 @@ class ApiController{
     // [POST] /post/:postId/comment
     addComment(req, res){
         const {postId} = req.params;
-        console.log("req.body", req.body)
         postModel.findById(postId)
         .then((postFound)=>{
             postFound.commentsCount = postFound.commentsCount + 1;
             return postFound.save();
         })
-        .then(resultPost => {
-            console.log("req.body.cmt ", req.body.cmt)
-            
+        .then(resultPost => {            
             req.comment = {
                 _id: mogoose.Types.ObjectId(),
                 content: req.body.cmt,
@@ -369,7 +357,6 @@ class ApiController{
             return new commentModel(req.comment).save();
         })
         .then((re) => {
-            console.log("req.comment ",req.comment)
             return res.status(200).json({
                 code:0,
                 msg:'đăng comment thành công',
@@ -384,6 +371,49 @@ class ApiController{
                 msg:'đăng comment thất bại với lỗi ' + err,
             });
         })
+    }
+
+    // [POST] /comment/:commentId
+    editComment(req, res){
+        //TODO: kiểm tra user này có quyền sửa comment này ko ( 401 Unauthorized)
+        const {commentId} = req.params;
+        const {newCmt} = req.body;
+        commentModel.findOne({_id: commentId})
+        .then( cmtFound => {
+            if(cmtFound == null){
+                return res.status(500).json({
+                    msg:'không tìm thấy comment',
+                });
+            }
+             // kiểm tra user này có quyền sửa comment này ko
+            if (cmtFound.sender.id != req.user.username){
+                return res.status(403).json({
+                    msg:'bạn không có quyền sửa comment này',
+                });
+            }
+            
+            req.comment = cmtFound;
+            req.comment.content = newCmt;
+            req.comment.lastEdited = new Date().toISOString();
+            console.log('req.comment ',req.comment)
+            return commentModel.updateOne({_id:commentId},req.comment);            
+        })
+        .then(() => {// đã sửa comment
+            
+            return res.status(200).json({
+                code:0,
+                msg:'sửa comment thành công',
+                data: {
+                    comment: req.comment,
+                }
+            });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'sửa comment thất bại với lỗi ' + err,
+            });
+        })       
+
     }
 
     // [DELETE] /comment/:commentId
@@ -423,11 +453,7 @@ class ApiController{
             return res.status(500).json({
                 msg:'xoa1 comment thất bại với lỗi ' + err,
             });
-        })
-
-
-
-        
+        })       
 
     }
 

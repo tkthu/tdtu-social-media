@@ -50,6 +50,11 @@ io.on('connection', socket => {
         io.emit('edit-post', data)
         // console.log('nhận được kết quả edit post từ 1 user', data)
     })
+
+    socket.on('edit-comment-success', data => {
+        io.emit('edit-comment', data)
+        // console.log('nhận được kết quả edit post từ 1 user', data)
+    })
     
 })
 

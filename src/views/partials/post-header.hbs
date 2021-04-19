@@ -28,10 +28,10 @@
     </div>
     {{#ifEquals post.sender.id postOwnerId}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)-->
     <div class="main-posted__user--edit-and-delete">
-        <a href="#" class="main-posted__user--edit-link" data-item-id="{{post._id}}" onclick="editContentPosted(this)">
+        <a class="main-posted__user--edit-link" data-item-id="{{post._id}}" onclick="editContentPosted(this)">
             <img src="/img/edit.png" alt="edit.png" class="main-posted__user--edit">
         </a>
-        <a href="#" class="main-posted__user--delete-link" data-item-name="{{post.name}}" data-item-id="{{post._id}}" data-item-type="post" onclick="delConfirm(this)" >
+        <a class="main-posted__user--delete-link" data-item-name="{{post.name}}" data-item-id="{{post._id}}" data-item-type="post" onclick="delConfirm(this)" >
             <img src="/img/trash.png" alt="trash.png" class="main-posted__user--delete">
         </a>
     </div>
