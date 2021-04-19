@@ -386,16 +386,48 @@ class ApiController{
         })
     }
 
-    // [DELETE] /post/:postId/comment/:commentId
-    delComment(req, res){   
+    // [DELETE] /comment/:commentId
+    delComment(req, res){
         //TODO: kiểm tra user này có quyền xóa comment này ko ( 401 Unauthorized)
+        const {commentId} = req.params;
+        commentModel.findOne({_id: commentId})
+        .then( cmtFound => {
+            if(cmtFound == null){
+                return res.status(500).json({
+                    msg:'không tìm thấy comment',
+                });
+            }
+             // kiểm tra user này có quyền xóa comment này ko
+            if (cmtFound.sender.id != req.user.username){
+                return res.status(403).json({
+                    msg:'bạn không có quyền xóa comment này',
+                });
+            }
+            return postModel.updateOne({_id:cmtFound.postId},{
+                $inc: { commentsCount: -1} 
+            });            
+        })
+        .then(() => { // đã update số lượng comment của post
+            return commentModel.deleteOne({_id: commentId});
+        })
+        .then(() => {// đã xóa comment
+            return res.status(200).json({
+                code:0,
+                msg:'xóa comment thành công',
+                data: {
+                    commentId
+                }
+            });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'xoa1 comment thất bại với lỗi ' + err,
+            });
+        })
 
-        var post = {};
-        return res.status(200).json({
-            code:0,
-            msg:'xóa comment thành công',
-            data: post
-        });
+
+
+        
 
     }
 

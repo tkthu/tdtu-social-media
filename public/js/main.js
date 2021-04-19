@@ -26,7 +26,6 @@ socket.on('post-alert', data => {
     $('#alert-section').prepend(html);
   }
 })
-
 socket.on('comment', data => {
   // hiện comment
   const postElement = $('.detail-posted');
@@ -45,7 +44,6 @@ socket.on('comment', data => {
     );
   }
 })
-
 socket.on('deleted-post', data => {
   if($(`.detail-posted`).length){// đang ở trang chi tiết thông báo
     alert('post này đã bị xóa');
@@ -60,7 +58,17 @@ socket.on('deleted-post', data => {
     );
   }
 })
+socket.on('deleted-comment', data => {
+  // hiện comment
+  $(`#${data.commentId}`).remove();
+    //update offset
+    const postElement = $('.detail-posted');
+    postElement.data(
+    'offset',
+    postElement.data('offset') - 1
+  );
 
+})
 socket.on('edit-post', data => {
   console.log("edddddddddddddddddddddddddd")
   console.log("data.post ", data.post)
@@ -105,7 +113,6 @@ $('.comment-readmore').click(e => {
   e.preventDefault();
   loadMoreCmt(e);
 });
-
 async function loadMorePost() {
   const postContainerElement = $('.main');
 
@@ -146,7 +153,6 @@ async function loadMorePost() {
   .catch(e => console.log("error ___ ",e));
   
 }
-
 async function loadMoreCmt(){
   const postElement = $('.detail-posted');  
   const postId = postElement.attr('id') ;
@@ -222,7 +228,6 @@ function onSignIn(googleUser) {
         console.log(`Tài khoản phải có đuôi "${suffix}"`);
     }        
 }
-
 function signOut() {
   gapi.load('auth2', function() {
     gapi.auth2.init(
@@ -242,14 +247,12 @@ function signOut() {
     })
   })
 }
-
 function firstTimeLogin(username,displayName,imageUrl) {
   $('#set-pass-modal').modal('show');
   $('#confirm-set-pass').attr('data-username',username);
   $('#confirm-set-pass').attr('data-display-name',displayName);
   $('#confirm-set-pass').attr('data-image-url',imageUrl);  
 }
-
 $('#confirm-set-pass').click(e => {
   e.preventDefault()
 
@@ -292,6 +295,8 @@ $('#confirm-set-pass').click(e => {
   })
   .catch(e => console.log(e))
 })
+
+
 //================================= POST ========================================================================
 //---------------- utils -----------------------------
 function addFileInputTag(target){
@@ -333,7 +338,6 @@ $('.input-clip-url').on('keypress',function(e) {
     $(e.target).val("")
   }
 });
-
 function addEmbedVideoInputTag (container, videoId){
   container.append(`
     <div class="input-video-embed">
@@ -343,7 +347,6 @@ function addEmbedVideoInputTag (container, videoId){
     </div>
     `)
 }
-
 function addOldAttachmentTag (container, fileLink){
   const fileName = fileLink.split('\\').pop().split('/').pop();
   container.append(`    
@@ -354,28 +357,9 @@ function addOldAttachmentTag (container, fileLink){
     </p>   
   `)
 }
-
 function removeParent(target){
   target.parentNode.remove()
 }
-
-function deletePost(postId){
-  fetch(`/api/post/${postId}`,{
-    method : 'DELETE',
-  })
-  .then(resp => {            
-    if(resp.status < 200 || resp.status >= 300)
-      throw new Error(`Request failed with status ${resp.status}`)
-    return resp.json();
-  })
-  .then(json => {
-    if (json.code === 0){// xóa post thành công
-      socket.emit('delete-post-success', json.data);
-    }
-  })
-  .catch(e => console.log("error ___ ",e))
-}
-
 function resetPostDetailForm(form){ // Reset trạng thái cúa popup bài viết
   form.trigger("reset");
   form.find('.popup-youtube-section').html('');
@@ -512,10 +496,27 @@ function closeEditContentPosted() { // Đóng popup sửa bài viết
   form.css('display','none');
   resetPostDetailForm(form);
 }
+//----------------- Xóa -----------------------------------
+function deletePost(postId){
+  fetch(`/api/post/${postId}`,{
+    method : 'DELETE',
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// xóa post thành công
+      socket.emit('delete-post-success', json.data);
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+}
 
 
 //================================= COMMENT ===================================================================
-//---------------- utils -----------------------------
+//---------------- utils ---------------------------------
 
 //---------------- Đăng ----------------------------------
 $('.comment').submit( e => {
@@ -548,13 +549,29 @@ $('.comment').submit( e => {
 })
 //----------------- Sửa ----------------------------------
 
+//----------------- Xóa -----------------------------------
+function deleteComment(cmtId){
+  fetch(`/api/comment/${cmtId}`,{
+    method : 'DELETE',
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// xóa comment thành công
+      socket.emit('delete-comment-success', json.data);
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+}
 
 //================================= PROFILE ====================================================================
 // --------------- utils ---------------------------------
 function uploadFileImg(target) {
     document.getElementById("file-img").innerHTML = target.files[0].name;
 }
-
 function uploadFileImgBackground(target) {
     document.querySelector(".edit-profile__body--edit-imgBackground-input").innerHTML = target.files[0].name;
 }
@@ -564,7 +581,6 @@ function editUserProfile() {// Hiện popup sửa user profile
   form.style.display = "block";
   //TODO: fetch user rồi hiện lên popup  
 }
-
 function closeEditUserProfile() {// Đóng popup sửa user profile
   var form = document.querySelector("#edit-profile");
   form.style.display = "none";
@@ -581,7 +597,6 @@ function closeAddAccount() {// Đóng popup tạo thêm tài khoản phòng khoa
   var x = document.querySelector("#add-account");
     x.style.display = "none";
 }
-
 // -------------- Sửa ------------------------------------
 function editInfoPhongKhoa() {// Hiện popup sửa thông tin phòng/khoa
     var x = document.querySelector("#edit-info-phongKhoa");
@@ -592,6 +607,8 @@ function closeInfoPhongKhoa() {// Đóng popup sửa thông tin phòng/khoa
   var x = document.querySelector("#edit-info-phongKhoa");
     x.style.display = "none";
 }
+//----------------- Xóa -----------------------------------
+
 
 
 //================================ COMMON UTILS ===================================================================
@@ -609,6 +626,8 @@ $('.btn-confirm-del').click( e => {
   const itemId = $(e.target).data('item-id');
   if( itemType == "post" ){//xóa post
     deletePost(itemId);
+  }else if(itemType == "comment" ){
+    deleteComment(itemId);
   }
 })
 
