@@ -1,3 +1,4 @@
+//=================================== realtime  ==============================================================
 const socket = io();
 socket.on('post-alert', data => {
   // hiện post
@@ -34,6 +35,7 @@ socket.on('comment', data => {
     const template = Handlebars.compile($('#comment_template').html());      
     const context = {
       comment : data.comment,
+      user : data.user
     };
     const html = template(context);
     postElement.find('.other-comment-section').prepend(html);
@@ -77,7 +79,7 @@ socket.on('edit-post', data => {
 })
 
 
-//=============== ajax load thêm post và comment  =============================
+//=============== ajax load thêm post và comment  ============================================================
 var loadingMorePage = false;
 if ($('.main').length){
   // nếu trang có class main
@@ -166,7 +168,8 @@ async function loadMoreCmt(){
       
       json.data.comments.forEach(cmt => {
         var context = {
-          comment: cmt ,
+          comment: cmt ,          
+          user : json.data.user,
         }        
         var html = template(context);
         postElement.find('.other-comment-section').append(html);
@@ -183,7 +186,7 @@ async function loadMoreCmt(){
 }
 
 
-//====================== Login, logout, register =======================================
+//====================== Login, logout, register ===============================================================
 function onSignIn(googleUser) {
     const email = googleUser.getBasicProfile().getEmail();
     const displayName = googleUser.getBasicProfile().getName();
@@ -289,7 +292,7 @@ $('#confirm-set-pass').click(e => {
   })
   .catch(e => console.log(e))
 })
-//================================= POST =============================================
+//================================= POST ========================================================================
 //---------------- utils -----------------------------
 function addFileInputTag(target){
   var form = $(target).parents('form');
@@ -373,7 +376,7 @@ function deletePost(postId){
   .catch(e => console.log("error ___ ",e))
 }
 
-function resetPostDetailForm(form){ // REset trang thái cúa popup bài viết
+function resetPostDetailForm(form){ // Reset trạng thái cúa popup bài viết
   form.trigger("reset");
   form.find('.popup-youtube-section').html('');
   form.find('.popup-attachment-section').html('');
@@ -510,14 +513,22 @@ function closeEditContentPosted() { // Đóng popup sửa bài viết
   resetPostDetailForm(form);
 }
 
-//================================= COMMENT =======================================
 
+//================================= COMMENT ===================================================================
+//---------------- utils -----------------------------
+
+//---------------- Đăng ----------------------------------
 $('.comment').submit( e => {
   e.preventDefault(); 
 
   const postId = $('.detail-posted').attr('id') ;
 
   var formData = new FormData(e.target);
+
+  console.log("formData")
+  for (var pair of formData.entries()) {
+    console.log(pair[0], ', ' , pair[1]); 
+  }  
   fetch(`/api/post/${postId}/comment`,{
     method : 'POST',
     body:  formData
@@ -535,8 +546,11 @@ $('.comment').submit( e => {
   })
   .catch(e => console.log("error ___ ",e))
 })
+//----------------- Sửa ----------------------------------
 
-// --------- Chỉnh sửa profile ---------
+
+//================================= PROFILE ====================================================================
+// --------------- utils ---------------------------------
 function uploadFileImg(target) {
     document.getElementById("file-img").innerHTML = target.files[0].name;
 }
@@ -544,44 +558,51 @@ function uploadFileImg(target) {
 function uploadFileImgBackground(target) {
     document.querySelector(".edit-profile__body--edit-imgBackground-input").innerHTML = target.files[0].name;
 }
-
-// -------------- Tạo tài khoản phòng khoa --------------
-// Hiện bảng tạo thêm tài khoản phòng khoa
-function addAccountDepartments() {
-  var x = document.querySelector("#add-account");
-    x.style.display = "block";
-}
-
-// Hiện bảng sửa thông tin phòng/khoa
-function editInfoPhongKhoa() {
-    var x = document.querySelector("#edit-info-phongKhoa");
-    x.style.display = "block";
-    //TODO: fetch user rồi hiện lên popup
-
-}
-
-// Hiện bảng sửa user profile
-function editUserProfile() {
+// --------------- sửa ---------------------------------
+function editUserProfile() {// Hiện popup sửa user profile
   var form = document.querySelector("#edit-profile");
   form.style.display = "block";
   //TODO: fetch user rồi hiện lên popup  
 }
 
-function closeEditUserProfile() {
+function closeEditUserProfile() {// Đóng popup sửa user profile
   var form = document.querySelector("#edit-profile");
   form.style.display = "none";
 }
 
 
-//============================ Xóa =====================================
-// Hiện popup có chắc muốn xóa
+//================================= Account Phòng khoa ============================================================
+// -------------- Tạo  ----------------------------------
+function addAccountDepartments() {// Hiện popup tạo thêm tài khoản phòng khoa
+  var x = document.querySelector("#add-account");
+    x.style.display = "block";
+}
+function closeAddAccount() {// Đóng popup tạo thêm tài khoản phòng khoa
+  var x = document.querySelector("#add-account");
+    x.style.display = "none";
+}
+
+// -------------- Sửa ------------------------------------
+function editInfoPhongKhoa() {// Hiện popup sửa thông tin phòng/khoa
+    var x = document.querySelector("#edit-info-phongKhoa");
+    x.style.display = "block";
+    //TODO: fetch user rồi hiện lên popup
+}
+function closeInfoPhongKhoa() {// Đóng popup sửa thông tin phòng/khoa
+  var x = document.querySelector("#edit-info-phongKhoa");
+    x.style.display = "none";
+}
+
+
+//================================ COMMON UTILS ===================================================================
+// Hiện popup có chắc muốn xóa ?
 function delConfirm(target) {
   $('#confirm-del').modal('show');
   $('#del-item-name').html($(target).data("item-name"));
   $('.btn-confirm-del').data('item-id', $(target).data("item-id"));
   $('.btn-confirm-del').data('item-type', $(target).data("item-type"));
 }
-
+// Nút chắc chắn muốn xóa
 $('.btn-confirm-del').click( e => {
   $('#confirm-del').modal('hide');
   const itemType = $(e.target).data('item-type');
@@ -590,22 +611,7 @@ $('.btn-confirm-del').click( e => {
     deletePost(itemId);
   }
 })
-//=============== Xóa thông tin, bài viết =============================
 
-//============= Tắt bảng sửa thông tin, bài viết ======================
-function closeInfoPhongKhoa() {
-  var x = document.querySelector("#edit-info-phongKhoa");
-    x.style.display = "none";
-}
-
-function closeAddAccount() {
-  var x = document.querySelector("#add-account");
-    x.style.display = "none";
-}
-
-
-
-//================================ COMMON UTILS =======================================
 function setupHelperHbs(){
   dayjs.extend(window.dayjs_plugin_relativeTime)
   Handlebars.registerHelper('cutDown', function(post, options) {

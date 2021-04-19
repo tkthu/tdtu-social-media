@@ -16,7 +16,7 @@
 {{> add-comment user=user}}
 <div class="other-comment-section">
     {{#each comments}}
-    {{> comment comment=this}}
+    {{> comment comment=this user=user}}
     {{/each}}
 </div>
 

@@ -328,7 +328,8 @@ class ApiController{
                 code:0,
                 msg:`lấy ${cmtPerPost} comment thành công`,
                 data: {
-                    comments                 
+                    comments ,                    
+                    user : req.user,                
                 }
             });
 
@@ -344,12 +345,14 @@ class ApiController{
     // [POST] /post/:postId/comment
     addComment(req, res){
         const {postId} = req.params;
+        console.log("req.body", req.body)
         postModel.findById(postId)
         .then((postFound)=>{
             postFound.commentsCount = postFound.commentsCount + 1;
             return postFound.save();
         })
         .then(resultPost => {
+            console.log("req.body.cmt ", req.body.cmt)
             
             req.comment = {
                 _id: mogoose.Types.ObjectId(),
@@ -366,11 +369,13 @@ class ApiController{
             return new commentModel(req.comment).save();
         })
         .then((re) => {
+            console.log("req.comment ",req.comment)
             return res.status(200).json({
                 code:0,
                 msg:'đăng comment thành công',
                 data: {
                     comment: req.comment,
+                    user: req.user,
                 }
             });
         })

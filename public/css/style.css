@@ -404,20 +404,10 @@ body {
 
 .main-up-post-frame__choosen-file--img,
 .main-up-post-frame__choosen-video--img,
-.main-up-post-frame__choosen-picture--img,
-.main-posted__user--edit,
-.main-posted__user--delete {
+.main-up-post-frame__choosen-picture--img {
     width: 25px;
     height: 25px;
 }
-
-.main-posted__user--edit {
-    margin-right: 10px;
-}
-
-/* .main-posted__user--edit-link:hover ~ .edit-profile {
-    display: block;
-} */
 
 .main-up-post-frame__choosen-file--text,
 .main-up-post-frame__choosen-video--text,
@@ -454,11 +444,6 @@ body {
 
 .main-posted__user--edit-and-delete {
     margin: 0 0 0 55%;
-}
-
-.main-posted__user--edit-link,
-.main-posted__user--delete-link {
-    text-decoration: none;
 }
 
 .main-posted__show {
