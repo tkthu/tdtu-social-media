@@ -27,9 +27,10 @@
         <h6>Thông tin tài khoản phòng/khoa</h6>
         <div class="admin-body__table--show">
             <input id="search" name="search" type="text" placeholder="Tìm kiếm" onkeyup="myFunction()">
-            <a class="admin-body__table-search--link" href="">
+            <input type="submit" class="btn btn-primary" value="Tìm"/>
+            {{!-- <a class="admin-body__table-search--link" href="?search={{search}}">
                 <img class="admin-body__table-search--loupe" src="/img/loupe.png" alt="loupe.png">
-            </a>
+            </a> --}}
         </div>
         <table class="table table-hover" id="myTableStaff">
             <thead>
@@ -84,21 +85,9 @@
             {{!-- <p>Showing 1 to 10 of 27</p> --}}
             <nav id="pagination">
                 <ul class="pagination">
-                    <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only"></span>
-                    </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only"></span>
-                    </a>
-                    </li>
+                    {{#pagination current pages otherQuery}}
+                    <li class="page-item">{{{this.aTagHTML}}}</li>
+                    {{/pagination}}
                 </ul>
             </nav>
         </div>

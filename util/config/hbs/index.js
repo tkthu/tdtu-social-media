@@ -17,6 +17,53 @@ const hbs = exphbs.create({
         ifEquals: function(arg1, arg2, options) {
             return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
         },
+        pagination: function(current, pages, otherQuery, block) {            
+            // console.log("helper this",this)//this là cái javascript object mà mình gửi qua render. VD:  res.render('admin-acc-phong-khoa'...
+            // console.log("helper block",block)//block là mấy dòng hbs ở giữa pagination . VD: <li class="page-item">{{{this.aTagHTML}}}</li>
+            var accum = '';
+            var i = (Number(current) > 3 ? Number(current) - 2 : 1);
+            if( current != 1 ){// trang hiện tại không phải là trang đầu => hiện nút first
+                accum += block.fn({
+                    aTagHTML : 
+                        `<a class="page-link" href="?page=${1}&${otherQuery}" aria-label="First">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only"></span>
+                        </a>`,
+                });
+            }
+            if(i !== 1) {
+                accum += block.fn({
+                    aTagHTML : `<a class="page-link" href="#">...</a>`,
+                });
+            }
+            for(i; i <= (Number(current) + 2) && i <= pages; i++){
+                if(i == current){ // nút này là trang hiện tại => tô máu xanh nó
+                    accum += block.fn({
+                        aTagHTML : `<a class="page-link current-page-link active btn-primary" href="?page=${i}&${otherQuery}">${i}</a>`,
+                    });
+                } else { // các nút còn lại => ko tô màu
+                    accum += block.fn({
+                        aTagHTML : `<a class="page-link" href="?page=${i}&${otherQuery}">${i}</a>`,
+                    });
+                }
+                if(i == Number(current) + 2 && i <pages) {
+                    accum += block.fn({
+                        aTagHTML : `<a class="page-link" href="#">...</a>`,
+                    });
+                }            
+            }
+            if( current != pages ){// trang hiện tại không phải là trang cuối => hiện nút last
+                accum += block.fn({
+                    aTagHTML : 
+                        `<a class="page-link" href="?page=${pages}&${otherQuery}" aria-label="Last">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only"></span>
+                        </a>`,
+                });
+            }
+
+            return accum;            
+        },
         getFileName: function(value, options) {
             return value.split('\\').pop().split('/').pop();
         },
@@ -38,6 +85,8 @@ const hbs = exphbs.create({
             return "";
             
         },
+        
+
     }
 });
 
