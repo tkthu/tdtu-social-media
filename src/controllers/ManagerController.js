@@ -62,7 +62,7 @@ class ManagerController{
         }
 
         const addStaff = {
-            _id: mogoose.Types.ObjectId(),
+            _id: req.body.username,
             username: req.body.username,
             password: bcrypt.hashSync(req.body.password,10),
             displayName: req.body.displayName,
