@@ -242,8 +242,7 @@ function signOut() {
   gapi.load('auth2', function() {
     gapi.auth2.init(
       {
-        // client_id: '166513767436-l8pgm3hatt7ev99qvechpj63mgu2cttd.apps.googleusercontent.com'
-        client_id: '166513767436-etdj05bvej11g79bsf7o1tppfrmhvniu.apps.googleusercontent.com'
+        client_id: '166513767436-l8pgm3hatt7ev99qvechpj63mgu2cttd.apps.googleusercontent.com'
       }
     ).then( () => {
       var auth2 = gapi.auth2.getAuthInstance();  
