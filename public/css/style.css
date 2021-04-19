@@ -1087,8 +1087,7 @@ select {
 .add-account__body--add-account,
 .add-account__body--add-password,
 .add-account__body--add-displayName,
-.add-account__body--add-chuyenmuc,
-.add-account__body--add-background {
+.add-account__body--add-chuyenmuc {
     color: var(--white-color);
     font-weight: 600;
     margin-left: 250px;
@@ -1145,22 +1144,6 @@ select {
     color: var(--white-color); 
     height: calc(2rem - 2px);
 }
-
-.add-account__body--add-imgBackground-input {
-    position: absolute;
-    left: 668px;
-    top: 290px;
-    width: 400px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-
-.add-account__body--add-imgBackground-btn {
-    position: absolute;
-    top: 292px;
-    right: 490px;
-}
   
 .edit-profile__body--edit-img-btn {
     position: absolute;
@@ -1176,8 +1159,7 @@ select {
 
 
 .edit-profile__body--edit-img-btn img,
-.edit-profile__body--edit-imgBackground-btn img,
-.add-account__body--add-imgBackground-btn img {
+.edit-profile__body--edit-imgBackground-btn img {
     width: 25px;
     height: 25px;
 }
@@ -1302,7 +1284,7 @@ select {
 
 .admin-body__table--show {
     margin: 0 30px;
-    text-align: center;
+    text-align: right;
 }
 
 .admin-body__table--show input:nth-child(1) {
@@ -1391,12 +1373,6 @@ select {
 
 
 /*====================== Responsive =======================*/
-@media (max-width: 1510px) {
-    .add-account__body--add-imgBackground-input {
-        left: 645px;
-    }
-}
-
 @media (max-width: 1478px) {
     .edit-title,
     .add-title {
@@ -1420,10 +1396,6 @@ select {
     .edit-profile__body--edit-imgBackground-input {
         left: 590px;
     }
-
-    .add-account__body--add-imgBackground-input {
-        left: 600px;
-    }
 }
 
 @media (max-width: 1410px) {
@@ -1441,11 +1413,6 @@ select {
     .sidebar-logo {
         margin-left: 80px;
     }
-
-    /* .admin-body__table--show input {
-        width: 300px;
-        margin-left: 200px;
-    } */
 
     .add-account {
         left: 100px;
@@ -1468,14 +1435,6 @@ select {
     .edit-profile__body--edit-imgBackground-input {
         left: 500px;
     }
-
-    .add-account__body--add-imgBackground-input {
-        left: 555px;
-    }
-
-    .add-account__body--add-imgBackground-btn {
-        right: 400px;
-    }
 }
 
 @media (max-width: 1280px) {
@@ -1490,11 +1449,6 @@ select {
 }
 
 @media (max-width: 1230px) {
-
-    .add-account__body--add-imgBackground-input {
-        left: 500px;
-    }
-
     .add-account__body--add-imgBackground-btn {
         right: 340px;
     }
@@ -1571,13 +1525,8 @@ select {
     .add-account__body--add-account-input,
     .add-account__body--add-password-input,
     .add-account__body--add-displayName-input,
-    .add-account__body--add-imgBackground-input,
     .add-account__body--add-chuyenmuc-selected {
         width: 320px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 545px;
     }
 
     .edit-info__body--edit-account-input,
@@ -1651,10 +1600,6 @@ select {
         width: 300px;
     }
 
-    .add-account__body--add-imgBackground-input {
-        left: 500px;
-    }
-
     .add-account__body--add-imgBackground-btn {
         right: 300px;
     }
@@ -1670,18 +1615,9 @@ select {
 }
 
 @media (max-width: 1044px) {
-    /* .admin-body__table--show input {
-        margin-left: 200px;
-        width: 250px;
-    } */
-
     .admin-body__table-search--link {
         left: -40px;
         top: 0px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 465px;
     }
 
     .add-account__body--add-imgBackground-btn {
@@ -1704,10 +1640,6 @@ select {
 
     .forgot-password {
         margin-left: 90px;
-    }
-
-    .admin-body__table--show input:nth-child(2) {
-        margin: 0;
     }
 
     .login-with__google {
@@ -1805,11 +1737,6 @@ select {
         margin-right: 0px;
     }
 
-    /* .admin-body__table--show input {
-        width: 200px;
-        margin-left: 200px;
-    } */
-
     .add-account {
         left: 10px;
         width: 750px;
@@ -1865,13 +1792,8 @@ select {
     .add-account__body--add-account-input,
     .add-account__body--add-password-input,
     .add-account__body--add-displayName-input,
-    .add-account__body--add-imgBackground-input,
     .add-account__body--add-chuyenmuc-selected {
         width: 240px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 440px;
     }
 
     .edit-info__body--edit-account-input,
@@ -1939,10 +1861,6 @@ select {
         width: 200px;
     }
 
-    .add-account__body--add-imgBackground-input {
-        left: 395px;
-    }
-
     .add-account__body--add-imgBackground-btn {
         right: 210px;
     }
@@ -1986,10 +1904,6 @@ select {
     .admin-body {
         width: 550px;
     }
-
-    /* .admin-body__table--show input {
-        margin-left: 100px;
-    } */
 
     .header-nav {
         margin-right: 0px;
@@ -2090,10 +2004,6 @@ select {
         margin-left: 10px;
     }
 
-    .add-account__body--add-imgBackground-input {
-        left: 310px;
-    }
-
     .add-account__body--add-imgBackground-btn {
         right: 230px;
     }
@@ -2127,10 +2037,6 @@ select {
    .edit-profile__body--edit-imgBackground-btn {
        left: 500px;
    }
-
-   .add-account__body--add-imgBackground-input {
-        left: 265px;
-    }
 
     .add-account__body--add-imgBackground-btn {
         right: 185px;
@@ -2183,10 +2089,6 @@ select {
         margin-left: 70px;
     }
 
-    .admin-body__table--show input:nth-child(1) {
-        margin-bottom: 10px;
-    }
-
     .login-with__google {
         margin: 30px 0 0 140px;
     }
@@ -2200,10 +2102,6 @@ select {
     .admin-body {
         width: 480px;
     }
-
-    /* .admin-body__table--show input {
-        margin-left: 50px;
-    } */
 
     .sidebar-navbar__admin--block {
         left: 200px;
@@ -2290,14 +2188,6 @@ select {
     .notification-body__filter-fromDate,
     .notification-body__filter-toDate {
         margin-right: 5px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 180px;
-    }
-
-    .add-account__body--add-imgBackground-btn {
-        right: 124px;
     }
 }
 
