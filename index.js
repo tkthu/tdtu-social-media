@@ -60,5 +60,4 @@ io.on('connection', socket => {
 
 route(app);
 
-const port = process.env.PORT || 8080;
-server.listen(port,()=>{console.log(`http://localhost:${port}`)})
+server.listen(credentials.port,()=>{console.log(`http://localhost:${credentials.port}`)})

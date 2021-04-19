@@ -10,9 +10,10 @@ module.exports = {
         }
 
     },
+    port:8080,
     url:{
         dev: 'http://localhost:8080',
-        pro: 'https://tdtu-social-media.herokuapp.com'
+        pro: ''
     },
 
 }
