@@ -1,41 +1,60 @@
 const postNofi =  require('../models/post.model')
+const Departments = require('../models/department.model')
+const unreadNotification = require('../models/unreadNotifi.model')
+const { multipleMongooseToObject } = require('../../util/mongoose')
+
 class NotificationsController{
 
     // [GET] /
-    index(req, res){      
+    index(req, res, next){
         
-        postNofi.find({department: {$ne: null}})
-        .then( postsFound => {
-            if (postsFound === null){
-                throw new Error('not found posts')
-            }
-            var posts = postsFound.map( post => { 
-                return {
-                    _id: post._id,
-                    name: post.name,
-                    content: post.content,                
-                    createdAt: post.createdAt,
-                    lastEdited: post.lastEdited,
-                    imagesArray: post.imagesArray,
-                    attachmentsArray: post.attachmentsArray,
-                    commentsCount: post.commentsCount,
-                    department: post.department,
-                    sender: post.sender,
-                }
-            })            
-            res.render("all-notification",{user: req.user,posts});
-        })             
-        .catch(err => {
-            return res.render('error-page', { user: req.user, errorMsg: `${err}`} );
-        })
+        let search = req.query.search ? {$regex: req.query.search, $options:"$i"} : {$ne: null}; // Dùng $options:"$i" để ko phân biệt chữ hoa hay thường
+        let dpment = req.query.dpment ? {$regex: req.query.dpment, $options:"$i"} : {$ne: null};
+        let {from, to} = req.query;
+        let hideSeen = req.query.hideSeen ? {$regex: req.query.hideSeen} : {$ne: null};
+
+        var date;
+        if(from) {
+            date = {$gte:from}
+        }
+        else if(to) {
+            date = {$lte:to}
+        }
+        else if(!from && !to) {
+            date = {$ne: null}
+        }
+        else {
+            date = {$gte:from, $lte:to}
+        }
         
+        postNofi.find({name: search, createdAt: date, "department.name": dpment })
+            .then((notifications) => {
+                req.notifications = notifications;
+                return Departments.find();
+            })
+            .then((departments) => {
+                res.render('all-notification', { 
+                    posts: multipleMongooseToObject(req.notifications),
+                    user: req.user,
+                    department: multipleMongooseToObject(departments),
+                })
+            })
+            .catch((err) => {console.log("Lỗi: ", err)});
+          
     }
 
 
     
     // [GET] /departments
-    departmentPage(req, res){        
-        res.render("phongban",{user: req.user});
+    departmentPage(req, res, next){      
+        Departments.find()
+            .then((departments) => {
+                res.render("phongban",{
+                    dpments: multipleMongooseToObject(departments),
+                    user: req.user
+                });
+            }) 
+            .catch(next);
     }
 
 }

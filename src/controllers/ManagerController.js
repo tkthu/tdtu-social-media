@@ -8,7 +8,7 @@ class ManagerController{
 
     // [GET] /staffs
     staffsPage(req, res, next){    
-        let search = req.query.search ? {$regex:  "^" + req.query.search} : {$ne: null};
+        let search = req.query.search ? {$regex: req.query.search} : {$ne: null};
         let page = parseInt(req.query.page);
         let perPage = 10;
 
@@ -32,7 +32,6 @@ class ManagerController{
                     otherQuery: `search=${ req.query.search ? req.query.search : "" }`
                 })
             })
-            
         })
         .catch(next);
     }
