@@ -22,7 +22,8 @@ post: { lấy được post mà
 
 {{!-- input: post --}}
 
-<div class="notification-body--item">
+
+{{!-- <div class="notification-body--item">
     <a href="/{{post.sender.id}}/posts/{{post._id}}" class="notification-body--item-title-link">
     <h6 class="notification-body--item-title">
         {{ post.name}}
@@ -32,4 +33,17 @@ post: { lấy được post mà
         {{{cutDown post}}}
     </p>
     <p class="notification-body--item-date">{{post.department.name}} | {{fromNow post.createdAt}}</p>
+</div> --}}
+
+
+<div class="notification-body--item">
+    <a href="/{{unread.senderId}}/posts/{{unread.postId}}" class="notification-body--item-title-link">
+    <h6 class="notification-body--item-title">
+        {{ unread.title}}
+    </h6>
+    </a>
+    <p class="notification-body--item-content">
+        {{{cutDown unread}}}
+    </p>
+    <p class="notification-body--item-date">{{unread.department}} | {{fromNow unread.postCreatedAt}}</p>
 </div>

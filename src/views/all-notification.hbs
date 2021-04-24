@@ -18,7 +18,7 @@
         </div>
         <div class="notification-body__filter--2">
             <div class="form-check notification-body__filter-check">
-                <input name="hideSeen" class="notification-body__filter-check-input" type="checkbox">
+                <input onclick="checkAddress(this)" name="hideSeen" id="checkRead" class="notification-body__filter-check-input" type="checkbox">
                 <label class="notification-body__filter-check-label" for="unReadNotification">
                     Chưa xem
                 </label>
@@ -44,12 +44,16 @@
 
     <!-- All notification -->
     <div class="notification-body__all">
-        {{#each posts}}
+
+        {{!-- {{#each posts}}
         {{> post-notifi post=this}} 
+        {{/each}} --}}
+
+        {{#each unreadPosts}}
+        {{> post-notifi unread=this}}
         {{/each}}
     </div>
     <!-- End all notification -->
 </div>
 <!-- End notification -->
     
-

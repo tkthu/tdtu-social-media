@@ -1,7 +1,7 @@
 :root {
     --bg-color: rgb(51, 72, 92);
     --white-color: rgb(255, 255, 255);
-    --nav-color: #f1f1f1;
+    --nav-color: #f7f7f7;
     --text-color: #343434;
     --blue-color: #CAE8FF;
     --text-color-primary: #0067AC;
@@ -88,8 +88,6 @@ body {
     position: relative;
     margin: auto;
 }
-
-
 
 .login-form {
     width: 500px;
@@ -193,6 +191,7 @@ body {
     height: 60px;
     width: 60px;
     border-radius: 50%;
+    box-shadow: 0 3px 6px #bbb;
 }
 
 .sidebar-username__name {
@@ -259,7 +258,7 @@ body {
     width: 380px;
     height: 40px;
     border-radius: 30px;
-    margin: 30px 0 30px 30px;
+    margin: 30px 0 30px 0;
     padding-left: 20px;
     outline: none;
     border: none;
@@ -363,6 +362,7 @@ body {
     height: 140px;
     /* margin-left: 15px; */
     padding-top: 0.1px;
+    animation: moveInRight 1.5s ease-out;
 }
 
 .main-up-post-frame {
@@ -430,6 +430,7 @@ body {
     margin-bottom: 20px;
     margin-top: 20px;
     padding-bottom: 20px;
+    animation: moveInBottom 0.5s ease-out;
 }
 
 .main-posted__user {
@@ -452,6 +453,12 @@ body {
 
 .main-posted__user--edit-and-delete {
     margin: 0 0 0 55%;
+}
+
+.main-posted-edit,
+.main-posted-delete {
+    width: 25px;
+    height: 25px;
 }
 
 .main-posted__show {
@@ -552,6 +559,7 @@ hr {
     background-color: var(--nav-color);
     padding-bottom: 40px;
     margin-bottom: 2%;
+    animation: moveInLeft 1.5s ease-out;
 }
 
 .main-notification__header,
@@ -575,7 +583,11 @@ hr {
 
 .main-notification__header--see-all,
 .header-notification__header--see-all {
-    margin-right: 30px;
+    margin-right: 20px;
+}
+
+.main-notification__header--see-all {
+    text-align: center;
 }
 
 .main-notification__header--see-all-link,
@@ -599,6 +611,7 @@ hr {
 
 .unread-notification {
     background-color: var(--blue-color);
+    text-align: center;
 }
 
 .main-notification__body--name-and-time,
@@ -992,7 +1005,6 @@ select {
     left: 0;
     display: none;
     z-index: 5;
-    animation: headerNotifyGrowth ease-in-out 0.5s;
 }
 
 .myModal {
@@ -1004,8 +1016,9 @@ select {
     border-radius: 20px;
     margin: 0 auto;
     margin-top: 20px;
-
     overflow-y: auto;
+    animation: headerNotifyGrowth ease-in-out 0.5s;
+
 }
 
 
@@ -1373,6 +1386,37 @@ select {
         opacity: 1;
         transform: scale(1);
     }
+}
+
+@keyframes moveInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px); }
+    80% {
+      transform: translateX(10px); }
+    100% {
+      opacity: 1;
+      transform: translateX(0); } 
+}
+
+@keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px); }
+    80% {
+      transform: translateX(-10px); }
+    100% {
+      opacity: 1;
+      transform: translateX(0); } 
+}
+
+@keyframes moveInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(40px); }
+    100% {
+      opacity: 1;
+      transform: translateY(0); } 
 }
 
 

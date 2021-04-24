@@ -1,6 +1,6 @@
 const postNofi =  require('../models/post.model')
 const Departments = require('../models/department.model')
-const unreadNotification = require('../models/unreadNotifi.model')
+const UnreadNotification = require('../models/unreadNotifi.model')
 const { multipleMongooseToObject } = require('../../util/mongoose')
 
 class NotificationsController{
@@ -33,20 +33,28 @@ class NotificationsController{
                 return Departments.find();
             })
             .then((departments) => {
-                res.render('all-notification', { 
-                    posts: multipleMongooseToObject(req.notifications),
-                    user: req.user,
-                    department: multipleMongooseToObject(departments),
+                UnreadNotification.find({receiverId: req.user.username})
+                .then((unreadNotification) => {
+                    req.unreadNotification = unreadNotification;
+                    // if(hideSeen == "on") {
+                    //     console.log(unreadNotification)
+                    // }
+                    res.render('all-notification', { 
+                        posts: multipleMongooseToObject(req.notifications),
+                        user: req.user,
+                        department: multipleMongooseToObject(departments),
+                        unreadPosts: multipleMongooseToObject(req.unreadNotification),
+                    })
                 })
+                
             })
+
             .catch((err) => {console.log("Lỗi: ", err)});
           
     }
 
-
-    
     // [GET] /departments
-    departmentPage(req, res, next){      
+    departmentPage(req, res, next){ 
         Departments.find()
             .then((departments) => {
                 res.render("phongban",{
