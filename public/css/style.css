@@ -454,6 +454,12 @@ body {
     margin: 0 0 0 55%;
 }
 
+.main-posted__user--edit-and-delete a,
+.comment-edit-and-delete a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .main-posted__show {
     margin-top: 10px;
 }
@@ -493,6 +499,10 @@ hr {
     margin-right: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.comment-edit-and-delete{
+    text-align: right;
 }
 
 .comment-other__content {
@@ -551,6 +561,9 @@ hr {
     background-color: var(--nav-color);
     padding-bottom: 40px;
     margin-bottom: 2%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 .main-notification__header,
@@ -824,6 +837,7 @@ select {
     font-weight: 700;
     color: var(--bg-color);
     margin-bottom: 30px;
+    margin: 0 20px;
 }
 
 .sinhvien-xem {
@@ -995,15 +1009,14 @@ select {
 
 .myModal {
     background-color: var(--bg-color);
-    border: 3px solid var(--red-color);
     width: 65%;
     max-height: 80%;
     padding-bottom: 30px;
     border-radius: 20px;
     margin: 0 auto;
     margin-top: 20px;
-
     overflow-y: auto;
+    box-shadow: 0 3px 10px #484848;
 }
 
 

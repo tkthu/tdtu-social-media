@@ -41,7 +41,7 @@
         </div>
         
         \{{#ifEquals comment.sender.id user.username}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)-->
-            <div>
+            <div class="comment-edit-and-delete">
                 <a data-item-id="\{{comment._id}}" onclick="editComment(this)">
                     <img src="/img/edit.png" alt="edit.png">
                 </a>
