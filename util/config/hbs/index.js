@@ -17,9 +17,15 @@ const hbs = exphbs.create({
         ifEquals: function(arg1, arg2, options) {
             return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
         },
-        pagination: function(current, pages, otherQuery, block) {            
+        select : function( selected, options){
+            return options.fn(this).replace(
+                new RegExp(' value=\"' + selected + '\"'),
+                '$& selected="selected"');
+        },
+        pagination: function(current, pages, otherQuery, block) {
             // console.log("helper this",this)//this là cái javascript object mà mình gửi qua render. VD:  res.render('admin-acc-phong-khoa'...
-            // console.log("helper block",block)//block là mấy dòng hbs ở giữa pagination . VD: <li class="page-item">{{{this.aTagHTML}}}</li>
+            // console.log("helper block",block)//block là mấy dòng hbs ở giữa pagination . VD: <li class="page-item">{{{this.aTagHTML}}}</li>      
+
             var accum = '';
             var i = (Number(current) > 3 ? Number(current) - 2 : 1);
             if( current != 1 ){// trang hiện tại không phải là trang đầu => hiện nút first

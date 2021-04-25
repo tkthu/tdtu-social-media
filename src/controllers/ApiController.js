@@ -136,7 +136,7 @@ class ApiController{
                             postId: resultPost._id,
                             receiverId: user.username,
                             title: resultPost.name,
-                            department: resultPost.department.name,
+                            department: resultPost.department,
                             postCreatedAt: resultPost.createdAt,
                         }).save()
                     })                

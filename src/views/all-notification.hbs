@@ -5,35 +5,41 @@
     <!-- Filter notification -->
     <form class="notification-body__filter" method="get" action="/notifications">
         <div class="notification-body__filter--1">
-            <input id="search" name="search" type="text" class="notification-body__filter--search" placeholder="Tìm kiếm thông báo">
+            <input id="search" name="search" type="text" class="notification-body__filter--search" placeholder="Tìm kiếm thông báo" value="{{curQuery.search}}">
             <div class="notification-body__filter--chuyenmuc">
                 <select name="dpment">
-                    <option value="Phong/Khoa">Chọn Phòng/Khoa</option>
-                    {{#each department}}
-                    <option value="{{this.name}}">{{this.name}}</option>
-                    {{/each}}
+                    {{#select curQuery.dpment}}
+                        <option value="common">Chọn Phòng/Khoa</option>
+                        {{#each departments}}
+                        <option value="{{this._id}}">{{this.name}}</option>
+                        {{/each}}
+                    {{/select}}                    
                 </select>
             </div>
             
         </div>
         <div class="notification-body__filter--2">
             <div class="form-check notification-body__filter-check">
-                <input onclick="checkAddress(this)" name="hideSeen" id="checkRead" class="notification-body__filter-check-input" type="checkbox">
-                <label class="notification-body__filter-check-label" for="unReadNotification">
+                <input name="hideSeen" id="checkRead" class="notification-body__filter-check-input" type="checkbox" 
+                    {{#if curQuery.hideSeen}}
+                        checked
+                    {{/if}}
+                >
+                <label class="notification-body__filter-check-label" for="checkRead">
                     Chưa xem
                 </label>
             </div>
             <div class="notification-body__filter-fromDate">
-                <label class="notification-body__filter-fromDate-label" for="unReadNotification">
+                <label class="notification-body__filter-fromDate-label" for="fromDate">
                     Từ ngày
                 </label>
-                <input class="notification-body__filter-fromDate-input" id="fromDate" type="date" name="from">
+                <input class="notification-body__filter-fromDate-input" id="fromDate" type="date" name="from" value="{{curQuery.from}}">
             </div>
             <div class="notification-body__filter-toDate">
-                <label class="notification-body__filter-toDate-label" for="unReadNotification">
+                <label class="notification-body__filter-toDate-label" for="toDate">
                     Đến ngày
                 </label>
-                <input class="notification-body__filter-toDate-input" id="toDate" type="date" name="to">
+                <input class="notification-body__filter-toDate-input" id="toDate" type="date" name="to" value="{{curQuery.to}}">
             </div>
             <input type="reset" class="notification-body__filter-delete" value="Xóa"/>
             <input type="submit" class="notification-body__filter-search" value="Tìm kiếm" />
@@ -45,12 +51,8 @@
     <!-- All notification -->
     <div class="notification-body__all">
 
-        {{!-- {{#each posts}}
+        {{#each posts}}
         {{> post-notifi post=this}} 
-        {{/each}} --}}
-
-        {{#each unreadPosts}}
-        {{> post-notifi unread=this}}
         {{/each}}
     </div>
     <!-- End all notification -->

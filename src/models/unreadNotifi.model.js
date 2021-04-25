@@ -7,7 +7,10 @@ const UnreadNotifi = new Schema({
     postId:{ type: Schema.Types.ObjectId},
     receiverId: { type: String },
     title: { type: String },
-    department: { type: String },
+    department: {
+        id: {type: String},
+        name: {type: String},
+    },
     postCreatedAt: { type: String },
 });
 

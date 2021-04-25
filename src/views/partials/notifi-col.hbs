@@ -15,7 +15,7 @@
     {{#each unreadNotifis}}
         <div class="main-notification__body unread-notification">
             <div class="main-notification__body--name-and-time">
-                <p class="main-notification__body--name">{{this.department}}</p>
+                <p class="main-notification__body--name">{{this.department.name}}</p>
                 <span class="main-notification__body--time">{{fromNow this.postCreatedAt}}</span>
             </div>
             <a href="/{{this.senderId}}/posts/{{this.postId}}" class="main-notification__body--title-link">
