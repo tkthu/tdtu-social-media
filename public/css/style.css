@@ -452,7 +452,13 @@ body {
 }
 
 .main-posted__user--edit-and-delete {
-    margin: 0 0 0 55%;
+    margin: 0 0 0 64%;
+}
+
+.main-posted__user--edit-and-delete a,
+.comment-edit-and-delete a {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .main-posted-edit,
@@ -501,6 +507,10 @@ hr {
     margin-right: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.comment-edit-and-delete{
+    text-align: right;
 }
 
 .comment-other__content {
@@ -1009,7 +1019,6 @@ select {
 
 .myModal {
     background-color: var(--bg-color);
-    border: 3px solid var(--red-color);
     width: 65%;
     max-height: 80%;
     padding-bottom: 30px;
@@ -1434,11 +1443,19 @@ select {
     .edit-profile__body--edit-imgBackground-input {
         left: 590px;
     }
+
+    .main-posted__user--edit-and-delete {
+        margin-left: 62%;
+    }
 }
 
 @media (max-width: 1410px) {
     .sidebar {
         width: 350px;
+    }
+
+    .main-posted__user--edit-and-delete {
+        margin-left: 60%;
     }
 }
 
@@ -1458,7 +1475,7 @@ select {
     }
 
     .main-posted__user--edit-and-delete {
-        margin: 0 0 0 45%;
+        margin: 0 0 0 60%;
     }
 
     .edit-profile__body--edit-img-input,
@@ -1473,6 +1490,10 @@ select {
     .edit-profile__body--edit-imgBackground-input {
         left: 500px;
     }
+
+    .main-posted__user--edit-and-delete {
+        margin-left: 58%;
+    }
 }
 
 @media (max-width: 1280px) {
@@ -1483,6 +1504,10 @@ select {
     .edit-profile__body--edit-img-input,
     .edit-profile__body--edit-imgBackground-input {
         left: 460px;
+    }
+
+    .main-posted__user--edit-and-delete {
+        margin-left: 55%;
     }
 }
 
@@ -1545,7 +1570,7 @@ select {
     }
 
     .main-posted__user--edit-and-delete {
-        margin: 0 0 0 35%;
+        margin: 0 0 0 53%;
     }
 
     .login-with__google {
@@ -1621,6 +1646,10 @@ select {
     .edit-profile__body--edit-imgBackground-input {
         top: 380px;
     }
+
+    .main-posted__user--edit-and-delete {
+        margin-left: 50%;
+    }
 }
 
 @media(max-width: 1110px) {
@@ -1638,6 +1667,12 @@ select {
         right: 300px;
     }
 
+}
+
+@media (max-width: 1075px) {
+    .main-posted__user--edit-and-delete {
+        margin-left: 45%;
+    }
 }
 
 @media (max-width: 1058px) {
