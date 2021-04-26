@@ -5,7 +5,6 @@
   "content": "Thầy chưa kèm file ạ",
   "createdAt": "2021-02-18T17:34:25.229Z",
   "lastEdited": null,
-  "imageUrl": "/upload/51800001/screenshot.png",
   "sender": {
     "id": "51800001",
     "displayName": "Trần Thị B",
@@ -29,6 +28,166 @@
   "receiverId": "NgVA256",
   "postId": {
     "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddcbea34c0a17b075b5a2"
+  },
+  "createdAt": "2021-04-07T16:24:30.612Z",
+  "content": "add cmt",
+  "sender": {
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://lh6.googleusercontent.com/-dX5rmv_O1wo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmbxRoBVA27aUyS7WZpzUX9I4TEtw/s96-c/photo.jpg"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddcc3a34c0a17b075b5a3"
+  },
+  "createdAt": "2021-04-07T16:24:35.226Z",
+  "content": "add commt",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddcc5a34c0a17b075b5a4"
+  },
+  "createdAt": "2021-04-07T16:24:37.926Z",
+  "content": "1",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddcc7a34c0a17b075b5a5"
+  },
+  "createdAt": "2021-04-07T16:24:39.384Z",
+  "content": "2",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddcc7a34c0a17b075b5a6"
+  },
+  "createdAt": "2021-04-07T16:24:39.870Z",
+  "content": "3",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddcc8a34c0a17b075b5a7"
+  },
+  "createdAt": "2021-04-07T16:24:40.695Z",
+  "content": "4",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddcc9a34c0a17b075b5a8"
+  },
+  "createdAt": "2021-04-07T16:24:41.569Z",
+  "content": "5",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddccaa34c0a17b075b5a9"
+  },
+  "createdAt": "2021-04-07T16:24:42.374Z",
+  "content": "6",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddcd3a34c0a17b075b5aa"
+  },
+  "createdAt": "2021-04-07T16:24:51.688Z",
+  "content": "44444444",
+  "sender": {
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://lh6.googleusercontent.com/-dX5rmv_O1wo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmbxRoBVA27aUyS7WZpzUX9I4TEtw/s96-c/photo.jpg"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607d797e8592b625dc291bed"
+  },
+  "createdAt": "2021-04-19T12:37:18.517Z",
+  "content": "sorry đăng hơi trễ :))",
+  "sender": {
+    "id": "tieuchien",
+    "displayName": "Tiêu Chiến",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "tieuchien",
+  "postId": {
+    "$oid": "607d79258592b625dc291bd0"
   },
   "__v": 0
 }]

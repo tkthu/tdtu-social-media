@@ -1,20 +1,17 @@
-{{!-- input: user(người đang login) , posts(mảng các post) --}}
+{{!-- input: user(người đang login) , posts(mảng các post) , unreadNotifis (các post chưa đọc hiện lên notification) --}}
 
 <div class="row">
     <div class="col-xl-3 col-lg-12">
-        {{> notifi-col}}
+        {{> notifi-col unreadNotifis=unreadNotifis}}
     </div>
 
     <div class="col-xl-9 col-lg-12">
-        <div class="main">
-
-            {{> add-post user=user}}  
-            
-            
-            {{#each posts}}
+        {{> add-post user=user}} 
+                    
+        <div class="main" data-current-page="1" data-offset="0">
+            {{!-- {{#each posts}}
             {{> post-fb user=../user post=this}}
-            {{/each}}
-            
+            {{/each}} --}}
         </div>
     </div>
 </div>
@@ -22,4 +19,4 @@
 {{!-------------- popup --------------}}
 {{> post-detail-add}}
 {{> post-detail-edit}}
-{{> confirm-delete item-name="user Nguyễn Văn A" item-id="xxx"}}
+{{> confirm-delete}}

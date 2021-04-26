@@ -26,10 +26,36 @@ app.use(require('express-flash')());
 io.on('connection', socket => {
     console.log("kết nối socket")
 
-    socket.on('post-success', post => {
-        io.emit('notifi-alert', post)
-        console.log('nhận được post-success từ 1 user ', post)
+    socket.on('post-success', data => {
+        io.emit('post-alert', data)
+        // console.log('nhận được post-success từ 1 user ', data)
     })
+
+    socket.on('comment-success', data => {
+        io.emit('comment', data)
+        // console.log('nhận được comment-success từ 1 user ', data)
+    })
+
+    socket.on('delete-post-success', data => {
+        io.emit('deleted-post', data)
+        // console.log('nhận được kết quả xóa post từ 1 user', data)
+    })
+
+    socket.on('delete-comment-success', data => {
+        io.emit('deleted-comment', data)
+        // console.log('nhận được kết quả xóa post từ 1 user', data)
+    })
+
+    socket.on('edit-post-success', data => {
+        io.emit('edit-post', data)
+        // console.log('nhận được kết quả edit post từ 1 user', data)
+    })
+
+    socket.on('edit-comment-success', data => {
+        io.emit('edit-comment', data)
+        // console.log('nhận được kết quả edit post từ 1 user', data)
+    })
+    
 })
 
 route(app);

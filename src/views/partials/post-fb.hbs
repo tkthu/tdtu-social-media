@@ -17,6 +17,7 @@
             displayName: "Nguyễn Văn A",
             avatarUrl: "/img/no-face.png"
         },
+        commentsCount: 0,
         ...
     }
 
@@ -28,7 +29,7 @@
 
     {{!-------------- post-content --------------}}
     <div class="main-posted__content">
-        <a href="/{{post.sender.id}}/posts/{{post._id}}"><h5 class="main-posted__content-title">{{{post.name}}}</h5></a>
+        <a href="/{{post.sender.id}}/posts/{{post._id}}" class="main-posted__content-title">{{{post.name}}}</a>
         
         <p class="detail-notification--dpment">
             {{{post.department.name}}}
@@ -49,5 +50,5 @@
 
     {{!-------------- comment-section --------------}}
     <hr>
-    {{> comment-section user=user comments=post.comments}}
+    {{> comment-section user=user comments=post.comments total=post.commentsCount current=comments.length}}
 </div>

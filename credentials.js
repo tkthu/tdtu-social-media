@@ -6,7 +6,7 @@ module.exports = {
             conn: 'mongodb://localhost:27017/social-media-dev'
         },
         pro:{
-            conn: ''
+            conn: 'mongodb+srv://db_admin:db_123456@cluster0.pvykl.mongodb.net/social-media'
         }
 
     },

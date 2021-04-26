@@ -1,4 +1,16 @@
-<div id="edit-content" class="edit">
+{{!-- input: user(người đang login) --}}
+{{!-- 
+    user:{
+        username: 'NgVA256',
+        displayName: 'Nguyễn Văn A',
+        avatarUrl: '/img/no-face.png',
+        userType: 'staff',
+        staffInfo: { authorized: [ [Object], [Object] ] },
+        studentInfo: {}
+    }
+
+ --}}
+ <form id="edit-content" action="/" method="POST" enctype="multipart/form-data">
     <div class="myModal edit-content">
         <div class="edit-content__header">
             <img src="/img/logo tdt.png" alt="logo" class="edit-content__header--logo edit-logo">
@@ -6,71 +18,103 @@
             <img src="/img/close.png" alt="close.png" class="edit-content__header--close pointer" onclick="closeEditContentPosted()">
         </div>
         <div class="edit-content__body">
-            <div class="edit-content__body--edit">
-                <label class="edit-content__body--edit-name edit-title" for="title">Tiêu đề</label>
-                <input class="edit-content__body--edit-name-input" type="text" value="Title">
-            </div>
-            <div class="edit-content__body--edit">
-                <label class="edit-content__body--edit-chuyenmuc edit-title" for="chuyenmuc">Chuyên mục</label>
-                <div>
-                    <select class="edit-content__body--edit-chuyenmuc-selected" name="chuyenmuc">
-                        <option value="Phong/Khoa">Chọn chuyên mục</option>
-                        <option value="CTHSSV">Phòng Công tác học sinh sinh viên</option>
-                        <option value="daihoc">Phòng Đại học</option>
-                        <option value="saudaihoc" >Phòng Sau đại học</option>
-                        <option value="dientoan">Phòng điện toán và máy tính</option>
-                        <option value="khaothi">Phòng khảo thí và kiểm định chất lượng</option>
-                        <option value="taichinh">Phòng tài chính</option>
-                        <option value="CLC">TDT Creative Language Center</option>
-                        <option value="tinhoc">Trung tâm tin học</option>
-                        <option value="SDTC">Trung tâm đào tạo phát triển xã hội (SDTC)</option>
-                        <option value="ATEM">Trung tâm phát triển khoa học quản lý và công nghệ ứng dụng (ATEM)</option>
-                        <option value="doanhnghiep">Trung tâm hợp tác doanh nghiệp và cựu sinh viên</option>
-                        <option value="khoaluat">Khoa Luật</option>
-                        <option value="ngoaingu-tinhoc">Trung tâm Ngoại ngữ - Tin học - Bồi dưỡng văn hóa</option>
-                        <option value="IBEP">Viện chính sách kinh tế và kinh doanh (IBEP)</option>
-                        <option value="mythuatcongnghiep">Khoa Mỹ thuật công nghiệp</option>
-                        <option value="dien-dientu">Khoa Điện - điện tử</option>
-                        <option value="cntt">Khoa Công nghệ thông tin</option>
-                        <option value="baoholaodong">Khoa Môi trường và bảo hộ lao động</option>
-                        <option value="laodongcongdoan">Khoa Lao động công đoàn</option>
-                        <option value="taichinhnganhang">Khoa Tài chính ngân hàng</option>
-                        <option value="giaoducquocte">Khoa giáo dục quốc tế</option>
-                    </select>
+            {{!-- --------------hidden-------------- --}}
+            <input type="hidden" name="userId" value="{{user.username}}">
+            <input type="hidden" name="postId" value="xxx" id="edit-content__body--postId">
+            {{!-- --------------End of hidden-------------- --}}
+            {{!-- chuyên mục --}}
+            {{#ifEquals user.userType "staff"}}
+                <div class="row" >
+                    <div class="col-lg-2">
+                        <label for="edit-content__body--chuyenmuc" class="popup-label">Chuyên mục</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <select name="chuyenmuc" class="popup-input-selection" id="edit-content__body--chuyenmuc">
+                            {{#each user.staffInfo.authorized}}
+                                <option id="{{this.id}}" value="{{this.id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+            {{/ifEquals}}
+            {{!-- tiêu đề --}}
+            <div class="row" >
+                <div class="col-lg-2">
+                    <label for="edit-content__body--tieude" placeholder="Tiêu đề" class="popup-label">Tiêu đề</label>
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" placeholder="Tiêu đề" name="title" class="popup-input" id="edit-content__body--tieude">
                 </div>
             </div>
-            <div class="edit-content__body--edit">
-                <label class="edit-content__body--edit-background edit-title" for="background">Ảnh</label>
-                <div class="inputfile-box">
-                    <input type="file" id="imgPost" class="inputfile" onchange="uploadPostImg(this)">
-                    <label for="imgPost">
-                        <span id="file-imgBackground" class="edit-content__body--edit-imgBackground-input"></span>
-                        <span class="edit-content__body--edit-imgBackground-btn">
-                            <img src="/img/picture.png" alt="picture.png">
-                        </span>
+            {{!-- nội dung --}}
+            <div class="row" > 
+                <div class="col-lg-2">
+                    <label for="edit-content__body--noidung" class="popup-label">Nội dung</label>
+                </div>
+                <div class="col-lg-10">
+                    <textarea placeholder="Bạn đang nghĩ gì ..." name="content" class="popup-input-textarea" id="edit-content__body--noidung"></textarea>
+                </div>
+            </div>
+            {{!-- Youtube url --}}
+            <div class="row" > 
+                <div class="col-lg-2">
+                    <label for="clip-url-edit" class="popup-label">Youtube url</label>
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" placeholder="https://..." class="popup-input input-clip-url" id="edit-content__body--clip-url">
+                </div>
+            </div>
+            {{!-- Youtube embed clip --}}
+            <div class="row" >
+                <span class="col-lg-2">                         
+                </span>
+                <div class="col-lg-10">
+                    <div class="popup-youtube-section">
+
+                    </div>
+                </div>
+            </div>
+            {{!-- input cũ --}}
+            <div class="row" >
+                <span class="col-lg-2">                         
+                </span>
+                <div class="col-lg-10">
+                    <div class="popup-attachment-old-section" >
+
+                    </div>
+                </div>
+            </div>    
+            {{!-- thêm input --}}
+            <div class="row" >
+                <span class="col-lg-2">                         
+                </span>
+                <div class="col-lg-10">
+                    <div class="popup-attachment-section" >
+
+                    </div>
+                </div>
+            </div>          
+
+            {{!-- 3 nút cuối --}}
+            <div class="row" >
+                <div class="col-lg-2">
+                    <label for="edit-content__body--attach-btn" class="btn btn-outline-light">
+                        <img src="/img/attachment.png"  alt="attachment">           
                     </label>
+                    <input type="button" name="attachmentFile" id="edit-content__body--attach-btn" onclick="addFileInputTag(this)">
+                    
                 </div>
-            </div>
-            <div class="edit-content__body--edit">
-                <label class="edit-content__body--edit-file edit-title" for="file">File đính kèm</label>
-                <div class="inputfile-box">
-                    <input type="file" id="filePost" class="inputfile" onchange="uploadPostFile(this)">
-                    <label for="filePost">
-                        <span class="edit-content__body--edit-file-input"></span>
-                        <span class="edit-content__body--edit-file-btn">
-                            <img src="/img/file.png" alt="file.png">
-                        </span>
-                    </label>
+                <span class="col-lg-8">
+                
+                </span>
+                <div class="col-lg-2">
+                    <button class="btn btn-outline-light" type="submit">Lưu</button>
                 </div>
-            </div>
-            <div class="edit-content__body--edit">
-                <label class="edit-content__body--edit-content edit-title" for="noidung">Nội dung</label>
-                <textarea class="edit-content__body--edit-content-input" cols="80" rows="10">
-                    Đây là nội dung
-                </textarea>
             </div>
         </div>
-        <button id="edit-content__btnSave" type="submit">Lưu</button>
     </div>
-</div>
+ 
+ </form>
+ 
+    
 

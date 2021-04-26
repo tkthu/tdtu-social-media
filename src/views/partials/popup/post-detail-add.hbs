@@ -11,70 +11,98 @@
     
  --}}
 
-<form id="upload-post" class="create-post" action="/" method="POST" enctype="multipart/form-data">
-    <div class="myModal upload-post">
+<form id="upload-post" action="/" method="POST" enctype="multipart/form-data">
+    <div class="myModal container">
         <div class="upload-post__header">
             <img src="/img/logo tdt.png" alt="logo" class="upload-post__header--logo">
             <h1 class="upload-post__header--text">Tạo bài viết</h1>
             <img src="/img/close.png" alt="close.png" class="upload-post__header--close pointer" onclick="closeCreatePost()">
-        </div>    
+        </div> 
+        
         <div class="upload-post__body">
             {{!-- --------------hidden-------------- --}}
             <input type="hidden" name="userId" value="{{user.username}}">
             {{!-- --------------End of hidden-------------- --}}
+            {{!-- chuyên mục --}}
+            {{#ifEquals user.userType "staff"}}
+                <div class="row" >
+                    <div class="col-lg-2">
+                        <label for="chuyenmuc" class="popup-label">Chuyên mục</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <select name="chuyenmuc" class="popup-input-selection">
+                            {{#each user.staffInfo.authorized}}
+                                <option id="{{this.id}}" value="{{this.id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+            {{/ifEquals}}
+            {{!-- tiêu đề --}}
+            <div class="row" >
+                <div class="col-lg-2">
+                    <label for="tieude-add" placeholder="Tiêu đề" class="popup-label">Tiêu đề</label>
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" placeholder="Tiêu đề" name="title" class="popup-input" id="upload-post__body--tieude">
+                </div>
+            </div>
+            {{!-- nội dung --}}
+            <div class="row" > 
+                <div class="col-lg-2">
+                    <label for="noidung-add" class="popup-label">Nội dung</label>
+                </div>
+                <div class="col-lg-10">
+                    <textarea placeholder="Bạn đang nghĩ gì ..." name="content" class="popup-input-textarea" id="upload-post__body--noidung"></textarea>
+                </div>
+            </div>
+            {{!-- Youtube url --}}
+            <div class="row" > 
+                <div class="col-lg-2">
+                    <label for="clip-url-add" class="popup-label">Youtube url</label>
+                </div>
+                <div class="col-lg-10">
+                    <input type="text" placeholder="https://..." class="popup-input input-clip-url" id="upload-post__body--clip-url">
+                </div>
+            </div>
+            {{!-- Youtube embed clip --}}
+            <div class="row" >
+                <span class="col-lg-2">                         
+                </span>
+                <div class="col-lg-10">
+                    <div class="popup-youtube-section">
+                
+                    </div>
+                </div>
+            </div>            
+            {{!-- thêm input --}}
+            <div class="row" >
+                <span class="col-lg-2">                         
+                </span>
+                <div class="col-lg-10">
+                    <div class="popup-attachment-section" >
 
-            <div class="upload-post__body--create">
-                <label class="upload-post__body--create-title create-title" for="title" placeholder="Tiêu đề" >Tiêu đề</label>
-                <input class="upload-post__body--create-title-input" type="text" placeholder="Tiêu đề" name="title">
-            </div>
-            <div class="upload-post__body--create">
-                <label class="upload-post__body--upload-post create-title" for="noidung">Nội dung</label>
-                <textarea class="upload-post__body--upload-post-input" cols="80" rows="10" placeholder="Bạn đang nghĩ gì ..." name="content"></textarea>
-            </div>
-            <div class="upload-post__body--create">
-                {{#ifEquals user.userType "staff"}}
-                    <label class="upload-post__body--create-chuyenmuc create-title" for="chuyenmuc">Chuyên mục</label>              
-                    <select class="upload-post__body--create-chuyenmuc-selected" name="chuyenmuc">
-                        {{#each user.staffInfo.authorized}}
-                            <option id="{{this.id}}" value="{{this.id}}">{{this.name}}</option>
-                        {{/each}}
-                    </select>
-                {{/ifEquals}}
-            </div>
-            
-            <div class="upload-post__body--create">
-                <label class="upload-post__body--create-file create-title" for="file">File đính kèm</label>
-                <div class="inputfile-box">
-                    <input type="file" id="file" class="inputfile" onchange="uploadNewFile(this)" name="file" 
-                    accept="application/msword, application/vnd.ms-excel, 
-                        application/vnd.ms-powerpoint,text/plain, application/pdf" 
-                    multiple >
-                    <label for="file">
-                        <span id="file-text" class="upload-post__body--create-file-input"></span>
-                        <span class="upload-post__body--create-file-btn">
-                            <img src="/img/file.png" alt="file.png">
-                        </span>
+                    </div>
+                </div>
+            </div>          
+
+            {{!-- 3 nút cuối --}}
+            <div class="row" >
+                <div class="col-lg-2">
+                    <label for="upload-post__body--attach-btn" class="btn btn-outline-light">
+                        <img src="/img/attachment.png"  alt="attachment">           
                     </label>
+                    <input type="button" name="attachmentFile" id="upload-post__body--attach-btn" onclick="addFileInputTag(this)">
+                    
+                </div>
+                <span class="col-lg-8">
+                
+                </span>
+                <div class="col-lg-2">
+                    <button class="btn btn-outline-light" type="submit">Đăng bài</button>
                 </div>
             </div>
-            {{!-- TODO: embed clip từ youtube --}}
-            
-            <div class="upload-post__body--create">
-                <label class="upload-post__body--create-background create-title" for="background">Hình đính kèm</label>
-                <div class="inputfile-box">
-                    <input type="file" id="fileImg" class="inputfile" onchange="uploadNewImage(this)" name="fileImg" 
-                    accept="image/*" 
-                    multiple >
-                    <label for="fileImg">
-                        <span id="file-imgBackground" class="upload-post__body--create-imgBackground-input"></span>
-                        <span class="upload-post__body--create-imgBackground-btn">
-                            <img src="/img/picture.png" alt="picture.png">
-                        </span>
-                    </label>
-                </div>
-            </div>
-            
         </div>
-        <button id="upload-post__btnSave" class="pointer" type="submit">Đăng bài</button>
+                
     </div>
 </form>

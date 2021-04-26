@@ -1,14 +1,36 @@
 {{!-- input: post --}}
+{{!-- 
+post: { lấy được post mà
+
+    _id: post._id,
+    name: post.name,
+    content: post.content,                
+    createdAt: post.createdAt,
+    lastEdited: post.lastEdited,
+    imagesArray: post.imagesArray,
+    attachmentsArray: post.attachmentsArray,
+    commentsCount: post.commentsCount,
+    department: post.department,
+    sender: {
+      id: 'NgVA256',// thì hiện sender.id chứ  . hay sender.displayName  đó nó báo lỗi gì á thư
+      displayName: 'Nguyễn Văn A',
+      avatarUrl: '/img/no-face.png'
+    }, ,
+}
+
+ --}}
+
+{{!-- input: post --}}
+
 
 <div class="notification-body--item">
-    <a href="/userId/posts/postId" class="notification-body--item-title-link">
-        <h6 class="notification-body--item-title">
-            Thông báo khai giảng các khóa học ôn luyện tiếng anh tháng 3/2021
-        </h6>
+    <a href="/{{post.sender.id}}/posts/{{post._id}}" class="notification-body--item-title-link">
+    <h6 class="notification-body--item-title">
+        {{ post.name}}
+    </h6>
     </a>
     <p class="notification-body--item-content">
-        Trung tâm Ngôn ngữ Sáng tạo thông báo khai giảng các khóa
-        học ngoại ngữ tháng 3/2021 tại CLC như sau:
+        {{{cutDown post}}}
     </p>
-    <p class="notification-body--item-date">Phòng đại học | 03/02/2021</p>
+    <p class="notification-body--item-date">{{post.department.name}} | {{fromNow post.createdAt}}</p>
 </div>

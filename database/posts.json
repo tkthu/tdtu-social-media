@@ -1,28 +1,5 @@
 [{
   "_id": {
-    "$oid": "602ea2341054c06b8fd7dc26"
-  },
-  "name": "THÔNG BÁO Về việc thực hiện các biện pháp phòng, chống dịch bệnh COVID-19",
-  "content": "Thực hiện Chỉ thị số 05/CT-TTg ngày 28/01/2021 của Thủ tướng Chính phủ về một số biện pháp cấp bách phòng, chống dịch COVID-19, Thông báo số 67/TB-VP ngày 28/01/2021 của Văn phòng UBND TP. Hồ Chí Minh; Chỉ thị số 79/CT-BGDĐT ngày 28/01/2021 của Bộ Giáo dục và Đào tạo; các văn bản hướng dẫn của Bộ Y tế và các cơ quan chức năng; nhằm đảm bảo sức khỏe và an toàn cho cộng đồng, tiếp tục thực hiện các hoạt động dạy – học trong tình trạng mới, Trường Đại học Tôn Đức Thắng thông báo:\n\n1. Yêu cầu học sinh, sinh viên, học viên, nghiên cứu sinh (gọi chung là HSSV) có lịch sử di chuyển đến các địa phương, khu vực thuộc vùng dịch của tỉnh Hải Dương, Quảng Ninh hoặc các địa điểm được Bộ Y tế thông tin khoanh vùng trong thời gian từ ngày 07/01/2021 đến ngày 27/01/2021 hoặc có tiếp xúc với người có đi qua vùng dịch trong thời gian trên, chủ động thực hiện khai báo y tế với địa phương và báo về Đơn vị quản lý/Khoa/Phòng/Ban chức năng của Trường để nắm bắt thông tin và kịp thời có các biện pháp phòng, chống dịch bệnh theo Hướng dẫn của Trung tâm Kiểm soát bệnh tật TPHCM (HCDC) (đính kèm Hướng dẫn).\n\n2. Đối với HSSV nội trú ở Ký túc xá của Trường có quê ở các tỉnh, thành thuộc vùng dịch đang thực hiện các biện pháp cách ly theo yêu cầu của Bộ Y tế và cơ quan chức năng, chủ động báo cáo với Ký túc xá để Nhà trường bố trí sắp xếp cho HSSV ở lại khu nội trú đón Tết xa nhà và đảm bảo việc thực hiện các biện pháp phòng, chống dịch bệnh.\n\n3. HSSVchủ động thực hiện các biện pháp phòng, chống dịch bệnh COVID-19 theo khuyến cáo của Bộ Y tế và cơ quan chức năng; thực hiện nghiêm túc “Thông điệp 5K”: Khẩu trang – Khử khuẩn – Khoảng cách – Không tập trung – Khai báo y tế. Khi có biểu hiện sốt, ho, khó thở hoặc nghi ngờ mắc COVID-19 báo cáo ngay với cơ quan y tế ở địa phương và thông tin đến Đơn vị quản lý/Khoa/Phòng/Ban chức năng của Nhà trường để có giải pháp kịp thời; đồng thời tuân thủ các hướng dẫn về phòng, chống dịch bệnh theo quy định.\n\n       4. HSSV thực hiện các biện pháp phòng, chống dịch bệnh: đeo khẩu trang, rửa tay sát khuẩn, đo thân nhiệt…khi vào Trường; theo dõi và báo cáo ngay các dấu hiệu, trường hợp bất thường xảy ra cho Đơn vị quản lý/Khoa/Phòng/Ban chức năng của Nhà trường. ",
-  "createdAt": "2021-02-18T17:23:42.562Z",
-  "lastEdited": null,
-  "imagesArray": [
-    "/upload/NgVA256/huong-dan-(20210129_075049_416).jpeg",
-    "/upload/NgVA256/thong-diep-5k-(20210129_075049_433).jpg"
-  ],
-  "attachmentsArray": null,
-  "commentsCount": 0,
-  "department": {
-    "id": "602e9cb11054c06b8fd7dc1e",
-    "name": "PHÒNG CTHSSV"
-  },
-  "sender": {
-    "id": "NgVA256",
-    "displayName": "Nguyễn Văn A",
-    "avatarUrl": "/img/no-face.png"
-  }
-},{
-  "_id": {
     "$oid": "602ea4551054c06b8fd7dc29"
   },
   "name": "Lịch thi MOS đợt tháng 03/2021",
@@ -34,7 +11,7 @@
     "/upload/NgVA256/chinh-thuc-lich-thi-mos-dot-t03-2021--exam-schedule-mos-in-the-month-of-03-2021-(20210202_092118_547).xlsx",
     "/upload/NgVA256/du-kien-danh-sach-thi-mos-dot-t03-2021--exam-list-mos-in-the-month-of-03-2021-(20210202_092118_559).xlsx"
   ],
-  "commentsCount": 2,
+  "commentsCount": 11,
   "department": {
     "id": "602e9df21054c06b8fd7dc1f",
     "name": "PHÒNG ĐẠI HỌC"
@@ -62,4 +39,217 @@
     "displayName": "Trần Thị B",
     "avatarUrl": "/upload/51800001/TrThB_avatar.jpg"
   }
+},{
+  "_id": {
+    "$oid": "6065f5a49770ff069c489ac2"
+  },
+  "createdAt": "2021-04-01T16:32:36.789Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "commentsCount": 0,
+  "name": "Lịch thi cuối kỳ HK2/20-21 dành cho sv khóa cũ - môn kết thúc sớm của khoa Dược",
+  "content": "Phòng Đại học gửi đến các sinh viên thông tin Danh sách thi chính thức các lớp tiếng Anh HK1/20-21 (Thi ngày 03/04/2021)\r\nLưu ý:\r\n- Sinh viên phải có mặt tại phòng thi trước giờ thi ít nhất 30 phút\r\n- Sinh viên xem danh sách thi trong file đính kèm.\r\n- Các trường hợp thắc mắc về danh sách thi vui lòng liên hệ phòng Đại học (A0005) hoặc email: phongdaihoc@tdtu.edu.vn \r\n- Các ngày thi sau (nếu có) sẽ được cập nhật danh sách mỗi ngày, sinh viên vui lòng theo dõi thông tin thường xuyên.\r\n- Các trường hợp không đủ điều kiện dự thi do chuyên cần có thể sẽ không có thể trong danh sách chính thức trên phòng thi, sinh viên phải cập nhật lịch thi thường xuyên để nắm thông tin khi có thay đổi.",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6065f6a19770ff069c489ac3"
+  },
+  "createdAt": "2021-04-01T16:36:49.106Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "commentsCount": 0,
+  "name": "Thông tin hoãn thi dành cho sinh viên bị trùng lịch thi tiếng Anh ở HK1/20-21 với học kỳ quân đội đang học tại cơ sở Bảo Lộc & Nha Trang",
+  "content": "Do số lượng sinh viên ở các ca thi có hạn nên không xử lý hết được cho các trường hợp xin chuyển lịch thi tiếng Anh HK1/20-21 do trùng với lịch học HK quân đội tại cơ sở Nha Trang & Bảo Lộc, vì vậy sinh viên sẽ được giải quyết cho phép hoãn thi. Sinh viên vui lòng đăng nhập student's portal -> vào phần nộp đơn trực tuyến để xin hoãn thi từ 16-18/03/2021 như thông báo trong lịch thi.\r\n\r\nCác trường hợp hoãn thi thì sinh viên sẽ đăng ký dự thi lại vào các đợt thi sắp tới mà phòng Đại học sẽ tổ chức. Sinh viên vui lòng theo dõi thông tin thường xuyên.",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "602ea2341054c06b8fd7dc26"
+  },
+  "name": "THÔNG BÁO Về việc thực hiện các biện pháp phòng, chống dịch bệnh COVID-19",
+  "content": "Thực hiện Chỉ thị số 05/CT-TTg ngày 28/01/2021 của Thủ tướng Chính phủ về một số biện pháp cấp bách phòng, chống dịch COVID-19, Thông báo số 67/TB-VP ngày 28/01/2021 của Văn phòng UBND TP. Hồ Chí Minh; Chỉ thị số 79/CT-BGDĐT ngày 28/01/2021 của Bộ Giáo dục và Đào tạo; các văn bản hướng dẫn của Bộ Y tế và các cơ quan chức năng; nhằm đảm bảo sức khỏe và an toàn cho cộng đồng, tiếp tục thực hiện các hoạt động dạy – học trong tình trạng mới, Trường Đại học Tôn Đức Thắng thông báo:\n\n1. Yêu cầu học sinh, sinh viên, học viên, nghiên cứu sinh (gọi chung là HSSV) có lịch sử di chuyển đến các địa phương, khu vực thuộc vùng dịch của tỉnh Hải Dương, Quảng Ninh hoặc các địa điểm được Bộ Y tế thông tin khoanh vùng trong thời gian từ ngày 07/01/2021 đến ngày 27/01/2021 hoặc có tiếp xúc với người có đi qua vùng dịch trong thời gian trên, chủ động thực hiện khai báo y tế với địa phương và báo về Đơn vị quản lý/Khoa/Phòng/Ban chức năng của Trường để nắm bắt thông tin và kịp thời có các biện pháp phòng, chống dịch bệnh theo Hướng dẫn của Trung tâm Kiểm soát bệnh tật TPHCM (HCDC) (đính kèm Hướng dẫn).\n\n2. Đối với HSSV nội trú ở Ký túc xá của Trường có quê ở các tỉnh, thành thuộc vùng dịch đang thực hiện các biện pháp cách ly theo yêu cầu của Bộ Y tế và cơ quan chức năng, chủ động báo cáo với Ký túc xá để Nhà trường bố trí sắp xếp cho HSSV ở lại khu nội trú đón Tết xa nhà và đảm bảo việc thực hiện các biện pháp phòng, chống dịch bệnh.\n\n3. HSSVchủ động thực hiện các biện pháp phòng, chống dịch bệnh COVID-19 theo khuyến cáo của Bộ Y tế và cơ quan chức năng; thực hiện nghiêm túc “Thông điệp 5K”: Khẩu trang – Khử khuẩn – Khoảng cách – Không tập trung – Khai báo y tế. Khi có biểu hiện sốt, ho, khó thở hoặc nghi ngờ mắc COVID-19 báo cáo ngay với cơ quan y tế ở địa phương và thông tin đến Đơn vị quản lý/Khoa/Phòng/Ban chức năng của Nhà trường để có giải pháp kịp thời; đồng thời tuân thủ các hướng dẫn về phòng, chống dịch bệnh theo quy định.\n\n       4. HSSV thực hiện các biện pháp phòng, chống dịch bệnh: đeo khẩu trang, rửa tay sát khuẩn, đo thân nhiệt…khi vào Trường; theo dõi và báo cáo ngay các dấu hiệu, trường hợp bất thường xảy ra cho Đơn vị quản lý/Khoa/Phòng/Ban chức năng của Nhà trường. ",
+  "createdAt": "2021-02-18T17:23:42.562Z",
+  "lastEdited": null,
+  "imagesArray": [
+    "/upload/NgVA256/huong-dan-(20210129_075049_416).jpeg",
+    "/upload/NgVA256/thong-diep-5k-(20210129_075049_433).jpg"
+  ],
+  "attachmentsArray": null,
+  "commentsCount": 0,
+  "department": {
+    "id": "602e9cb11054c06b8fd7dc1e",
+    "name": "PHÒNG CTHSSV"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  }
+},{
+  "_id": {
+    "$oid": "607d783e8592b625dc291bb2"
+  },
+  "content": "Gửi các bạn sinh viên,\r\n\r\nHiện nay hệ thống đã cập nhật Điển Rèn Luyện trong HK1.19-20, các bạn kiểm tra điểm của minh và phản hồi chậm nhất ngày 05/02/2020.\r\nLưu ý: chỉ phản hồi các hoạt động do Khoa tổ chức, hoạt động do Đoàn-Hội lớp tổ chức phản hồi cho BCH Đoàn-Hội lớp. (Các hoạt động từ tháng 11 trở về trước không phản hồi vì đã cho phần hồi rồi)\r\n\r\nThân ái.",
+  "createdAt": "2021-04-19T12:31:58.220Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "Phản hồi điểm rèn luyện HK1.19-20",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
+  "sender": {
+    "id": "lacbangha",
+    "displayName": "Lạc Băng hà",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607d79258592b625dc291bd0"
+  },
+  "content": "Chào các bạn sinh viên\r\n\r\nDo tình hình diễn biến phức tạp của dịch bệnh Viêm đường hô hấp cấp do chủng mới của virus Corona gây ra\r\n\r\nNhà trường không tập trung sinh viên giảng dạy tại trường từ ngày 10/02 đến ngày 01/03/2020\r\n\r\nTừ ngày 10/02 -> 01/03/2020 những môn học do Khoa MTCN quản lý (bao gồm các lớp Vét) sẽ được tổ chức học trực tuyến :\r\n\r\n          + Giảng viên giao nhiệm vụ môn học qua hệ thống Elearning và Google classroom hoặc email\r\n\r\n          + Sinh viên tham gia lớp học trực tuyến theo đúng thời khóa biểu môn học bằng hình thức tham gia nhóm duyệt bài môn học thông qua zalo hoặc viber hoặc messenger hoặc skypee hoặc google classroom.... (do giảng viên thống nhất với nhóm sinh viên)\r\n\r\n          + Để thuận tiện cho việc tạo nhóm, sinh viên cung cấp thông tin Số Điện Thoại; Địa chỉ Facebook theo đường link bên dưới\r\n\r\nLưu ý :\r\n\r\n     + Sinh viên phải sử dụng gmail do trường cung cấp để đăng nhập\r\n\r\n     + Sinh viên chỉ cung cấp thông tin vào file (cột điện thoại và cột facebook)\r\n\r\n     + Sinh viên không sort file; không sửa thông tin; không thêm dòng; không xóa dữ liệu; không ẩn dòng\r\n\r\n \r\n\r\nKhi có thông báo học tập trung tại Trường theo TKB thì giảng viên sẽ tổ chức dạy phụ đạo những nhóm môn học đã tổ chức dạy trực tuyến của tuần 28, 29, 30\r\n\r\n \r\n\r\n Link cung cấp thông tin :\r\n\r\nhttps://docs.google.com/spreadsheets/d/1XUrOzOhRnsfs31nGr2WmD0X4R6nJN1O3RiPgOtXzZAM/edit?usp=sharing\r\n\r\n \r\n\r\nTrân trọng",
+  "createdAt": "2021-04-19T12:35:49.081Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": null,
+  "commentsCount": 1,
+  "name": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
+  "sender": {
+    "id": "tieuchien",
+    "displayName": "Tiêu Chiến",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0,
+  "lastEdited": "2021-04-19T12:36:03.529Z"
+},{
+  "_id": {
+    "$oid": "607d79c58592b625dc291bee"
+  },
+  "content": "Chào các Anh/Chị sinh viên,\r\n\r\nKhoa xin gửi đến các Anh/Chị đường dẫn để tra cứu thời hạn sử dụng thẻ Bảo hiểm y tế (BHYT) và tra cứu mã thẻ BHYT:\r\n\r\n- Sinh viên có thể tra cứu thời hạn sử dụng thẻ Bảo hiểm y tế tại link:\r\n\r\nhttps://baohiemxahoi.gov.vn/tracuu/pages/tra-cuu-thoi-han-su-dung-the-bhyt.aspx\r\n\r\n - Nếu sinh viên không nhớ mã thẻ Bảo hiểm y tế, có thể tra cứu tại link:\r\n\r\nhttps://baohiemxahoi.gov.vn/tracuu/Pages/tra-cuu-ho-gia-dinh.aspx\r\n\r\n- Sau khi xuất hiện bảng điền thông tin, Sinh viên chỉ cần chọn Tỉnh nơi sinh viên đăng ký hộ khẩu, nhập ngày tháng năm sinh, họ tên và tra cứu thì ra kết quả mã BHXH -> đó là 10 số cuối của Bảo hiểm y tế mà sinh viên cần phải nhớ để sử dụng. Sinh viên cần thêm HS4 và hai số mã tỉnh trước 10 số BHXH là ra Mã số BHYT của mình để tra được thời hạn sử dụng thẻ Bảo hiểm y tế tại link:\r\n\r\nhttps://baohiemxahoi.gov.vn/tracuu/pages/tra-cuu-thoi-han-su-dung-the-bhyt.aspx\r\n\r\nTrân trọng!",
+  "createdAt": "2021-04-19T12:38:29.964Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
+  "sender": {
+    "id": "hieutinhtran",
+    "displayName": "Hiểu Tinh Trần",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607d7c5fc335473108032be4"
+  },
+  "content": "Gửi sinh viên,\r\n              Nhằm hỗ trợ công tác tuyển sinh, ngày 29/05/2021 tổ chức thi đánh giá năng lực tiếng Anh đợt 1, do đó lịch thi tiếng Anh ngày này sẽ được điều chỉnh dời sang ngày thi khác. Nay Phòng Đại học thông báo việc điều chỉnh lịch thi Tiếng Anh, dời ngày thi:\r\nDỜI NGÀY THI TỪ 29/05/2021 ===> 22/05/2021\r\n\r\nChi tiết sinh viên vui lòng xem trong file đính kèm và hệ thống thông tin sinh viên.",
+  "createdAt": "2021-04-19T12:49:35.894Z",
+  "imagesArray": [],
+  "attachmentsArray": [
+    "\\upload\\lamhythan\\2-dieuchinhlichthi_trungtuanthidgnl_ta-(20210419_035456_176).1618836575884.xlsx"
+  ],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "lamhythan",
+    "displayName": "Lam Hy Thần",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607d7d32c335473108032c01"
+  },
+  "content": "mô tả có chính xác ko mn ?",
+  "createdAt": "2021-04-19T12:53:06.282Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": [
+    "yrZ1SwRp6II"
+  ],
+  "commentsCount": 0,
+  "name": "trường mình được lên báo :)))",
+  "sender": {
+    "id": "51800001",
+    "displayName": "Trần Thị B",
+    "avatarUrl": "/upload/51800001/TrThB_avatar.jpg"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607d7ddbc335473108032c02"
+  },
+  "content": "Phòng Sau đại học thông báo kế hoạch đăng ký học phần chung của chương trình 4+1 đợt 4 năm học 2020-2021 như sau:\r\n+ Thời gian đăng ký bổ sung: 09h00 ngày 14/04/2021 đến 11h00 ngày 16/04/2021.\r\n+ Xem kế hoạch chi tiết tại: https://grad.tdtu.edu.vn/tin-tuc/2021/ke-hoach-dang-ky-hoc-phan-chung-cua-chuong-trinh-41-dot-4-nam-hoc-2020-2021\r\n",
+  "createdAt": "2021-04-19T12:55:55.985Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "vuongnhatbac",
+    "displayName": "Vương Nhất Bác",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "content": "Phòng Đại học gửi đến các sinh viên thông tin Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)\r\n\r\n\r\n\r\n\r\nLưu ý:\r\n\r\n \r\n\r\n- Sinh viên phải có mặt tại phòng thi trước giờ thi ít nhất 30 phút\r\n\r\n \r\n\r\n- Sinh viên xem danh sách thi trong file đính kèm.\r\n\r\n \r\n\r\n- Các trường hợp thắc mắc về danh sách thi vui lòng liên hệ phòng Đại học (A0005) hoặc email: phongdaihoc@tdtu.edu.vn\r\n\r\n \r\n\r\n- Các ngày thi sau (nếu có) sẽ được cập nhật danh sách mỗi ngày, sinh viên vui lòng theo dõi thông tin thường xuyên.\r\n\r\n \r\n\r\n- Các trường hợp không đủ điều kiện dự thi do chuyên cần có thể sẽ không có thể trong danh sách chính thức trên phòng thi, sinh viên phải cập nhật lịch thi thường xuyên để nắm thông tin khi có thay đổi.",
+  "createdAt": "2021-04-25T11:42:20.440Z",
+  "imagesArray": [],
+  "attachmentsArray": [
+    "\\upload\\NgVA256\\210420_ck_dot12_tienganh_thingay24-25-4-2021_202-(20210420_061021_614).1619350940407.pdf"
+  ],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
 }]

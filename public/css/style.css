@@ -1,7 +1,7 @@
 :root {
     --bg-color: rgb(51, 72, 92);
     --white-color: rgb(255, 255, 255);
-    --nav-color: #f1f1f1;
+    --nav-color: #f7f7f7;
     --text-color: #343434;
     --blue-color: #CAE8FF;
     --text-color-primary: #0067AC;
@@ -24,7 +24,34 @@ html {
 body {
     background-color: var(--bg-color);
 }
+.custom-file-container {
+    width: 60%;
+    margin: 0 auto;
+}
 
+#error-message{
+    text-align: center;
+    padding: 5%;
+    border-radius: 30px;
+    background-color: var(--white-color);
+}
+
+.sad-face-img{
+    width: 10vh;
+}
+
+.embed-video{
+    width: 100%;
+    height: 500px;
+}
+
+.comment-other__box--edit{
+    display: none;
+    width: 95%;
+    margin: 0px 10px 10px 10px;
+    background-color: transparent;
+    border: none;
+}
 /*====================== Login page ======================*/
 .login-background {
     background-image: url(../img/Toàn\ cảnh\ TDTU.png);
@@ -101,6 +128,10 @@ body {
     color: var(--white-color);
 }
 
+.login-btn{
+    width: auto !important;
+}
+
 .forgot-password {
     margin-left: 100px;
     margin-right: 30px;
@@ -120,27 +151,21 @@ body {
 }
 
 .btn {
-    color: var(--white-color);
-    border: 1px solid var(--white-color);
     border-radius: 33px;
-    width: 100px;
     font-weight: 500;
+    width: 100%;
+    margin: 2px;
 }
-
-.btn:hover {
-    color: var(--bg-color);
-    background-color: var(--white-color);
-    font-weight: 500;
+#edit-content__body--attach-btn,
+#upload-post__body--attach-btn{
+    display: none;
 }
-
 .err-msg {
     color: var(--red-color);
 }
 
 /*============================= Home page ==========================*/
-.col-sm-3, .col-sm-9 {
-    padding: 0;
-}
+
 /* ------ Sidebar ------ */
 .sidebar {
     height: 100vh;
@@ -166,15 +191,12 @@ body {
     height: 60px;
     width: 60px;
     border-radius: 50%;
+    box-shadow: 0 3px 6px #bbb;
 }
 
 .sidebar-username__name {
     color: var(--text-color);
 }
-
-/* .not-admin {
-    display: none;
-} */
 
 .sidebar-navbar__phong-khoa,
 .sidebar-navbar__admin p,
@@ -214,10 +236,6 @@ body {
 }
 
 
-/* .sidebar-navbar__btn--close, .sidebar-navbar__btn--open {
-    text-decoration: none;
-} */
-
 .fa-bars {
     font-size: 36px;
     color: var(--white-color);
@@ -227,16 +245,6 @@ body {
     /* display: none; */
 }
 
-/* .sidebar-navbar__btn--close-img{
-    transform: rotate(180deg);
-    margin-left: 300px;
-}
-
-.sidebar-navbar__btn--close-img, 
-.sidebar-navbar__btn--open-img {
-    width: 40px;
-    height: 40px;
-} */
 
 /* ------ Header ------ */
 .header {
@@ -250,7 +258,7 @@ body {
     width: 380px;
     height: 40px;
     border-radius: 30px;
-    margin: 30px 0 30px 30px;
+    margin: 30px 0 30px 0;
     padding-left: 20px;
     outline: none;
     border: none;
@@ -292,7 +300,6 @@ body {
 
 .header-nav {
     display: flex;
-    margin-right: 200px;
 }
 
 .header-nav__notification,
@@ -323,8 +330,9 @@ body {
 
 .header-nav__notification--logo,
 .header-nav__logout--logo {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
 }
 
 .header-nav__notification--number {
@@ -340,11 +348,11 @@ body {
 
 /* ------- Main ------- */
 .main {
-    background-color: var(--nav-color);
+    /* background-color: var(--nav-color);
     border-radius: 20px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    padding-bottom: 1px;
+    padding-bottom: 1px; */
 }
 
 .main-up-post {
@@ -354,6 +362,7 @@ body {
     height: 140px;
     /* margin-left: 15px; */
     padding-top: 0.1px;
+    animation: moveInRight 1.5s ease-out;
 }
 
 .main-up-post-frame {
@@ -403,20 +412,10 @@ body {
 
 .main-up-post-frame__choosen-file--img,
 .main-up-post-frame__choosen-video--img,
-.main-up-post-frame__choosen-picture--img,
-.main-posted__user--edit,
-.main-posted__user--delete {
+.main-up-post-frame__choosen-picture--img {
     width: 25px;
     height: 25px;
 }
-
-.main-posted__user--edit {
-    margin-right: 10px;
-}
-
-/* .main-posted__user--edit-link:hover ~ .edit-profile {
-    display: block;
-} */
 
 .main-up-post-frame__choosen-file--text,
 .main-up-post-frame__choosen-video--text,
@@ -427,11 +426,11 @@ body {
 .main-posted {
     background-color: var(--white-color);
     border-radius: 20px;
-    width: 95%;
+    width: 100%;
     margin-bottom: 20px;
     margin-top: 20px;
-    margin-left: 15px;
     padding-bottom: 20px;
+    animation: moveInBottom 0.5s ease-out;
 }
 
 .main-posted__user {
@@ -453,12 +452,19 @@ body {
 }
 
 .main-posted__user--edit-and-delete {
-    margin: 0 0 0 55%;
+    margin: 0 0 0 64%;
 }
 
-.main-posted__user--edit-link,
-.main-posted__user--delete-link {
+.main-posted__user--edit-and-delete a,
+.comment-edit-and-delete a {
     text-decoration: none;
+    cursor: pointer;
+}
+
+.main-posted-edit,
+.main-posted-delete {
+    width: 25px;
+    height: 25px;
 }
 
 .main-posted__show {
@@ -468,11 +474,6 @@ body {
 .main-posted__show-img {
     width: 100%;
     height: 400px;
-}
-
-.main-posted__content {
-    margin-left: 30px;
-    margin-top: 10px;
 }
 
 .main-posted__content-content {
@@ -497,14 +498,19 @@ hr {
     margin-left: 10px;
     height: 40px;
     width: 80%;
-    border-color: var(--line-color);
+    border: none;
+    outline: none;
 }
 
 .comment-other {
-    /* display: flex; */
     margin-left: 30px;
+    margin-right: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.comment-edit-and-delete{
+    text-align: right;
 }
 
 .comment-other__content {
@@ -512,7 +518,6 @@ hr {
 }
 
 .comment-other__box {
-    border: 1px solid var(--line-color);
     border-radius: 10px;
     margin-left: 20px;
     width: 650px;
@@ -555,6 +560,7 @@ hr {
 .comment-readmore:hover,
 .comment-other__reply:hover {
     color: var(--red-color);
+    cursor: pointer;
 }
 
 .main-notification {
@@ -563,6 +569,7 @@ hr {
     background-color: var(--nav-color);
     padding-bottom: 40px;
     margin-bottom: 2%;
+    animation: moveInLeft 1.5s ease-out;
 }
 
 .main-notification__header,
@@ -586,7 +593,11 @@ hr {
 
 .main-notification__header--see-all,
 .header-notification__header--see-all {
-    margin-right: 30px;
+    margin-right: 20px;
+}
+
+.main-notification__header--see-all {
+    text-align: center;
 }
 
 .main-notification__header--see-all-link,
@@ -610,6 +621,7 @@ hr {
 
 .unread-notification {
     background-color: var(--blue-color);
+    text-align: center;
 }
 
 .main-notification__body--name-and-time,
@@ -788,20 +800,20 @@ select {
     font-weight: 700;
 }
 
-.notification-body__all {
-
-}
-
 .notification-body--item {
     background-color: var(--white-color);
     margin: 0 20px 10px 20px;
     border-radius: 20px;
 }
 
-.notification-body--item-title-link {
+.notification-body--item-title-link , .main-posted__content-title {
     text-decoration: none;
     color: var(--bg-color);
     text-transform: uppercase;
+}
+
+.main-posted__content-title{
+    text-decoration: none;
 }
 
 .notification-body--item-title {
@@ -835,7 +847,7 @@ select {
     text-align: center;
     font-weight: 700;
     color: var(--bg-color);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .sinhvien-xem {
@@ -865,7 +877,6 @@ select {
 
 .detail-notification-body--picture {
     width: 70%;
-    height: 500px;
     margin: 2% auto;
     display: block;
 }
@@ -911,6 +922,7 @@ select {
     border-radius: 50%;
     display: block;
     margin: 0 auto;
+    box-shadow: 0 3px 6px #4a4a4a;
 }
 
 .profile-user__name {
@@ -958,38 +970,66 @@ select {
 }
 
 /* ------------------ Edit profile, post ---------------- */
+.popup-label{
+    color: var(--white-color); 
+}
+.popup-input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--white-color);
+    color: var(--white-color);
+    width: 100%;
+}
+.popup-input::placeholder,
+.popup-input-textarea::placeholder {
+    color: var(--white-color);
+    opacity: 0.5;
+}
+.popup-input-selection{
+    width: 100%;
+}
+.popup-input-textarea{
+    background-color: transparent;
+    border: 1px solid var(--white-color);
+    color: var(--white-color);
+    resize: none;
+    width: 100%;
+    height: 100px;
+}
+.row {
+    margin: 5px;
+}
 
 #edit-profile,
 #edit-content,
 #upload-post,
-.upload-post-home,
+/* .upload-post-home, */
 #edit-info,
 #edit-info-phongKhoa,
 #add-account {
     background-color: rgba(0, 0, 0,0.3);
     width: 100%;
     height: 100%;
-    position: fixed;
+    position:fixed;
     top: 0;
     left: 0;
     display: none;
     z-index: 5;
-    animation: headerNotifyGrowth ease-in-out 0.5s;
 }
 
 .myModal {
     background-color: var(--bg-color);
-    border: 3px solid var(--red-color);
     width: 65%;
+    max-height: 80%;
     padding-bottom: 30px;
     border-radius: 20px;
     margin: 0 auto;
     margin-top: 20px;
+    overflow-y: auto;
+    animation: headerNotifyGrowth ease-in-out 0.5s;
+
 }
 
-.edit-content {
-    top: 70px;
-}
 
 .edit-info {
     top: 200px;
@@ -1046,39 +1086,17 @@ select {
 }
 
 .edit-profile__body,
-.edit-content__body,
-.upload-post__body,
 .edit-info__body,
 .add-account__body {
     margin-top: 20px;
 }
 
 .edit-profile__body--edit,
-.edit-content__body--edit,
-.upload-post__body--create,
 .edit-info__body--edit,
 .add-account__body--add {
     display: flex;
     margin-bottom: 20px;
 }
-
-/* .edit-content__body--edit div::after {
-    content: "\25BC";
-    display: block;
-    position: absolute;
-    top: 168px;
-    right: 130px;
-    color: var(--bg-color);
-} */
-
-/* .upload-post__body--create div::after {
-    content: "\25BC";
-    display: block;
-    position: absolute;
-    top: 430px;
-    right: 130px;
-    color: var(--bg-color);
-} */
 
 .edit-profile__body--edit-name,
 .edit-profile__body--edit-khoa,
@@ -1087,43 +1105,17 @@ select {
 .edit-profile__body--edit-background,
 .edit-profile__body--edit-born-place,
 .edit-profile__body--edit-live-place,
-.edit-content__body--edit-name,
-.edit-content__body--edit-chuyenmuc,
-.edit-content__body--edit-background,
-.edit-content__body--edit-content,
-.upload-post__body--create-title,
-.upload-post__body--upload-post,
-.upload-post__body--create-chuyenmuc,
-.upload-post__body--create-file,
-.upload-post__body--create-video,
-.upload-post__body--create-background,
-.edit-content__body--edit-file,
 .edit-info__body--edit-account,
 .edit-info__body--edit-password,
 .edit-info__body--edit-chuyenmuc,
 .add-account__body--add-account,
 .add-account__body--add-password,
 .add-account__body--add-displayName,
-.add-account__body--add-chuyenmuc,
-.add-account__body--add-background {
+.add-account__body--add-chuyenmuc {
     color: var(--white-color);
     font-weight: 600;
     margin-left: 250px;
     flex: 1;
-}
-
-.edit-content__body--edit-name,
-.edit-content__body--edit-chuyenmuc,
-.edit-content__body--edit-background,
-.edit-content__body--edit-content,
-.upload-post__body--create-title,
-.upload-post__body--upload-post,
-.upload-post__body--create-chuyenmuc,
-.upload-post__body--create-file,
-.upload-post__body--create-video,
-.upload-post__body--create-background,
-.edit-content__body--edit-file {
-    margin-left: 10%;
 }
 
 .edit-profile__body--edit-name-input,
@@ -1131,8 +1123,6 @@ select {
 .edit-profile__body--edit-lop-input,
 .edit-profile__body--edit-born-place-input,
 .edit-profile__body--edit-live-place-input,
-.edit-content__body--edit-name-input,
-.upload-post__body--create-title-input,
 .edit-info__body--edit-account-input,
 .edit-info__body--edit-password-input,
 .add-account__body--add-account-input,
@@ -1148,33 +1138,9 @@ select {
     margin-right: 20%;
 }
 
-.edit-content__body--edit-name-input,
-.upload-post__body--create-title-input {
-    margin-right: 120px;
-    width: 600px;
-}
-
-.edit-content__body--edit-chuyenmuc-selected,
-.upload-post__body--create-chuyenmuc-selected {
-    margin-right: 120px;
-    width: 600px;
-}
-
 .add-account__body--add-chuyenmuc-selected {
     margin-right: 200px;
     width: 400px;
-}
-
-.edit-content__body--edit-content-input,
-.upload-post__body--upload-post-input {
-    background-color: transparent;
-    border: 1px solid var(--white-color);
-    position: relative;
-    right: 120px;
-    color: var(--white-color);
-    resize: none;
-    outline: none;
-    padding-left: 10px;
 }
 
 /*---- Input file image ----*/
@@ -1202,72 +1168,6 @@ select {
     color: var(--white-color); 
     height: calc(2rem - 2px);
 }
-
-.edit-content__body--edit-imgBackground-input {
-    position: absolute;
-    left: 540px;
-    top: 230px;
-    width: 600px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-
-.edit-content__body--edit-file-input {
-    position: absolute;
-    left: 540px;
-    top: 274px;
-    width: 600px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-
-.upload-post__body--create-file-input {
-    position: absolute;
-    left: 530px;
-    top: 490px;
-    width: 600px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-
-.upload-post__body--create-video-input {
-    position: absolute;
-    left: 530px;
-    top: 535px;
-    width: 600px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-
-.upload-post__body--create-imgBackground-input {
-    position: absolute;
-    left: 530px;
-    top: 535px;
-    width: 600px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-
-.add-account__body--add-imgBackground-input {
-    position: absolute;
-    left: 668px;
-    top: 290px;
-    width: 400px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-
-.add-account__body--add-imgBackground-btn {
-    position: absolute;
-    top: 292px;
-    right: 490px;
-}
   
 .edit-profile__body--edit-img-btn {
     position: absolute;
@@ -1281,52 +1181,15 @@ select {
     right: 490px;
 }
 
-.edit-content__body--edit-imgBackground-btn {
-    position: absolute;
-    top: 225px;
-    right: 386px;
-}
-
-.edit-content__body--edit-file-btn {
-    position: absolute;
-    top: 270px;
-    right: 380px;
-}
-
-.upload-post__body--create-file-btn {
-    position: absolute;
-    top: 490px;
-    right: 400px;
-}
-
-.upload-post__body--create-video-btn {
-    position: absolute;
-    top: 530px;
-    right: 400px;
-}
-
-.upload-post__body--create-imgBackground-btn {
-    position: absolute;
-    top: 530px;
-    right: 400px;
-}
 
 .edit-profile__body--edit-img-btn img,
-.edit-profile__body--edit-imgBackground-btn img,
-.edit-content__body--edit-imgBackground-btn img,
-.upload-post__body--create-file-btn img,
-.upload-post__body--create-video-btn img,
-.upload-post__body--create-imgBackground-btn img,
-.edit-content__body--edit-file-btn img,
-.add-account__body--add-imgBackground-btn img {
+.edit-profile__body--edit-imgBackground-btn img {
     width: 25px;
     height: 25px;
 }
 /* ------- End input file image ------- */
 
 .edit-profile__btnSave,
-#edit-content__btnSave,
-#upload-post__btnSave,
 .btn-change-password,
 .edit-info__btnSave {
     outline: none;
@@ -1344,8 +1207,6 @@ select {
 }
 
 .edit-profile__btnSave:hover,
-#edit-content__btnSave:hover,
-#upload-post__btnSave:hover,
 .btn-change-password:hover,
 .edit-info__btnSave:hover {
     background-color: var(--white-color);
@@ -1369,16 +1230,17 @@ select {
 
 .chuyenmuc {
     background-color: var(--white-color);
-    border: 1px solid var(--bg-color);
+    border-radius: 7px;    
     position: relative;
     margin: 10px 0;
     width: 200px;
     height: 150px;
+    box-shadow: 0 3px 8px #ccc;
 }
 
 .chuyenmuc img {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     display: block;
     margin: auto auto;
 }
@@ -1390,18 +1252,9 @@ select {
     padding: 7px;
     color: var(--white-color);
     background-color: var(--bg-color);
-    border-radius: 0px 0px 5px 0;
+    border-radius: 7px 7px 0 0;
     text-align: center;
-}
-
-.chuyenmuc__thongbao--unread {
-    position: absolute;
-    left: -10px;
-    top: 130px;
-    background-color: red;
-    color: var(--white-color);
-    padding: 2px 5px;
-    border-radius: 30px;
+    opacity: 0.9;
 }
 
 /* ====================== Admin =================== */
@@ -1447,20 +1300,26 @@ select {
 
 .admin-body__table--show {
     margin: 0 30px;
+    text-align: right;
 }
 
-.admin-body__table--show input {
+.admin-body__table--show input:nth-child(1) {
     width: 300px;
+    height: 36px;
     outline: none;
     border-radius: 30px;
     border: none;
     padding: 3px 20px;
-    margin-left: 400px;
+
 }
 
 .user-name,
 .user-content {
     text-overflow: ellipsis;
+}
+
+.user-name a {
+    text-decoration: none;
 }
 
 .user-img {
@@ -1480,14 +1339,14 @@ select {
 
 .table-pagination {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin: 0 30px;
     padding-bottom: 20px;
 }
 
-.table-pagination p {
+/* .table-pagination p {
     color: var(--gray-color);
-}
+} */
 
 /* --------------- Chỉnh sửa thông tin ------------- */
 .list-chuyenmuc {
@@ -1499,6 +1358,11 @@ select {
     margin-bottom: 10px;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+
+.checkbox-chuyenmuc > label {
+    color: var(--white-color);
+    margin-left: 7px;
 }
 
 /* =================== Animation =============== */
@@ -1523,58 +1387,48 @@ select {
     }
 }
 
-
-/*====================== Responsive =======================*/
-@media (max-width: 1510px) {
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 500px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 645px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 500px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 400px;
-    }
+@keyframes moveInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px); }
+    80% {
+      transform: translateX(10px); }
+    100% {
+      opacity: 1;
+      transform: translateX(0); } 
 }
 
+@keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px); }
+    80% {
+      transform: translateX(-10px); }
+    100% {
+      opacity: 1;
+      transform: translateX(0); } 
+}
+
+@keyframes moveInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(40px); }
+    100% {
+      opacity: 1;
+      transform: translateY(0); } 
+}
+
+
+/*====================== Responsive =======================*/
 @media (max-width: 1478px) {
     .edit-title,
     .add-title {
         margin-left: 150px;
     }
 
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 480px;
-    }
-
     .edit-profile__body--edit-img-input,
     .edit-profile__body--edit-imgBackground-input {
         left: 620px;
-    }
-
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-content-input {
-        width: 480px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 590px;
     }
 
 }
@@ -1585,26 +1439,13 @@ select {
         top: 0;
     }
 
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input,
-    .upload-post__body--create-chuyenmuc-selected {
-        width: 550px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 510px;
-        width: 540px;
-    }
-
     .edit-profile__body--edit-img-input,
     .edit-profile__body--edit-imgBackground-input {
         left: 590px;
     }
 
-    .add-account__body--add-imgBackground-input {
-        left: 600px;
+    .main-posted__user--edit-and-delete {
+        margin-left: 62%;
     }
 }
 
@@ -1613,16 +1454,9 @@ select {
         width: 350px;
     }
 
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 544px;
+    .main-posted__user--edit-and-delete {
+        margin-left: 60%;
     }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 375px;
-    }
-
 }
 
 @media (max-width: 1380px) {
@@ -1635,77 +1469,30 @@ select {
         margin-left: 80px;
     }
 
-    .admin-body__table--show input {
-        width: 300px;
-        margin-left: 200px;
-    }
-
-    .edit, .create-post,
     .add-account {
         left: 100px;
         width: 1000px;
     }
 
     .main-posted__user--edit-and-delete {
-        margin: 0 0 0 45%;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 450px;
+        margin: 0 0 0 60%;
     }
 
     .edit-profile__body--edit-img-input,
     .edit-profile__body--edit-imgBackground-input {
         left: 550px;
     }
-
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-content-input {
-        width: 400px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 590px;
-    }
-
 }
 
 @media (max-width: 1320px) {
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input,
-    .upload-post__body--create-chuyenmuc-selected {
-        width: 480px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 450px;
-        width: 480px;
-    }
 
     .edit-profile__body--edit-img-input,
     .edit-profile__body--edit-imgBackground-input {
         left: 500px;
     }
 
-    .add-account__body--add-imgBackground-input {
-        left: 555px;
-    }
-
-    .add-account__body--add-imgBackground-btn {
-        right: 400px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 553px;
+    .main-posted__user--edit-and-delete {
+        margin-left: 58%;
     }
 }
 
@@ -1719,45 +1506,14 @@ select {
         left: 460px;
     }
 
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 518px;
+    .main-posted__user--edit-and-delete {
+        margin-left: 55%;
     }
 }
 
 @media (max-width: 1230px) {
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input,
-    .upload-post__body--create-chuyenmuc-selected {
-        width: 430px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 450px;
-        width: 430px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 500px;
-    }
-
     .add-account__body--add-imgBackground-btn {
         right: 340px;
-    }
-
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-content-input {
-        width: 350px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 526px;
     }
 }
 
@@ -1787,17 +1543,12 @@ select {
         margin-left: 60px;
     }
 
-    .header-nav {
-        margin-right: 50px;
-    }
-
     .sidebar-navbar__phong-khoa,
     .sidebar-navbar__admin,
     .sidebar-navbar__admin--item {
         padding-left: 10px;
     }
 
-    .edit, .create-post,
     .add-account {
         left: 30px;
         width: 900px;
@@ -1813,51 +1564,13 @@ select {
         margin-left: 300px;
     }
 
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 498px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 336px;
-    }
-
     .edit-profile__body--edit-img-input,
     .edit-profile__body--edit-imgBackground-input {
         left: 420px;
     }
 
-    .upload-post__body--upload-post-input {
-        margin-left: 115px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-file-btn {
-        top: 490px;
-        left: 400px;
-    }
-
-    /* .upload-post__body--create-video-input,
-    .upload-post__body--create-video-btn  {
-        top: 540px;
-        left: 400px;
-    } */
-
-    .upload-post__body--create-imgBackground-input,
-    .upload-post__body--create-imgBackground-btn {
-        top: 540px;
-        left: 400px;
-    }
-
-    .upload-post__body--create-imgBackground-btn,
-    .upload-post__body--create-video-btn,
-    .upload-post__body--create-file-btn {
-        left: 800px;
-    }
-
     .main-posted__user--edit-and-delete {
-        margin: 0 0 0 35%;
+        margin: 0 0 0 53%;
     }
 
     .login-with__google {
@@ -1871,13 +1584,8 @@ select {
     .add-account__body--add-account-input,
     .add-account__body--add-password-input,
     .add-account__body--add-displayName-input,
-    .add-account__body--add-imgBackground-input,
     .add-account__body--add-chuyenmuc-selected {
         width: 320px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 545px;
     }
 
     .edit-info__body--edit-account-input,
@@ -1887,27 +1595,6 @@ select {
 
 }
 
-@media(max-width: 1176px) {
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-imgBackground-btn {
-        top: 274px;
-    }
-
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-file-btn {
-        top: 320px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 480px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 336px;
-    }
-}
 
 @media (max-width: 1152px) {
     .edit-profile__body--edit-name-input,
@@ -1960,20 +1647,12 @@ select {
         top: 380px;
     }
 
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 460px;
+    .main-posted__user--edit-and-delete {
+        margin-left: 50%;
     }
-
 }
 
 @media(max-width: 1110px) {
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input,
-    .upload-post__body--create-chuyenmuc-selected {
-        width: 380px;
-    }
-
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
     .edit-profile__body--edit-lop-input,
@@ -1984,14 +1663,16 @@ select {
         width: 300px;
     }
 
-    .add-account__body--add-imgBackground-input {
-        left: 500px;
-    }
-
     .add-account__body--add-imgBackground-btn {
         right: 300px;
     }
 
+}
+
+@media (max-width: 1075px) {
+    .main-posted__user--edit-and-delete {
+        margin-left: 45%;
+    }
 }
 
 @media (max-width: 1058px) {
@@ -2000,53 +1681,12 @@ select {
         top: -28px;
     }
 
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-content-input {
-        width: 280px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 456px;
-    }
-
 }
 
 @media (max-width: 1044px) {
-    .admin-body__table--show input {
-        margin-left: 200px;
-        width: 250px;
-    }
-
     .admin-body__table-search--link {
         left: -40px;
         top: 0px;
-    }
-
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input,
-    .upload-post__body--create-chuyenmuc-selected {
-        width: 350px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 370px;
-        width: 350px;
-    }
-    
-    .upload-post__body--create-file-btn,
-    .upload-post__body--create-video-btn,
-    .upload-post__body--create-imgBackground-btn   {
-        left: 680px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 465px;
     }
 
     .add-account__body--add-imgBackground-btn {
@@ -2071,12 +1711,12 @@ select {
         margin-left: 90px;
     }
 
-    .btn {
-        margin: 20px 0 0 100px;
-    }
-
     .login-with__google {
         margin: 30px 0 0 90px;
+    }
+
+    .login-btn {
+        margin-left: 100px !important;
     }
 
     /* ================ Admin page================ */
@@ -2170,12 +1810,6 @@ select {
         margin-right: 0px;
     }
 
-    .admin-body__table--show input {
-        width: 200px;
-        margin-left: 200px;
-    }
-
-    .edit, .create-post,
     .add-account {
         left: 10px;
         width: 750px;
@@ -2212,45 +1846,6 @@ select {
         left: 630px;
     }
 
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 400px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn {
-        top: 270px;
-    }
-
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 285px;
-    }
-
-    .upload-post__body--upload-post-input {
-        margin-left: 115px;
-    }
-
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input,
-    .upload-post__body--create-chuyenmuc-selected {
-        width: 320px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-file-btn {
-        top: 490px;
-    }
-
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-video-btn {
-        top: 530px;
-    }
-
-    .upload-post__body--create-imgBackground-input,
-    .upload-post__body--create-imgBackground-btn {
-        top: 570px;
-    }
-
     .main {
         border-radius: 20px;
     }
@@ -2270,13 +1865,8 @@ select {
     .add-account__body--add-account-input,
     .add-account__body--add-password-input,
     .add-account__body--add-displayName-input,
-    .add-account__body--add-imgBackground-input,
     .add-account__body--add-chuyenmuc-selected {
         width: 240px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 440px;
     }
 
     .edit-info__body--edit-account-input,
@@ -2287,12 +1877,6 @@ select {
 }
 
 @media (max-width: 930px) {
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input,
-    .upload-post__body--create-chuyenmuc-selected {
-        width: 300px;
-    }
-
     .edit-profile__body--edit-img-input,
     .edit-profile__body--edit-img-btn {
         top: 325px;
@@ -2314,60 +1898,10 @@ select {
         margin-left: 30px;
     }
 
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        margin-right: 70px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 400px;
-    }
-
 }
 
-@media (max-width: 910px) {
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 340px;
-    }
-
-    .upload-post__body--create-file-btn,
-    .upload-post__body--create-video-btn,
-    .upload-post__body--create-imgBackground-btn {
-        left: 650px;
-    }
-}
-
-@media(max-width: 870px) {
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 332px;
-    }
-}
 
 @media (max-width: 840px) {
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input,
-    .upload-post__body--create-chuyenmuc-selected {
-        width: 250px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 300px;
-    }
-
-    .upload-post__body--create-file-btn,
-    .upload-post__body--create-video-btn,
-    .upload-post__body--create-imgBackground-btn {
-        left: 600px;
-    }
-
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
     .edit-profile__body--edit-lop-input,
@@ -2400,10 +1934,6 @@ select {
         width: 200px;
     }
 
-    .add-account__body--add-imgBackground-input {
-        left: 395px;
-    }
-
     .add-account__body--add-imgBackground-btn {
         right: 210px;
     }
@@ -2411,24 +1941,6 @@ select {
 }
 
 @media (max-width: 800px) {
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input,
-    .upload-post__body--create-chuyenmuc-selected {
-        width: 200px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-imgBackground-input {
-        left: 300px;
-        width: 280px;
-    }
-
-    .upload-post__body--create-file-btn,
-    .upload-post__body--create-video-btn,
-    .upload-post__body--create-imgBackground-btn {
-        left: 550px;
-    }
 
 }
 
@@ -2453,12 +1965,12 @@ select {
         margin-left: 100px;
     }
 
-    .btn {
-        margin: 0;
-    }
-
     .login-with__google {
         margin: 30px 0 0 200px;
+    }
+
+    .login-btn {
+        margin: 0 !important;
     }
 
     /* ================ Admin page ================ */
@@ -2468,10 +1980,6 @@ select {
 
     .admin-body {
         width: 550px;
-    }
-
-    .admin-body__table--show input {
-        margin-left: 100px;
     }
 
     .header-nav {
@@ -2515,8 +2023,7 @@ select {
     .sidebar-navbar__admin--block {
         left: 300px;
     }
-
-    .edit, .create-post,
+    
     .add-account {
         left: 0px;
         width: 580px;
@@ -2549,59 +2056,6 @@ select {
         left: 500px;
     }
 
-    .edit-content__body--edit-name-input,
-    .edit-content__body--edit-chuyenmuc-selected,
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        width: 200px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 347px;
-    }
-    
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 200px;
-    }
-
-    .edit-content__body--edit-content-input {
-        margin-top: 60px;
-        height: 150px;
-    }
-
-    .upload-post__body--create-chuyenmuc-selected,
-    .upload-post__body--create-title-input,
-    .upload-post__body--upload-post-input {
-        width: 230px;
-    }
-
-    .upload-post__body--create-title-input {
-        margin-left:50px;
-    }
-
-    .upload-post__body--upload-post-input {
-        margin-left: 160px;
-    }
-
-    .upload-post__body--create-chuyenmuc-selected {
-        margin-left: 30px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-imgBackground-input,
-    .upload-post__body--create-video-input {
-        width: 240px;
-        left: 345px;
-    }
-
-    .upload-post__body--create-file-btn,
-    .upload-post__body--create-video-btn,
-    .upload-post__body--create-imgBackground-btn {
-        left: 500px;
-    }
-
     .main-posted__user--edit-and-delete {
         margin: 0 0 0 35%;
     }
@@ -2627,57 +2081,22 @@ select {
         margin-left: 10px;
     }
 
-    .add-account__body--add-imgBackground-input {
-        left: 310px;
-    }
-
     .add-account__body--add-imgBackground-btn {
         right: 230px;
     }
 
  }
 
-@media (max-width: 712px) {
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 300px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-imgBackground-btn {
-        top: 300px;
-    }
-
-    .edit-content__body--edit-file-input,
-    .edit-content__body--edit-file-btn {
-        top: 350px;
-    }
-}
-
 @media(max-width: 680px) {
-    .upload-post,
     .edit-profile,
     .edit-info,
-    .edit-info-phongKhoa,
-    .edit-content {
+    .edit-info-phongKhoa {
         width: 90%;
     }
 
     .create-title {
         margin-left: 50px;
     }
-
-    .upload-post__body--create-file-input,
-   .upload-post__body--create-imgBackground-input,
-   .upload-post__body--create-video-input {
-       left: 250px;
-   }
-
-   .upload-post__body--create-file-btn,
-   .upload-post__body--create-imgBackground-btn,
-   .upload-post__body--create-video-btn {
-       left: 450px;
-   }
 
    .edit-profile__body--edit-img-input,
    .edit-profile__body--edit-img-btn {
@@ -2696,64 +2115,16 @@ select {
        left: 500px;
    }
 
-   .add-account__body--add-imgBackground-input {
-        left: 265px;
-    }
-
     .add-account__body--add-imgBackground-btn {
         right: 185px;
     }
 
 }
 
-@media (max-width: 630px) {
-    .edit-content__body--edit-imgBackground-btn,
-    .edit-content__body--edit-file-btn {
-        right: 100px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-imgBackground-btn {
-        top: 260px;
-    }
-
-    .edit-content__body--edit-file-btn,
-    .edit-content__body--edit-file-input {
-        top: 300px;
-    }
-}
-
 @media(max-width: 576px) {
     .create-title {
         margin-left: 20px;
     }
-
-   .upload-post__body--create-file-input,
-  .upload-post__body--create-imgBackground-input,
-  .upload-post__body--create-video-input {
-      left: 240px;
-  }
-
-  .upload-post__body--create-file-input,
-  .upload-post__body--create-file-btn {
-      top: 550px;
-  }
-
-  .upload-post__body--create-video-input,
-  .upload-post__body--create-video-btn {
-      top: 600px;
-  }
-
-  .upload-post__body--create-imgBackground-input,
-  .upload-post__body--create-imgBackground-btn {
-      top: 650px;
-  }
-
-  .upload-post__body--create-file-btn,
-  .upload-post__body--create-imgBackground-btn,
-  .upload-post__body--create-video-btn {
-      left: 400px;
-  }
 
   .edit-profile__body--edit-img-input,
   .edit-profile__body--edit-img-btn {
@@ -2795,10 +2166,6 @@ select {
         margin-left: 70px;
     }
 
-    .btn {
-        margin: 0;
-    }
-
     .login-with__google {
         margin: 30px 0 0 140px;
     }
@@ -2811,10 +2178,6 @@ select {
 
     .admin-body {
         width: 480px;
-    }
-
-    .admin-body__table--show input {
-        margin-left: 50px;
     }
 
     .sidebar-navbar__admin--block {
@@ -2845,11 +2208,9 @@ select {
     }
 
     .edit-profile,
-    .upload-post,
     .edit-info,
     .edit-info-phongKhoa,
-    .add-account,
-    .edit-content {
+    .add-account {
         width: 100%;
     }
 
@@ -2866,7 +2227,7 @@ select {
         width: 250px;
     }
 
-    .edit, .create-post, .add-account {
+    .add-account {
         width: 500px;
     }
 
@@ -2891,47 +2252,7 @@ select {
         left: 350px;
     }
 
-    .edit-content__body--edit-content-input {
-        margin-top: 60px;
-        height: 150px;
-    }
-
-    .upload-post__body--upload-post-input {
-        height: 150px;
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-imgBackground-input,
-    .upload-post__body--create-video-input {
-        width: 250px;
-        left: 195px;
-
-    }
-
-    .upload-post__body--create-file-input,
-    .upload-post__body--create-file-btn {
-        top: 385px;
-    }
-
-    .upload-post__body--create-file-btn,
-    .upload-post__body--create-imgBackground-btn,
-    .upload-post__body--create-video-btn {
-        left: 400px;
-    }
-
-    .upload-post__body--create-video-input,
-    .upload-post__body--create-video-btn {
-        top: 430px;
-    }
-
-    .upload-post__body--create-imgBackground-input,
-    .upload-post__body--create-imgBackground-btn {
-        top: 475px;
-    }
-
     .edit-profile__btnSave,
-    .edit-content__btnSave,
-    .upload-post__btnSave,
     .btn-change-password,
     .edit-info__btnSave {
         margin-left: 50%;
@@ -2944,24 +2265,6 @@ select {
     .notification-body__filter-fromDate,
     .notification-body__filter-toDate {
         margin-right: 5px;
-    }
-
-    .admin-body__table-search--link {
-        left: 340px;
-        top: -28px;
-    }
-
-    .add-account__body--add-imgBackground-input {
-        left: 180px;
-    }
-
-    .add-account__body--add-imgBackground-btn {
-        right: 124px;
-    }
-
-    .edit-content__body--edit-imgBackground-input,
-    .edit-content__body--edit-file-input {
-        left: 220px;
     }
 }
 

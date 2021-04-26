@@ -1,27 +1,34 @@
+{{!-- Thông báo mới: chưa đọc và post được createdAt sau user createdAt --}}
+{{!-- mỗi lần tạo post. sẽ chỉ tạo notifi đối với những user tại thòi điểm đó . trừ người tạo ra post đó--}}
+
+{{!-- input: unreadNotifis --}}
+
 <div class="main-notification">
     <div class="main-notification__header">
-        <h4 class="main-notification__header--title">Thông báo</h4>
+        <h4 class="main-notification__header--title">Thông báo mới</h4>
         <div class="main-notification__header--see-all">
             <a href="/notifications" class="main-notification__header--see-all-link">
                 Xem tất cả
             </a>
         </div>
     </div>
-    <div class="main-notification__body unread-notification">
-        <div class="main-notification__body--name-and-time">
-            <p class="main-notification__body--name">[TDT Creative Language Center]</p>
-            <span class="main-notification__body--time">03/02/2021 . 16:15</span>
+    {{#each unreadNotifis}}
+        <div class="main-notification__body unread-notification">
+            <div class="main-notification__body--name-and-time">
+                <p class="main-notification__body--name">{{this.department.name}}</p>
+                <span class="main-notification__body--time">{{fromNow this.postCreatedAt}}</span>
+            </div>
+            <a href="/{{this.senderId}}/posts/{{this.postId}}" class="main-notification__body--title-link">
+                <h6 class="main-notification__body--title">
+                    {{this.title}}
+                </h6>
+            </a>
         </div>
-        <a href="/userId/posts/postId" class="main-notification__body--title-link">
-            <h6 class="main-notification__body--title">
-                Thông báo khai giảng các khóa học tiếng anh tháng 03/2021
-            </h6>
-        </a>
-        
-        <p class="main-notification__body--content">
-            Trung tâm Ngôn ngữ Sáng tạo thông báo khai giảng các khóa
-            học ngoại ngữ tháng 3/2021 tại CLC như sau:
-        </p>
+    {{else}}
+    <div class="main-notification__body unread-notification">
+        <p>Đã đọc hết thông báo mới</p>
     </div>
+    
+    {{/each}}
 
 </div>

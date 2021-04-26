@@ -1,5 +1,13 @@
-{{!-- input: comment--}}
+{{!-- input: user(người đang login) , post --}}
 {{!-- 
+    user:{
+        username: 'NgVA256',
+        displayName: 'Nguyễn Văn A',
+        avatarUrl: '/img/no-face.png',
+        userType: 'staff',
+        staffInfo: { authorized: [ [Object], [Object] ] },
+        studentInfo: {}
+    },
     comment: {
         content: ...,
         createdAt: ...,
@@ -10,7 +18,7 @@
 --}}
 <script id="comment_template" type="text/x-handlebars-template">
 
-    <div class="comment-other">
+    <form class="comment-other" id="\{{comment._id}}" method="POST" action="/">
         <div class="comment-other__content">
             <img src="\{{{comment.sender.avatarUrl}}}" alt="img" class="comment-other--img">
             <div class="comment-other__box">
@@ -18,21 +26,32 @@
                 <p class="comment-other__box--text">
                     \{{{comment.content}}}
                 </p>
-                \{{#if comment.imageUrl}}
-                <img src="\{{{comment.imageUrl}}}" alt="Picture" class="detail-notification-body--picture">
-                \{{/if}}
+                <input type="text" name="newCmt" class="comment-other__box--edit">
             </div>
         </div>
         <div class="comment-other__reply-and-time">
-            <a href="#" class="comment-other__reply">Trả lời</a>
+            <a class="comment-other__reply">Trả lời</a>
             <span class="comment-other__reply-time">.
                 \{{#if comment.lastEdited}}
-                \{{fromNow comment.lastEdited}} (edited)
+                \{{fromNow comment.createdAt}} (edited \{{fromNow comment.lastEdited}})
                 \{{else}}
                 \{{fromNow comment.createdAt}}
-                \{{/if}}   
+                \{{/if}} 
             </span>
         </div>
-    </div>
+        
+        \{{#ifEquals comment.sender.id user.username}} <!-- chỉ user tạo ra post mới được sửa post đó (user dùng username cho id, nên có thể so sánh giữa id với username)-->
+            <div class="comment-edit-and-delete">
+                <a data-item-id="\{{comment._id}}" onclick="editComment(this)">
+                    <img src="/img/edit.png" alt="edit.png">
+                </a>
+                <a data-item-name="bình luận này" data-item-id="\{{comment._id}}" data-item-type="comment" onclick="delConfirm(this)" >
+                    <img src="/img/trash.png" alt="trash.png" >
+                </a>
+            </div>
+        \{{/ifEquals}}  
+        <hr>
+    </form>
+    
 
 </script>

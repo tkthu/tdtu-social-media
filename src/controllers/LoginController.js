@@ -1,5 +1,6 @@
 const userModel = require('../models/user.model');
 const {validationResult} = require('express-validator');
+const bcrypt = require('bcrypt')
 
 class LoginController{
     // [GET] /login
@@ -26,22 +27,32 @@ class LoginController{
             for (var fields in result) {
                 message = result[fields].msg;
                 break;
-            }
-        
-            const {username, password} = req.body;
+            }        
             
             req.flash('error', message);
-            req.flash('password', password);
-            req.flash('username', username);
+            req.flash('password', req.body.password);
+            req.flash('username', req.body.username);
             
             return res.redirect('/login');
         }
 
         const {username, password} = req.body;
-        userModel.findOne({username, password})
+        
+        userModel.findOne({username})
         .then((user)=>{
             if (user === null) {
-                req.flash('error', "Sai tên đăng nhập hoặc mật khẩu");                
+                req.flash('error', "username không tồn tại");
+                req.flash('password', req.body.password);
+                req.flash('username', req.body.username);      
+                return res.redirect('/login');
+            }
+            return bcrypt.compare(password, user.password);
+        })
+        .then(passwordMatch => {
+            if (!passwordMatch) {
+                req.flash('error', "password sai");
+                req.flash('password', req.body.password);
+                req.flash('username', req.body.username);         
                 return res.redirect('/login');
             }
             //đăng nhập thành công
@@ -50,7 +61,7 @@ class LoginController{
             return res.redirect(303,'/');
         })
         .catch(err => {
-            return res.end("somthing went wrong ... | " + err);
+            return res.render('error-page', { user: req.user, errorMsg: `${err}`} );
         }) 
         
     }
