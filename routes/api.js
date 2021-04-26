@@ -16,7 +16,7 @@ router.post('/comment/:commentId',upload.none(),apiController.editComment);// s·
 router.delete('/comment/:commentId',apiController.delComment);// x√≥a comment
 
 router.get('/user/:userId',apiController.getOneUser);
-router.post('/user/:userId',apiController.editUser);
+router.post('/user/:userId', upload.single('userAvatar'),apiController.editUser);
 router.delete('/user/:userId',apiController.delUser);
 
 module.exports = router

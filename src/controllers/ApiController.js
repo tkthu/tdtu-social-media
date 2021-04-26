@@ -219,6 +219,8 @@ class ApiController{
                 .map( fi => {
                     return fi.path.replace("public","");
                 });
+
+                
                 req.post.attachmentsArray.push(...newAttachmentsArray);
             }
 
@@ -479,7 +481,44 @@ class ApiController{
         })
     }
     // [POST] /user/:userId
-    editUser(req,res){
+    async editUser(req,res){
+        const {userId} = req.params;
+        const {displayName,userClass,faculty,speciality} = req.body;
+
+        var newUserInfo = {
+            displayName,
+            lastEdited: new Date().toISOString(),
+            studentInfo: {
+                class: userClass,
+                faculty: faculty,
+                speciality: speciality,
+            },
+        }
+
+        if(req.file){// thêm file avatar mới
+            await userModel.findOne({_id:userId})
+            .then( userFound => {// xóa file avatar cũ
+                unlink(`.\\public${userFound.avatarUrl}`)
+            })
+            newUserInfo.avatarUrl = req.file.path.replace("public","");
+        }
+
+        userModel.updateOne({_id:userId},newUserInfo)
+        .then( () => {
+            return res.status(200).json({
+                code:0,
+                msg:`update user thành công`,
+                data: {
+                    newUserInfo: newUserInfo,
+                    user: req.user,
+                }
+            });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'update user thất bại với lỗi ' + err,
+            });
+        })
 
     }
     // [DELETE] /user/:userId

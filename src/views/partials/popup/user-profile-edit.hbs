@@ -1,4 +1,4 @@
-<div id="edit-profile" class="edit">
+<form id="edit-profile" action="/" method="POST" enctype="multipart/form-data">
     <div class="myModal edit-profile">
         <div class="edit-profile__header">
             <img src="/img/logo tdt.png" alt="logo" class="edit-profile__header--logo edit-logo">
@@ -6,27 +6,30 @@
             <img src="/img/close.png" alt="close.png" class="edit-profile__header--close pointer" onclick="closeEditUserProfile()">
         </div>
         <div class="edit-profile__body">
+            {{!-- --------------hidden-------------- --}}
+            <input type="hidden" name="userId" value="{{user.username}}">
+            {{!-- --------------End of hidden-------------- --}}
             <div class="edit-profile__body--edit">
                 <label class="edit-title" for="name">Họ tên</label>
-                <input class="edit-profile__body--edit-name-input" type="text" value="{{userInfo.displayName}}">
+                <input class="edit-profile__body--edit-name-input" type="text" value="{{userInfo.displayName}}" name="displayName">
             </div>
             <div class="edit-profile__body--edit">
                 <label class="edit-title" for="lop">Lớp</label>
-                <input class="edit-profile__body--edit-lop-input" type="text" value="{{userInfo.studentInfo.class}}">
+                <input class="edit-profile__body--edit-lop-input" type="text" value="{{userInfo.studentInfo.class}}" name='userClass'>
             </div>
             <div class="edit-profile__body--edit">
                 <label class="edit-title" for="khoa">Khoa</label>
-                <input class="edit-profile__body--edit-khoa-input" type="text" value="{{userInfo.studentInfo.faculty}}">
+                <input class="edit-profile__body--edit-khoa-input" type="text" value="{{userInfo.studentInfo.faculty}}" name='faculty'>
             </div>
             <div class="edit-profile__body--edit">
                 <label class="edit-title" for="lop">Ngành</label>
-                <input class="edit-profile__body--edit-nganh-input" type="text" value="{{userInfo.studentInfo.Speciality}}">
+                <input class="edit-profile__body--edit-nganh-input" type="text" value="{{userInfo.studentInfo.speciality}}" name='speciality'>
             </div>
             <div class="edit-profile__body--edit">
                 <label class="edit-title" for="userAvatar">Ảnh đại diện</label>
                 <div class="edit-profile__body--edit-avatar-input d-flex justify-content-between mb-2">
-                    <input class="p-2" type="file" id="userAvatar" onchange='uploadFileImg(this)' accept="image/*">
-                    <span class="pointer p-2" onclick="resetAvatar(this)" style="color:white" >&times;</span>
+                    <input type="file" id="userAvatar" onchange='uploadFileImg(this)' accept="image/*" name='userAvatar'>
+                    <span class="pointer" onclick="resetAvatar(this)" style="color:white" >&times;</span>
                 </div>
                 
             </div>
@@ -36,5 +39,5 @@
         </div>
         <button class="edit-profile__btnSave" type="submit">Lưu</button>
     </div>
-</div>
+</form>
 

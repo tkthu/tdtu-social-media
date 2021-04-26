@@ -15,7 +15,7 @@ const User = new Schema({
     studentInfo: {
         class: { type: String },
         faculty: { type: String },
-        Speciality: { type: String },
+        speciality: { type: String },
     },
     userType: { type: String, default: "staff" },
 });

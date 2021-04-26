@@ -659,15 +659,30 @@ function resetAvatar(){
     $('.edit-profile__body--edit-avatar-preview').data('old-src')
   );
 }
+
+function resetUserProfileForm(form){ // Reset trạng thái cúa popup bài viết
+  form.trigger("reset");
+  resetAvatar();
+}
 // --------------- sửa ---------------------------------
 function editUserProfile(target) {// Hiện popup sửa user profile
   var form = document.querySelector("#edit-profile");
   form.style.display = "block";
-  //TODO: fetch user rồi hiện lên popup
+}
+$('#edit-profile').submit( (e) => {
+  e.preventDefault();
 
-  const userId = $(target).data('item-id');
+  // kiểm tra validate
+  var formData = new FormData(e.target);
+  if (formData.get('displayName').trim() == ""){
+    alert('Không được bỏ trống họ tên')
+    return false;
+  }
+  const userId = formData.get('userId');
+  console.log(`/api/user/${userId}`)
   fetch(`/api/user/${userId}`,{
-    method : 'GET',
+    method : 'POST',
+    body:  formData
   })
   .then(resp => {            
     if(resp.status < 200 || resp.status >= 300)
@@ -675,42 +690,18 @@ function editUserProfile(target) {// Hiện popup sửa user profile
     return resp.json();
   })
   .then(json => {
-    if (json.code === 0){// lấy 1 user thành công
-      const post = json.data.post
-      $('#edit-content__body--postId').val(userId);//kèm theo user ID hidden
-      if(post.department){
-        $('#edit-content__body--chuyenmuc').val(post.department.id);        
-      }      
-      $('#edit-content__body--tieude').val(post.name);
-      $('#edit-content__body--noidung').html(post.content);
-
-      if(post.videoIdArray){
-        var container = $('#edit-content .popup-youtube-section');
-        post.videoIdArray.forEach( videoId => {
-          addEmbedVideoInputTag(container, videoId);
-        });
-      }
-      //hiện những attachment cũ
-      container = $('#edit-content .popup-attachment-old-section');
-      if(post.attachmentsArray){
-        post.attachmentsArray.forEach( attachment => {
-          addOldAttachmentTag(container, attachment);
-        });
-      }      
-      if(post.imagesArray){
-        post.imagesArray.forEach( image => {
-          addOldAttachmentTag(container, image);
-        });
-      }
+    if (json.code === 0){// sửa user thành công
+      window.location.replace(`/${userId}`);      
     }
-
   })
-  .catch(e => console.log("error ___ ",e)); 
-}
+  .catch(e => console.log("error ___ ",e))
+})
 function closeEditUserProfile() {// Đóng popup sửa user profile
-  var form = document.querySelector("#edit-profile");
-  form.style.display = "none";
+  var form = $("#edit-profile");
+  form.css('display', 'none')
+  resetUserProfileForm(form);
 }
+
 
 
 //================================= Account Phòng khoa ============================================================
