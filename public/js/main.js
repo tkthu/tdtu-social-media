@@ -640,17 +640,72 @@ function reloadEvent(){
 
 //================================= PROFILE ====================================================================
 // --------------- utils ---------------------------------
-function uploadFileImg(target) {
-    document.getElementById("file-img").innerHTML = target.files[0].name;
+function uploadFileImg(target) {    
+    if (target.files && target.files[0]) {
+      var reader = new FileReader();
+      
+      reader.onload = function (e) {
+        $('.edit-profile__body--edit-avatar-preview').attr('src', e.target.result);
+      }
+      
+      reader.readAsDataURL(target.files[0]);
+    }
 }
-function uploadFileImgBackground(target) {
-    document.querySelector(".edit-profile__body--edit-imgBackground-input").innerHTML = target.files[0].name;
+
+function resetAvatar(){
+  $('.edit-profile__body--edit-avatar-input #userAvatar').val('');
+  $('.edit-profile__body--edit-avatar-preview').attr(
+    'src', 
+    $('.edit-profile__body--edit-avatar-preview').data('old-src')
+  );
 }
 // --------------- sửa ---------------------------------
-function editUserProfile() {// Hiện popup sửa user profile
+function editUserProfile(target) {// Hiện popup sửa user profile
   var form = document.querySelector("#edit-profile");
   form.style.display = "block";
-  //TODO: fetch user rồi hiện lên popup  
+  //TODO: fetch user rồi hiện lên popup
+
+  const userId = $(target).data('item-id');
+  fetch(`/api/user/${userId}`,{
+    method : 'GET',
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// lấy 1 user thành công
+      const post = json.data.post
+      $('#edit-content__body--postId').val(userId);//kèm theo user ID hidden
+      if(post.department){
+        $('#edit-content__body--chuyenmuc').val(post.department.id);        
+      }      
+      $('#edit-content__body--tieude').val(post.name);
+      $('#edit-content__body--noidung').html(post.content);
+
+      if(post.videoIdArray){
+        var container = $('#edit-content .popup-youtube-section');
+        post.videoIdArray.forEach( videoId => {
+          addEmbedVideoInputTag(container, videoId);
+        });
+      }
+      //hiện những attachment cũ
+      container = $('#edit-content .popup-attachment-old-section');
+      if(post.attachmentsArray){
+        post.attachmentsArray.forEach( attachment => {
+          addOldAttachmentTag(container, attachment);
+        });
+      }      
+      if(post.imagesArray){
+        post.imagesArray.forEach( image => {
+          addOldAttachmentTag(container, image);
+        });
+      }
+    }
+
+  })
+  .catch(e => console.log("error ___ ",e)); 
 }
 function closeEditUserProfile() {// Đóng popup sửa user profile
   var form = document.querySelector("#edit-profile");

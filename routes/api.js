@@ -11,9 +11,12 @@ router.post('/post/:postId', upload.fields([{name:"attachmentFile"}]), apiContro
 router.delete('/post/:postId',apiController.delPost)// xóa post
 
 router.get('/post/:postId/comments',apiController.getComments);// lấy nhiều comment của một post
-// router.get('/post/:postId/comment/:commentId',apiController.test);// lấy 1 comment của post
 router.post('/post/:postId/comment',upload.none(),apiController.addComment);// thêm comment cho post
 router.post('/comment/:commentId',upload.none(),apiController.editComment);// sửa comment
 router.delete('/comment/:commentId',apiController.delComment);// xóa comment
+
+router.get('/user/:userId',apiController.getOneUser);
+router.post('/user/:userId',apiController.editUser);
+router.delete('/user/:userId',apiController.delUser);
 
 module.exports = router

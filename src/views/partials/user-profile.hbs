@@ -23,7 +23,7 @@
         <h6>Giới thiệu</h6>
         {{#ifEquals pageOwner.username user.username}} <!-- chỉ user là chủ của trang nhà mới sửa được profile của mình-->
         <div class="profile-user__edit">
-            <a class="profile-user__edit-link" onclick="editUserProfile()">
+            <a class="profile-user__edit-link pointer" onclick="editUserProfile(this)" data-item-id="{{pageOwner.username}}">
                 <img src="/img/edit.png" alt="edit.png" class="profile-user__edit-img">
                 Chỉnh sửa
             </a>

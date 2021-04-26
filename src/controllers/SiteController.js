@@ -32,13 +32,10 @@ class SiteController{
             if (userFound == null) {// không tìm thấy user  
                 throw new Error('user không tồn tại hoặc đã bị xóa.')
             }
-            const pageOwner = {
-                username: userFound.username,
-                avatarUrl: userFound.avatarUrl,
-                displayName: userFound.displayName,
-            }
-
-            return res.render("personal",{user: req.user, pageOwner});
+            return res.render("personal",{
+                user: req.user, 
+                pageOwner: mongooseToObject(userFound),
+            });
             
         })
         .catch(err => {

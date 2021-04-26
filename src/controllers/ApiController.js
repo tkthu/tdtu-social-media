@@ -14,6 +14,7 @@ const {multipleMongooseToObject, mongooseToObject} = require('../../util/mongoos
 
 class ApiController{
 
+    /* ========================== POST ================================ */
     // [GET] /posts?page=   &user=    &offset=
     getPosts(req, res){
         // mỗi lần chỉ hiện 10 bài có createdAt mới nhất
@@ -80,7 +81,6 @@ class ApiController{
         })
         
     }
-
     // [POST] /post
     addPost(req, res){    
         var imagesArray = undefined;
@@ -159,7 +159,6 @@ class ApiController{
         })
         
     }
-
     // [POST] /post/:postId
     editPost(req, res){
         const {postId} = req.params;
@@ -241,7 +240,6 @@ class ApiController{
             });
         })        
     }
-
     // [DELETE] /post/:postId
     delPost(req, res){   
         //TODO: xóa notificaition     
@@ -295,7 +293,7 @@ class ApiController{
 
     }
 
-    /* -------------------------------------------- */
+    /* ========================== COMMENT ================================ */
     // [GET] /post/:postId/comments?page=    &offset=
     getComments(req, res){
         // mỗi lần chỉ hiện thêm 4 comment có createdAt mới nhất
@@ -332,7 +330,6 @@ class ApiController{
         })
         
     }
-
     // [POST] /post/:postId/comment
     addComment(req, res){
         const {postId} = req.params;
@@ -372,7 +369,6 @@ class ApiController{
             });
         })
     }
-
     // [POST] /comment/:commentId
     editComment(req, res){
         //TODO: kiểm tra user này có quyền sửa comment này ko ( 401 Unauthorized)
@@ -415,7 +411,6 @@ class ApiController{
         })       
 
     }
-
     // [DELETE] /comment/:commentId
     delComment(req, res){
         //TODO: kiểm tra user này có quyền xóa comment này ko ( 401 Unauthorized)
@@ -454,6 +449,41 @@ class ApiController{
                 msg:'xoa1 comment thất bại với lỗi ' + err,
             });
         })       
+
+    }
+
+    /* ========================== USER ================================ */
+    // [GET] /user/:userId
+    getOneUser(req,res){
+        const {userId} = req.params;
+
+        userModel.findOne({_id: userId})
+        .then(userFound => {
+            if (userFound === null){
+                throw new Error('not found user');
+            }
+            return res.status(200).json({
+                code:0,
+                msg:`lấy user thành công`,
+                data: {
+                    userInfo: mongooseToObject(userFound),
+                    user: req.user,
+                }
+            });
+
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'lấy user thất bại với lỗi ' + err,
+            });
+        })
+    }
+    // [POST] /user/:userId
+    editUser(req,res){
+
+    }
+    // [DELETE] /user/:userId
+    delUser(req,res){
 
     }
 
