@@ -1248,16 +1248,6 @@ select {
     opacity: 0.9;
 }
 
-.chuyenmuc__thongbao--unread {
-    position: absolute;
-    left: -10px;
-    top: 130px;
-    background-color: red;
-    color: var(--white-color);
-    padding: 2px 5px;
-    border-radius: 30px;
-}
-
 /* ====================== Admin =================== */
 .admin-body {
     padding-bottom: 50px;
