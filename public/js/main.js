@@ -682,6 +682,17 @@ function closeInfoPhongKhoa() {// Đóng popup sửa thông tin phòng/khoa
 
 
 
+//================================ SEARCH =========================================================================
+// --------------- utils ---------------------------------
+function resetSearchForm(){
+  $('.notification-body__filter-toDate-input').val('')
+  $('.notification-body__filter-fromDate-input').val('')
+  $('.notification-body__filter-check-input').val('')
+  $('.notification-body__filter--chuyenmuc select').val('common')
+  $('.notification-body__filter--search').val('')  
+}
+
+
 //================================ COMMON UTILS ===================================================================
 // Hiện popup có chắc muốn xóa ?
 function delConfirm(target) {

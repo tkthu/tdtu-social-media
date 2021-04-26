@@ -229,4 +229,27 @@
     "avatarUrl": "/img/no-face.png"
   },
   "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "content": "Phòng Đại học gửi đến các sinh viên thông tin Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)\r\n\r\n\r\n\r\n\r\nLưu ý:\r\n\r\n \r\n\r\n- Sinh viên phải có mặt tại phòng thi trước giờ thi ít nhất 30 phút\r\n\r\n \r\n\r\n- Sinh viên xem danh sách thi trong file đính kèm.\r\n\r\n \r\n\r\n- Các trường hợp thắc mắc về danh sách thi vui lòng liên hệ phòng Đại học (A0005) hoặc email: phongdaihoc@tdtu.edu.vn\r\n\r\n \r\n\r\n- Các ngày thi sau (nếu có) sẽ được cập nhật danh sách mỗi ngày, sinh viên vui lòng theo dõi thông tin thường xuyên.\r\n\r\n \r\n\r\n- Các trường hợp không đủ điều kiện dự thi do chuyên cần có thể sẽ không có thể trong danh sách chính thức trên phòng thi, sinh viên phải cập nhật lịch thi thường xuyên để nắm thông tin khi có thay đổi.",
+  "createdAt": "2021-04-25T11:42:20.440Z",
+  "imagesArray": [],
+  "attachmentsArray": [
+    "\\upload\\NgVA256\\210420_ck_dot12_tienganh_thingay24-25-4-2021_202-(20210420_061021_614).1619350940407.pdf"
+  ],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
 }]
