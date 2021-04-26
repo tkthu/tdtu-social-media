@@ -483,22 +483,29 @@ class ApiController{
     // [POST] /user/:userId
     async editUser(req,res){
         const {userId} = req.params;
-        const {displayName,userClass,faculty,speciality} = req.body;
+        const {displayName,userType} = req.body;        
 
         var newUserInfo = {
             displayName,
             lastEdited: new Date().toISOString(),
-            studentInfo: {
+        }
+
+        if(userType == 'student'){
+            const {userClass,faculty,speciality} = req.body;
+            newUserInfo.studentInfo = {
                 class: userClass,
                 faculty: faculty,
                 speciality: speciality,
-            },
+            }
         }
 
         if(req.file){// thêm file avatar mới
             await userModel.findOne({_id:userId})
             .then( userFound => {// xóa file avatar cũ
-                unlink(`.\\public${userFound.avatarUrl}`)
+                if (userFound.avatarUrl.startsWith(`\\upload\\${userId}\\`)){
+                    // chỉ xáo hình của user. ( ko xóa no-face)
+                    unlink(`.\\public${userFound.avatarUrl}`)
+                }
             })
             newUserInfo.avatarUrl = req.file.path.replace("public","");
         }

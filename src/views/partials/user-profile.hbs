@@ -32,22 +32,32 @@
     </div>
     <div class="profile-user__info">
         <ul>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                Khoa: {{pageOwner.studentInfo.faculty}}
-            </li>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                Ngành: {{pageOwner.studentInfo.speciality}}
-            </li>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                MSSV: {{pageOwner.username}}
-            </li>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                Lớp: {{pageOwner.studentInfo.class}}
-            </li>
+            {{#ifEquals pageOwner.userType 'staff'}}
+                {{#each pageOwner.staffInfo.authorized}}
+                    <li>
+                        <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                        {{this.name}}
+                    </li>
+                {{/each}}
+            {{else}}
+                <li>
+                    <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                    Khoa: {{pageOwner.studentInfo.faculty}}
+                </li>
+                <li>
+                    <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                    Ngành: {{pageOwner.studentInfo.speciality}}
+                </li>
+                <li>
+                    <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                    MSSV: {{pageOwner.username}}
+                </li>
+                <li>
+                    <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                    Lớp: {{pageOwner.studentInfo.class}}
+                </li>
+            {{/ifEquals}}
+            
         </ul>
     </div>
 </div>

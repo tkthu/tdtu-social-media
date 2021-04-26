@@ -8,23 +8,26 @@
         <div class="edit-profile__body">
             {{!-- --------------hidden-------------- --}}
             <input type="hidden" name="userId" value="{{user.username}}">
+            <input type="hidden" name="userType" value="{{userInfo.userType}}">
             {{!-- --------------End of hidden-------------- --}}
             <div class="edit-profile__body--edit">
                 <label class="edit-title" for="name">Họ tên</label>
                 <input class="edit-profile__body--edit-name-input" type="text" value="{{userInfo.displayName}}" name="displayName">
             </div>
-            <div class="edit-profile__body--edit">
-                <label class="edit-title" for="lop">Lớp</label>
-                <input class="edit-profile__body--edit-lop-input" type="text" value="{{userInfo.studentInfo.class}}" name='userClass'>
-            </div>
-            <div class="edit-profile__body--edit">
-                <label class="edit-title" for="khoa">Khoa</label>
-                <input class="edit-profile__body--edit-khoa-input" type="text" value="{{userInfo.studentInfo.faculty}}" name='faculty'>
-            </div>
-            <div class="edit-profile__body--edit">
-                <label class="edit-title" for="lop">Ngành</label>
-                <input class="edit-profile__body--edit-nganh-input" type="text" value="{{userInfo.studentInfo.speciality}}" name='speciality'>
-            </div>
+            {{#ifEquals userInfo.userType 'student'}}
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title" for="lop">Lớp</label>
+                    <input class="edit-profile__body--edit-lop-input" type="text" value="{{userInfo.studentInfo.class}}" name='userClass'>
+                </div>
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title" for="khoa">Khoa</label>
+                    <input class="edit-profile__body--edit-khoa-input" type="text" value="{{userInfo.studentInfo.faculty}}" name='faculty'>
+                </div>
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title" for="lop">Ngành</label>
+                    <input class="edit-profile__body--edit-nganh-input" type="text" value="{{userInfo.studentInfo.speciality}}" name='speciality'>
+                </div>
+            {{/ifEquals}}
             <div class="edit-profile__body--edit">
                 <label class="edit-title" for="userAvatar">Ảnh đại diện</label>
                 <div class="edit-profile__body--edit-avatar-input d-flex justify-content-between mb-2">
