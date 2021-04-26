@@ -10,6 +10,7 @@ class SiteController{
     // [GET] /
     index(req, res){
         unreadNotifiModel.find({receiverId: req.user.username})
+        .sort({postCreatedAt: -1})
         .then(notifisFound => {
             if (notifisFound === null){
                 throw new Error('not found notifications');

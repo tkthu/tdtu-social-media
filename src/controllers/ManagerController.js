@@ -8,7 +8,7 @@ class ManagerController{
 
     // [GET] /staffs
     staffsPage(req, res, next){    
-        let search = req.query.search ? {$regex:  "^" + req.query.search} : {$ne: null};
+        let search = req.query.search ? {$regex: req.query.search, $options:"$i"} : {$ne: null};
         let page = parseInt(req.query.page);
         let perPage = 10;
 
@@ -20,6 +20,12 @@ class ManagerController{
             return Departments.find();
         })
         .then((departments) => {
+            console.log("heyyyyyyyyy ",
+                {otherQuery: `search=${ req.query.search ? req.query.search : "" }`,
+                curQuery: {
+                    search: (req.query.search ? req.query.search : "" )
+                },}
+            )
             Users.find({userType: "staff", username: search})
             .countDocuments((err, count) => {
                 if(err) return next(err);
@@ -29,10 +35,12 @@ class ManagerController{
                     users: multipleMongooseToObject(req.users),
                     current: page ? page : 1,
                     pages: count > 0 ? Math.ceil(count / perPage) : 1 ,
-                    otherQuery: `search=${ req.query.search ? req.query.search : "" }`
+                    otherQuery: `search=${ req.query.search ? req.query.search : "" }`,
+                    curQuery: {
+                        search: (req.query.search ? req.query.search : "" )
+                    },
                 })
             })
-            
         })
         .catch(next);
     }

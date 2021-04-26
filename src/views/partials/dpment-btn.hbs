@@ -7,12 +7,9 @@
     }
 --}}
 
-<a class="chuyenmuc--link">
+<a class="chuyenmuc--link" href="/notifications?dpment={{dpment._id}}">
     <div class="chuyenmuc">
-        <img src="/img/logo tdt.png" alt="logo">
-        <h6>Phòng CTHSSV</h6>
-        <p class="chuyenmuc__thongbao--unread">
-            10
-        </p>
+        <img src="{{dpment.avatarUrl}}" alt="logo">
+        <h6>{{dpment.name}}</h6>
     </div>
 </a>

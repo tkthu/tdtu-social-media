@@ -26,7 +26,7 @@
     <form class="admin-body__table" method="get" action="/manager/staffs">
         <h6>Thông tin tài khoản phòng/khoa</h6>
         <div class="admin-body__table--show">
-            <input id="search" name="search" type="text" placeholder="Tìm kiếm" onkeyup="myFunction()">
+            <input id="search" name="search" type="text" placeholder="Tìm kiếm" onkeyup="myFunction()" value="{{curQuery.search}}">
             <a class="admin-body__table-search--link">
                 <img class="admin-body__table-search--loupe" src="/img/loupe.png" alt="loupe.png">
             </a>
@@ -81,7 +81,6 @@
             </thead>
         </table>
         <div class="table-pagination">
-            {{!-- <p>Showing 1 to 10 of 27</p> --}}
             <nav id="pagination">
                 <ul class="pagination">
                     {{#pagination current pages otherQuery}}
@@ -97,62 +96,3 @@
 {{> acc-phong-khoa-edit}}
 {{> acc-phong-khoa-add department=department}}
 {{> confirm-delete item-name="user Nguyễn Văn A" item-id="xxx"}}
-
-{{!-- <script>
-//$(document).ready(function(){
-    // Tìm kiếm
-  /*$("#search").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTableStaff tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });*/
-
-    // Phân trang
-    /*$('#myTableStaff').after('<div class="table-pagination" id="pagination"></div>');
-    var rowsShown = 10;
-    var rowsTotal = $('#myTableStaff tbody tr').length;
-    var numPages = rowsTotal/rowsShown;
-    // Trả về trang đầu tiên
-    $('#pagination').append(`<ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" rel="${0}" href="javascript:;" aria-label="Next">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only"></span>
-                                    </a>
-                                </li>
-                            </ul>`);
-    for(i = 0;i < numPages;i++) {
-        var pageNum = i + 1;
-        $('#pagination').append(`
-            <nav id="pagination">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="javascript:;" rel="${i}">${pageNum}</a></li>
-                </ul>
-            </nav>
-         `);
-    }
-    // Trả về trang cuối cùng
-    $('#pagination').append(`<ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" rel="${numPages-1}" href="javascript:;" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only"></span>
-                                    </a>
-                                </li>
-                            </ul>`);
-    $('#myTableStaff tbody tr').hide();
-    $('#myTableStaff tbody tr').slice(0, rowsShown).show();
-    $('#pagination a:first').addClass('active btn-primary')
-    $('#pagination a').bind('click', function(e){
-        e.preventDefault();
-        $('#pagination a').removeClass('active');
-        $(this).addClass('active btn-primary');
-        var currPage = $(this).attr('rel');
-        var startItem = currPage * rowsShown;
-        var endItem = startItem + rowsShown;
-        $('#myTableStaff tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
-        css('display','table-row').animate({opacity:1}, 300);
-    });*/
-});
-</script> --}}

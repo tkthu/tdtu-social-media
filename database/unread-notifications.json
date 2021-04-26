@@ -1,5 +1,437 @@
 [{
   "_id": {
+    "$oid": "6085559c05479339e42c1bea"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "51800001",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1beb"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "51800816",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bec"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "51801005",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bee"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "chuthanh",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bef"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "hahuyen",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf0"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "hieutinhtran",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf1"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "hoathanh",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf2"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "lacbangha",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf3"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "lamhythan",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf4"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "lamtram",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf5"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "lieuthanhca",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf6"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "luugiaphong",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf7"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "nguyanh",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf8"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "nguyenthanhdat",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bf9"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "phonglienduc",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bfa"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "suthanhhuyen",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bfb"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "tadoan",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bfc"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "talien",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bfd"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "thamthanhthu",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bfe"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "tietduong",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1bff"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "tieuchien",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1c00"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "tonghalinh",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1c01"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "tranbanglien",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1c02"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "trieuaitam",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1c03"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "truongngochoa",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1c04"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "vuongnhatbac",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085559c05479339e42c1c05"
+  },
+  "senderId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "receiverId": "vusuhoang",
+  "title": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "postCreatedAt": "2021-04-25T11:42:20.440Z",
+  "__v": 0
+},{
+  "_id": {
     "$oid": "607d783e8592b625dc291bb3"
   },
   "senderId": "lacbangha",
@@ -8,7 +440,10 @@
   },
   "receiverId": "51800001",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -21,7 +456,10 @@
   },
   "receiverId": "51801005",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -34,7 +472,10 @@
   },
   "receiverId": "NgVA256",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -47,7 +488,10 @@
   },
   "receiverId": "admin",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -60,7 +504,10 @@
   },
   "receiverId": "chuthanh",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -73,7 +520,10 @@
   },
   "receiverId": "hahuyen",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -86,7 +536,10 @@
   },
   "receiverId": "hieutinhtran",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -99,7 +552,10 @@
   },
   "receiverId": "hoathanh",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -112,7 +568,10 @@
   },
   "receiverId": "lamhythan",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -125,7 +584,10 @@
   },
   "receiverId": "lamtram",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -138,7 +600,10 @@
   },
   "receiverId": "lieuthanhca",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -151,7 +616,10 @@
   },
   "receiverId": "luugiaphong",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -164,7 +632,10 @@
   },
   "receiverId": "nguyanh",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -177,7 +648,10 @@
   },
   "receiverId": "nguyenthanhdat",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -190,7 +664,10 @@
   },
   "receiverId": "phonglienduc",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -203,7 +680,10 @@
   },
   "receiverId": "suthanhhuyen",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -216,7 +696,10 @@
   },
   "receiverId": "tadoan",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -229,7 +712,10 @@
   },
   "receiverId": "talien",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -242,7 +728,10 @@
   },
   "receiverId": "thamthanhthu",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -255,7 +744,10 @@
   },
   "receiverId": "tietduong",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -268,7 +760,10 @@
   },
   "receiverId": "tonghalinh",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -281,7 +776,10 @@
   },
   "receiverId": "tranbanglien",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -294,7 +792,10 @@
   },
   "receiverId": "trieuaitam",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -307,7 +808,10 @@
   },
   "receiverId": "truongngochoa",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -320,7 +824,10 @@
   },
   "receiverId": "vuongnhatbac",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -333,7 +840,10 @@
   },
   "receiverId": "vusuhoang",
   "title": "Phản hồi điểm rèn luyện HK1.19-20",
-  "department": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG",
+  "department": {
+    "id": "604dfe499d2b493644b48ae9",
+    "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+  },
   "postCreatedAt": "2021-04-19T12:31:58.220Z",
   "__v": 0
 },{
@@ -346,7 +856,10 @@
   },
   "receiverId": "51800001",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -359,7 +872,10 @@
   },
   "receiverId": "51800816",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -372,7 +888,10 @@
   },
   "receiverId": "51801005",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -385,7 +904,10 @@
   },
   "receiverId": "NgVA256",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -398,7 +920,10 @@
   },
   "receiverId": "admin",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -411,7 +936,10 @@
   },
   "receiverId": "chuthanh",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -424,7 +952,10 @@
   },
   "receiverId": "hahuyen",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -437,7 +968,10 @@
   },
   "receiverId": "hieutinhtran",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -450,7 +984,10 @@
   },
   "receiverId": "hoathanh",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -463,7 +1000,10 @@
   },
   "receiverId": "lacbangha",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -476,7 +1016,10 @@
   },
   "receiverId": "lamhythan",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -489,7 +1032,10 @@
   },
   "receiverId": "lamtram",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -502,7 +1048,10 @@
   },
   "receiverId": "lieuthanhca",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -515,7 +1064,10 @@
   },
   "receiverId": "luugiaphong",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -528,7 +1080,10 @@
   },
   "receiverId": "nguyanh",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -541,7 +1096,10 @@
   },
   "receiverId": "nguyenthanhdat",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -554,7 +1112,10 @@
   },
   "receiverId": "phonglienduc",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -567,7 +1128,10 @@
   },
   "receiverId": "suthanhhuyen",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -580,7 +1144,10 @@
   },
   "receiverId": "tadoan",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -593,7 +1160,10 @@
   },
   "receiverId": "talien",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -606,7 +1176,10 @@
   },
   "receiverId": "thamthanhthu",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -619,7 +1192,10 @@
   },
   "receiverId": "tietduong",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -632,7 +1208,10 @@
   },
   "receiverId": "tonghalinh",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -645,7 +1224,10 @@
   },
   "receiverId": "tranbanglien",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -658,7 +1240,10 @@
   },
   "receiverId": "trieuaitam",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -671,7 +1256,10 @@
   },
   "receiverId": "truongngochoa",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -684,7 +1272,10 @@
   },
   "receiverId": "vuongnhatbac",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -697,7 +1288,10 @@
   },
   "receiverId": "vusuhoang",
   "title": "TB : TỔ CHỨC GIẢNG DẠY TRỰC TUYẾN TỪ 10/2 -> 01/03/2020",
-  "department": "KHOA MỸ THUẬT CÔNG NGHIỆP",
+  "department": {
+    "id": "604dfe2f9d2b493644b48ae5",
+    "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+  },
   "postCreatedAt": "2021-04-19T12:35:49.081Z",
   "__v": 0
 },{
@@ -710,7 +1304,10 @@
   },
   "receiverId": "51800001",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -723,7 +1320,10 @@
   },
   "receiverId": "51800816",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -736,7 +1336,10 @@
   },
   "receiverId": "51801005",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -749,7 +1352,10 @@
   },
   "receiverId": "NgVA256",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -762,7 +1368,10 @@
   },
   "receiverId": "admin",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -775,7 +1384,10 @@
   },
   "receiverId": "chuthanh",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -788,7 +1400,10 @@
   },
   "receiverId": "hahuyen",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -801,7 +1416,10 @@
   },
   "receiverId": "hoathanh",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -814,7 +1432,10 @@
   },
   "receiverId": "lacbangha",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -827,7 +1448,10 @@
   },
   "receiverId": "lamhythan",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -840,7 +1464,10 @@
   },
   "receiverId": "lamtram",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -853,7 +1480,10 @@
   },
   "receiverId": "lieuthanhca",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -866,7 +1496,10 @@
   },
   "receiverId": "luugiaphong",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -879,7 +1512,10 @@
   },
   "receiverId": "nguyanh",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -892,7 +1528,10 @@
   },
   "receiverId": "nguyenthanhdat",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -905,7 +1544,10 @@
   },
   "receiverId": "phonglienduc",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -918,7 +1560,10 @@
   },
   "receiverId": "suthanhhuyen",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -931,7 +1576,10 @@
   },
   "receiverId": "tadoan",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -944,7 +1592,10 @@
   },
   "receiverId": "talien",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -957,7 +1608,10 @@
   },
   "receiverId": "thamthanhthu",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -970,7 +1624,10 @@
   },
   "receiverId": "tietduong",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -983,7 +1640,10 @@
   },
   "receiverId": "tieuchien",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -996,7 +1656,10 @@
   },
   "receiverId": "tonghalinh",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -1009,7 +1672,10 @@
   },
   "receiverId": "tranbanglien",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -1022,7 +1688,10 @@
   },
   "receiverId": "trieuaitam",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -1035,7 +1704,10 @@
   },
   "receiverId": "truongngochoa",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -1048,7 +1720,10 @@
   },
   "receiverId": "vuongnhatbac",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -1061,7 +1736,10 @@
   },
   "receiverId": "vusuhoang",
   "title": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": "KHOA LAO ĐỘNG CÔNG ĐOÀN",
+  "department": {
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+  },
   "postCreatedAt": "2021-04-19T12:38:29.964Z",
   "__v": 0
 },{
@@ -1074,7 +1752,10 @@
   },
   "receiverId": "51800001",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1087,7 +1768,10 @@
   },
   "receiverId": "51800816",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1100,7 +1784,10 @@
   },
   "receiverId": "51801005",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1113,7 +1800,10 @@
   },
   "receiverId": "NgVA256",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1126,7 +1816,10 @@
   },
   "receiverId": "admin",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1139,7 +1832,10 @@
   },
   "receiverId": "chuthanh",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1152,7 +1848,10 @@
   },
   "receiverId": "hahuyen",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1165,7 +1864,10 @@
   },
   "receiverId": "hieutinhtran",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1178,7 +1880,10 @@
   },
   "receiverId": "hoathanh",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1191,7 +1896,10 @@
   },
   "receiverId": "lacbangha",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1204,7 +1912,10 @@
   },
   "receiverId": "lamtram",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1217,7 +1928,10 @@
   },
   "receiverId": "lieuthanhca",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1230,7 +1944,10 @@
   },
   "receiverId": "luugiaphong",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1243,7 +1960,10 @@
   },
   "receiverId": "nguyanh",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1256,7 +1976,10 @@
   },
   "receiverId": "nguyenthanhdat",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1269,7 +1992,10 @@
   },
   "receiverId": "phonglienduc",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1282,7 +2008,10 @@
   },
   "receiverId": "suthanhhuyen",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1295,7 +2024,10 @@
   },
   "receiverId": "tadoan",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1308,7 +2040,10 @@
   },
   "receiverId": "talien",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1321,7 +2056,10 @@
   },
   "receiverId": "thamthanhthu",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1334,7 +2072,10 @@
   },
   "receiverId": "tietduong",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1347,7 +2088,10 @@
   },
   "receiverId": "tieuchien",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1360,7 +2104,10 @@
   },
   "receiverId": "tonghalinh",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1373,7 +2120,10 @@
   },
   "receiverId": "tranbanglien",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1386,7 +2136,10 @@
   },
   "receiverId": "trieuaitam",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1399,7 +2152,10 @@
   },
   "receiverId": "truongngochoa",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1412,7 +2168,10 @@
   },
   "receiverId": "vuongnhatbac",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1425,7 +2184,10 @@
   },
   "receiverId": "vusuhoang",
   "title": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": "PHÒNG ĐẠI HỌC",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:49:35.894Z",
   "__v": 0
 },{
@@ -1438,7 +2200,10 @@
   },
   "receiverId": "51800001",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1451,7 +2216,10 @@
   },
   "receiverId": "51800816",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1464,7 +2232,10 @@
   },
   "receiverId": "51801005",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1477,7 +2248,10 @@
   },
   "receiverId": "NgVA256",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1490,7 +2264,10 @@
   },
   "receiverId": "admin",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1503,7 +2280,10 @@
   },
   "receiverId": "chuthanh",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1516,7 +2296,10 @@
   },
   "receiverId": "hahuyen",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1529,7 +2312,10 @@
   },
   "receiverId": "hieutinhtran",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1542,7 +2328,10 @@
   },
   "receiverId": "hoathanh",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1555,7 +2344,10 @@
   },
   "receiverId": "lacbangha",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1568,7 +2360,10 @@
   },
   "receiverId": "lamhythan",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1581,7 +2376,10 @@
   },
   "receiverId": "lamtram",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1594,7 +2392,10 @@
   },
   "receiverId": "lieuthanhca",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1607,7 +2408,10 @@
   },
   "receiverId": "luugiaphong",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1620,7 +2424,10 @@
   },
   "receiverId": "nguyanh",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1633,7 +2440,10 @@
   },
   "receiverId": "nguyenthanhdat",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1646,7 +2456,10 @@
   },
   "receiverId": "phonglienduc",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1659,7 +2472,10 @@
   },
   "receiverId": "suthanhhuyen",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1672,7 +2488,10 @@
   },
   "receiverId": "tadoan",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1685,7 +2504,10 @@
   },
   "receiverId": "talien",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1698,7 +2520,10 @@
   },
   "receiverId": "thamthanhthu",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1711,7 +2536,10 @@
   },
   "receiverId": "tietduong",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1724,7 +2552,10 @@
   },
   "receiverId": "tieuchien",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1737,7 +2568,10 @@
   },
   "receiverId": "tonghalinh",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1750,7 +2584,10 @@
   },
   "receiverId": "tranbanglien",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1763,7 +2600,10 @@
   },
   "receiverId": "trieuaitam",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1776,7 +2616,10 @@
   },
   "receiverId": "truongngochoa",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 },{
@@ -1789,7 +2632,10 @@
   },
   "receiverId": "vusuhoang",
   "title": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
-  "department": "PHÒNG SAU ĐẠI HỌC",
+  "department": {
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
+  },
   "postCreatedAt": "2021-04-19T12:55:55.985Z",
   "__v": 0
 }]
