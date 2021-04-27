@@ -58,11 +58,11 @@
                         {{/if}} 
                     </td>
                     <td>
-                        <a href="#" class="trash-link" onclick="editInfoPhongKhoa()">
+                        <a class="trash-link" onclick="editInfoPhongKhoa()">
                             <img src="/img/edit.png" alt="edit.png" class="trash-img" >
                         </a>
                         |
-                        <a href="#" class="trash-link" data-toggle="modal" data-target="#confirm-del">
+                        <a class="trash-link" data-item-name="{{this.displayName}}" data-item-id="{{this.username}}" data-item-type="user" onclick="delConfirm(this)">
                             <img src="/img/trash.png" alt="trash.png" class="trash-img" >
                         </a>
                     </td>

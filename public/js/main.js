@@ -725,7 +725,22 @@ function closeInfoPhongKhoa() {// Đóng popup sửa thông tin phòng/khoa
     x.style.display = "none";
 }
 //----------------- Xóa -----------------------------------
-
+function deleteUser(userId){
+  fetch(`/api/user/${userId}`,{
+    method : 'DELETE',
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// xóa user thành công
+      window.location.replace(`/manager/staffs`);
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+}
 
 
 //================================ SEARCH =========================================================================
@@ -756,6 +771,8 @@ $('.btn-confirm-del').click( e => {
     deletePost(itemId);
   }else if(itemType == "comment" ){
     deleteComment(itemId);
+  }else if(itemType == "user" ){
+    deleteUser(itemId);
   }
 })
 

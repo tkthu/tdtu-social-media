@@ -530,9 +530,29 @@ class ApiController{
     }
     // [DELETE] /user/:userId
     delUser(req,res){
+        /*
+        chỉ xóa userModel
+        ko xóa các sender.id trong comment hay post, và ko xóa attachment
+        */
 
+        //TODO: kiểm tra quyền
+        const {userId} = req.params;
+        userModel.deleteOne({_id:userId})
+        .then( () => {
+            return res.status(200).json({
+                code:0,
+                msg:`delete user thành công`,
+                data: {
+                    user: req.user,
+                }
+            });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'delete user thất bại với lỗi ' + err,
+            });
+        })
     }
-
 }
 
 module.exports = new ApiController;
