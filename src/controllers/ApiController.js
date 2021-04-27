@@ -4,11 +4,12 @@ const commentModel = require('../models/comment.model');
 const unreadNotifiModel = require('../models/unreadNotifi.model');
 const userModel = require('../models/user.model');
 
-const {unlink}  = require('fs/promises')
+const {unlink}  = require('fs/promises');
+const bcrypt = require('bcrypt');
 
-const mogoose = require('mongoose')
+const mogoose = require('mongoose');
 
-const {multipleMongooseToObject, mongooseToObject} = require('../../util/mongoose')
+const {multipleMongooseToObject, mongooseToObject} = require('../../util/mongoose');
 
 //TODO: rename post name thành title
 
@@ -528,6 +529,52 @@ class ApiController{
         })
 
     }
+    // [POST] /userstaff/:userId
+    async editUserStaff(req,res){
+        const {userId} = req.params;
+        const {chuyenmuc,matkhau} = req.body;
+
+        var authorized = [];
+        if(Array.isArray(chuyenmuc)) {
+            for (let cm in chuyenmuc) {
+                const temp = chuyenmuc[cm].split('_');
+                authorized.push({
+                    id: temp[0],
+                    name: temp[1]
+                })
+            }
+        }   
+        else {
+            const temp = chuyenmuc.split('_');
+            authorized.push({
+                id: temp[0],
+                name: temp[1]
+            })
+        }
+
+        var newUserInfo = {            
+            lastEdited: new Date().toISOString(),
+            staffInfo: {
+                authorized
+            }
+        }        
+
+        if (matkhau){
+            newUserInfo.password = bcrypt.hashSync(matkhau,10)
+        }
+
+        userModel.updateOne({_id:userId},newUserInfo)
+        .then(() => {
+            res.redirect('/manager/staffs')
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'Thêm mới staff thất bại với lỗi ' + err,
+            });
+        })
+
+    }
+
     // [DELETE] /user/:userId
     delUser(req,res){
         /*

@@ -1108,9 +1108,6 @@ select {
 }
 
 .edit-title,
-.edit-info__body--edit-account,
-.edit-info__body--edit-password,
-.edit-info__body--edit-chuyenmuc,
 .add-account__body--add-account,
 .add-account__body--add-password,
 .add-account__body--add-displayName,
@@ -1126,8 +1123,8 @@ select {
 .edit-profile__body--edit-lop-input,
 .edit-profile__body--edit-nganh-input,
 .edit-profile__body--edit-avatar-input,
-.edit-info__body--edit-account-input,
-.edit-info__body--edit-password-input,
+#edit-info__body--edit-account-input,
+#edit-info__body--edit-password-input,
 .add-account__body--add-account-input,
 .add-account__body--add-password-input,
 .add-account__body--add-displayName-input {
@@ -1522,8 +1519,8 @@ select {
         width: 320px;
     }
 
-    .edit-info__body--edit-account-input,
-    .edit-info__body--edit-password-input {
+    #edit-info__body--edit-account-input,
+    #edit-info__body--edit-password-input {
         width: 320px;
     }
 
@@ -1742,8 +1739,8 @@ select {
         width: 240px;
     }
 
-    .edit-info__body--edit-account-input,
-    .edit-info__body--edit-password-input {
+    #edit-info__body--edit-account-input,
+    #edit-info__body--edit-password-input {
         width: 250px;
     }
 
@@ -1765,8 +1762,8 @@ select {
         width: 200px;
     }
 
-    .edit-info__body--edit-account-input,
-    .edit-info__body--edit-password-input {
+    #edit-info__body--edit-account-input,
+    #edit-info__body--edit-password-input {
         width: 200px;
     }
 

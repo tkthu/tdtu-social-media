@@ -3,7 +3,7 @@ var credentials = require('../../../credentials')
 
 async function connect() {
     try {
-        await mongoose.connect(credentials.mongo.dev.conn, {
+        await mongoose.connect(credentials.mongo.pro.conn, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             // useFindAndModify: false,

@@ -529,7 +529,52 @@ function deletePost(postId){
 
 //================================= COMMENT ===================================================================
 //---------------- utils ---------------------------------
+function reloadEvent(){
+  $('.comment-other').submit( e => { // Lưu comment
+    e.preventDefault();
+  
+    //TODO: kiểm tra validate
+    var formData = new FormData(e.target);
+    
+    if (formData.has('chuyenmuc')){
+      formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
+    }
+  
+    var cmtId = $(e.target).attr('id');
+    var cmtText = $(`#${cmtId} .comment-other__box--text`);
+    var cmtEdit = $(`#${cmtId} .comment-other__box--edit`);
+    if(formData.get('newCmt').trim() == cmtText.html().trim()){// không có thay đổi
+      alert('ko thay dổi')
+      cmtText.css('display', "block");    
+      cmtEdit.css('display', "none");
+      return false;
+    }
 
+    console.log("formData")
+    for (var pair of formData.entries()) {
+      console.log(pair[0], ', ' , pair[1]); 
+    }  
+
+    fetch(`/api/comment/${cmtId}`,{
+      method : 'POST',
+      body:  formData
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// sửa comment thành công
+        console.log('json.data ', json.data)
+        cmtText.css('display', "block");    
+        cmtEdit.css('display', "none");
+        socket.emit('edit-comment-success', json.data);
+      }
+    })
+    .catch(e => console.log("error ___ ",e))
+  })
+}
 //---------------- Đăng ----------------------------------
 $('.comment').submit( e => {
   e.preventDefault(); 
@@ -589,53 +634,6 @@ function deleteComment(cmtId){
   })
   .catch(e => console.log("error ___ ",e))
 }
-function reloadEvent(){
-  $('.comment-other').submit( e => { // Lưu comment
-    e.preventDefault();
-  
-    //TODO: kiểm tra validate
-    var formData = new FormData(e.target);
-    
-    if (formData.has('chuyenmuc')){
-      formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
-    }
-  
-    var cmtId = $(e.target).attr('id');
-    var cmtText = $(`#${cmtId} .comment-other__box--text`);
-    var cmtEdit = $(`#${cmtId} .comment-other__box--edit`);
-    if(formData.get('newCmt').trim() == cmtText.html().trim()){// không có thay đổi
-      alert('ko thay dổi')
-      cmtText.css('display', "block");    
-      cmtEdit.css('display', "none");
-      return false;
-    }
-
-    console.log("formData")
-    for (var pair of formData.entries()) {
-      console.log(pair[0], ', ' , pair[1]); 
-    }  
-
-    fetch(`/api/comment/${cmtId}`,{
-      method : 'POST',
-      body:  formData
-    })
-    .then(resp => {            
-      if(resp.status < 200 || resp.status >= 300)
-        throw new Error(`Request failed with status ${resp.status}`)
-      return resp.json();
-    })
-    .then(json => {
-      if (json.code === 0){// sửa comment thành công
-        console.log('json.data ', json.data)
-        cmtText.css('display', "block");    
-        cmtEdit.css('display', "none");
-        socket.emit('edit-comment-success', json.data);
-      }
-    })
-    .catch(e => console.log("error ___ ",e))
-  })
-}
-
 
 
 //================================= PROFILE ====================================================================
@@ -715,15 +713,46 @@ function closeAddAccount() {// Đóng popup tạo thêm tài khoản phòng khoa
     x.style.display = "none";
 }
 // -------------- Sửa ------------------------------------
-function editInfoPhongKhoa() {// Hiện popup sửa thông tin phòng/khoa
+function editInfoPhongKhoa(target) {// Hiện popup sửa thông tin phòng/khoa
     var x = document.querySelector("#edit-info-phongKhoa");
     x.style.display = "block";
     //TODO: fetch user rồi hiện lên popup
+
+    const userId = $(target).data('item-id');
+    fetch(`/api/user/${userId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 user thành công
+        const userInfo = json.data.userInfo
+        $('#edit-info__body--edit-account-input').val(userInfo.displayName);
+        $('#edit-info-phongKhoa').attr('action',`/api/userstaff/${userId}`);
+        
+        userInfo.staffInfo.authorized.forEach( dpment => {
+          $(`#${dpment.id}`).prop('checked', true);
+        });
+      }
+
+    })
+    .catch(e => console.log("error ___ ",e));
 }
 function closeInfoPhongKhoa() {// Đóng popup sửa thông tin phòng/khoa
-  var x = document.querySelector("#edit-info-phongKhoa");
-    x.style.display = "none";
+  var form = $("#edit-info-phongKhoa");
+  form.css('display', 'none');
+  form.trigger('reset');
 }
+function editInfoPhongKhoaPassword(e) {// Hiện cho edit password
+  $('#edit-info__body--edit-password-input').attr("readonly", false);
+  $('#edit-info__body--edit-password-input').val("");
+  $('#edit-info__body--edit-password-input').attr('name', 'matkhau');
+  $('#edit-info__body--edit-password-input').focus();
+}
+
 //----------------- Xóa -----------------------------------
 function deleteUser(userId){
   fetch(`/api/user/${userId}`,{
