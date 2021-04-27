@@ -39,7 +39,7 @@
                         {{this.name}}
                     </li>
                 {{/each}}
-            {{else}}
+            {{else ifEquals pageOwner.userType 'student'}}
                 <li>
                     <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
                     Khoa: {{pageOwner.studentInfo.faculty}}

@@ -11,7 +11,7 @@
             <input type="hidden" name="userType" value="{{userInfo.userType}}">
             {{!-- --------------End of hidden-------------- --}}
             <div class="edit-profile__body--edit">
-                <label class="edit-title" for="name">Họ tên</label>
+                <label class="edit-title" for="name">Tên hiển thị</label>
                 <input class="edit-profile__body--edit-name-input" type="text" value="{{userInfo.displayName}}" name="displayName">
             </div>
             {{#ifEquals userInfo.userType 'student'}}
@@ -40,7 +40,17 @@
             
             
         </div>
-        <button class="edit-profile__btnSave" type="submit">Lưu</button>
+        <div class="row">
+            <div class="col-lg-2">
+                <a class="btn btn-outline-light" onclick="editProfilePassword(this)" >Đổi mật khẩu</a>
+            </div>
+            <span class="col-lg-8">
+            </span>
+            <div class="col-lg-2">
+                <button class="btn btn-outline-light" type="submit">Lưu</button>
+            </div>
+        </div>
+
     </div>
 </form>
 
