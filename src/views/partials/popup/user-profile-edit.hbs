@@ -16,15 +16,15 @@
             </div>
             {{#ifEquals userInfo.userType 'student'}}
                 <div class="edit-profile__body--edit">
-                    <label class="edit-title" for="lop">Lớp</label>
+                    <label class="edit-title">Lớp</label>
                     <input class="edit-profile__body--edit-lop-input" type="text" value="{{userInfo.studentInfo.class}}" name='userClass'>
                 </div>
                 <div class="edit-profile__body--edit">
-                    <label class="edit-title" for="khoa">Khoa</label>
+                    <label class="edit-title">Khoa</label>
                     <input class="edit-profile__body--edit-khoa-input" type="text" value="{{userInfo.studentInfo.faculty}}" name='faculty'>
                 </div>
                 <div class="edit-profile__body--edit">
-                    <label class="edit-title" for="lop">Ngành</label>
+                    <label class="edit-title">Ngành</label>
                     <input class="edit-profile__body--edit-nganh-input" type="text" value="{{userInfo.studentInfo.speciality}}" name='speciality'>
                 </div>
             {{/ifEquals}}
@@ -33,12 +33,19 @@
                 <div class="edit-profile__body--edit-avatar-input d-flex justify-content-between mb-2">
                     <input type="file" id="userAvatar" onchange='uploadFileImg(this)' accept="image/*" name='userAvatar'>
                     <span class="pointer" onclick="resetAvatar(this)" style="color:white" >&times;</span>
-                </div>
-                
+                </div>                
             </div>
             <img class="edit-profile__body--edit-avatar-preview mx-auto d-block" id="preview-image" data-old-src='{{userInfo.avatarUrl}}' src="{{userInfo.avatarUrl}}" alt="preview-image"/>            
-            
-            
+            <div id="edit-profile__body--change-pass">
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title">Mật khẩu cũ</label>
+                    <input class="edit-profile__body--edit-pass-old" type="password" value="xxx">
+                </div>
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title">Mật khẩu mới</label>
+                    <input class="edit-profile__body--edit-pass-new" type="password" value="xxx">
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-2">

@@ -1025,6 +1025,9 @@ select {
     display: none;
     z-index: 5;
 }
+#edit-profile__body--change-pass {
+    display: none;
+}
 
 .myModal {
     background-color: var(--bg-color);
@@ -1120,6 +1123,8 @@ select {
 
 .edit-profile__body--edit-name-input,
 .edit-profile__body--edit-khoa-input,
+.edit-profile__body--edit-pass-old,
+.edit-profile__body--edit-pass-new,
 .edit-profile__body--edit-lop-input,
 .edit-profile__body--edit-nganh-input,
 .edit-profile__body--edit-avatar-input,
@@ -1530,6 +1535,8 @@ select {
 @media (max-width: 1152px) {
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
     .edit-profile__body--edit-nganh-input,
     .edit-profile__body--edit-avatar-input {
@@ -1546,6 +1553,8 @@ select {
 @media(max-width: 1110px) {
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
     .edit-profile__body--edit-nganh-input,
     .edit-profile__body--edit-avatar-input {
@@ -1710,6 +1719,8 @@ select {
 
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
     .edit-profile__body--edit-nganh-input,
     .edit-profile__body--edit-avatar-input {
@@ -1756,6 +1767,8 @@ select {
 @media (max-width: 840px) {
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
     .edit-profile__body--edit-nganh-input,
     .edit-profile__body--edit-avatar-input {
@@ -2003,6 +2016,8 @@ select {
 
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
     .edit-profile__body--edit-nganh-input,
     .edit-profile__body--edit-avatar-input {

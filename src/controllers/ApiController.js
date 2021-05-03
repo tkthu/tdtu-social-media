@@ -482,9 +482,9 @@ class ApiController{
         })
     }
     // [POST] /user/:userId
-    async editUser(req,res){
+    editUser(req,res){
         const {userId} = req.params;
-        const {displayName,userType} = req.body;        
+        const {displayName,userType,oldpass,newpass} = req.body;        
 
         var newUserInfo = {
             displayName,
@@ -500,18 +500,27 @@ class ApiController{
             }
         }
 
-        if(req.file){// thêm file avatar mới
-            await userModel.findOne({_id:userId})
-            .then( userFound => {// xóa file avatar cũ
+        userModel.findOne({_id:userId})
+        .then( async userFound => {
+            if(req.file){// thêm file avatar mới
                 if (userFound.avatarUrl.startsWith(`\\upload\\${userId}\\`)){
-                    // chỉ xáo hình của user. ( ko xóa no-face)
+                    // chỉ xóa hình của user. ( ko xóa no-face)
                     unlink(`.\\public${userFound.avatarUrl}`)
                 }
-            })
-            newUserInfo.avatarUrl = req.file.path.replace("public","");
-        }
-
-        userModel.updateOne({_id:userId},newUserInfo)
+                newUserInfo.avatarUrl = req.file.path.replace("public","");
+            }
+            if (oldpass){
+                await bcrypt.compare(oldpass, userFound.password)
+                .then(passwordMatch => {
+                    if (!passwordMatch) {
+                        throw new Error('password not match');
+                    }else{
+                        newUserInfo.password = bcrypt.hashSync(newpass,10);
+                    }                    
+                })          
+            }
+            return userModel.updateOne({_id:userId},newUserInfo);            
+        })        
         .then( () => {
             return res.status(200).json({
                 code:0,
@@ -523,6 +532,13 @@ class ApiController{
             });
         })
         .catch(err => {
+            console.log("err ", err.message)
+            if(err.message == 'password not match' ){
+                return res.status(200).json({
+                    code:1,
+                    msg:`mật khẩu cũ không khớp`
+                });
+            }
             return res.status(500).json({
                 msg:'update user thất bại với lỗi ' + err,
             });

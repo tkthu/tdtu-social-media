@@ -616,7 +616,6 @@ function editComment(target) { // Hiện popup sửa comment
   cmtEdit.focus();
   reloadEvent();
 }
-
 //----------------- Xóa -----------------------------------
 function deleteComment(cmtId){
   fetch(`/api/comment/${cmtId}`,{
@@ -649,7 +648,6 @@ function uploadFileImg(target) {
       reader.readAsDataURL(target.files[0]);
     }
 }
-
 function resetAvatar(){
   $('.edit-profile__body--edit-avatar-input #userAvatar').val('');
   $('.edit-profile__body--edit-avatar-preview').attr(
@@ -657,7 +655,6 @@ function resetAvatar(){
     $('.edit-profile__body--edit-avatar-preview').data('old-src')
   );
 }
-
 function resetUserProfileForm(form){ // Reset trạng thái cúa popup bài viết
   form.trigger("reset");
   resetAvatar();
@@ -672,8 +669,12 @@ $('#edit-profile').submit( (e) => {
 
   // kiểm tra validate
   var formData = new FormData(e.target);
-  if (formData.get('displayName').trim() == ""){
-    alert('Không được bỏ trống họ tên')
+  if (formData.has('oldpass') && formData.get('oldpass').trim().length < 6 ){
+    alert('Mật khẩu cũ phải từ 6 ký tự')
+    return false;
+  }
+  if (formData.has('newpass') && formData.get('newpass').trim().length < 6 ){
+    alert('Mật khẩu mới phải từ 6 ký tự')
     return false;
   }
   const userId = formData.get('userId');
@@ -690,6 +691,8 @@ $('#edit-profile').submit( (e) => {
   .then(json => {
     if (json.code === 0){// sửa user thành công
       window.location.replace(`/${userId}`);      
+    }else if (json.code === 1){ // mật khẩu cũ không khớp
+      alert('Mật khẩu cũ không khớp')
     }
   })
   .catch(e => console.log("error ___ ",e))
@@ -699,8 +702,20 @@ function closeEditUserProfile() {// Đóng popup sửa user profile
   form.css('display', 'none')
   resetUserProfileForm(form);
 }
-
-
+function editProfilePassword(target) {
+  var changePassTag = $('#edit-profile__body--change-pass');
+  if(changePassTag.css('display') == 'none'){
+    changePassTag.css('display','block');
+    $('.edit-profile__body--edit-pass-old').attr('name','oldpass');
+    $('.edit-profile__body--edit-pass-new').attr('name','newpass');
+    $(target).html('Hủy đổi mật khẩu');
+  }else{
+    changePassTag.css('display','none');
+    $('.edit-profile__body--edit-pass-old').removeAttr('name');
+    $('.edit-profile__body--edit-pass-new').removeAttr('name');
+    $(target).html('Đổi mật khẩu');
+  }  
+}
 
 //================================= Account Phòng khoa ============================================================
 // -------------- Tạo  ----------------------------------
@@ -741,16 +756,36 @@ function editInfoPhongKhoa(target) {// Hiện popup sửa thông tin phòng/khoa
     })
     .catch(e => console.log("error ___ ",e));
 }
+$('#edit-info-phongKhoa').submit( (e) => {
+  // kiểm tra validate
+  var formData = new FormData(e.target);
+  if (formData.has('matkhau') && formData.get('matkhau').trim().length < 6 ){
+    alert('Mật khẩu phải từ 6 ký tự')
+    return false;
+  }
+  return true;
+})
+
 function closeInfoPhongKhoa() {// Đóng popup sửa thông tin phòng/khoa
   var form = $("#edit-info-phongKhoa");
   form.css('display', 'none');
   form.trigger('reset');
 }
-function editInfoPhongKhoaPassword(e) {// Hiện cho edit password
-  $('#edit-info__body--edit-password-input').attr("readonly", false);
-  $('#edit-info__body--edit-password-input').val("");
-  $('#edit-info__body--edit-password-input').attr('name', 'matkhau');
-  $('#edit-info__body--edit-password-input').focus();
+function editInfoPhongKhoaPassword(target) {// Hiện cho edit password
+  var changePassTag = $('#edit-info__body--edit-password-input');
+  if(changePassTag.attr("readonly")){
+    changePassTag.attr("readonly", false);
+    changePassTag.val("");
+    changePassTag.attr('name', 'matkhau');
+    changePassTag.focus();
+    $(target).html('Hủy đổi mật khẩu');
+  }else{
+    changePassTag.attr("readonly", true);
+    changePassTag.val("123");
+    changePassTag.removeAttr('name');
+    $(target).html('Đổi mật khẩu');
+  }  
+  
 }
 
 //----------------- Xóa -----------------------------------
