@@ -15,7 +15,9 @@
         <img src="/img/logo tdt.png" alt="logo TDTU" class="sidebar-logo">
     </a>
     <div class="sidebar-username">
-        <img class="sidebar-username__img" src="{{{user.avatarUrl}}}" alt="Logo user"> 
+        <a href="/{{{user.username}}}" >
+            <img class="sidebar-username__img" src="{{{user.avatarUrl}}}" alt="Logo user"> 
+        </a>
         <h6 class="sidebar-username__name">
             {{{user.displayName}}}
         </h6>

@@ -11,6 +11,8 @@
 --}}
 
 <form class="comment" action="/" method="POST">
-    <img src="{{{user.avatarUrl}}}" alt="img" class="comment--img">
+    <a href="/{{user.username}}" >
+        <img src="{{{user.avatarUrl}}}" alt="img" class="comment--img">
+    </a>    
     <input class="comment--write" placeholder="Viết bình luận" name="cmt">
 </form>

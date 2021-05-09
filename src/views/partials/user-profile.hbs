@@ -23,7 +23,7 @@
         <h6>Giới thiệu</h6>
         {{#ifEquals pageOwner.username user.username}} <!-- chỉ user là chủ của trang nhà mới sửa được profile của mình-->
         <div class="profile-user__edit">
-            <a class="profile-user__edit-link" onclick="editUserProfile()">
+            <a class="profile-user__edit-link pointer" onclick="editUserProfile(this)" data-item-id="{{pageOwner.username}}">
                 <img src="/img/edit.png" alt="edit.png" class="profile-user__edit-img">
                 Chỉnh sửa
             </a>
@@ -32,30 +32,32 @@
     </div>
     <div class="profile-user__info">
         <ul>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                Khoa: Công nghệ thông tin
-            </li>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                Ngành: Mạng máy tính và truyền thông dữ liệu
-            </li>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                MSSV: 51800508
-            </li>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                Lớp: 18050402
-            </li>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                Sống tại Thành phố Hồ Chí Minh
-            </li>
-            <li>
-                <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
-                Đến từ Thành phố Hồ Chí Minh
-            </li>
+            {{#ifEquals pageOwner.userType 'staff'}}
+                {{#each pageOwner.staffInfo.authorized}}
+                    <li>
+                        <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                        {{this.name}}
+                    </li>
+                {{/each}}
+            {{else ifEquals pageOwner.userType 'student'}}
+                <li>
+                    <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                    Khoa: {{pageOwner.studentInfo.faculty}}
+                </li>
+                <li>
+                    <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                    Ngành: {{pageOwner.studentInfo.speciality}}
+                </li>
+                <li>
+                    <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                    MSSV: {{pageOwner.username}}
+                </li>
+                <li>
+                    <img src="/img/info.png" alt="info.png" class="profile-user__info-img">
+                    Lớp: {{pageOwner.studentInfo.class}}
+                </li>
+            {{/ifEquals}}
+            
         </ul>
     </div>
 </div>

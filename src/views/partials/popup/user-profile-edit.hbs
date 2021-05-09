@@ -1,4 +1,4 @@
-<div id="edit-profile" class="edit">
+<form id="edit-profile" action="/" method="POST" enctype="multipart/form-data">
     <div class="myModal edit-profile">
         <div class="edit-profile__header">
             <img src="/img/logo tdt.png" alt="logo" class="edit-profile__header--logo edit-logo">
@@ -6,52 +6,58 @@
             <img src="/img/close.png" alt="close.png" class="edit-profile__header--close pointer" onclick="closeEditUserProfile()">
         </div>
         <div class="edit-profile__body">
+            {{!-- --------------hidden-------------- --}}
+            <input type="hidden" name="userId" value="{{user.username}}">
+            <input type="hidden" name="userType" value="{{userInfo.userType}}">
+            {{!-- --------------End of hidden-------------- --}}
             <div class="edit-profile__body--edit">
-                <label class="edit-profile__body--edit-name edit-title" for="name">Họ tên</label>
-                <input class="edit-profile__body--edit-name-input" type="text" value="Vương Nhất Bác">
+                <label class="edit-title" for="name">Tên hiển thị</label>
+                <input class="edit-profile__body--edit-name-input" type="text" value="{{userInfo.displayName}}" name="displayName">
             </div>
+            {{#ifEquals userInfo.userType 'student'}}
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title">Lớp</label>
+                    <input class="edit-profile__body--edit-lop-input" type="text" value="{{userInfo.studentInfo.class}}" name='userClass'>
+                </div>
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title">Khoa</label>
+                    <input class="edit-profile__body--edit-khoa-input" type="text" value="{{userInfo.studentInfo.faculty}}" name='faculty'>
+                </div>
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title">Ngành</label>
+                    <input class="edit-profile__body--edit-nganh-input" type="text" value="{{userInfo.studentInfo.speciality}}" name='speciality'>
+                </div>
+            {{/ifEquals}}
             <div class="edit-profile__body--edit">
-                <label class="edit-profile__body--edit-khoa edit-title" for="khoa">Khoa</label>
-                <input class="edit-profile__body--edit-khoa-input" type="text" value="Công nghệ thông tin">
+                <label class="edit-title" for="userAvatar">Ảnh đại diện</label>
+                <div class="edit-profile__body--edit-avatar-input d-flex justify-content-between mb-2">
+                    <input type="file" id="userAvatar" onchange='uploadFileImg(this)' accept="image/*" name='userAvatar'>
+                    <span class="pointer" onclick="resetAvatar(this)" style="color:white" >&times;</span>
+                </div>                
             </div>
-            <div class="edit-profile__body--edit">
-                <label class="edit-profile__body--edit-lop edit-title" for="lop">Lớp</label>
-                <input class="edit-profile__body--edit-lop-input" type="text" value="18050402">
-            </div>
-            <div class="edit-profile__body--edit">
-                <label class="edit-profile__body--edit-img edit-title" for="img">Ảnh đại diện</label>
-                <div class="inputfile-box">
-                    <input type="file" id="avatarImg" class="inputfile" onchange='uploadFileImg(this)'>
-                    <label for="avatarImg">
-                        <span id="file-img" class="edit-profile__body--edit-img-input"></span>
-                        <span class="edit-profile__body--edit-img-btn">
-                        <img src="/img/camera.png" alt="camera.png">
-                        </span>
-                    </label>
-                    </div>
-            </div>
-            <div class="edit-profile__body--edit">
-                <label class="edit-profile__body--edit-background edit-title" for="background">Hình nền</label>
-                <div class="inputfile-box">
-                    <input type="file" id="imgBg" class="inputfile" onchange="uploadFileImgBackground(this)">
-                    <label for="imgBg">
-                        <span class="edit-profile__body--edit-imgBackground-input"></span>
-                        <span class="edit-profile__body--edit-imgBackground-btn">
-                        <img src="/img/picture.png" alt="picture.png">
-                        </span>
-                    </label>
-                    </div>
-            </div>
-            <div class="edit-profile__body--edit">
-                <label class="edit-profile__body--edit-born-place edit-title" for="noisinh">Nơi sinh</label>
-                <input class="edit-profile__body--edit-born-place-input" type="text" value="Thành phố hồ Chí Minh">
-            </div>
-            <div class="edit-profile__body--edit">
-                <label class="edit-profile__body--edit-live-place edit-title" for="songtai">Sống tại</label>
-                <input class="edit-profile__body--edit-live-place-input" type="text" value="Thành phố Hồ Chí Minh">
+            <img class="edit-profile__body--edit-avatar-preview mx-auto d-block" id="preview-image" data-old-src='{{userInfo.avatarUrl}}' src="{{userInfo.avatarUrl}}" alt="preview-image"/>            
+            <div id="edit-profile__body--change-pass">
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title">Mật khẩu cũ</label>
+                    <input class="edit-profile__body--edit-pass-old" type="password" value="xxx">
+                </div>
+                <div class="edit-profile__body--edit">
+                    <label class="edit-title">Mật khẩu mới</label>
+                    <input class="edit-profile__body--edit-pass-new" type="password" value="xxx">
+                </div>
             </div>
         </div>
-        <button class="edit-profile__btnSave" type="submit">Lưu</button>
+        <div class="row">
+            <div class="col-lg-2">
+                <a class="btn btn-outline-light" onclick="editProfilePassword(this)" >Đổi mật khẩu</a>
+            </div>
+            <span class="col-lg-8">
+            </span>
+            <div class="col-lg-2">
+                <button class="btn btn-outline-light" type="submit">Lưu</button>
+            </div>
+        </div>
+
     </div>
-</div>
+</form>
 
