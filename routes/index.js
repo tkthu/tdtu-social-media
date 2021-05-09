@@ -5,11 +5,13 @@ const notifRouter = require('./notifications');
 const managerRouter = require('./manager');
 const apiRouter = require('./api');
 
-const {checkAuth,checkAdmin} = require('../util/middlewares/auth')
-const {exposeTemplates} = require('../util/middlewares/exposeTemplates')
+const {checkAuth,checkAdmin} = require('../util/middlewares/auth');
+const {exposeTemplates} = require('../util/middlewares/exposeTemplates');
+const credentials = require('../credentials');
 
 function route(app){
     app.use((req,res,next)=>{
+        app.locals.OAuthKey = credentials.OAuthKey.pro;
         console.log('-------------------new request----------------------')
         next()
     })

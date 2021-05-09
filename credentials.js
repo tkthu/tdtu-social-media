@@ -10,10 +10,13 @@ module.exports = {
         }
 
     },
-    port:8080,
     url:{
         dev: 'http://localhost:8080',
-        pro: ''
+        pro: 'https://tdtu-social-media.herokuapp.com'
     },
+    OAuthKey:{
+        dev: '166513767436-l8pgm3hatt7ev99qvechpj63mgu2cttd.apps.googleusercontent.com',
+        pro: '166513767436-etdj05bvej11g79bsf7o1tppfrmhvniu.apps.googleusercontent.com'
+    }
 
 }
