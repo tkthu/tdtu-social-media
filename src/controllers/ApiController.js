@@ -57,7 +57,6 @@ class ApiController{
     }
     // [GET] /post/:postId
     getOnePost(req, res){
-        // mỗi lần chỉ hiện 10 bài có createdAt mới nhất
         const {postId} = req.params;
 
         postModel.findOne({_id: postId})
@@ -332,6 +331,31 @@ class ApiController{
             });
         })
         
+    }
+    // [GET] /comment/:commentId
+    getOneComment(req, res){
+        const {commentId} = req.params;
+
+        commentModel.findOne({_id: commentId})
+        .then(cmtFound => {
+            if (cmtFound === null){
+                throw new Error('not found comment');
+            }
+            return res.status(200).json({
+                code:0,
+                msg:`lấy comment thành công`,
+                data: {
+                    comment : mongooseToObject(cmtFound),
+                    user: req.user,
+                }
+            });
+
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'lấy comment thất bại với lỗi ' + err,
+            });
+        })
     }
     // [POST] /post/:postId/comment
     addComment(req, res){

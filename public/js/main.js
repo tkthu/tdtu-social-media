@@ -3,18 +3,36 @@ const socket = io();
 socket.on('post-alert', data => {
   // hiện post
   const postContainerElement = $('.main');
-  setupHelperHbs();
-  const template = Handlebars.compile($('#post-fb_template').html());
-  const context = {
-    post : data.post,
-    user : data.user,
-  };
-  const html = template(context);
-  postContainerElement.prepend(html);
-  postContainerElement.data(
-    'offset',
-    postContainerElement.data('offset') + 1
-  );
+  if(postContainerElement.length){
+    const postId = data.post._id;
+    fetch(`/api/post/${postId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 post thành công
+        setupHelperHbs();
+        const template = Handlebars.compile($('#post-fb_template').html());
+        const context = {
+          post : json.data.post,
+          user : json.data.user,
+        };
+        const html = template(context);
+        postContainerElement.prepend(html);
+        postContainerElement.data(
+          'offset',
+          postContainerElement.data('offset') + 1
+        );
+      }
+
+    })
+    .catch(e => console.log("error ___ ",e));
+  }
+  
 
   // hiện alert
   if(data.broadcast){
@@ -30,18 +48,32 @@ socket.on('comment', data => {
   // hiện comment
   const postElement = $('.detail-posted');
   if(postElement.attr('id') == data.comment.postId){
-    setupHelperHbs();
-    const template = Handlebars.compile($('#comment_template').html());      
-    const context = {
-      comment : data.comment,
-      user : data.user
-    };
-    const html = template(context);
-    postElement.find('.other-comment-section').prepend(html);
-    postElement.data(
-      'offset',
-      postElement.data('offset') + 1
-    );
+    const cmtId = data.comment._id
+    fetch(`/api/comment/${cmtId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 comment thành công
+        setupHelperHbs();
+        const template = Handlebars.compile($('#comment_template').html());  
+        const context = {
+          comment : json.data.comment,
+          user : json.data.user
+        };
+        const html = template(context);
+        postElement.find('.other-comment-section').prepend(html);
+        postElement.data(
+          'offset',
+          postElement.data('offset') + 1
+        );
+      }
+    })
+    .catch(e => console.log("error ___ ",e))
   }
 })
 socket.on('deleted-post', data => {
@@ -69,31 +101,65 @@ socket.on('deleted-comment', data => {
   );
 
 })
-socket.on('edit-post', data => {  
-  var postElement = $(`#${data.post._id}`);
-
+socket.on('edit-post', data => {
   // hiện post
-  setupHelperHbs();
-  const template = Handlebars.compile($('#post-fb_template').html());
-  const context = {
-    post : data.post,
-    user : data.user,
-  };
-  const html = template(context);
-  postElement.replaceWith(html);
+  const postContainerElement = $('.main');
+  if(postContainerElement.length){
+    const postId = data.post._id;
+    fetch(`/api/post/${postId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 post thành công
+        var postElement = $(`#${data.post._id}`);
+        // hiện post
+        setupHelperHbs();
+        const template = Handlebars.compile($('#post-fb_template').html());
+        const context = {
+          post : json.data.post,
+          user : json.data.user,
+        };
+        const html = template(context);
+        postElement.replaceWith(html);
+      }
+
+    })
+    .catch(e => console.log("error ___ ",e));
+  }
 })
-socket.on('edit-comment', data => {
-  var cmtElement = $(`#${data.comment._id}`);
-
-  // hiện post
-  setupHelperHbs();
-  const template = Handlebars.compile($('#comment_template').html());
-  const context = {
-    comment : data.comment,
-    user : data.user
-  };
-  const html = template(context);
-  cmtElement.replaceWith(html);
+socket.on('edit-comment', data => { 
+  const postElement = $('.detail-posted');
+  if(postElement.attr('id') == data.comment.postId){
+    const cmtId = data.comment._id
+    fetch(`/api/comment/${cmtId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 comment thành công
+        var cmtElement = $(`#${data.comment._id}`);
+        // hiện post
+        setupHelperHbs();
+        const template = Handlebars.compile($('#comment_template').html());
+        const context = {
+          comment : json.data.comment,
+          user : json.data.user
+        };
+        const html = template(context);
+        cmtElement.replaceWith(html);
+      }
+    })
+    .catch(e => console.log("error ___ ",e))
+  }
 })
 
 
