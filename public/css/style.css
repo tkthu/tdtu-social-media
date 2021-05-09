@@ -52,6 +52,15 @@ body {
     background-color: transparent;
     border: none;
 }
+
+.edit-title {
+    color: white;
+}
+
+.edit-profile__body--edit-avatar-preview {
+    width: 250px;
+    width: 250px;
+}
 /*====================== Login page ======================*/
 .login-background {
     background-image: url(../img/Toàn\ cảnh\ TDTU.png);
@@ -1016,6 +1025,9 @@ select {
     display: none;
     z-index: 5;
 }
+#edit-profile__body--change-pass {
+    display: none;
+}
 
 .myModal {
     background-color: var(--bg-color);
@@ -1098,16 +1110,7 @@ select {
     margin-bottom: 20px;
 }
 
-.edit-profile__body--edit-name,
-.edit-profile__body--edit-khoa,
-.edit-profile__body--edit-lop,
-.edit-profile__body--edit-img,
-.edit-profile__body--edit-background,
-.edit-profile__body--edit-born-place,
-.edit-profile__body--edit-live-place,
-.edit-info__body--edit-account,
-.edit-info__body--edit-password,
-.edit-info__body--edit-chuyenmuc,
+.edit-title,
 .add-account__body--add-account,
 .add-account__body--add-password,
 .add-account__body--add-displayName,
@@ -1120,11 +1123,13 @@ select {
 
 .edit-profile__body--edit-name-input,
 .edit-profile__body--edit-khoa-input,
+.edit-profile__body--edit-pass-old,
+.edit-profile__body--edit-pass-new,
 .edit-profile__body--edit-lop-input,
-.edit-profile__body--edit-born-place-input,
-.edit-profile__body--edit-live-place-input,
-.edit-info__body--edit-account-input,
-.edit-info__body--edit-password-input,
+.edit-profile__body--edit-nganh-input,
+.edit-profile__body--edit-avatar-input,
+#edit-info__body--edit-account-input,
+#edit-info__body--edit-password-input,
 .add-account__body--add-account-input,
 .add-account__body--add-password-input,
 .add-account__body--add-displayName-input {
@@ -1145,48 +1150,10 @@ select {
 
 /*---- Input file image ----*/
 
-.inputfile {
+/* .inputfile {
     display: none;
-}
-  
-.edit-profile__body--edit-img-input {
-    position: absolute;
-    left: 655px;
-    top: 285px;
-    width: 400px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color);
-    height: calc(2rem - 2px);
-}
+} */
 
-.edit-profile__body--edit-imgBackground-input {
-    position: absolute;
-    left: 655px;
-    top: 330px;
-    width: 400px;
-    border-bottom: 1px solid var(--white-color);
-    color: var(--white-color); 
-    height: calc(2rem - 2px);
-}
-  
-.edit-profile__body--edit-img-btn {
-    position: absolute;
-    top: 280px;
-    right: 490px;
-}
-
-.edit-profile__body--edit-imgBackground-btn {
-    position: absolute;
-    top: 330px;
-    right: 490px;
-}
-
-
-.edit-profile__body--edit-img-btn img,
-.edit-profile__body--edit-imgBackground-btn img {
-    width: 25px;
-    height: 25px;
-}
 /* ------- End input file image ------- */
 
 .edit-profile__btnSave,
@@ -1426,22 +1393,12 @@ select {
         margin-left: 150px;
     }
 
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
-        left: 620px;
-    }
-
 }
 
 @media (max-width: 1444px) {
     .admin-body__table-search--link {
         left: -40px;
         top: 0;
-    }
-
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
-        left: 590px;
     }
 
     .main-posted__user--edit-and-delete {
@@ -1477,20 +1434,9 @@ select {
     .main-posted__user--edit-and-delete {
         margin: 0 0 0 60%;
     }
-
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
-        left: 550px;
-    }
 }
 
 @media (max-width: 1320px) {
-
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
-        left: 500px;
-    }
-
     .main-posted__user--edit-and-delete {
         margin-left: 58%;
     }
@@ -1499,11 +1445,6 @@ select {
 @media (max-width: 1280px) {
     .edit-title {
         margin-left: 100px;
-    }
-
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
-        left: 460px;
     }
 
     .main-posted__user--edit-and-delete {
@@ -1564,11 +1505,6 @@ select {
         margin-left: 300px;
     }
 
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
-        left: 420px;
-    }
-
     .main-posted__user--edit-and-delete {
         margin: 0 0 0 53%;
     }
@@ -1588,8 +1524,8 @@ select {
         width: 320px;
     }
 
-    .edit-info__body--edit-account-input,
-    .edit-info__body--edit-password-input {
+    #edit-info__body--edit-account-input,
+    #edit-info__body--edit-password-input {
         width: 320px;
     }
 
@@ -1599,54 +1535,16 @@ select {
 @media (max-width: 1152px) {
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
-    .edit-profile__body--edit-born-place-input,
-    .edit-profile__body--edit-live-place-input,
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
+    .edit-profile__body--edit-nganh-input,
+    .edit-profile__body--edit-avatar-input {
         width: 350px;
-    }
-
-    .edit-profile__body--edit-img-input {
-        top: 330px;
-    }
-
-    .edit-profile__body--edit-img-btn,
-    .edit-profile__body--edit-imgBackground-btn {
-        left: 750px;
-    }
-
-    .edit-profile__body--edit-img-btn {
-        top: 330px;
-    }
-
-    .edit-profile__body--edit-imgBackground-btn {
-        top: 380px;
-    }
-
-    .edit-profile__body--edit-imgBackground-input {
-        top: 380px;
     }
 }
 
 @media(max-width: 1140px) {
-    .edit-profile__body--edit-img-btn,
-    .edit-profile__body--edit-imgBackground-btn {
-        left: 700px;
-    }
-
-    .edit-profile__body--edit-img-btn {
-        top: 330px;
-    }
-
-    .edit-profile__body--edit-imgBackground-btn {
-        top: 380px;
-    }
-
-    .edit-profile__body--edit-imgBackground-input {
-        top: 380px;
-    }
-
     .main-posted__user--edit-and-delete {
         margin-left: 50%;
     }
@@ -1655,11 +1553,11 @@ select {
 @media(max-width: 1110px) {
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
-    .edit-profile__body--edit-born-place-input,
-    .edit-profile__body--edit-live-place-input,
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
+    .edit-profile__body--edit-nganh-input,
+    .edit-profile__body--edit-avatar-input {
         width: 300px;
     }
 
@@ -1821,29 +1719,12 @@ select {
 
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
-    .edit-profile__body--edit-born-place-input,
-    .edit-profile__body--edit-live-place-input,
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
+    .edit-profile__body--edit-nganh-input,
+    .edit-profile__body--edit-avatar-input {
         width: 260px;
-    }
-
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-img-btn {
-        top: 325px;
-        left: 415px;
-    }
-
-    .edit-profile__body--edit-imgBackground-input,
-    .edit-profile__body--edit-imgBackground-btn {
-        top: 365px;
-        left: 415px;
-    }
-
-    .edit-profile__body--edit-img-btn,
-    .edit-profile__body--edit-imgBackground-btn {
-        left: 630px;
     }
 
     .main {
@@ -1869,68 +1750,33 @@ select {
         width: 240px;
     }
 
-    .edit-info__body--edit-account-input,
-    .edit-info__body--edit-password-input {
+    #edit-info__body--edit-account-input,
+    #edit-info__body--edit-password-input {
         width: 250px;
     }
 
 }
 
 @media (max-width: 930px) {
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-img-btn {
-        top: 325px;
-        left: 380px;
-    }
-
-    .edit-profile__body--edit-imgBackground-input,
-    .edit-profile__body--edit-imgBackground-btn {
-        top: 365px;
-        left: 380px;
-    }
-
-    .edit-profile__body--edit-img-btn,
-    .edit-profile__body--edit-imgBackground-btn {
-        left: 600px;
-    }
-
     .edit-title {
         margin-left: 30px;
     }
-
 }
 
 
 @media (max-width: 840px) {
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
-    .edit-profile__body--edit-born-place-input,
-    .edit-profile__body--edit-live-place-input,
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-imgBackground-input {
+    .edit-profile__body--edit-nganh-input,
+    .edit-profile__body--edit-avatar-input {
         width: 200px;
     }
 
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-img-btn {
-        top: 325px;
-        left: 372px;
-    }
-
-    .edit-profile__body--edit-imgBackground-input,
-    .edit-profile__body--edit-imgBackground-btn {
-        top: 365px;
-        left: 372px;
-    }
-
-    .edit-profile__body--edit-img-btn,
-    .edit-profile__body--edit-imgBackground-btn {
-        left: 520px;
-    }
-
-    .edit-info__body--edit-account-input,
-    .edit-info__body--edit-password-input {
+    #edit-info__body--edit-account-input,
+    #edit-info__body--edit-password-input {
         width: 200px;
     }
 
@@ -2039,23 +1885,6 @@ select {
         margin-left: 200px;
     }
 
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-img-btn {
-        top: 355px;
-        left: 330px;
-    }
-
-    .edit-profile__body--edit-imgBackground-input,
-    .edit-profile__body--edit-imgBackground-btn {
-        top: 395px;
-        left: 330px;
-    }
-
-    .edit-profile__body--edit-img-btn,
-    .edit-profile__body--edit-imgBackground-btn {
-        left: 500px;
-    }
-
     .main-posted__user--edit-and-delete {
         margin: 0 0 0 35%;
     }
@@ -2098,23 +1927,6 @@ select {
         margin-left: 50px;
     }
 
-   .edit-profile__body--edit-img-input,
-   .edit-profile__body--edit-img-btn {
-       top: 316px;
-       left: 310px;
-   }
-
-   .edit-profile__body--edit-imgBackground-input,
-   .edit-profile__body--edit-imgBackground-btn {
-       top: 360px;
-       left: 310px;
-   }
-
-   .edit-profile__body--edit-img-btn,
-   .edit-profile__body--edit-imgBackground-btn {
-       left: 500px;
-   }
-
     .add-account__body--add-imgBackground-btn {
         right: 185px;
     }
@@ -2125,23 +1937,6 @@ select {
     .create-title {
         margin-left: 20px;
     }
-
-  .edit-profile__body--edit-img-input,
-  .edit-profile__body--edit-img-btn {
-      top: 310px;
-      left: 240px;
-  }
-
-  .edit-profile__body--edit-imgBackground-input,
-  .edit-profile__body--edit-imgBackground-btn {
-      top: 354px;
-      left: 240px;
-  }
-
-  .edit-profile__body--edit-img-btn,
-  .edit-profile__body--edit-imgBackground-btn {
-      left: 400px;
-  }
 
 }
 
@@ -2221,9 +2016,11 @@ select {
 
     .edit-profile__body--edit-name-input,
     .edit-profile__body--edit-khoa-input,
+    .edit-profile__body--edit-pass-old,
+    .edit-profile__body--edit-pass-new,
     .edit-profile__body--edit-lop-input,
-    .edit-profile__body--edit-born-place-input,
-    .edit-profile__body--edit-live-place-input {
+    .edit-profile__body--edit-nganh-input,
+    .edit-profile__body--edit-avatar-input {
         width: 250px;
     }
 
@@ -2233,23 +2030,6 @@ select {
 
     .btn-change-password {
         margin-left: 170px;
-    }
-
-    .edit-profile__body--edit-img-input,
-    .edit-profile__body--edit-img-btn {
-        top: 305px;
-        left: 150px;
-    }
-
-    .edit-profile__body--edit-imgBackground-input,
-    .edit-profile__body--edit-imgBackground-btn {
-        top: 355px;
-        left: 150px;
-    }
-
-    .edit-profile__body--edit-img-btn,
-    .edit-profile__body--edit-imgBackground-btn {
-        left: 350px;
     }
 
     .edit-profile__btnSave,

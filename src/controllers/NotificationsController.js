@@ -78,14 +78,21 @@ class NotificationsController{
             Object.keys(curQuery).forEach((key) => {
                 otherQuery = otherQuery.concat(`&${key}=${curQuery[key]}`);
             });
-            
-            return res.render('all-notification', { 
-                posts: multipleMongooseToObject(req.notifications),
-                user: req.user,
-                departments: multipleMongooseToObject(req.departments),
-                curQuery,
-                otherQuery
-            })        
+
+            postModel.find(query)
+            .countDocuments((err, count) => {
+                if(err) return next(err);
+                res.render('all-notification', { 
+                    posts: multipleMongooseToObject(req.notifications),
+                    user: req.user,
+                    departments: multipleMongooseToObject(req.departments),
+                    curQuery,
+                    current: page ? page : 1,
+                    pages: count > 0 ? Math.ceil(count / perPage) : 1 ,
+                    otherQuery
+                }) 
+            })
+                   
         })
         .catch((err) => {console.log("Lỗi: ", err)});
           

@@ -12,10 +12,12 @@
  --}}
 <div class="header">
     <div class="header__searching">
-        <input class="header-search" type="text" placeholder="Tìm kiếm">
-        <a class="header__searching--link" >
-            <img class="header__searching--loupe" src="/img/loupe.png" alt="loupe.png">
-        </a>
+        <form action="/notifications" method="get">
+            <input class="header-search" type="text" placeholder="Tìm kiếm" name='search'>
+            <a class="header__searching--link" >
+                <img class="header__searching--loupe" src="/img/loupe.png" alt="loupe.png">
+            </a>
+        </form>         
     </div>
     <a href="/{{user.username}}" class="header-username-link">
         <div class="header-username">
