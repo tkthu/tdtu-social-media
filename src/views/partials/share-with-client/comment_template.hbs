@@ -20,7 +20,9 @@
 
     <form class="comment-other" id="\{{comment._id}}" method="POST" action="/">
         <div class="comment-other__content">
-            <img src="\{{{comment.sender.avatarUrl}}}" alt="img" class="comment-other--img">
+            <a href="/\{{comment.sender.id}}" >
+                <img src="\{{{comment.sender.avatarUrl}}}" alt="img" class="comment-other--img">
+            </a>            
             <div class="comment-other__box">
                 <h6 class="comment-other__box--username">\{{{comment.sender.displayName}}}</h6>
                 <p class="comment-other__box--text">

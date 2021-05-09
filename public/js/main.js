@@ -3,18 +3,36 @@ const socket = io();
 socket.on('post-alert', data => {
   // hiện post
   const postContainerElement = $('.main');
-  setupHelperHbs();
-  const template = Handlebars.compile($('#post-fb_template').html());
-  const context = {
-    post : data.post,
-    user : data.user,
-  };
-  const html = template(context);
-  postContainerElement.prepend(html);
-  postContainerElement.data(
-    'offset',
-    postContainerElement.data('offset') + 1
-  );
+  if(postContainerElement.length){
+    const postId = data.post._id;
+    fetch(`/api/post/${postId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 post thành công
+        setupHelperHbs();
+        const template = Handlebars.compile($('#post-fb_template').html());
+        const context = {
+          post : json.data.post,
+          user : json.data.user,
+        };
+        const html = template(context);
+        postContainerElement.prepend(html);
+        postContainerElement.data(
+          'offset',
+          postContainerElement.data('offset') + 1
+        );
+      }
+
+    })
+    .catch(e => console.log("error ___ ",e));
+  }
+  
 
   // hiện alert
   if(data.broadcast){
@@ -30,18 +48,32 @@ socket.on('comment', data => {
   // hiện comment
   const postElement = $('.detail-posted');
   if(postElement.attr('id') == data.comment.postId){
-    setupHelperHbs();
-    const template = Handlebars.compile($('#comment_template').html());      
-    const context = {
-      comment : data.comment,
-      user : data.user
-    };
-    const html = template(context);
-    postElement.find('.other-comment-section').prepend(html);
-    postElement.data(
-      'offset',
-      postElement.data('offset') + 1
-    );
+    const cmtId = data.comment._id
+    fetch(`/api/comment/${cmtId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 comment thành công
+        setupHelperHbs();
+        const template = Handlebars.compile($('#comment_template').html());  
+        const context = {
+          comment : json.data.comment,
+          user : json.data.user
+        };
+        const html = template(context);
+        postElement.find('.other-comment-section').prepend(html);
+        postElement.data(
+          'offset',
+          postElement.data('offset') + 1
+        );
+      }
+    })
+    .catch(e => console.log("error ___ ",e))
   }
 })
 socket.on('deleted-post', data => {
@@ -69,31 +101,65 @@ socket.on('deleted-comment', data => {
   );
 
 })
-socket.on('edit-post', data => {  
-  var postElement = $(`#${data.post._id}`);
-
+socket.on('edit-post', data => {
   // hiện post
-  setupHelperHbs();
-  const template = Handlebars.compile($('#post-fb_template').html());
-  const context = {
-    post : data.post,
-    user : data.user,
-  };
-  const html = template(context);
-  postElement.replaceWith(html);
+  const postContainerElement = $('.main');
+  if(postContainerElement.length){
+    const postId = data.post._id;
+    fetch(`/api/post/${postId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 post thành công
+        var postElement = $(`#${data.post._id}`);
+        // hiện post
+        setupHelperHbs();
+        const template = Handlebars.compile($('#post-fb_template').html());
+        const context = {
+          post : json.data.post,
+          user : json.data.user,
+        };
+        const html = template(context);
+        postElement.replaceWith(html);
+      }
+
+    })
+    .catch(e => console.log("error ___ ",e));
+  }
 })
-socket.on('edit-comment', data => {
-  var cmtElement = $(`#${data.comment._id}`);
-
-  // hiện post
-  setupHelperHbs();
-  const template = Handlebars.compile($('#comment_template').html());
-  const context = {
-    comment : data.comment,
-    user : data.user
-  };
-  const html = template(context);
-  cmtElement.replaceWith(html);
+socket.on('edit-comment', data => { 
+  const postElement = $('.detail-posted');
+  if(postElement.attr('id') == data.comment.postId){
+    const cmtId = data.comment._id
+    fetch(`/api/comment/${cmtId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 comment thành công
+        var cmtElement = $(`#${data.comment._id}`);
+        // hiện post
+        setupHelperHbs();
+        const template = Handlebars.compile($('#comment_template').html());
+        const context = {
+          comment : json.data.comment,
+          user : json.data.user
+        };
+        const html = template(context);
+        cmtElement.replaceWith(html);
+      }
+    })
+    .catch(e => console.log("error ___ ",e))
+  }
 })
 
 
@@ -529,66 +595,6 @@ function deletePost(postId){
 
 //================================= COMMENT ===================================================================
 //---------------- utils ---------------------------------
-
-//---------------- Đăng ----------------------------------
-$('.comment').submit( e => {
-  e.preventDefault(); 
-
-  const postId = $('.detail-posted').attr('id') ;
-
-  var formData = new FormData(e.target);
-
-  console.log("formData")
-  for (var pair of formData.entries()) {
-    console.log(pair[0], ', ' , pair[1]); 
-  }  
-  fetch(`/api/post/${postId}/comment`,{
-    method : 'POST',
-    body:  formData
-  })
-  .then(resp => {            
-    if(resp.status < 200 || resp.status >= 300)
-      throw new Error(`Request failed with status ${resp.status}`)
-    return resp.json();
-  })
-  .then(json => {
-    if (json.code === 0){// đăng comment thành công
-      $(e.target).children('.comment--write').val('');
-      socket.emit('comment-success', json.data);
-    }
-  })
-  .catch(e => console.log("error ___ ",e))
-})
-//----------------- Sửa ----------------------------------
-function editComment(target) { // Hiện popup sửa comment
-  const cmtId = $(target).data('item-id');
-
-  var cmtText = $(`#${cmtId} .comment-other__box--text`);
-  cmtText.css('display', "none");
-  var cmtEdit = $(`#${cmtId} .comment-other__box--edit`);
-  cmtEdit.css('display', "block");
-  cmtEdit.val(cmtText.html().trim());
-  cmtEdit.focus();
-  reloadEvent();
-}
-
-//----------------- Xóa -----------------------------------
-function deleteComment(cmtId){
-  fetch(`/api/comment/${cmtId}`,{
-    method : 'DELETE',
-  })
-  .then(resp => {            
-    if(resp.status < 200 || resp.status >= 300)
-      throw new Error(`Request failed with status ${resp.status}`)
-    return resp.json();
-  })
-  .then(json => {
-    if (json.code === 0){// xóa comment thành công
-      socket.emit('delete-comment-success', json.data);
-    }
-  })
-  .catch(e => console.log("error ___ ",e))
-}
 function reloadEvent(){
   $('.comment-other').submit( e => { // Lưu comment
     e.preventDefault();
@@ -635,28 +641,147 @@ function reloadEvent(){
     .catch(e => console.log("error ___ ",e))
   })
 }
+//---------------- Đăng ----------------------------------
+$('.comment').submit( e => {
+  e.preventDefault(); 
 
+  const postId = $('.detail-posted').attr('id') ;
+
+  var formData = new FormData(e.target);
+
+  console.log("formData")
+  for (var pair of formData.entries()) {
+    console.log(pair[0], ', ' , pair[1]); 
+  }  
+  fetch(`/api/post/${postId}/comment`,{
+    method : 'POST',
+    body:  formData
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// đăng comment thành công
+      $(e.target).children('.comment--write').val('');
+      socket.emit('comment-success', json.data);
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+})
+//----------------- Sửa ----------------------------------
+function editComment(target) { // Hiện popup sửa comment
+  const cmtId = $(target).data('item-id');
+
+  var cmtText = $(`#${cmtId} .comment-other__box--text`);
+  cmtText.css('display', "none");
+  var cmtEdit = $(`#${cmtId} .comment-other__box--edit`);
+  cmtEdit.css('display', "block");
+  cmtEdit.val(cmtText.html().trim());
+  cmtEdit.focus();
+  reloadEvent();
+}
+//----------------- Xóa -----------------------------------
+function deleteComment(cmtId){
+  fetch(`/api/comment/${cmtId}`,{
+    method : 'DELETE',
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// xóa comment thành công
+      socket.emit('delete-comment-success', json.data);
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+}
 
 
 //================================= PROFILE ====================================================================
 // --------------- utils ---------------------------------
-function uploadFileImg(target) {
-    document.getElementById("file-img").innerHTML = target.files[0].name;
+function uploadFileImg(target) {    
+    if (target.files && target.files[0]) {
+      var reader = new FileReader();
+      
+      reader.onload = function (e) {
+        $('.edit-profile__body--edit-avatar-preview').attr('src', e.target.result);
+      }
+      
+      reader.readAsDataURL(target.files[0]);
+    }
 }
-function uploadFileImgBackground(target) {
-    document.querySelector(".edit-profile__body--edit-imgBackground-input").innerHTML = target.files[0].name;
+function resetAvatar(){
+  $('.edit-profile__body--edit-avatar-input #userAvatar').val('');
+  $('.edit-profile__body--edit-avatar-preview').attr(
+    'src', 
+    $('.edit-profile__body--edit-avatar-preview').data('old-src')
+  );
+}
+function resetUserProfileForm(form){ // Reset trạng thái cúa popup bài viết
+  form.trigger("reset");
+  resetAvatar();
 }
 // --------------- sửa ---------------------------------
-function editUserProfile() {// Hiện popup sửa user profile
+function editUserProfile(target) {// Hiện popup sửa user profile
   var form = document.querySelector("#edit-profile");
   form.style.display = "block";
-  //TODO: fetch user rồi hiện lên popup  
 }
-function closeEditUserProfile() {// Đóng popup sửa user profile
-  var form = document.querySelector("#edit-profile");
-  form.style.display = "none";
-}
+$('#edit-profile').submit( (e) => {
+  e.preventDefault();
 
+  // kiểm tra validate
+  var formData = new FormData(e.target);
+  if (formData.has('oldpass') && formData.get('oldpass').trim().length < 6 ){
+    alert('Mật khẩu cũ phải từ 6 ký tự')
+    return false;
+  }
+  if (formData.has('newpass') && formData.get('newpass').trim().length < 6 ){
+    alert('Mật khẩu mới phải từ 6 ký tự')
+    return false;
+  }
+  const userId = formData.get('userId');
+  console.log(`/api/user/${userId}`)
+  fetch(`/api/user/${userId}`,{
+    method : 'POST',
+    body:  formData
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// sửa user thành công
+      window.location.replace(`/${userId}`);      
+    }else if (json.code === 1){ // mật khẩu cũ không khớp
+      alert('Mật khẩu cũ không khớp')
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+})
+function closeEditUserProfile() {// Đóng popup sửa user profile
+  var form = $("#edit-profile");
+  form.css('display', 'none')
+  resetUserProfileForm(form);
+}
+function editProfilePassword(target) {
+  var changePassTag = $('#edit-profile__body--change-pass');
+  if(changePassTag.css('display') == 'none'){
+    changePassTag.css('display','block');
+    $('.edit-profile__body--edit-pass-old').attr('name','oldpass');
+    $('.edit-profile__body--edit-pass-new').attr('name','newpass');
+    $(target).html('Hủy đổi mật khẩu');
+  }else{
+    changePassTag.css('display','none');
+    $('.edit-profile__body--edit-pass-old').removeAttr('name');
+    $('.edit-profile__body--edit-pass-new').removeAttr('name');
+    $(target).html('Đổi mật khẩu');
+  }  
+}
 
 //================================= Account Phòng khoa ============================================================
 // -------------- Tạo  ----------------------------------
@@ -669,17 +794,83 @@ function closeAddAccount() {// Đóng popup tạo thêm tài khoản phòng khoa
     x.style.display = "none";
 }
 // -------------- Sửa ------------------------------------
-function editInfoPhongKhoa() {// Hiện popup sửa thông tin phòng/khoa
+function editInfoPhongKhoa(target) {// Hiện popup sửa thông tin phòng/khoa
     var x = document.querySelector("#edit-info-phongKhoa");
     x.style.display = "block";
     //TODO: fetch user rồi hiện lên popup
-}
-function closeInfoPhongKhoa() {// Đóng popup sửa thông tin phòng/khoa
-  var x = document.querySelector("#edit-info-phongKhoa");
-    x.style.display = "none";
-}
-//----------------- Xóa -----------------------------------
 
+    const userId = $(target).data('item-id');
+    fetch(`/api/user/${userId}`,{
+      method : 'GET',
+    })
+    .then(resp => {            
+      if(resp.status < 200 || resp.status >= 300)
+        throw new Error(`Request failed with status ${resp.status}`)
+      return resp.json();
+    })
+    .then(json => {
+      if (json.code === 0){// lấy 1 user thành công
+        const userInfo = json.data.userInfo
+        $('#edit-info__body--edit-account-input').val(userInfo.displayName);
+        $('#edit-info-phongKhoa').attr('action',`/api/userstaff/${userId}`);
+        
+        userInfo.staffInfo.authorized.forEach( dpment => {
+          $(`#${dpment.id}`).prop('checked', true);
+        });
+      }
+
+    })
+    .catch(e => console.log("error ___ ",e));
+}
+$('#edit-info-phongKhoa').submit( (e) => {
+  // kiểm tra validate
+  var formData = new FormData(e.target);
+  if (formData.has('matkhau') && formData.get('matkhau').trim().length < 6 ){
+    alert('Mật khẩu phải từ 6 ký tự')
+    return false;
+  }
+  return true;
+})
+
+function closeInfoPhongKhoa() {// Đóng popup sửa thông tin phòng/khoa
+  var form = $("#edit-info-phongKhoa");
+  form.css('display', 'none');
+  form.trigger('reset');
+}
+function editInfoPhongKhoaPassword(target) {// Hiện cho edit password
+  var changePassTag = $('#edit-info__body--edit-password-input');
+  if(changePassTag.attr("readonly")){
+    changePassTag.attr("readonly", false);
+    changePassTag.val("");
+    changePassTag.attr('name', 'matkhau');
+    changePassTag.focus();
+    $(target).html('Hủy đổi mật khẩu');
+  }else{
+    changePassTag.attr("readonly", true);
+    changePassTag.val("123");
+    changePassTag.removeAttr('name');
+    $(target).html('Đổi mật khẩu');
+  }  
+  
+}
+
+//----------------- Xóa -----------------------------------
+function deleteUser(userId){
+  fetch(`/api/user/${userId}`,{
+    method : 'DELETE',
+  })
+  .then(resp => {            
+    if(resp.status < 200 || resp.status >= 300)
+      throw new Error(`Request failed with status ${resp.status}`)
+    return resp.json();
+  })
+  .then(json => {
+    if (json.code === 0){// xóa user thành công
+      window.location.replace(`/manager/staffs`);
+    }
+  })
+  .catch(e => console.log("error ___ ",e))
+}
 
 
 //================================ SEARCH =========================================================================
@@ -710,6 +901,8 @@ $('.btn-confirm-del').click( e => {
     deletePost(itemId);
   }else if(itemType == "comment" ){
     deleteComment(itemId);
+  }else if(itemType == "user" ){
+    deleteUser(itemId);
   }
 })
 

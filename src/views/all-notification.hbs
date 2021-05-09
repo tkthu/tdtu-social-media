@@ -54,6 +54,16 @@
         {{#each posts}}
         {{> post-notifi post=this}} 
         {{/each}}
+
+        <div class="table-pagination">
+            <nav id="pagination">
+                <ul class="pagination">
+                    {{#pagination current pages otherQuery}}
+                    <li class="page-item">{{{this.aTagHTML}}}</li>
+                    {{/pagination}}
+                </ul>
+            </nav>
+        </div>
     </div>
     <!-- End all notification -->
 </div>

@@ -26,7 +26,9 @@
     <div class="main-posted" id="\{{post._id}}">
         {{!-------------- post-header --------------}}
         <div class="main-posted__user">
-            <img src="\{{post.sender.avatarUrl}}" alt="Img" class="main-posted__user--img">
+            <a href="/\{{post.sender.id}}" >
+                <img src="\{{post.sender.avatarUrl}}" alt="Img" class="main-posted__user--img">
+            </a>            
             <div class="main-posted__user-info">
                 <h6 class="main-posted__user--name">\{{post.sender.displayName}}</h6>
                 <p class="main-posted__user--name-date">

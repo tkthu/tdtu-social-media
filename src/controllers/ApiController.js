@@ -4,16 +4,18 @@ const commentModel = require('../models/comment.model');
 const unreadNotifiModel = require('../models/unreadNotifi.model');
 const userModel = require('../models/user.model');
 
-const {unlink}  = require('fs/promises')
+const {unlink}  = require('fs/promises');
+const bcrypt = require('bcrypt');
 
-const mogoose = require('mongoose')
+const mogoose = require('mongoose');
 
-const {multipleMongooseToObject, mongooseToObject} = require('../../util/mongoose')
+const {multipleMongooseToObject, mongooseToObject} = require('../../util/mongoose');
 
 //TODO: rename post name thành title
 
 class ApiController{
 
+    /* ========================== POST ================================ */
     // [GET] /posts?page=   &user=    &offset=
     getPosts(req, res){
         // mỗi lần chỉ hiện 10 bài có createdAt mới nhất
@@ -55,7 +57,6 @@ class ApiController{
     }
     // [GET] /post/:postId
     getOnePost(req, res){
-        // mỗi lần chỉ hiện 10 bài có createdAt mới nhất
         const {postId} = req.params;
 
         postModel.findOne({_id: postId})
@@ -80,7 +81,6 @@ class ApiController{
         })
         
     }
-
     // [POST] /post
     addPost(req, res){    
         var imagesArray = undefined;
@@ -159,7 +159,6 @@ class ApiController{
         })
         
     }
-
     // [POST] /post/:postId
     editPost(req, res){
         const {postId} = req.params;
@@ -220,6 +219,8 @@ class ApiController{
                 .map( fi => {
                     return fi.path.replace("public","");
                 });
+
+                
                 req.post.attachmentsArray.push(...newAttachmentsArray);
             }
 
@@ -241,7 +242,6 @@ class ApiController{
             });
         })        
     }
-
     // [DELETE] /post/:postId
     delPost(req, res){   
         //TODO: xóa notificaition     
@@ -295,7 +295,7 @@ class ApiController{
 
     }
 
-    /* -------------------------------------------- */
+    /* ========================== COMMENT ================================ */
     // [GET] /post/:postId/comments?page=    &offset=
     getComments(req, res){
         // mỗi lần chỉ hiện thêm 4 comment có createdAt mới nhất
@@ -332,7 +332,31 @@ class ApiController{
         })
         
     }
+    // [GET] /comment/:commentId
+    getOneComment(req, res){
+        const {commentId} = req.params;
 
+        commentModel.findOne({_id: commentId})
+        .then(cmtFound => {
+            if (cmtFound === null){
+                throw new Error('not found comment');
+            }
+            return res.status(200).json({
+                code:0,
+                msg:`lấy comment thành công`,
+                data: {
+                    comment : mongooseToObject(cmtFound),
+                    user: req.user,
+                }
+            });
+
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'lấy comment thất bại với lỗi ' + err,
+            });
+        })
+    }
     // [POST] /post/:postId/comment
     addComment(req, res){
         const {postId} = req.params;
@@ -372,7 +396,6 @@ class ApiController{
             });
         })
     }
-
     // [POST] /comment/:commentId
     editComment(req, res){
         //TODO: kiểm tra user này có quyền sửa comment này ko ( 401 Unauthorized)
@@ -415,7 +438,6 @@ class ApiController{
         })       
 
     }
-
     // [DELETE] /comment/:commentId
     delComment(req, res){
         //TODO: kiểm tra user này có quyền xóa comment này ko ( 401 Unauthorized)
@@ -457,6 +479,167 @@ class ApiController{
 
     }
 
+    /* ========================== USER ================================ */
+    // [GET] /user/:userId
+    getOneUser(req,res){
+        const {userId} = req.params;
+
+        userModel.findOne({_id: userId})
+        .then(userFound => {
+            if (userFound === null){
+                throw new Error('not found user');
+            }
+            return res.status(200).json({
+                code:0,
+                msg:`lấy user thành công`,
+                data: {
+                    userInfo: mongooseToObject(userFound),
+                    user: req.user,
+                }
+            });
+
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'lấy user thất bại với lỗi ' + err,
+            });
+        })
+    }
+    // [POST] /user/:userId
+    editUser(req,res){
+        const {userId} = req.params;
+        const {displayName,userType,oldpass,newpass} = req.body;        
+
+        var newUserInfo = {
+            displayName,
+            lastEdited: new Date().toISOString(),
+        }
+
+        if(userType == 'student'){
+            const {userClass,faculty,speciality} = req.body;
+            newUserInfo.studentInfo = {
+                class: userClass,
+                faculty: faculty,
+                speciality: speciality,
+            }
+        }
+
+        userModel.findOne({_id:userId})
+        .then( async userFound => {
+            if(req.file){// thêm file avatar mới
+                if (userFound.avatarUrl.startsWith(`\\upload\\${userId}\\`)){
+                    // chỉ xóa hình của user. ( ko xóa no-face)
+                    unlink(`.\\public${userFound.avatarUrl}`)
+                }
+                newUserInfo.avatarUrl = req.file.path.replace("public","");
+            }
+            if (oldpass){
+                await bcrypt.compare(oldpass, userFound.password)
+                .then(passwordMatch => {
+                    if (!passwordMatch) {
+                        throw new Error('password not match');
+                    }else{
+                        newUserInfo.password = bcrypt.hashSync(newpass,10);
+                    }                    
+                })          
+            }
+            return userModel.updateOne({_id:userId},newUserInfo);            
+        })        
+        .then( () => {
+            return res.status(200).json({
+                code:0,
+                msg:`update user thành công`,
+                data: {
+                    newUserInfo: newUserInfo,
+                    user: req.user,
+                }
+            });
+        })
+        .catch(err => {
+            console.log("err ", err.message)
+            if(err.message == 'password not match' ){
+                return res.status(200).json({
+                    code:1,
+                    msg:`mật khẩu cũ không khớp`
+                });
+            }
+            return res.status(500).json({
+                msg:'update user thất bại với lỗi ' + err,
+            });
+        })
+
+    }
+    // [POST] /userstaff/:userId
+    async editUserStaff(req,res){
+        const {userId} = req.params;
+        const {chuyenmuc,matkhau} = req.body;
+
+        var authorized = [];
+        if(Array.isArray(chuyenmuc)) {
+            for (let cm in chuyenmuc) {
+                const temp = chuyenmuc[cm].split('_');
+                authorized.push({
+                    id: temp[0],
+                    name: temp[1]
+                })
+            }
+        }   
+        else {
+            const temp = chuyenmuc.split('_');
+            authorized.push({
+                id: temp[0],
+                name: temp[1]
+            })
+        }
+
+        var newUserInfo = {            
+            lastEdited: new Date().toISOString(),
+            staffInfo: {
+                authorized
+            }
+        }        
+
+        if (matkhau){
+            newUserInfo.password = bcrypt.hashSync(matkhau,10)
+        }
+
+        userModel.updateOne({_id:userId},newUserInfo)
+        .then(() => {
+            res.redirect('/manager/staffs')
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'Thêm mới staff thất bại với lỗi ' + err,
+            });
+        })
+
+    }
+
+    // [DELETE] /user/:userId
+    delUser(req,res){
+        /*
+        chỉ xóa userModel
+        ko xóa các sender.id trong comment hay post, và ko xóa attachment
+        */
+
+        //TODO: kiểm tra quyền
+        const {userId} = req.params;
+        userModel.deleteOne({_id:userId})
+        .then( () => {
+            return res.status(200).json({
+                code:0,
+                msg:`delete user thành công`,
+                data: {
+                    user: req.user,
+                }
+            });
+        })
+        .catch(err => {
+            return res.status(500).json({
+                msg:'delete user thất bại với lỗi ' + err,
+            });
+        })
+    }
 }
 
 module.exports = new ApiController;

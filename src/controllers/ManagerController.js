@@ -17,15 +17,9 @@ class ManagerController{
         .limit(perPage)
         .then((users) => {
             req.users = users;
-            return Departments.find();
+            return Departments.find().sort({name: 1});
         })
         .then((departments) => {
-            console.log("heyyyyyyyyy ",
-                {otherQuery: `search=${ req.query.search ? req.query.search : "" }`,
-                curQuery: {
-                    search: (req.query.search ? req.query.search : "" )
-                },}
-            )
             Users.find({userType: "staff", username: search})
             .countDocuments((err, count) => {
                 if(err) return next(err);
@@ -81,7 +75,7 @@ class ManagerController{
         }
 
         new Users(addStaff).save()
-        .then((resultAdd) => {
+        .then(() => {
             res.redirect('/manager/staffs')
         })
         .catch(err => {
