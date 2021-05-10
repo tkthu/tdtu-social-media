@@ -443,7 +443,12 @@ function resetPostDetailForm(form){ // Reset trạng thái cúa popup bài viế
   form.find('.popup-youtube-section').html('');
   form.find('.popup-attachment-section').html('');
   form.find('.popup-attachment-old-section').html('');
+  form.find('.popup-input-textarea').html('');
+  
+  
 }
+setupRickText();
+
 //---------------- Đăng ----------------------------------
 function createPost() {// Hiện popup tạo bài viết
   var form = $("#upload-post");
@@ -462,10 +467,10 @@ $('#upload-post').submit( (e) => { // Submit bài viết
     formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
   }
 
-  // console.log("formData")
-  // for (var pair of formData.entries()) {
-  //   console.log(pair[0], ', ' , pair[1]); 
-  // }  
+  console.log("formData")
+  for (var pair of formData.entries()) {
+    console.log(pair[0], ', ' , pair[1]); 
+  }  
   
   fetch("/api/post",{
     method : 'POST',
@@ -913,7 +918,7 @@ function setupHelperHbs(){
         var content = post.content;
         const minlen = 200;
         if (content.length > minlen){
-            content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
+          content = `<div> ${content.substring(0,minlen)} </div>` + ` <a href="/${post.sender.id}/posts/${post._id}">...xem thêm</a>`;
         }
         return content;
     }
@@ -933,4 +938,41 @@ function setupHelperHbs(){
   Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
+}
+
+function setupRickText(){  
+  const options = {
+    btns: [
+      ['viewHTML'],
+      ['undo', 'redo'], // Only supported in Blink browsers
+      ['formatting'],
+      ['strong', 'em', 'del'],
+      ['superscript', 'subscript'],
+      ['link'],
+      ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+      ['unorderedList', 'orderedList']
+    ]
+  }
+  $('#upload-post__body--noidung').trumbowyg(options);  
+  $('textarea[name="upload-post__body--noidung"]').attr(
+    'name',
+    $('#upload-post__body--noidung').attr('name')
+  )
+  $('#edit-content__body--noidung').trumbowyg(options);  
+  $('textarea[name="edit-content__body--noidung"]').attr(
+    'name',
+    $('#edit-content__body--noidung').attr('name')
+  )
+  $('#trumbowyg-icons').css('display', 'none');
+}
+
+function addPostFile(){
+  createPost();
+  $('#upload-post__body--attach-btn').trigger('click'); 
+  $('input[name="attachmentFile"]:first').trigger('click');
+}
+
+function addPostVideo(){
+  createPost();
+  $('#upload-post__body--clip-url').focus();
 }

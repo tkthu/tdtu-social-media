@@ -84,7 +84,7 @@ const hbs = exphbs.create({
                 var content = post.content;
                 const minlen = 200;
                 if (content.length > minlen){
-                    content = content.substring(0,minlen) + `...  <a href="/${post.sender.id}/posts/${post._id}">xem thêm</a>`;
+                    content = `<div> ${content.substring(0,minlen)} </div>` + ` <a href="/${post.sender.id}/posts/${post._id}">...xem thêm</a>`;
                 }
                 return content;
             }
