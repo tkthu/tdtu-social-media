@@ -7,7 +7,7 @@ const apiRouter = require('./api');
 
 const {checkAuth,checkAdmin} = require('../util/middlewares/auth');
 const {exposeTemplates} = require('../util/middlewares/exposeTemplates');
-const credentials = require('../credentials');
+const credentials = require('../credentials/credentials');
 
 function route(app){
     app.use((req,res,next)=>{

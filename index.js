@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const credentials = require('./credentials');
+const credentials = require('./credentials/credentials');
 const route = require('./routes/index');
 
 const db = require('./util/config/db');

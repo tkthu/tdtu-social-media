@@ -8,8 +8,11 @@ const {unlink}  = require('fs/promises');
 const bcrypt = require('bcrypt');
 
 const mogoose = require('mongoose');
-
 const {multipleMongooseToObject, mongooseToObject} = require('../../util/mongoose');
+
+const {fBucket} = require('../../util/config/db/firebaseAdmin');
+const { v4: uuid } = require("uuid");
+const credentials = require('../../credentials/credentials');
 
 //TODO: rename post name thành title
 
@@ -82,21 +85,56 @@ class ApiController{
         
     }
     // [POST] /post
-    addPost(req, res){    
-        var imagesArray = undefined;
-        var attachmentsArray = undefined;        
+    async addPost(req, res){ 
+        const {userId} = req.body;
+        var imagesArray = [];
+        var attachmentsArray = [];        
         if(req.files.attachmentFile !== undefined){
-            imagesArray = req.files.attachmentFile
-            .filter(fi => fi.mimetype.startsWith('image/') )
-            .map( fi => {
-                return fi.path.replace("public","");
-            });
+            // ------------------------------------------------------
+            var promiseArr = []
+            req.files.attachmentFile.forEach( fi => {
+                promiseArr.push(
+                    new Promise( (resolve, reject) => {
+                        const ext = fi.originalname.split('.').pop();
+                        const filename = `${fi.originalname.replace(ext,"")}${Date.now()}.${ext}`;                        
+                        var filepath = `${userId}/${filename}`;
 
-            attachmentsArray = req.files.attachmentFile
-            .filter(fi => !fi.mimetype.startsWith('image/') )
-            .map( fi => {
-                return fi.path.replace("public","");
-            });
+                        const blob = fBucket.file(filepath);
+                        const blobWriter = blob.createWriteStream({
+                            destination: filepath,
+                            metadata : {
+                                metadata:{                                
+                                    // THIS IS THE LINE YOU NEED TO ADD
+                                    firebaseStorageDownloadTokens: uuid(),
+                                }, 
+                            },
+                        })
+                        blobWriter.end(fi.buffer);
+                                        
+                        blobWriter.on('finish', () => {
+                            const imgUrl = `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${filepath.replace('/','%2F')}?alt=media`
+                            
+                            if (fi.mimetype.startsWith('image/')){
+                                imagesArray.push(imgUrl)
+                            } else {
+                                attachmentsArray.push(imgUrl)
+                            }
+
+                            resolve();
+                        });
+                        blobWriter.on('error', reject);               
+                    })
+                ) 
+            })
+
+            await Promise.all(promiseArr)
+            .then( () => {
+                console.log('upload hết file')
+            })
+            .catch( () => {
+                console.log('upload fiel bị lỗi')
+            })
+            
         }
         
         var videoIdArray = undefined;
@@ -121,7 +159,7 @@ class ApiController{
             imagesArray,
             attachmentsArray,
             videoIdArray : videoIdArray
-        }
+        }        
 
         new postModel(post).save()
         .then((resultPost) => {

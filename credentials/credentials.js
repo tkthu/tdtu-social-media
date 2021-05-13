@@ -17,6 +17,15 @@ module.exports = {
     OAuthKey:{
         dev: '166513767436-l8pgm3hatt7ev99qvechpj63mgu2cttd.apps.googleusercontent.com',
         pro: '166513767436-etdj05bvej11g79bsf7o1tppfrmhvniu.apps.googleusercontent.com'
+    },
+    firebaseConfig: {
+        apiKey: "AIzaSyAmdBbiGojAmgJtJv-1xwBZbHjHMx-6MIw",
+        authDomain: "tdtu-social-media.firebaseapp.com",
+        projectId: "tdtu-social-media",
+        storageBucket: "tdtu-social-media.appspot.com",
+        messagingSenderId: "275163348144",
+        appId: "1:275163348144:web:959fd26f6dd5b185984f75",
+        measurementId: "G-3H2Y5GBHX3"
     }
 
 }
