@@ -20,7 +20,7 @@
     <img src="{{{pageOwner.avatarUrl}}}" alt="img" class="profile-user__img">
     <h6 class="profile-user__name">{{{pageOwner.displayName}}}</h6>
     <div class="profile-user__title">
-        <h6>Giới thiệu</h6>
+        <h6>Thông tin</h6>
         {{#ifEquals pageOwner.username user.username}} <!-- chỉ user là chủ của trang nhà mới sửa được profile của mình-->
         <div class="profile-user__edit">
             <a class="profile-user__edit-link pointer" onclick="editUserProfile(this)" data-item-id="{{pageOwner.username}}">

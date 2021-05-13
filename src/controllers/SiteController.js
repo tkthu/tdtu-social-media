@@ -9,8 +9,10 @@ class SiteController{
 
     // [GET] /
     index(req, res){
+        const postPerGet = 10;
         unreadNotifiModel.find({receiverId: req.user.username})
         .sort({postCreatedAt: -1})
+        .limit(postPerGet)
         .then(notifisFound => {
             if (notifisFound === null){
                 throw new Error('not found notifications');
