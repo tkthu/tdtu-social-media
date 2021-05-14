@@ -919,12 +919,11 @@ function setupHelperHbs(){
         var content = post.content;
         const minlen = 200;
         if (content.length > minlen){
-          content = `<div> ${content.substring(0,minlen)} </div>` + ` <a href="/${post.sender.id}/posts/${post._id}">...xem thêm</a>`;
+          content =  $(`<p>${content}</p>`).text().substring(0,minlen) + ` <a href="/${post.sender.id}/posts/${post._id}">...xem thêm</a>` ;
         }
         return content;
     }
-    return "";
-    
+    return "";    
   });
   Handlebars.registerHelper('inc', function(value, options){return parseInt(value) + 1;});
   Handlebars.registerHelper('fromNow', function(value, options) {
