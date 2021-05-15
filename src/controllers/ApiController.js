@@ -108,7 +108,7 @@ class ApiController{
                                 firebaseStorageDownloadTokens: uuid(),
                             }, 
                         },
-                    })          
+                    })           
                 );
                 return `${bucketUrl}/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`;
             });
@@ -180,8 +180,9 @@ class ApiController{
             });
         })
         .catch(err => {
-            console.log("err  ", err)
-            return res.end( 'đăng post thất bại với lỗi ' + err);
+            return res.status(500).json({
+                msg:'đăng post thất bại với lỗi ' + err,
+            });
         })
         
     }
