@@ -90,7 +90,6 @@ class ApiController{
         var imagesArray = [];
         var attachmentsArray = [];        
         if(req.files.attachmentFile !== undefined){
-            // ------------------------------------------------------
             var promiseArr = []
             req.files.attachmentFile.forEach( fi => {
                 promiseArr.push(
@@ -103,8 +102,7 @@ class ApiController{
                         const blobWriter = blob.createWriteStream({
                             destination: filepath,
                             metadata : {
-                                metadata:{                                
-                                    // THIS IS THE LINE YOU NEED TO ADD
+                                metadata:{
                                     firebaseStorageDownloadTokens: uuid(),
                                 }, 
                             },
@@ -112,12 +110,12 @@ class ApiController{
                         blobWriter.end(fi.buffer);
                                         
                         blobWriter.on('finish', () => {
-                            const imgUrl = `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${filepath.replace('/','%2F')}?alt=media`
+                            const attachmentUrl = `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(filepath)}?alt=media`
                             
                             if (fi.mimetype.startsWith('image/')){
-                                imagesArray.push(imgUrl)
+                                imagesArray.push(attachmentUrl)
                             } else {
-                                attachmentsArray.push(imgUrl)
+                                attachmentsArray.push(attachmentUrl)
                             }
 
                             resolve();
@@ -125,6 +123,7 @@ class ApiController{
                         blobWriter.on('error', reject);               
                     })
                 ) 
+                
             })
 
             await Promise.all(promiseArr)
@@ -223,43 +222,90 @@ class ApiController{
             }
             req.post.videoIdArray = videoIdArray;
             
-
+            
             // Kiểm tra attachment cũ đã bị xóa chưa
             var promises = [];
             const oldAttachment = req.body.attachmentFileOld !== undefined ? req.body.attachmentFileOld : [];
             req.post.imagesArray = postFound.imagesArray.filter( imgLink => {
                 if( ! oldAttachment.includes(imgLink)){// User muốn xóa hình này
-                    promises.push(unlink(`.\\public${imgLink}`));
+                    // promises.push(unlink(`.\\public${imgLink}`));    
+                    const filename = decodeURIComponent(imgLink.split('/').pop()).replace('?alt=media','');
+                    promises.push(                            
+                        fBucket.deleteFiles({
+                            prefix: `${filename}`
+                        }) 
+                    ) 
                 } 
-                return oldAttachment.includes(imgLink);// giữa lại hình còn chứa trong oldAttachment
+                return oldAttachment.includes(imgLink);// giữa lại hình còn chứa trong oldAttachment                
             })
+
+            
             req.post.attachmentsArray = postFound.attachmentsArray.filter( fileLink => {
-                if( ! oldAttachment.includes(fileLink)){// Usre muốn xóa file này
-                    promises.push(unlink(`.\\public${fileLink}`));
+                if( ! oldAttachment.includes(fileLink)){// User muốn xóa file này
+                    // promises.push(unlink(`.\\public${fileLink}`));
+                    const filename = decodeURIComponent(fileLink.split('/').pop()).replace('?alt=media','');
+                    promises.push(                            
+                        fBucket.deleteFiles({
+                            prefix: `${filename}`
+                        })
+                    )
                 } 
                 return oldAttachment.includes(fileLink);// giữa lại file còn chứa trong oldAttachment
             })
 
             return Promise.all(promises);            
         })
-        .then( () => {// đã xóa file cũ
+        .then(  async () => {// đã xóa file cũ
 
             if(req.files.attachmentFile !== undefined){// thêm các file mới
-                const newImagesArray = req.files.attachmentFile
-                .filter(fi => fi.mimetype.startsWith('image/') )
-                .map( fi => {
-                    return fi.path.replace("public","");
-                });
-                req.post.imagesArray.push(...newImagesArray);
-
-                const newAttachmentsArray = req.files.attachmentFile
-                .filter(fi => !fi.mimetype.startsWith('image/') )
-                .map( fi => {
-                    return fi.path.replace("public","");
-                });
-
+                var newImagesArray = [];
+                var newAttachmentsArray = [];
+                var promiseArr = []
+                req.files.attachmentFile.forEach( fi => {
+                    promiseArr.push(
+                        new Promise( (resolve, reject) => {
+                            const ext = fi.originalname.split('.').pop();
+                            const filename = `${fi.originalname.replace(ext,"")}${Date.now()}.${ext}`;  
+                            const userId = req.post.sender.id;                      
+                            var filepath = `${userId}/${filename}`;
+    
+                            const blob = fBucket.file(filepath);
+                            const blobWriter = blob.createWriteStream({
+                                destination: filepath,
+                                metadata : {
+                                    metadata:{
+                                        firebaseStorageDownloadTokens: uuid(),
+                                    }, 
+                                },
+                            })
+                            blobWriter.end(fi.buffer);
+                                            
+                            blobWriter.on('finish', () => {
+                                const attachmentUrl = `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(filepath)}?alt=media`
+                                
+                                if (fi.mimetype.startsWith('image/')){
+                                    newImagesArray.push(attachmentUrl)
+                                } else {
+                                    newAttachmentsArray.push(attachmentUrl)
+                                }
+    
+                                resolve();
+                            });
+                            blobWriter.on('error', reject);               
+                        })
+                    ) 
+                })
+    
+                await Promise.all(promiseArr)
+                .then( () => {
+                    req.post.imagesArray.push(...newImagesArray);                
+                    req.post.attachmentsArray.push(...newAttachmentsArray);
+                    console.log('upload hết file mới')
+                })
+                .catch( () => {
+                    console.log('upload fiel bị lỗi')
+                })
                 
-                req.post.attachmentsArray.push(...newAttachmentsArray);
             }
 
             return postModel.updateOne({_id:postId},req.post);
@@ -275,14 +321,15 @@ class ApiController{
             });
         })
         .catch(err =>{
+            console.log("err ", err)
             return res.status(500).json({
                 msg:'edit post thất bại với lỗi ' + err,
             });
         })        
     }
     // [DELETE] /post/:postId
-    delPost(req, res){   
-        //TODO: xóa notificaition     
+    delPost(req, res){
+        //TODO: xóa post     
         const {postId} = req.params;
         postModel.findOne({_id: postId})
         .then(postFound => {
@@ -301,9 +348,22 @@ class ApiController{
             // xóa hết attachment
             var promises = [];
             postFound.imagesArray.forEach(imageLink => {
-                promises.push(unlink(`.\\public${imageLink}`));
+                const filename = decodeURIComponent(imageLink.split('/').pop()).replace('?alt=media','');
+                promises.push(                            
+                    fBucket.deleteFiles({
+                        prefix: `${filename}`
+                    })
+                )
             });
-            return Promise.all(promises);       
+            postFound.attachmentsArray.forEach(fileLink => {
+                const filename = decodeURIComponent(fileLink.split('/').pop()).replace('?alt=media','');
+                promises.push(                            
+                    fBucket.deleteFiles({
+                        prefix: `${filename}`
+                    })
+                )
+            });
+            return Promise.all(promises);      
         })
         .then(() => {// đã xóa hết attchment
             return postModel.deleteOne({_id: postId});            

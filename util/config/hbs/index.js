@@ -71,7 +71,7 @@ const hbs = exphbs.create({
             return accum;            
         },
         getFileName: function(value, options) {
-            return value.split('\\').pop().split('/').pop();
+            return decodeURIComponent(value).split('/').pop().replace('?alt=media','');
         },
         fromNow: function(value, options) {
             if (dayjs(value).isBefore(dayjs(new Date().toISOString()),"day")){

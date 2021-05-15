@@ -78,7 +78,7 @@ socket.on('comment', data => {
 })
 socket.on('deleted-post', data => {
   if($(`.detail-posted`).length){// đang ở trang chi tiết thông báo
-    alert('post này đã bị xóa');
+    alert('post này đã bị xóa. Nhấn OK để quay về trang chủ');
     window.location.replace("/");
   }else if ($(`.main`).length){// đang ở trang nhà hoặc chủ
     $(`#${data.postId}`).remove();
@@ -104,7 +104,10 @@ socket.on('deleted-comment', data => {
 socket.on('edit-post', data => {
   // hiện post
   const postContainerElement = $('.main');
-  if(postContainerElement.length){
+  if($(`.detail-posted`).length){// đang ở trang chi tiết thông báo
+    alert('post này đã bị chỉnh sửa. Nhấn OK để xem bản mới nhất');
+    window.location.replace(`/${data.post.sender.id}/posts/${data.post._id}`);
+  }else if(postContainerElement.length){
     const postId = data.post._id;
     fetch(`/api/post/${postId}`,{
       method : 'GET',
@@ -427,7 +430,7 @@ function addEmbedVideoInputTag (container, videoId){
     `)
 }
 function addOldAttachmentTag (container, fileLink){
-  const fileName = fileLink.split('\\').pop().split('/').pop();
+  const fileName = decodeURIComponent(fileLink).split('/').pop().replace('?alt=media','');
   container.append(`    
     <p style="color:white" class="input-video-field" > 
       <input type="hidden" name="attachmentFileOld" value="${fileLink}"/>
@@ -933,7 +936,7 @@ function setupHelperHbs(){
     return dayjs(value).fromNow();
   });
   Handlebars.registerHelper('getFileName', function(value, options) {
-    return value.split('\\').pop().split('/').pop();
+    return decodeURIComponent(value).split('/').pop().replace('?alt=media','');
   });
   Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
