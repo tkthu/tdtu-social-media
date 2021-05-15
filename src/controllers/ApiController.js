@@ -20,6 +20,8 @@ getFirebaseFileUrl = (str) => {
     return str.replace(localPrefix,"").replace(/\\/g, "/");
 }
 
+const bucketUrl = `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o`
+
 //TODO: rename post name thành title
 class ApiController{
 
@@ -108,7 +110,7 @@ class ApiController{
                         },
                     })           
                 );
-                return `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`;
+                return `${bucketUrl}/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`;
             });
             
             attachmentsArray = req.files.attachmentFile
@@ -124,7 +126,7 @@ class ApiController{
                         },
                     })
                 );
-                return `data:text/plain;charset=UTF-8,https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`
+                return `data:text/plain;charset=UTF-8,${bucketUrl}/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`
             });
 
             await Promise.all(promises)
@@ -262,7 +264,7 @@ class ApiController{
                                 },
                             })           
                         );
-                        return `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`;
+                        return `${bucketUrl}/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`;
                     });
                     
                     newAttachmentsArray = req.files.attachmentFile
@@ -278,7 +280,7 @@ class ApiController{
                                 },
                             })
                         );
-                        return `data:text/plain;charset=UTF-8,https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`
+                        return `data:text/plain;charset=UTF-8,${bucketUrl}/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`
                     });
 
                     await Promise.all(promises)
@@ -616,11 +618,25 @@ class ApiController{
         userModel.findOne({_id:userId})
         .then( async userFound => {
             if(req.file){// thêm file avatar mới
-                if (userFound.avatarUrl.startsWith(`\\upload\\${userId}\\`)){
+                if (userFound.avatarUrl.startsWith(bucketUrl)){
                     // chỉ xóa hình của user. ( ko xóa no-face)
-                    unlink(`.\\public${userFound.avatarUrl}`)
+                    const filename = decodeURIComponent(userFound.avatarUrl.split('/').pop()).replace('?alt=media','');
+                    fBucket.deleteFiles({
+                        prefix: `${filename}`
+                    })
                 }
-                newUserInfo.avatarUrl = req.file.path.replace("public","");
+                fBucket.upload(req.file.path,{
+                    destination: getFirebaseFileUrl(req.file.path),
+                    metadata : {
+                        metadata:{
+                            firebaseStorageDownloadTokens: uuid(),
+                        }, 
+                    },
+                })
+                .then( () => {
+                    unlink(req.file.path)
+                })
+                newUserInfo.avatarUrl = `${bucketUrl}/${encodeURIComponent(getFirebaseFileUrl(req.file.path))}?alt=media`;
             }
             if (oldpass){
                 await bcrypt.compare(oldpass, userFound.password)
@@ -708,7 +724,7 @@ class ApiController{
     delUser(req,res){
         /*
         chỉ xóa userModel
-        ko xóa các sender.id trong comment hay post, và ko xóa attachment
+        ko xóa các sender.id trong comment hay post, ko xoa comment hay post, và ko xóa attachment. ko xóa avatar
         */
 
         //TODO: kiểm tra quyền
