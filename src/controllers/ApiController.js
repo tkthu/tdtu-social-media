@@ -129,14 +129,13 @@ class ApiController{
 
             await Promise.all(promises)
             .then( () => {
-                console.log('upload hết file')
+                console.log('thêm hết file')
                 // xóa file tạm
                 req.files.attachmentFile.forEach(fi => {
                     unlink(fi.path);
                 })
             })
             .catch( (err) => {
-
                 console.log('thêm fiel bị lỗi ',err)
             })
             
@@ -222,12 +221,11 @@ class ApiController{
                     promises.push(                            
                         fBucket.deleteFiles({
                             prefix: `${filename}`
-                        }) 
+                        })
                     ) 
                 } 
                 return oldAttachment.includes(imgLink);// giữa lại hình còn chứa trong oldAttachment                
-            })
-
+            })           
             
             req.post.attachmentsArray = postFound.attachmentsArray.filter( fileLink => {
                 if( ! oldAttachment.includes(fileLink)){// User muốn xóa file này
@@ -248,52 +246,56 @@ class ApiController{
 
             if(req.files.attachmentFile !== undefined){// thêm các file mới
                 var newImagesArray = [];
-                var newAttachmentsArray = [];
-                var promises = []
-                req.files.attachmentFile.forEach( fi => {
-                    promises.push(
-                        new Promise( (resolve, reject) => {
-                            const ext = fi.originalname.split('.').pop();
-                            const filename = `${fi.originalname.replace(ext,"")}${Date.now()}.${ext}`;  
-                            const userId = req.post.sender.id;                      
-                            var filepath = `${userId}/${filename}`;
-    
-                            const blob = fBucket.file(filepath);
-                            const blobWriter = blob.createWriteStream({
-                                destination: filepath,
+                var newAttachmentsArray = [];      
+                if(req.files.attachmentFile !== undefined){
+                    var promises = []
+                    newImagesArray = req.files.attachmentFile
+                    .filter(fi => fi.mimetype.startsWith('image/') )
+                    .map( fi => {
+                        promises.push(
+                            fBucket.upload(fi.path,{
+                                destination: getFirebaseFileUrl(fi.path),
                                 metadata : {
                                     metadata:{
                                         firebaseStorageDownloadTokens: uuid(),
                                     }, 
                                 },
+                            })           
+                        );
+                        return `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`;
+                    });
+                    
+                    newAttachmentsArray = req.files.attachmentFile
+                    .filter(fi => !fi.mimetype.startsWith('image/') )
+                    .map( fi => {
+                        promises.push(
+                            fBucket.upload(fi.path,{
+                                destination: getFirebaseFileUrl(fi.path),
+                                metadata : {
+                                    metadata:{
+                                        firebaseStorageDownloadTokens: uuid(),
+                                    },
+                                },
                             })
-                            blobWriter.end(fi.buffer);
-                                            
-                            blobWriter.on('finish', () => {
-                                const attachmentUrl = `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(filepath)}?alt=media`
-                                
-                                if (fi.mimetype.startsWith('image/')){
-                                    newImagesArray.push(attachmentUrl)
-                                } else {
-                                    newAttachmentsArray.push(attachmentUrl)
-                                }
-    
-                                resolve();
-                            });
-                            blobWriter.on('error', reject);               
+                        );
+                        return `data:text/plain;charset=UTF-8,https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`
+                    });
+
+                    await Promise.all(promises)
+                    .then( () => {
+                        req.post.imagesArray.push(...newImagesArray);                
+                        req.post.attachmentsArray.push(...newAttachmentsArray);
+                        console.log('edit hết file mới')
+                        // xóa file tạm
+                        req.files.attachmentFile.forEach(fi => {
+                            unlink(fi.path);
                         })
-                    ) 
-                })
-    
-                await Promise.all(promises)
-                .then( () => {
-                    req.post.imagesArray.push(...newImagesArray);                
-                    req.post.attachmentsArray.push(...newAttachmentsArray);
-                    console.log('upload hết file mới')
-                })
-                .catch( () => {
-                    console.log('upload fiel bị lỗi')
-                })
+                    })
+                    .catch( (err) => {
+                        console.log('edit fiel bị lỗi ',err)
+                    })
+                    
+                }
                 
             }
 
@@ -334,7 +336,7 @@ class ApiController{
                 });
             }
             
-            // xóa hết attachment
+            // xóa hết attachment và hình
             var promises = [];
             postFound.imagesArray.forEach(imageLink => {
                 const filename = decodeURIComponent(imageLink.split('/').pop()).replace('?alt=media','');
@@ -362,7 +364,7 @@ class ApiController{
         })
         .then( () => {// xóa hết unread-notifications
             //TODO: xóa unread-notifications hiện tại. (Không làm trigger được)
-            return unreadNotifiModel.deleteMany({postId})// không cần đợi    
+            return unreadNotifiModel.deleteMany({postId})// không cần đợi
         })
         .then(() => {// đã xóa hết comment
             return res.status(200).json({

@@ -452,7 +452,6 @@ function resetPostDetailForm(form){ // Reset trạng thái cúa popup bài viế
   
 }
 setupRickText();
-
 //---------------- Đăng ----------------------------------
 function createPost() {// Hiện popup tạo bài viết
   var form = $("#upload-post");
@@ -522,7 +521,7 @@ function editContentPosted(target) { // Hiện popup sửa bài viết
         $('#edit-content__body--chuyenmuc').val(post.department.id);        
       }      
       $('#edit-content__body--tieude').val(post.name);
-      $('#edit-content__body--noidung').html(post.content);
+      $('#edit-content__body--noidung').trumbowyg('html', post.content) 
 
       if(post.videoIdArray){
         var container = $('#edit-content .popup-youtube-section');
@@ -961,11 +960,12 @@ function setupRickText(){
     'name',
     $('#upload-post__body--noidung').attr('name')
   )
-  $('#edit-content__body--noidung').trumbowyg(options);  
+  $('#edit-content__body--noidung').trumbowyg(options); 
   $('textarea[name="edit-content__body--noidung"]').attr(
     'name',
     $('#edit-content__body--noidung').attr('name')
   )
+
   $('#trumbowyg-icons').css('display', 'none');
 }
 
