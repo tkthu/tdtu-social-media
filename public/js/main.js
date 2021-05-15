@@ -942,31 +942,33 @@ function setupHelperHbs(){
   });
 }
 
-function setupRickText(){  
-  const options = {
-    btns: [
-      ['viewHTML'],
-      ['undo', 'redo'], // Only supported in Blink browsers
-      ['formatting'],
-      ['strong', 'em', 'del'],
-      ['superscript', 'subscript'],
-      ['link'],
-      ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-      ['unorderedList', 'orderedList']
-    ]
+function setupRickText(){
+  if($('#upload-post__body--noidung').length){
+    const options = {
+      btns: [
+        ['viewHTML'],
+        ['undo', 'redo'], // Only supported in Blink browsers
+        ['formatting'],
+        ['strong', 'em', 'del'],
+        ['superscript', 'subscript'],
+        ['link'],
+        ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+        ['unorderedList', 'orderedList']
+      ]
+    }
+    $('#upload-post__body--noidung').trumbowyg(options);  
+    $('textarea[name="upload-post__body--noidung"]').attr(
+      'name',
+      $('#upload-post__body--noidung').attr('name')
+    )
+    $('#edit-content__body--noidung').trumbowyg(options); 
+    $('textarea[name="edit-content__body--noidung"]').attr(
+      'name',
+      $('#edit-content__body--noidung').attr('name')
+    )
+  
+    $('#trumbowyg-icons').css('display', 'none');
   }
-  $('#upload-post__body--noidung').trumbowyg(options);  
-  $('textarea[name="upload-post__body--noidung"]').attr(
-    'name',
-    $('#upload-post__body--noidung').attr('name')
-  )
-  $('#edit-content__body--noidung').trumbowyg(options); 
-  $('textarea[name="edit-content__body--noidung"]').attr(
-    'name',
-    $('#edit-content__body--noidung').attr('name')
-  )
-
-  $('#trumbowyg-icons').css('display', 'none');
 }
 
 function addPostFile(){

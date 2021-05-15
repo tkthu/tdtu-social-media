@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
 
         console.log("userId: " + userId)
         if( !fs.existsSync (dir)){
-            return fs.mkdir(dir, error => cb(error, dir))            
+            return fs.mkdirSync(dir,{recursive: true})            
         }
         return cb(null, dir)
     },
