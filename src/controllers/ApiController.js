@@ -14,8 +14,13 @@ const {fBucket} = require('../../util/config/db/firebaseAdmin');
 const { v4: uuid } = require("uuid");
 const credentials = require('../../credentials/credentials');
 
-//TODO: rename post name thành title
+// --------------------- middleware -------------------------
+getFirebaseFileUrl = (str) => {
+    const localPrefix = "public\\upload\\";
+    return str.replace(localPrefix,"").replace(/\\/g, "/");
+}
 
+//TODO: rename post name thành title
 class ApiController{
 
     /* ========================== POST ================================ */
@@ -85,53 +90,54 @@ class ApiController{
         
     }
     // [POST] /post
-    async addPost(req, res){ 
-        const {userId} = req.body;
+    async addPost(req, res){
         var imagesArray = [];
         var attachmentsArray = [];        
         if(req.files.attachmentFile !== undefined){
-            var promiseArr = []
-            req.files.attachmentFile.forEach( fi => {
-                promiseArr.push(
-                    new Promise( (resolve, reject) => {
-                        const ext = fi.originalname.split('.').pop();
-                        const filename = `${fi.originalname.replace(ext,"")}${Date.now()}.${ext}`;                        
-                        var filepath = `${userId}/${filename}`;
-
-                        const blob = fBucket.file(filepath);
-                        const blobWriter = blob.createWriteStream({
-                            destination: filepath,
-                            metadata : {
-                                metadata:{
-                                    firebaseStorageDownloadTokens: uuid(),
-                                }, 
+            var promises = []
+            imagesArray = req.files.attachmentFile
+            .filter(fi => fi.mimetype.startsWith('image/') )
+            .map( fi => {
+                promises.push(
+                    fBucket.upload(fi.path,{
+                        destination: getFirebaseFileUrl(fi.path),
+                        metadata : {
+                            metadata:{
+                                firebaseStorageDownloadTokens: uuid(),
+                            }, 
+                        },
+                    })           
+                );
+                return `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`;
+            });
+            
+            attachmentsArray = req.files.attachmentFile
+            .filter(fi => !fi.mimetype.startsWith('image/') )
+            .map( fi => {
+                promises.push(
+                    fBucket.upload(fi.path,{
+                        destination: getFirebaseFileUrl(fi.path),
+                        metadata : {
+                            metadata:{
+                                firebaseStorageDownloadTokens: uuid(),
                             },
-                        })
-                        blobWriter.end(fi.buffer);
-                                        
-                        blobWriter.on('finish', () => {
-                            const attachmentUrl = `https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(filepath)}?alt=media`
-                            
-                            if (fi.mimetype.startsWith('image/')){
-                                imagesArray.push(attachmentUrl)
-                            } else {
-                                attachmentsArray.push(attachmentUrl)
-                            }
-
-                            resolve();
-                        });
-                        blobWriter.on('error', reject);               
+                        },
                     })
-                ) 
-                
-            })
+                );
+                return `data:text/plain;charset=UTF-8,https://firebasestorage.googleapis.com/v0/b/${credentials.firebaseConfig.storageBucket}/o/${encodeURIComponent(getFirebaseFileUrl(fi.path))}?alt=media`
+            });
 
-            await Promise.all(promiseArr)
+            await Promise.all(promises)
             .then( () => {
                 console.log('upload hết file')
+                // xóa file tạm
+                req.files.attachmentFile.forEach(fi => {
+                    unlink(fi.path);
+                })
             })
-            .catch( () => {
-                console.log('upload fiel bị lỗi')
+            .catch( (err) => {
+
+                console.log('thêm fiel bị lỗi ',err)
             })
             
         }
@@ -162,23 +168,6 @@ class ApiController{
 
         new postModel(post).save()
         .then((resultPost) => {
-            //TODO: thêm vào unread-notifications cho các user hiện tại. (nên là trigger)
-            if(resultPost.department.id){
-                userModel.find({ _id: {$ne: resultPost.sender.id}})
-                .then(users => {
-                    users.map( user => {
-                        new unreadNotifiModel({
-                            _id: mogoose.Types.ObjectId(),
-                            senderId: resultPost.sender.id,
-                            postId: resultPost._id,
-                            receiverId: user.username,
-                            title: resultPost.name,
-                            department: resultPost.department,
-                            postCreatedAt: resultPost.createdAt,
-                        }).save()
-                    })                
-                })
-            }
             return res.status(200).json({
                 code:0,
                 msg:'đăng post thành công',
@@ -260,9 +249,9 @@ class ApiController{
             if(req.files.attachmentFile !== undefined){// thêm các file mới
                 var newImagesArray = [];
                 var newAttachmentsArray = [];
-                var promiseArr = []
+                var promises = []
                 req.files.attachmentFile.forEach( fi => {
-                    promiseArr.push(
+                    promises.push(
                         new Promise( (resolve, reject) => {
                             const ext = fi.originalname.split('.').pop();
                             const filename = `${fi.originalname.replace(ext,"")}${Date.now()}.${ext}`;  
@@ -296,7 +285,7 @@ class ApiController{
                     ) 
                 })
     
-                await Promise.all(promiseArr)
+                await Promise.all(promises)
                 .then( () => {
                     req.post.imagesArray.push(...newImagesArray);                
                     req.post.attachmentsArray.push(...newAttachmentsArray);
@@ -372,7 +361,7 @@ class ApiController{
             return commentModel.deleteMany({postId})
         })
         .then( () => {// xóa hết unread-notifications
-            //TODO: xóa unread-notifications hiện tại. (nên là trigger)
+            //TODO: xóa unread-notifications hiện tại. (Không làm trigger được)
             return unreadNotifiModel.deleteMany({postId})// không cần đợi    
         })
         .then(() => {// đã xóa hết comment

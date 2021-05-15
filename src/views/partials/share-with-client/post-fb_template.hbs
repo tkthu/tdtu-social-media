@@ -77,7 +77,7 @@
                 <h6>File đính kèm</h6>
                 <div class="attached-files-list">
                     \{{#each post.attachmentsArray}}
-                    <a href="\{{{this}}}" class="attached-files-content">
+                    <a href="\{{{this}}}" class="attached-files-content" download="\{{getFileName this}}">
                         \{{inc @index}}. \{{getFileName this}}
                         <br>
                     </a>

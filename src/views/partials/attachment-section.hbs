@@ -3,7 +3,7 @@
 
 <div class="attached-files-list">
     {{#each attachArr}}
-    <a href="{{{this}}}" class="attached-files-content">
+    <a href="{{{this}}}" class="attached-files-content" download="{{getFileName this}}">
         {{inc @index}}. {{getFileName this}}
         <br>
     </a>

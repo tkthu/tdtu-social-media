@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
 
 
 module.exports = {upload: multer({
-    storage: multer.memoryStorage(),
+    storage: storage,
     fileFilter: function (req, file, callback) {
         if (
             (file.mimetype.startsWith('image/') 
