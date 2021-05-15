@@ -5,6 +5,7 @@ var serviceAccount = require("../../../credentials/tdtu-social-media-firebase-ad
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   storageBucket: "tdtu-social-media.appspot.com",
+  
 });
 
 const fBucket = admin.storage().bucket()
