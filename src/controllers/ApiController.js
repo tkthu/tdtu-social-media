@@ -13,10 +13,12 @@ const {multipleMongooseToObject, mongooseToObject} = require('../../util/mongoos
 const {fBucket} = require('../../util/config/db/firebaseAdmin');
 const { v4: uuid } = require("uuid");
 const credentials = require('../../credentials/credentials');
+const path = require('path');
 
 // --------------------- middleware -------------------------
 getFirebaseFileUrl = (str) => {
-    const localPrefix = "public\\upload\\";
+    const localPrefix = path.join('public',`upload${path.sep}`);
+    console.log('localPrefix' ,localPrefix)
     return str.replace(localPrefix,"").replace(/\\/g, "/");
 }
 
