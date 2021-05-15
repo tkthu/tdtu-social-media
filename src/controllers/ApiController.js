@@ -180,6 +180,7 @@ class ApiController{
             });
         })
         .catch(err => {
+            console.log('err ', err)
             return res.status(500).json({
                 msg:'đăng post thất bại với lỗi ' + err,
             });

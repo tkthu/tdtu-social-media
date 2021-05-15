@@ -10,12 +10,10 @@ const storage = multer.diskStorage({
         const dir = `./public/upload/${userId}`;
 
         console.log("userId: " + userId)
-        fs.exists(dir, exist => {
-            if (!exist) {
-                return fs.mkdir(dir, error => cb(error, dir))
-            }
-            return cb(null, dir)
-        })
+        if( !fs.existsSync (dir)){
+            return fs.mkdir(dir, error => cb(error, dir))            
+        }
+        return cb(null, dir)
     },
     filename: (req, file, cb) => {
         const ext = file.originalname.split('.').pop()
