@@ -1,25 +1,32 @@
 [{
-  "_id": "admin",
-  "username": "admin",
-  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
-  "displayName": "Quản lý",
-  "avatarUrl": "/upload/admin/TDT_logo.png",
-  "createdAt": "2021-02-18T16:21:45.133Z",
-  "lastEdited": null,
-  "userType": "admin"
-},{
-  "_id": "NgVA256",
-  "username": "NgVA256",
-  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
-  "displayName": "Nguyễn Văn A",
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-02-18T16:34:27.235Z",
-  "lastEdited": null,
+  "_id": "trieuaitam",
   "staffInfo": {
     "authorized": [
       {
+        "id": "604dfde89d2b493644b48add",
+        "name": "CÔNG TY TĐT"
+      },
+      {
         "id": "602e9cb11054c06b8fd7dc1e",
         "name": "PHÒNG CTHSSV"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T10:37:26.327Z",
+  "userType": "staff",
+  "username": "trieuaitam",
+  "password": "$2b$10$oDwOK3iL2OVBaf3B2MSZmuDziYyTHJsezNGuBtqpCRmBSd5PAe9Sa",
+  "displayName": "Triệu Ái Tâm",
+  "__v": 0,
+  "lastEdited": "2021-05-03T16:42:48.310Z"
+},{
+  "_id": "nguyenthanhdat",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfde89d2b493644b48add",
+        "name": "CÔNG TY TĐT"
       },
       {
         "id": "602e9df21054c06b8fd7dc1f",
@@ -27,33 +34,176 @@
       }
     ]
   },
-  "userType": "staff"
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T10:43:22.245Z",
+  "userType": "staff",
+  "username": "nguyenthanhdat",
+  "password": "$2b$10$g3vRHdxzaKX02UgceZAQ9OoLqm0g1fEV0TLalkO9D8.Xb95agi2WS",
+  "displayName": "Nguyễn Thành Đạt",
+  "__v": 0,
+  "lastEdited": "2021-05-03T16:56:32.023Z"
+},{
+  "_id": "talien",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe3c9d2b493644b48ae7",
+        "name": "KHOA CÔNG NGHỆ THÔNG TIN"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T12:59:45.066Z",
+  "userType": "staff",
+  "username": "talien",
+  "password": "$2b$10$kG7aANqVo1ogKua1rXMeBu3WlFouqcqUn/ivChkytufI2X0mnCPQi",
+  "displayName": "Tạ Liên",
+  "__v": 0
+},{
+  "_id": "phonglienduc",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe3c9d2b493644b48ae7",
+        "name": "KHOA CÔNG NGHỆ THÔNG TIN"
+      },
+      {
+        "id": "602e9e471054c06b8fd7dc20",
+        "name": "PHÒNG SAU ĐẠI HỌC"
+      },
+      {
+        "id": "602e9df21054c06b8fd7dc1f",
+        "name": "PHÒNG ĐẠI HỌC"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T13:03:45.301Z",
+  "userType": "staff",
+  "username": "phonglienduc",
+  "password": "$2b$10$y1ozENWYiTrtkNY6frj2qexw2a3GkIRKCnhnZK0vQquZFVZQLm4lO",
+  "displayName": "Phong Liên Dực",
+  "__v": 0,
+  "lastEdited": "2021-05-16T07:14:01.112Z"
+},{
+  "_id": "admin",
+  "username": "admin",
+  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
+  "displayName": "Người quản lý",
+  "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/admin%2FTDT_logo.png?alt=media",
+  "createdAt": "2021-02-18T16:21:45.133Z",
+  "lastEdited": "2021-05-04T11:45:20.861Z",
+  "userType": "admin",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfde89d2b493644b48add",
+        "name": "CÔNG TY TĐT"
+      },
+      {
+        "id": "604dfe3c9d2b493644b48ae7",
+        "name": "KHOA CÔNG NGHỆ THÔNG TIN"
+      },
+      {
+        "id": "604dfe5f9d2b493644b48aec",
+        "name": "KHOA GIÁO DỤC QUỐC TẾ"
+      },
+      {
+        "id": "604dfe509d2b493644b48aea",
+        "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+      },
+      {
+        "id": "604dfe289d2b493644b48ae4",
+        "name": "KHOA LUẬT"
+      },
+      {
+        "id": "604dfe499d2b493644b48ae9",
+        "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+      },
+      {
+        "id": "604dfe2f9d2b493644b48ae5",
+        "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+      },
+      {
+        "id": "604dfe419d2b493644b48ae8",
+        "name": "KHOA QUẢN TRỊ KINH DOANH"
+      },
+      {
+        "id": "604dfe579d2b493644b48aeb",
+        "name": "KHOA TÀI CHÍNH NGÂN HÀNG"
+      },
+      {
+        "id": "604dfe379d2b493644b48ae6",
+        "name": "KHOA ĐIỆN-ĐIỆN TỬ"
+      },
+      {
+        "id": "602e9cb11054c06b8fd7dc1e",
+        "name": "PHÒNG CTHSSV"
+      },
+      {
+        "id": "604dfdce9d2b493644b48adb",
+        "name": "PHÒNG KHẢO THÍ VÀ KĐCL"
+      },
+      {
+        "id": "602e9e471054c06b8fd7dc20",
+        "name": "PHÒNG SAU ĐẠI HỌC"
+      },
+      {
+        "id": "604dfdd99d2b493644b48adc",
+        "name": "PHÒNG TÀI CHÍNH"
+      },
+      {
+        "id": "604dfdc59d2b493644b48ada",
+        "name": "PHÒNG ĐIỆN TOÁN VÀ MÁY TÍNH"
+      },
+      {
+        "id": "602e9df21054c06b8fd7dc1f",
+        "name": "PHÒNG ĐẠI HỌC"
+      },
+      {
+        "id": "604dfdf99d2b493644b48adf",
+        "name": "TDT CREATIVE LANGUAGE CENTER"
+      },
+      {
+        "id": "604dfe189d2b493644b48ae2",
+        "name": "TRUNG TÂM HỢP TÁC DOANH NGHIỆP VÀ CỰU SINH VIÊN"
+      },
+      {
+        "id": "604dfe209d2b493644b48ae3",
+        "name": "TRUNG TÂM NGOẠI NGỮ-TIN HỌC-BỒI DƯỠNG VĂN HÓA"
+      },
+      {
+        "id": "604dfe0f9d2b493644b48ae1",
+        "name": "TRUNG TÂM PHÁT TRIỂN KHOA HỌC QUẢN LÝ VÀ ỨNG DỤNG CÔNG NGHỆ (ATEM)"
+      },
+      {
+        "id": "604dfe019d2b493644b48ae0",
+        "name": "TRUNG TÂM TIN HỌC"
+      },
+      {
+        "id": "604dff7d9d2b493644b48aef",
+        "name": "TRUNG TÂM ĐÀO TẠO PHÁT TRIỂN XÃ HỘI(SDTC)"
+      },
+      {
+        "id": "604dfdf19d2b493644b48ade",
+        "name": "VIỆN CHÍNH SÁCH KINH TẾ VÀ KINH DOANH (IBEP)"
+      }
+    ]
+  }
 },{
   "_id": "51800001",
   "username": "51800001",
   "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
   "displayName": "Trần Thị B",
-  "avatarUrl": "/upload/51800001/TrThB_avatar.jpg",
+  "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800001%2FTrThB_avatar.jpg?alt=media",
   "createdAt": "2021-02-18T17:42:45.674Z",
-  "lastEdited": null,
+  "lastEdited": "2021-05-04T11:57:05.207Z",
   "studentInfo": {
-    "class": "18050202",
-    "faculty": "Công nghệ thông tin"
+    "class": "18050206",
+    "faculty": "Công nghệ thông tin",
+    "speciality": "Khoa học máy tính"
   },
   "userType": "student"
-},{
-  "_id": "51800816",
-  "staffInfo": {
-    "authorized": []
-  },
-  "avatarUrl": "https://lh6.googleusercontent.com/-dX5rmv_O1wo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmbxRoBVA27aUyS7WZpzUX9I4TEtw/s96-c/photo.jpg",
-  "createdAt": "2021-03-24T12:59:31.592Z",
-  "userType": "student",
-  "username": "51800816",
-  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
-  "displayName": "Thái Kim Thư",
-  "lastEdited": "2021-03-24T12:59:31.592Z",
-  "__v": 0
 },{
   "_id": "51801005",
   "staffInfo": {
@@ -66,6 +216,104 @@
   "username": "51801005",
   "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
   "displayName": "Trần Ngọc Phương Nhi",
+  "__v": 0
+},{
+  "_id": "hahuyen",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "602e9cb11054c06b8fd7dc1e",
+        "name": "PHÒNG CTHSSV"
+      },
+      {
+        "id": "604dfe419d2b493644b48ae8",
+        "name": "KHOA QUẢN TRỊ KINH DOANH"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T13:02:46.355Z",
+  "userType": "staff",
+  "username": "hahuyen",
+  "password": "$2b$10$88rQ8sULHpxZ7az92ASyXuHVpbQ5UGQpzzCHBO4.8mhuGtRk7IdT6",
+  "displayName": "Hạ Huyền",
+  "__v": 0
+},{
+  "_id": "51800816",
+  "staffInfo": {
+    "authorized": []
+  },
+  "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media",
+  "createdAt": "2021-03-24T12:59:31.592Z",
+  "userType": "student",
+  "username": "51800816",
+  "password": "$2b$10$Hvk7QxbKsEsSVHm6vjS2GeRn7Kg2zNkxgc9ML0SvZlJgxX7n3uCgi",
+  "displayName": "Thái Kim Thư",
+  "lastEdited": "2021-05-15T17:29:48.913Z",
+  "__v": 0,
+  "studentInfo": {
+    "class": "18050202",
+    "faculty": "Công nghệ thông tin 222222",
+    "speciality": "Kỹ thuật phần mềm 55"
+  }
+},{
+  "_id": "suthanhhuyen",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfde89d2b493644b48add",
+        "name": "CÔNG TY TĐT"
+      },
+      {
+        "id": "604dfe419d2b493644b48ae8",
+        "name": "KHOA QUẢN TRỊ KINH DOANH"
+      },
+      {
+        "id": "604dfe579d2b493644b48aeb",
+        "name": "KHOA TÀI CHÍNH NGÂN HÀNG"
+      },
+      {
+        "id": "602e9cb11054c06b8fd7dc1e",
+        "name": "PHÒNG CTHSSV"
+      },
+      {
+        "id": "604dfdce9d2b493644b48adb",
+        "name": "PHÒNG KHẢO THÍ VÀ KĐCL"
+      },
+      {
+        "id": "604dfe189d2b493644b48ae2",
+        "name": "TRUNG TÂM HỢP TÁC DOANH NGHIỆP VÀ CỰU SINH VIÊN"
+      },
+      {
+        "id": "604dfe0f9d2b493644b48ae1",
+        "name": "TRUNG TÂM PHÁT TRIỂN KHOA HỌC QUẢN LÝ VÀ ỨNG DỤNG CÔNG NGHỆ (ATEM)"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T13:02:19.487Z",
+  "userType": "staff",
+  "username": "suthanhhuyen",
+  "password": "$2b$10$h6t0boqrMKrYddindrED6eqso8ePcz5b3Jro1oQI7cjMFJ6GBlugm",
+  "displayName": "Sư Thanh Huyền",
+  "__v": 0,
+  "lastEdited": "2021-04-27T15:53:29.998Z"
+},{
+  "_id": "hieutinhtran",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe509d2b493644b48aea",
+        "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T13:01:04.871Z",
+  "userType": "staff",
+  "username": "hieutinhtran",
+  "password": "$2b$10$qHcjEAArb0YgfjC6rO5anujMtQp3J49UnlJk0lmLTqdImN0eFyaRm",
+  "displayName": "Hiểu Tinh Trần",
   "__v": 0
 },{
   "_id": "tonghalinh",
@@ -89,21 +337,270 @@
   "displayName": "Tống Hạ Linh",
   "__v": 0
 },{
-  "_id": "trieuaitam",
+  "_id": "lamtram",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe419d2b493644b48ae8",
+        "name": "KHOA QUẢN TRỊ KINH DOANH"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T12:58:45.694Z",
+  "userType": "staff",
+  "username": "lamtram",
+  "password": "$2b$10$nVyI1.td1tgZIk5Kc3erYujQ4GlJMvYTDUvblK0dV3c739SpL5Ch2",
+  "displayName": "Lam Vong Cơ",
+  "__v": 0
+},{
+  "_id": "NgVA256",
+  "username": "NgVA256",
+  "password": "$2b$10$QxAIjmpPdTRZwxSbTlImNuHAg0.3XUNCmjlH0aYqHNlnWXx92OAqe",
+  "displayName": "Nguyễn Văn A",
+  "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media",
+  "createdAt": "2021-02-18T16:34:27.235Z",
+  "lastEdited": "2021-05-16T08:36:16.370Z",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfde89d2b493644b48add",
+        "name": "CÔNG TY TĐT"
+      },
+      {
+        "id": "604dfe3c9d2b493644b48ae7",
+        "name": "KHOA CÔNG NGHỆ THÔNG TIN"
+      },
+      {
+        "id": "604dfe5f9d2b493644b48aec",
+        "name": "KHOA GIÁO DỤC QUỐC TẾ"
+      },
+      {
+        "id": "604dfe509d2b493644b48aea",
+        "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+      },
+      {
+        "id": "604dfe289d2b493644b48ae4",
+        "name": "KHOA LUẬT"
+      },
+      {
+        "id": "604dfe499d2b493644b48ae9",
+        "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+      },
+      {
+        "id": "604dfe2f9d2b493644b48ae5",
+        "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+      },
+      {
+        "id": "604dfe419d2b493644b48ae8",
+        "name": "KHOA QUẢN TRỊ KINH DOANH"
+      },
+      {
+        "id": "604dfe579d2b493644b48aeb",
+        "name": "KHOA TÀI CHÍNH NGÂN HÀNG"
+      },
+      {
+        "id": "604dfe379d2b493644b48ae6",
+        "name": "KHOA ĐIỆN-ĐIỆN TỬ"
+      },
+      {
+        "id": "602e9cb11054c06b8fd7dc1e",
+        "name": "PHÒNG CTHSSV"
+      },
+      {
+        "id": "604dfdce9d2b493644b48adb",
+        "name": "PHÒNG KHẢO THÍ VÀ KĐCL"
+      },
+      {
+        "id": "602e9e471054c06b8fd7dc20",
+        "name": "PHÒNG SAU ĐẠI HỌC"
+      },
+      {
+        "id": "604dfdd99d2b493644b48adc",
+        "name": "PHÒNG TÀI CHÍNH"
+      },
+      {
+        "id": "604dfdc59d2b493644b48ada",
+        "name": "PHÒNG ĐIỆN TOÁN VÀ MÁY TÍNH"
+      },
+      {
+        "id": "602e9df21054c06b8fd7dc1f",
+        "name": "PHÒNG ĐẠI HỌC"
+      },
+      {
+        "id": "604dfdf99d2b493644b48adf",
+        "name": "TDT CREATIVE LANGUAGE CENTER"
+      },
+      {
+        "id": "604dfe189d2b493644b48ae2",
+        "name": "TRUNG TÂM HỢP TÁC DOANH NGHIỆP VÀ CỰU SINH VIÊN"
+      },
+      {
+        "id": "604dfe209d2b493644b48ae3",
+        "name": "TRUNG TÂM NGOẠI NGỮ-TIN HỌC-BỒI DƯỠNG VĂN HÓA"
+      },
+      {
+        "id": "604dfe0f9d2b493644b48ae1",
+        "name": "TRUNG TÂM PHÁT TRIỂN KHOA HỌC QUẢN LÝ VÀ ỨNG DỤNG CÔNG NGHỆ (ATEM)"
+      },
+      {
+        "id": "604dfe019d2b493644b48ae0",
+        "name": "TRUNG TÂM TIN HỌC"
+      },
+      {
+        "id": "604dff7d9d2b493644b48aef",
+        "name": "TRUNG TÂM ĐÀO TẠO PHÁT TRIỂN XÃ HỘI(SDTC)"
+      },
+      {
+        "id": "604dfdf19d2b493644b48ade",
+        "name": "VIỆN CHÍNH SÁCH KINH TẾ VÀ KINH DOANH (IBEP)"
+      }
+    ]
+  },
+  "userType": "staff"
+},{
+  "_id": "vusuhoang",
   "staffInfo": {
     "authorized": [
       {
         "id": "602e9cb11054c06b8fd7dc1e",
         "name": "PHÒNG CTHSSV"
+      },
+      {
+        "id": "602e9df21054c06b8fd7dc1f",
+        "name": "PHÒNG ĐẠI HỌC"
       }
     ]
   },
   "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T10:37:26.327Z",
+  "createdAt": "2021-04-06T13:03:19.478Z",
   "userType": "staff",
-  "username": "trieuaitam",
-  "password": "$2b$10$phGTS0Qc.0GiCNVZpTFDP.Npn4qWu5QEsiB6IaNUrz5TC9NS0VAqG",
-  "displayName": "Triệu Ái Tâm",
+  "username": "vusuhoang",
+  "password": "$2b$10$TD.w.BHY/UEhTWJnJ9To0.hH5QYQGbrkXnzRpkB5c7gf3A8hkYG3G",
+  "displayName": "Vũ Sư Hoàng",
+  "__v": 0
+},{
+  "_id": "lacbangha",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe499d2b493644b48ae9",
+        "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T13:00:39.232Z",
+  "userType": "staff",
+  "username": "lacbangha",
+  "password": "$2b$10$Lo75Xhs7rbIM.qPGE8odne6WPSRfUJ.0kuxNMM/L1YRPDwysrXz/K",
+  "displayName": "Lạc Băng hà",
+  "__v": 0
+},{
+  "_id": "tietduong",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe379d2b493644b48ae6",
+        "name": "KHOA ĐIỆN-ĐIỆN TỬ"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T13:01:41.608Z",
+  "userType": "staff",
+  "username": "tietduong",
+  "password": "$2b$10$4gqCEMHtZafy8YntguHfWOP7dBYYRDOnN9URzUDdAg30j/cRcrF1K",
+  "displayName": "Tiết Dương",
+  "__v": 0
+},{
+  "_id": "truongngochoa",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe0f9d2b493644b48ae1",
+        "name": "TRUNG TÂM PHÁT TRIỂN KHOA HỌC QUẢN LÝ VÀ ỨNG DỤNG CÔNG NGHỆ (ATEM)"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T13:04:43.821Z",
+  "userType": "staff",
+  "username": "truongngochoa",
+  "password": "$2b$10$enfW2DRNfc5mc.D8/WyeBuso7Maa8RuQq5IzqiU66vyQhzQ/YXmmO",
+  "displayName": "Trương Ngọc Hoa",
+  "__v": 0
+},{
+  "_id": "tieuchien",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe2f9d2b493644b48ae5",
+        "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T12:57:00.164Z",
+  "userType": "staff",
+  "username": "tieuchien",
+  "password": "$2b$10$g7fWh8JQP//wOvdRP0MEhehqW0FI5Fy6Ih9SDeSuj9PAbaqJjdyXK",
+  "displayName": "Tiêu Chiến",
+  "__v": 0
+},{
+  "_id": "hoathanh",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe3c9d2b493644b48ae7",
+        "name": "KHOA CÔNG NGHỆ THÔNG TIN"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T12:59:23.320Z",
+  "userType": "staff",
+  "username": "hoathanh",
+  "password": "$2b$10$frH6nkxEw5USmrpy6Ykqt.EcfBoRjrQ9Csih04Q6lVXP.GLtmczY2",
+  "displayName": "Hoa Thành",
+  "__v": 0
+},{
+  "_id": "tadoan",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfdce9d2b493644b48adb",
+        "name": "PHÒNG KHẢO THÍ VÀ KĐCL"
+      },
+      {
+        "id": "604dfdd99d2b493644b48adc",
+        "name": "PHÒNG TÀI CHÍNH"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T13:06:51.937Z",
+  "userType": "staff",
+  "username": "tadoan",
+  "password": "$2b$10$FiJAwHFHeCRzbm.a.5hIv.jV8I8aNnOjhTRny9AwKZo6cYHV4XVc.",
+  "displayName": "Tạ Doãn",
+  "__v": 0
+},{
+  "_id": "thamthanhthu",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfe579d2b493644b48aeb",
+        "name": "KHOA TÀI CHÍNH NGÂN HÀNG"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-06T13:00:13.075Z",
+  "userType": "staff",
+  "username": "thamthanhthu",
+  "password": "$2b$10$M6NoNnPflnyARI06tGgk9.pVr.7cLtLeZaXG3Hmo3Xad6AYu1/sOu",
+  "displayName": "Thẩm Thanh Thu",
   "__v": 0
 },{
   "_id": "lamhythan",
@@ -125,61 +622,6 @@
   "username": "lamhythan",
   "password": "$2b$10$zx2Gxj9BA3hlPhjQmgelBu5Bq0wLWGV1wDMXBoSRuZ3tLTC1t.you",
   "displayName": "Lam Hy Thần",
-  "__v": 0
-},{
-  "_id": "nguyenthanhdat",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "602e9df21054c06b8fd7dc1f",
-        "name": "PHÒNG ĐẠI HỌC"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T10:43:22.245Z",
-  "userType": "staff",
-  "username": "nguyenthanhdat",
-  "password": "$2b$10$ZC1aqGoXRWJQ6C8TtCMpDuyibg8ef8E/iLVCPlmLFms.aXeqb/GJm",
-  "displayName": "Nguyễn Thành Đạt",
-  "__v": 0
-},{
-  "_id": "vuongnhatbac",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "602e9df21054c06b8fd7dc1f",
-        "name": "PHÒNG ĐẠI HỌC"
-      },
-      {
-        "id": "602e9e471054c06b8fd7dc20",
-        "name": "PHÒNG SAU ĐẠI HỌC"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T12:52:41.059Z",
-  "userType": "staff",
-  "username": "vuongnhatbac",
-  "password": "$2b$10$YDI7pPqqxDpRW8sFb3jujujdm4ByWDTTKDRLxKI.aRS3fz29uZTz2",
-  "displayName": "Vương Nhất Bác",
-  "__v": 0
-},{
-  "_id": "tieuchien",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe2f9d2b493644b48ae5",
-        "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T12:57:00.164Z",
-  "userType": "staff",
-  "username": "tieuchien",
-  "password": "$2b$10$g7fWh8JQP//wOvdRP0MEhehqW0FI5Fy6Ih9SDeSuj9PAbaqJjdyXK",
-  "displayName": "Tiêu Chiến",
   "__v": 0
 },{
   "_id": "nguyanh",
@@ -207,209 +649,6 @@
   "displayName": "Ngụy Anh",
   "__v": 0
 },{
-  "_id": "lamtram",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe419d2b493644b48ae8",
-        "name": "KHOA QUẢN TRỊ KINH DOANH"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T12:58:45.694Z",
-  "userType": "staff",
-  "username": "lamtram",
-  "password": "$2b$10$nVyI1.td1tgZIk5Kc3erYujQ4GlJMvYTDUvblK0dV3c739SpL5Ch2",
-  "displayName": "Lam Vong Cơ",
-  "__v": 0
-},{
-  "_id": "hoathanh",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe3c9d2b493644b48ae7",
-        "name": "KHOA CÔNG NGHỆ THÔNG TIN"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T12:59:23.320Z",
-  "userType": "staff",
-  "username": "hoathanh",
-  "password": "$2b$10$frH6nkxEw5USmrpy6Ykqt.EcfBoRjrQ9Csih04Q6lVXP.GLtmczY2",
-  "displayName": "Hoa Thành",
-  "__v": 0
-},{
-  "_id": "talien",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe3c9d2b493644b48ae7",
-        "name": "KHOA CÔNG NGHỆ THÔNG TIN"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T12:59:45.066Z",
-  "userType": "staff",
-  "username": "talien",
-  "password": "$2b$10$kG7aANqVo1ogKua1rXMeBu3WlFouqcqUn/ivChkytufI2X0mnCPQi",
-  "displayName": "Tạ Liên",
-  "__v": 0
-},{
-  "_id": "thamthanhthu",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe579d2b493644b48aeb",
-        "name": "KHOA TÀI CHÍNH NGÂN HÀNG"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:00:13.075Z",
-  "userType": "staff",
-  "username": "thamthanhthu",
-  "password": "$2b$10$M6NoNnPflnyARI06tGgk9.pVr.7cLtLeZaXG3Hmo3Xad6AYu1/sOu",
-  "displayName": "Thẩm Thanh Thu",
-  "__v": 0
-},{
-  "_id": "lacbangha",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe499d2b493644b48ae9",
-        "name": "KHOA MÔI TRƯỜNG VÀ BẢO HỘ LAO ĐỘNG"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:00:39.232Z",
-  "userType": "staff",
-  "username": "lacbangha",
-  "password": "$2b$10$Lo75Xhs7rbIM.qPGE8odne6WPSRfUJ.0kuxNMM/L1YRPDwysrXz/K",
-  "displayName": "Lạc Băng hà",
-  "__v": 0
-},{
-  "_id": "hieutinhtran",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe509d2b493644b48aea",
-        "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:01:04.871Z",
-  "userType": "staff",
-  "username": "hieutinhtran",
-  "password": "$2b$10$qHcjEAArb0YgfjC6rO5anujMtQp3J49UnlJk0lmLTqdImN0eFyaRm",
-  "displayName": "Hiểu Tinh Trần",
-  "__v": 0
-},{
-  "_id": "tietduong",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe379d2b493644b48ae6",
-        "name": "KHOA ĐIỆN-ĐIỆN TỬ"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:01:41.608Z",
-  "userType": "staff",
-  "username": "tietduong",
-  "password": "$2b$10$4gqCEMHtZafy8YntguHfWOP7dBYYRDOnN9URzUDdAg30j/cRcrF1K",
-  "displayName": "Tiết Dương",
-  "__v": 0
-},{
-  "_id": "suthanhhuyen",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe419d2b493644b48ae8",
-        "name": "KHOA QUẢN TRỊ KINH DOANH"
-      },
-      {
-        "id": "604dfe579d2b493644b48aeb",
-        "name": "KHOA TÀI CHÍNH NGÂN HÀNG"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:02:19.487Z",
-  "userType": "staff",
-  "username": "suthanhhuyen",
-  "password": "$2b$10$h6t0boqrMKrYddindrED6eqso8ePcz5b3Jro1oQI7cjMFJ6GBlugm",
-  "displayName": "Sư Thanh Huyền",
-  "__v": 0
-},{
-  "_id": "hahuyen",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "602e9cb11054c06b8fd7dc1e",
-        "name": "PHÒNG CTHSSV"
-      },
-      {
-        "id": "604dfe419d2b493644b48ae8",
-        "name": "KHOA QUẢN TRỊ KINH DOANH"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:02:46.355Z",
-  "userType": "staff",
-  "username": "hahuyen",
-  "password": "$2b$10$88rQ8sULHpxZ7az92ASyXuHVpbQ5UGQpzzCHBO4.8mhuGtRk7IdT6",
-  "displayName": "Hạ Huyền",
-  "__v": 0
-},{
-  "_id": "vusuhoang",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "602e9cb11054c06b8fd7dc1e",
-        "name": "PHÒNG CTHSSV"
-      },
-      {
-        "id": "602e9df21054c06b8fd7dc1f",
-        "name": "PHÒNG ĐẠI HỌC"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:03:19.478Z",
-  "userType": "staff",
-  "username": "vusuhoang",
-  "password": "$2b$10$TD.w.BHY/UEhTWJnJ9To0.hH5QYQGbrkXnzRpkB5c7gf3A8hkYG3G",
-  "displayName": "Vũ Sư Hoàng",
-  "__v": 0
-},{
-  "_id": "phonglienduc",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "602e9df21054c06b8fd7dc1f",
-        "name": "PHÒNG ĐẠI HỌC"
-      },
-      {
-        "id": "602e9e471054c06b8fd7dc20",
-        "name": "PHÒNG SAU ĐẠI HỌC"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:03:45.301Z",
-  "userType": "staff",
-  "username": "phonglienduc",
-  "password": "$2b$10$y1ozENWYiTrtkNY6frj2qexw2a3GkIRKCnhnZK0vQquZFVZQLm4lO",
-  "displayName": "Phong Liên Dực",
-  "__v": 0
-},{
   "_id": "lieuthanhca",
   "staffInfo": {
     "authorized": [
@@ -425,23 +664,6 @@
   "username": "lieuthanhca",
   "password": "$2b$10$CQWy7TjLHmW.CydUqDaCGuHnt453P9y2cTyYYHMYimDmpX9kuqLOm",
   "displayName": "Liễu Thanh Ca",
-  "__v": 0
-},{
-  "_id": "truongngochoa",
-  "staffInfo": {
-    "authorized": [
-      {
-        "id": "604dfe0f9d2b493644b48ae1",
-        "name": "TRUNG TÂM PHÁT TRIỂN KHOA HỌC QUẢN LÝ VÀ ỨNG DỤNG CÔNG NGHỆ (ATEM)"
-      }
-    ]
-  },
-  "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:04:43.821Z",
-  "userType": "staff",
-  "username": "truongngochoa",
-  "password": "$2b$10$enfW2DRNfc5mc.D8/WyeBuso7Maa8RuQq5IzqiU66vyQhzQ/YXmmO",
-  "displayName": "Trương Ngọc Hoa",
   "__v": 0
 },{
   "_id": "tranbanglien",
@@ -486,25 +708,25 @@
   "displayName": "Chu Thanh",
   "__v": 0
 },{
-  "_id": "tadoan",
+  "_id": "vuongnhatbac",
   "staffInfo": {
     "authorized": [
       {
-        "id": "604dfdce9d2b493644b48adb",
-        "name": "PHÒNG KHẢO THÍ VÀ KĐCL"
+        "id": "602e9df21054c06b8fd7dc1f",
+        "name": "PHÒNG ĐẠI HỌC"
       },
       {
-        "id": "604dfdd99d2b493644b48adc",
-        "name": "PHÒNG TÀI CHÍNH"
+        "id": "602e9e471054c06b8fd7dc20",
+        "name": "PHÒNG SAU ĐẠI HỌC"
       }
     ]
   },
   "avatarUrl": "/img/no-face.png",
-  "createdAt": "2021-04-06T13:06:51.937Z",
+  "createdAt": "2021-04-06T12:52:41.059Z",
   "userType": "staff",
-  "username": "tadoan",
-  "password": "$2b$10$FiJAwHFHeCRzbm.a.5hIv.jV8I8aNnOjhTRny9AwKZo6cYHV4XVc.",
-  "displayName": "Tạ Doãn",
+  "username": "vuongnhatbac",
+  "password": "$2b$10$YDI7pPqqxDpRW8sFb3jujujdm4ByWDTTKDRLxKI.aRS3fz29uZTz2",
+  "displayName": "Vương Nhất Bác",
   "__v": 0
 },{
   "_id": "luugiaphong",
@@ -526,5 +748,95 @@
   "username": "luugiaphong",
   "password": "$2b$10$dqGnnlvJ2Mq2lvMlWBW6z.NZwKF4zjbKsQM/L6PywACI4CVRv5NYC",
   "displayName": "Lưu Gia Phong",
+  "__v": 0
+},{
+  "_id": "TranThiD",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "604dfde89d2b493644b48add",
+        "name": "CÔNG TY TĐT"
+      },
+      {
+        "id": "604dfdf19d2b493644b48ade",
+        "name": "VIỆN CHÍNH SÁCH KINH TẾ VÀ KINH DOANH (IBEP)"
+      },
+      {
+        "id": "604dfdf99d2b493644b48adf",
+        "name": "TDT CREATIVE LANGUAGE CENTER"
+      },
+      {
+        "id": "604dfe019d2b493644b48ae0",
+        "name": "TRUNG TÂM TIN HỌC"
+      },
+      {
+        "id": "604dfe379d2b493644b48ae6",
+        "name": "KHOA ĐIỆN-ĐIỆN TỬ"
+      },
+      {
+        "id": "604dfe3c9d2b493644b48ae7",
+        "name": "KHOA CÔNG NGHỆ THÔNG TIN"
+      },
+      {
+        "id": "604dfe419d2b493644b48ae8",
+        "name": "KHOA QUẢN TRỊ KINH DOANH"
+      },
+      {
+        "id": "604dfe509d2b493644b48aea",
+        "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
+      },
+      {
+        "id": "604dfe5f9d2b493644b48aec",
+        "name": "KHOA GIÁO DỤC QUỐC TẾ"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-19T16:39:41.043Z",
+  "userType": "staff",
+  "username": "TranThiD",
+  "password": "$2b$10$Q6GGEXnkmSxDiBOzrl7y2u8Fs6wFbKZ5TFkL88lyD5hLEjAkNulXK",
+  "displayName": "Trần Thị D",
+  "__v": 0
+},{
+  "_id": "TranThuE",
+  "staffInfo": {
+    "authorized": [
+      {
+        "id": "602e9df21054c06b8fd7dc1f",
+        "name": "PHÒNG ĐẠI HỌC"
+      },
+      {
+        "id": "604dfe0f9d2b493644b48ae1",
+        "name": "TRUNG TÂM PHÁT TRIỂN KHOA HỌC QUẢN LÝ VÀ ỨNG DỤNG CÔNG NGHỆ (ATEM)"
+      },
+      {
+        "id": "604dfe189d2b493644b48ae2",
+        "name": "TRUNG TÂM HỢP TÁC DOANH NGHIỆP VÀ CỰU SINH VIÊN"
+      },
+      {
+        "id": "604dfe289d2b493644b48ae4",
+        "name": "KHOA LUẬT"
+      },
+      {
+        "id": "604dfe2f9d2b493644b48ae5",
+        "name": "KHOA MỸ THUẬT CÔNG NGHIỆP"
+      },
+      {
+        "id": "604dfe379d2b493644b48ae6",
+        "name": "KHOA ĐIỆN-ĐIỆN TỬ"
+      },
+      {
+        "id": "604dfe419d2b493644b48ae8",
+        "name": "KHOA QUẢN TRỊ KINH DOANH"
+      }
+    ]
+  },
+  "avatarUrl": "/img/no-face.png",
+  "createdAt": "2021-04-19T16:40:19.799Z",
+  "userType": "staff",
+  "username": "TranThuE",
+  "password": "$2b$10$/jcvkp.IvxHE4XbOBurx/e9CoIxgmAmzIXiOxYsxJTSTCJKiayOje",
+  "displayName": "Trần Thu E",
   "__v": 0
 }]

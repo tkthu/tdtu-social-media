@@ -1,26 +1,43 @@
 [{
   "_id": {
-    "$oid": "602ea4551054c06b8fd7dc29"
+    "$oid": "607d79c58592b625dc291bee"
   },
-  "name": "Lịch thi MOS đợt tháng 03/2021",
-  "content": "Phòng Đại học gửi đến sinh viên Lịch thi MOS đợt tháng 03/2021 gồm 2 file:\n\n1. Chính thức lịch thi MOS đợt tháng 03/2021 \n2. Dự kiến Danh sách thi MOS đợt tháng 03/2021.\n\nSinh viên xem chi tiết trong file đính kèm.",
-  "createdAt": "2021-02-18T17:23:40.722Z",
-  "lastEdited": "2021-02-18T17:31:41.761Z",
-  "imagesArray": null,
-  "attachmentsArray": [
-    "/upload/NgVA256/chinh-thuc-lich-thi-mos-dot-t03-2021--exam-schedule-mos-in-the-month-of-03-2021-(20210202_092118_547).xlsx",
-    "/upload/NgVA256/du-kien-danh-sach-thi-mos-dot-t03-2021--exam-list-mos-in-the-month-of-03-2021-(20210202_092118_559).xlsx"
-  ],
-  "commentsCount": 11,
+  "content": "Chào các Anh/Chị sinh viên,\r\n\r\nKhoa xin gửi đến các Anh/Chị đường dẫn để tra cứu thời hạn sử dụng thẻ Bảo hiểm y tế (BHYT) và tra cứu mã thẻ BHYT:\r\n\r\n- Sinh viên có thể tra cứu thời hạn sử dụng thẻ Bảo hiểm y tế tại link:\r\n\r\nhttps://baohiemxahoi.gov.vn/tracuu/pages/tra-cuu-thoi-han-su-dung-the-bhyt.aspx\r\n\r\n - Nếu sinh viên không nhớ mã thẻ Bảo hiểm y tế, có thể tra cứu tại link:\r\n\r\nhttps://baohiemxahoi.gov.vn/tracuu/Pages/tra-cuu-ho-gia-dinh.aspx\r\n\r\n- Sau khi xuất hiện bảng điền thông tin, Sinh viên chỉ cần chọn Tỉnh nơi sinh viên đăng ký hộ khẩu, nhập ngày tháng năm sinh, họ tên và tra cứu thì ra kết quả mã BHXH -> đó là 10 số cuối của Bảo hiểm y tế mà sinh viên cần phải nhớ để sử dụng. Sinh viên cần thêm HS4 và hai số mã tỉnh trước 10 số BHXH là ra Mã số BHYT của mình để tra được thời hạn sử dụng thẻ Bảo hiểm y tế tại link:\r\n\r\nhttps://baohiemxahoi.gov.vn/tracuu/pages/tra-cuu-thoi-han-su-dung-the-bhyt.aspx\r\n\r\nTrân trọng!",
+  "createdAt": "2021-04-19T12:38:29.964Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
   "department": {
-    "id": "602e9df21054c06b8fd7dc1f",
-    "name": "PHÒNG ĐẠI HỌC"
+    "id": "604dfe509d2b493644b48aea",
+    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
   },
   "sender": {
-    "id": "NgVA256",
-    "displayName": "Nguyễn Văn A",
+    "id": "hieutinhtran",
+    "displayName": "Hiểu Tinh Trần",
     "avatarUrl": "/img/no-face.png"
-  }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607d7d32c335473108032c01"
+  },
+  "content": "mô tả có chính xác ko mn ?",
+  "createdAt": "2021-04-19T12:53:06.282Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": [
+    "yrZ1SwRp6II"
+  ],
+  "commentsCount": 1,
+  "name": "trường mình được lên báo :)))",
+  "sender": {
+    "id": "51800001",
+    "displayName": "Trần Thị B",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800001%2FTrThB_avatar.jpg?alt=media"
+  },
+  "__v": 0
 },{
   "_id": {
     "$oid": "602eaa904f6ed80d0ddcd615"
@@ -30,35 +47,37 @@
   "createdAt": "2021-02-18T17:59:03.499Z",
   "lastEdited": null,
   "imagesArray": [
-    "/upload/51800001/sach.jpg"
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800001%2Fsach.jpg?alt=media"
   ],
   "attachmentsArray": null,
   "commentsCount": 0,
   "sender": {
     "id": "51800001",
     "displayName": "Trần Thị B",
-    "avatarUrl": "/upload/51800001/TrThB_avatar.jpg"
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800001%2FTrThB_avatar.jpg?alt=media"
   }
 },{
   "_id": {
-    "$oid": "6065f5a49770ff069c489ac2"
+    "$oid": "607d7ddbc335473108032c02"
   },
-  "createdAt": "2021-04-01T16:32:36.789Z",
+  "content": "Phòng Sau đại học thông báo kế hoạch đăng ký học phần chung của chương trình 4+1 đợt 4 năm học 2020-2021 như sau:\r\n+ Thời gian đăng ký bổ sung: 09h00 ngày 14/04/2021 đến 11h00 ngày 16/04/2021.\r\n+ Xem kế hoạch chi tiết tại: https://grad.tdtu.edu.vn/tin-tuc/2021/ke-hoach-dang-ky-hoc-phan-chung-cua-chuong-trinh-41-dot-4-nam-hoc-2020-2021\r\n",
+  "createdAt": "2021-04-19T12:55:55.985Z",
   "imagesArray": [],
   "attachmentsArray": [],
-  "commentsCount": 0,
-  "name": "Lịch thi cuối kỳ HK2/20-21 dành cho sv khóa cũ - môn kết thúc sớm của khoa Dược",
-  "content": "Phòng Đại học gửi đến các sinh viên thông tin Danh sách thi chính thức các lớp tiếng Anh HK1/20-21 (Thi ngày 03/04/2021)\r\nLưu ý:\r\n- Sinh viên phải có mặt tại phòng thi trước giờ thi ít nhất 30 phút\r\n- Sinh viên xem danh sách thi trong file đính kèm.\r\n- Các trường hợp thắc mắc về danh sách thi vui lòng liên hệ phòng Đại học (A0005) hoặc email: phongdaihoc@tdtu.edu.vn \r\n- Các ngày thi sau (nếu có) sẽ được cập nhật danh sách mỗi ngày, sinh viên vui lòng theo dõi thông tin thường xuyên.\r\n- Các trường hợp không đủ điều kiện dự thi do chuyên cần có thể sẽ không có thể trong danh sách chính thức trên phòng thi, sinh viên phải cập nhật lịch thi thường xuyên để nắm thông tin khi có thay đổi.",
+  "videoIdArray": null,
+  "commentsCount": 2,
+  "name": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
   "department": {
-    "id": "602e9df21054c06b8fd7dc1f",
-    "name": "PHÒNG ĐẠI HỌC"
+    "id": "602e9e471054c06b8fd7dc20",
+    "name": "PHÒNG SAU ĐẠI HỌC"
   },
   "sender": {
-    "id": "NgVA256",
-    "displayName": "Nguyễn Văn A",
+    "id": "vuongnhatbac",
+    "displayName": "Vương Nhất Bác",
     "avatarUrl": "/img/no-face.png"
   },
-  "__v": 0
+  "__v": 0,
+  "lastEdited": "2021-04-19T16:11:20.303Z"
 },{
   "_id": {
     "$oid": "6065f6a19770ff069c489ac3"
@@ -76,6 +95,52 @@
   "sender": {
     "id": "NgVA256",
     "displayName": "Nguyễn Văn A",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "name": "Lịch thi MOS đợt tháng 03/2021",
+  "content": "Phòng Đại học gửi đến sinh viên Lịch thi MOS đợt tháng 03/2021 gồm 2 file:\n\n1. Chính thức lịch thi MOS đợt tháng 03/2021 \n2. Dự kiến Danh sách thi MOS đợt tháng 03/2021.\n\nSinh viên xem chi tiết trong file đính kèm.",
+  "createdAt": "2021-02-18T17:23:40.722Z",
+  "lastEdited": "2021-02-18T17:31:41.761Z",
+  "imagesArray": null,
+  "attachmentsArray": [
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2Fchinh-thuc-lich-thi-mos-dot-t03-2021--exam-schedule-mos-in-the-month-of-03-2021-(20210202_092118_547).xlsx?alt=media",
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2Fdu-kien-danh-sach-thi-mos-dot-t03-2021--exam-list-mos-in-the-month-of-03-2021-(20210202_092118_559).xlsx?alt=media"
+  ],
+  "commentsCount": 9,
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
+  }
+},{
+  "_id": {
+    "$oid": "607d7c5fc335473108032be4"
+  },
+  "content": "Gửi sinh viên,\r\n              Nhằm hỗ trợ công tác tuyển sinh, ngày 29/05/2021 tổ chức thi đánh giá năng lực tiếng Anh đợt 1, do đó lịch thi tiếng Anh ngày này sẽ được điều chỉnh dời sang ngày thi khác. Nay Phòng Đại học thông báo việc điều chỉnh lịch thi Tiếng Anh, dời ngày thi:\r\nDỜI NGÀY THI TỪ 29/05/2021 ===> 22/05/2021\r\n\r\nChi tiết sinh viên vui lòng xem trong file đính kèm và hệ thống thông tin sinh viên.",
+  "createdAt": "2021-04-19T12:49:35.894Z",
+  "imagesArray": [],
+  "attachmentsArray": [
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/lamhythan%2F2-dieuchinhlichthi_trungtuanthidgnl_ta-(20210419_035456_176).1618836575884.xlsx?alt=media"
+  ],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "lamhythan",
+    "displayName": "Lam Hy Thần",
     "avatarUrl": "/img/no-face.png"
   },
   "__v": 0
@@ -88,8 +153,8 @@
   "createdAt": "2021-02-18T17:23:42.562Z",
   "lastEdited": null,
   "imagesArray": [
-    "/upload/NgVA256/huong-dan-(20210129_075049_416).jpeg",
-    "/upload/NgVA256/thong-diep-5k-(20210129_075049_433).jpg"
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2Fhuong-dan-(20210129_075049_416).jpeg?alt=media",
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2Fthong-diep-5k-(20210129_075049_433).jpg?alt=media"
   ],
   "attachmentsArray": null,
   "commentsCount": 0,
@@ -100,7 +165,7 @@
   "sender": {
     "id": "NgVA256",
     "displayName": "Nguyễn Văn A",
-    "avatarUrl": "/img/no-face.png"
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
   }
 },{
   "_id": {
@@ -147,86 +212,27 @@
   "lastEdited": "2021-04-19T12:36:03.529Z"
 },{
   "_id": {
-    "$oid": "607d79c58592b625dc291bee"
+    "$oid": "608553ff90982034087fa9cc"
   },
-  "content": "Chào các Anh/Chị sinh viên,\r\n\r\nKhoa xin gửi đến các Anh/Chị đường dẫn để tra cứu thời hạn sử dụng thẻ Bảo hiểm y tế (BHYT) và tra cứu mã thẻ BHYT:\r\n\r\n- Sinh viên có thể tra cứu thời hạn sử dụng thẻ Bảo hiểm y tế tại link:\r\n\r\nhttps://baohiemxahoi.gov.vn/tracuu/pages/tra-cuu-thoi-han-su-dung-the-bhyt.aspx\r\n\r\n - Nếu sinh viên không nhớ mã thẻ Bảo hiểm y tế, có thể tra cứu tại link:\r\n\r\nhttps://baohiemxahoi.gov.vn/tracuu/Pages/tra-cuu-ho-gia-dinh.aspx\r\n\r\n- Sau khi xuất hiện bảng điền thông tin, Sinh viên chỉ cần chọn Tỉnh nơi sinh viên đăng ký hộ khẩu, nhập ngày tháng năm sinh, họ tên và tra cứu thì ra kết quả mã BHXH -> đó là 10 số cuối của Bảo hiểm y tế mà sinh viên cần phải nhớ để sử dụng. Sinh viên cần thêm HS4 và hai số mã tỉnh trước 10 số BHXH là ra Mã số BHYT của mình để tra được thời hạn sử dụng thẻ Bảo hiểm y tế tại link:\r\n\r\nhttps://baohiemxahoi.gov.vn/tracuu/pages/tra-cuu-thoi-han-su-dung-the-bhyt.aspx\r\n\r\nTrân trọng!",
-  "createdAt": "2021-04-19T12:38:29.964Z",
-  "imagesArray": [],
-  "attachmentsArray": [],
-  "videoIdArray": [],
-  "commentsCount": 0,
-  "name": "CÁCH TRA CỨU THỜI HẠN VÀ MÃ THẺ BHYT",
-  "department": {
-    "id": "604dfe509d2b493644b48aea",
-    "name": "KHOA LAO ĐỘNG CÔNG ĐOÀN"
-  },
-  "sender": {
-    "id": "hieutinhtran",
-    "displayName": "Hiểu Tinh Trần",
-    "avatarUrl": "/img/no-face.png"
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "607d7c5fc335473108032be4"
-  },
-  "content": "Gửi sinh viên,\r\n              Nhằm hỗ trợ công tác tuyển sinh, ngày 29/05/2021 tổ chức thi đánh giá năng lực tiếng Anh đợt 1, do đó lịch thi tiếng Anh ngày này sẽ được điều chỉnh dời sang ngày thi khác. Nay Phòng Đại học thông báo việc điều chỉnh lịch thi Tiếng Anh, dời ngày thi:\r\nDỜI NGÀY THI TỪ 29/05/2021 ===> 22/05/2021\r\n\r\nChi tiết sinh viên vui lòng xem trong file đính kèm và hệ thống thông tin sinh viên.",
-  "createdAt": "2021-04-19T12:49:35.894Z",
+  "content": "Phòng Đại học thân gửi sinh viên,\r\n\r\nPhòng Đại học thông báo sinh viên kết quả xếp lớp môn Tiếng Anh - khai giảng tuần 40 - HK2 – Giai đoạn 2/2020-2021.\r\n\r\nSinh viên vui lòng xem kết quả xếp lớp Tiếng Anh - HK2 – Giai đoạn 2/2020-2021 trên Hệ thống thông tin sinh viên (HTTTSV), mục Xem thời khóa biểu để biết Phòng học cụ thể.\r\n\r\nLịch học sẽ bắt đầu từ tuần 40. Mọi trường hợp vắng học, không có lý do chính đáng, đều không được xem xét.\r\n\r\nSinh viên đồng thời kiểm tra thông báo dữ liệu học phí thường xuyên trên HTTTSV, mục Học phí.\r\n\r\n\r\nDặn dò:\r\n\r\nSinh viên vui lòng kiểm tra lại cấp độ tiếng Anh được xếp và cấp độ tiếng Anh hiện tại, nếu chưa chính xác vui lòng phản hồi về email phamthikimdiep@tdtu.edu.vn.\r\nPhải tham gia đầy đủ các buổi học.\r\nKhi tham gia lớp học buổi đầu tiên, sinh viên phải chắc chắn rằng mình đã có tên trong danh sách điểm danh. Nếu chưa có tên, phải liên hệ ngay Văn phòng tư vấn học đường (E0001).\r\nTrường hợp sinh viên có lịch học trùng, mà không thể chuyển nhóm khác do môn học ít nhóm, sinh viên phải liên hệ ngay văn phòng Trung tâm ngôn ngữ sáng tạo (E0012) để sắp xếp lịch học bù.\r\nTrường hợp sinh viên trong quá trình học môn tiếng anh, có lịch học ở các cơ sở khác (Nha Trang, Bảo Lộc, nước ngoài) cùng thời gian, sinh viên phải liên hệ báo ngay với Phòng Đại học (A0005) hoặc Văn phòng tư vấn học đường (E0001) để có hướng xử lý nhanh nhất có thể.\r\nSinh viên thuộc đối tượng đăng ký môn học trễ hạn, phải kiểm tra dữ liệu học phí thường xuyên trên hệ thống thông tin sinh viên, mục Học phí.\r\nTrân trọng.\r\n\r\nFile đính kèm: danh sách nhóm tiếng Anh mở trong HK2 – Giai đoạn 2/2020-2021.",
+  "createdAt": "2021-04-25T11:35:27.286Z",
   "imagesArray": [],
   "attachmentsArray": [
-    "\\upload\\lamhythan\\2-dieuchinhlichthi_trungtuanthidgnl_ta-(20210419_035456_176).1618836575884.xlsx"
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2Ftkb_giaidoan2_hk2_20-21_tonghop_2021-04-20-(20210420_102120_647).1619350527263.xlsx?alt=media"
   ],
-  "videoIdArray": [],
-  "commentsCount": 0,
-  "name": "Thông báo - V/v điều chỉnh lịch thi cuối kỳ HK2/2020-2021 - Giai đoạn 1",
-  "department": {
-    "id": "602e9df21054c06b8fd7dc1f",
-    "name": "PHÒNG ĐẠI HỌC"
-  },
-  "sender": {
-    "id": "lamhythan",
-    "displayName": "Lam Hy Thần",
-    "avatarUrl": "/img/no-face.png"
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "607d7d32c335473108032c01"
-  },
-  "content": "mô tả có chính xác ko mn ?",
-  "createdAt": "2021-04-19T12:53:06.282Z",
-  "imagesArray": [],
-  "attachmentsArray": [],
   "videoIdArray": [
-    "yrZ1SwRp6II"
+    "8VskJ7DzRTA"
   ],
-  "commentsCount": 0,
-  "name": "trường mình được lên báo :)))",
-  "sender": {
-    "id": "51800001",
-    "displayName": "Trần Thị B",
-    "avatarUrl": "/upload/51800001/TrThB_avatar.jpg"
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "607d7ddbc335473108032c02"
-  },
-  "content": "Phòng Sau đại học thông báo kế hoạch đăng ký học phần chung của chương trình 4+1 đợt 4 năm học 2020-2021 như sau:\r\n+ Thời gian đăng ký bổ sung: 09h00 ngày 14/04/2021 đến 11h00 ngày 16/04/2021.\r\n+ Xem kế hoạch chi tiết tại: https://grad.tdtu.edu.vn/tin-tuc/2021/ke-hoach-dang-ky-hoc-phan-chung-cua-chuong-trinh-41-dot-4-nam-hoc-2020-2021\r\n",
-  "createdAt": "2021-04-19T12:55:55.985Z",
-  "imagesArray": [],
-  "attachmentsArray": [],
-  "videoIdArray": [],
-  "commentsCount": 0,
-  "name": "Kế hoạch đăng ký học phần chương trình 4+1 đợt 1 (bổ sung) năm học 2020-2021",
+  "commentsCount": 1,
+  "name": "[CHÍNH THỨC] - Thông báo kết quả xếp lớp tiếng anh - HK2 - Giai đoạn 2/2020-2021 - Khai giảng tuần 40",
   "department": {
-    "id": "602e9e471054c06b8fd7dc20",
-    "name": "PHÒNG SAU ĐẠI HỌC"
+    "id": "602e9cb11054c06b8fd7dc1e",
+    "name": "PHÒNG CTHSSV"
   },
   "sender": {
-    "id": "vuongnhatbac",
-    "displayName": "Vương Nhất Bác",
-    "avatarUrl": "/img/no-face.png"
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
   },
   "__v": 0
 },{
@@ -237,10 +243,10 @@
   "createdAt": "2021-04-25T11:42:20.440Z",
   "imagesArray": [],
   "attachmentsArray": [
-    "\\upload\\NgVA256\\210420_ck_dot12_tienganh_thingay24-25-4-2021_202-(20210420_061021_614).1619350940407.pdf"
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F210420_ck_dot12_tienganh_thingay24-25-4-2021_202-(20210420_061021_614).1619350940407.pdf?alt=media"
   ],
-  "videoIdArray": [],
-  "commentsCount": 0,
+  "videoIdArray": null,
+  "commentsCount": 7,
   "name": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 24,25/04/2021)",
   "department": {
     "id": "602e9df21054c06b8fd7dc1f",
@@ -249,6 +255,147 @@
   "sender": {
     "id": "NgVA256",
     "displayName": "Nguyễn Văn A",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
+  },
+  "__v": 0,
+  "lastEdited": "2021-05-09T12:14:32.844Z"
+},{
+  "_id": {
+    "$oid": "6097d1e18a8db04464c9cee8"
+  },
+  "content": "Căn cứ Công văn số 1415/UBND-VX ngày 06/5/2021 của Ủy ban nhân dân Thành phố Hồ Chí Minh về tạm ngưng các hoạt động dạy – học trên địa bàn Thành phố Hồ Chí Minh, Công văn số 1431/UBND-VX ngày 07/5/2021 của Ủy ban nhân dân Thành phố Hồ Chí Minh về tăng cường thực hiện các biện pháp phòng, chống dịch bệnh COVID-19 trên địa bàn Thành phố Hồ Chí Minh, các văn bản hướng dẫn của Bộ Y tế và các cơ quan chức năng;\r\n\r\nTrước diễn biến ngày càng phức tạp của dịch bệnh COVID-19 trên thế giới và nguy cơ dịch bệnh xâm nhập, lây lan xảy ra ở một số tỉnh, thành trong nước trong những ngày qua, nhằm đảm bảo an toàn sức khỏe cộng đồng, nâng cao tinh thần cảnh giác, phòng, chống dịch bệnh COVID-19, Trường Đại học Tôn Đức Thắng thông báo:\r\n\r\n1.                   Tạm dừng học tập trung các môn lý thuyết tại Trường và thực hiện việc học tập trên nền tảng công nghệ số từ ngày 10/5/2021 cho đến khi có thông báo mới\r\n\r\nTất cả Nghiên cứu sinh, Học viên cao học, Sinh viên, Học sinh (gọi tắt là HSSV) thực hiện việc học tập các môn lý thuyết trên nền tảng công nghệ số (giảng dạy trực tuyến) từ ngày 10/5/2021 cho đến khi có thông báo mới; HSSV thực hiện đầy đủ các yêu cầu học tập mà giảng viên giảng dạy hướng dẫn, tích cực ôn tập để thực hiện các yêu cầu kiểm tra, đánh giá của từng môn học theo thông báo của giảng viên giảng dạy.\r\n\r\n2.      Đối với các môn học thí nghiệm, thực hành, đồ án, bảo vệ đề cương, luận văn… (các môn học không thể tổ chức trực tuyến): HSSV học tập trực tiếp theo thời khóa biểu và thông báo của Trường/Khoa/Trung tâm. HSSV đảm bảo thực hiện nghiêm túc, đầy đủ các biện pháp an toàn phòng, chống dịch bệnh COVID-19 theo Thông điệp 5K khi tham gia học tập tại Trường.\r\n\r\n3.                   Hoạt động thi, kiểm tra: HSSV tham gia kiểm tra quá trình, giữa kỳ, thi cuối kỳ theo kế hoạch và thông báo của Trường/Khoa/Trung tâm đã ban hành.  HSSV theo dõi cập nhật các thông báo mới về lịch thi, kiểm tra (nếu có) và có trách nhiệm đảm bảo việc tham gia thực hiện kỳ thi, kiểm tra nghiêm túc; thực hiện đầy đủ các quy định 5K khi tham gia thi, kiểm tra tại trường.\r\n\r\n4.                 Tạm dừng các sự kiện, hoạt động ngoài trời tập trung trên 30 người bắt đầu từ 18h00 ngày 7/5/2021.\r\n\r\n5.                   Triển khai thực hiện các biện pháp phòng, chống dịch bệnh COVID-19\r\n\r\n- Yêu cầu HSSV có lịch sử di chuyển đến các địa phương, khu vực thuộc vùng dịch hoặc các địa điểm được Bộ Y tế thông tin khoanh vùng trong thời gian từ ngày 22/4/2021 đến nay hoặc có tiếp xúc với người có đi qua vùng dịch trong thời gian trên, chủ động thực hiện khai báo y tế với địa phương và báo về Khoa chủ quản để nắm bắt thông tin và kịp thời có các biện pháp phòng, chống dịch bệnh theo Hướng dẫn của Trung tâm Kiểm soát bệnh tật TPHCM (HCDC).\r\n\r\n- HSSV không được chủ quan, lơ là, phải luôn nêu cao ý thức cảnh giác, phòng ngừa dịch bệnh; chủ động thực hiện các biện pháp phòng, chống dịch bệnh COVID-19 theo khuyến cáo của Bộ Y tế và cơ quan chức năng; thực hiện nghiêm túc “Thông điệp 5K”: Khẩu trang – Khử khuẩn – Khoảng cách – Không tập trung – Khai báo y tế. Khi có biểu hiện sốt, ho, khó thở hoặc nghi ngờ mắc COVID-19 báo cáo ngay với cơ quan y tế ở địa phương và thông tin đến Khoa chủ quản để có giải pháp kịp thời; đồng thời tuân thủ các hướng dẫn về phòng, chống dịch bệnh theo quy định.\r\n\r\n- Trong thời gian học tập trên nền tảng công nghệ số, HSSV hạn chế di chuyển nhiều nơi, thường xuyên theo dõi thông tin của Chính phủ, Bộ Y tế và các cơ quan chức năng cũng như theo dõi thông báo của Trường.\r\n\r\n- HSSV thực hiện khai báo lịch trình di chuyển theo thông báo của Trường.\r\n\r\n- HSSV thực hiện các biện pháp phòng, chống dịch bệnh: đeo khẩu trang, rửa tay sát khuẩn, đo thân nhiệt…khi vào Trường; theo dõi và báo cáo ngay các dấu hiệu, trường hợp bất thường xảy ra cho Khoa chủ quản kịp thời xử lý. ",
+  "createdAt": "2021-05-09T12:13:21.672Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": null,
+  "commentsCount": 2,
+  "name": "Thông báo v/v thay đổi hình thức dạy – học trên nền tảng công nghệ số từ ngày 10/5/2021",
+  "department": {
+    "id": "604dfde89d2b493644b48add",
+    "name": "CÔNG TY TĐT"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
+  },
+  "__v": 0,
+  "lastEdited": "2021-05-16T08:14:40.335Z"
+},{
+  "_id": {
+    "$oid": "60a0219cc4df980015411988"
+  },
+  "content": "<p>g<del>ggggggg</del>ggg</p><p>dddddddd<strong>ddddd</strong>dddddd</p><p>aaaaaaaaaaaaa</p>",
+  "createdAt": "2021-05-15T19:31:40.861Z",
+  "imagesArray": [
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F0ed7d24eac7d534d641a1bac568a2b42.929083002.jpg?alt=media"
+  ],
+  "attachmentsArray": [
+    "data:text/plain;charset=UTF-8,https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2Fexcel.118734589.txt?alt=media",
+    "data:text/plain;charset=UTF-8,https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F%252Fchinh-thuc-lich-thi-mos-dot-t03-2021--exam-schedule-mos-in-the-month-of-03-2021-(20210202_092118_547).773564639.xlsx?alt=media"
+  ],
+  "videoIdArray": [
+    "E_zJkmxJwQY"
+  ],
+  "commentsCount": 1,
+  "name": "2 test socket. sinh viên. ko có chuyên mục",
+  "department": {
+    "id": "604dfde89d2b493644b48add",
+    "name": "CÔNG TY TĐT"
+  },
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
+  },
+  "__v": 0,
+  "lastEdited": "2021-05-15T19:32:46.106Z"
+},{
+  "_id": {
+    "$oid": "60a0c694237b5f001588f9a2"
+  },
+  "content": "<p class=\"MsoNormal\" style=\"margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-family: &quot;Times New Roman&quot;, serif; font-size: 16px; color: rgb(0, 0, 0);\">Chào các em,</span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">GamUIT Hackathon lần VI - năm 2021 là cuộc thi lập trình ứng dụng trong 24 giờ dành cho các bạn sinh viên trên cả nước sẽ được khoa Công nghệ Phần mềm - trường ĐH Công nghệ Thông tin - ĐHQG Tp. HCM tổ chức. Bên cạnh đó, cuộc thi năm nay được sự hỗ trợ và phối hợp cùng nhiều doanh nghiệp trong cả nước, GameUIT Hackathon 2021 hứa hẹn sẽ là cuộc thi vô cùng hấp dẫn, hào hứng và kịch tính.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\">Cơ cấu giải thưởng</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">- 1 giải Nhất 40 triệu đồng.<br>- 1 giải Nhì 15 triệu đồng.<br>- 1 giải Ba 8 triệu đồng.<br>- 7 giải Khuyến khích, mỗi giải trị giá 3 triệu đồng.<br>- Các gói hỗ trợ về khởi nghiệp (không gian làm việc và các khóa đào tạo) và nhiều giải thưởng hấp dẫn khác.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\">Thời gian và địa điểm thi đấu</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">- Thời gian:&nbsp;<span style=\"font-weight: 700;\">12 - 13/6/2021</span><br>- Địa điểm: Nhà Văn hóa Sinh viên (Khu phố 6, Phường Linh Trung, Quận Thủ Đức, TP. Hồ Chí Minh)<br>Đối tượng dự thi: Sinh viên, học viên của các trường Đại học, Cao đẳng, Học viện, Trung tâm trên cả nước.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\">Nội dung thi<o:p></o:p></span></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">Mỗi đội có 24 giờ để hoàn thành 1 sản phẩm game hoặc ứng dụng mobile hoặc ứng dụng web (được quyền sử dụng mọi engine, library, công nghệ) theo chủ đề của BTC đưa ra trong ngày khai mạc cuộc thi (12/6/2021).<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">Trước khi thi, BTC có tổ chức các các seminar/workshop hỗ trợ thí sinh. Lịch tổ chức chi tiết sẽ được thông báo qua fanpage cuộc thi.<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\">Hình thức đăng kí</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">- Đăng ký theo đội từ 3-5 người<br>- Tối đa 75 đội - Ưu tiên cho những đội hoàn thành thủ tục đăng ký và nộp lệ phí trước<br>- Thời gian thu lệ phí:&nbsp;Thời gian thu lệ phí: từ ngày 03/5 đến hết ngày 30/05/2021<br><br></span><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\">Lệ phí thi:</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">- 200.000 đồng/thành viên&nbsp;(dùng để phục vụ thức ăn, nước uống và cơ sở vật chất cho thí sinh trong suốt thời gian diễn ra cuộc thi và nhiều quà tặng khác).<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">-&nbsp;Tổng số tiền = số thành viên * 200.000 đồng.<br>- Phương thức nộp:<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; margin-left: 22.5pt; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">Cách 1:</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">&nbsp;Nộp trực tiếp tại bàn thu phí đặt tại sảnh C - Trường Đại học Công nghệ Thông tin (Khu phố 6, Phường Linh Trung, Thủ Đức, TP.HCM) các ngày trong tuần từ thứ 2 đến thứ 6 hàng tuần (8h30 – 16h00), bắt đầu từ 03/05/2021 đến 30/05/2021.<br><span style=\"font-weight: 700;\">Cách 2:</span>&nbsp;Chuyển khoản từ ngày ra thông báo đến 16h00 ngày 30/05/2021 vào tài khoản sau:<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin: 6pt 6pt 3pt 78pt; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); text-indent: -0.25in; line-height: normal;\"><span style=\"font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(6, 6, 6);\">o<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">Momo: 0383417795 - Huỳnh Thị Kim Thảo<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin: 6pt 6pt 3pt 78pt; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); text-indent: -0.25in; line-height: normal;\"><span style=\"font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(6, 6, 6);\">o<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">Số tài khoản: 4200215035413 - Ngân hàng Agribank, chi nhánh Quảng Nam - Huỳnh Thị Kim Thảo<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin: 6pt 6pt 3pt 78pt; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); text-indent: -0.25in; line-height: normal;\"><span style=\"font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(6, 6, 6);\">o<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">Nội dung giao dịch: GUH2021 - &lt;Tên đội&gt;<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin: 6pt 6pt 3pt 78pt; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); text-indent: -0.25in; line-height: normal;\"><span style=\"font-size: 10pt; font-family: &quot;Courier New&quot;; color: rgb(6, 6, 6);\">o<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">VD: Tên của đội là A: GUH2021 - A<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\">Thông tin liên hệ:</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin: 6pt 3pt 3pt 39pt; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); text-indent: -0.25in; line-height: normal;\"><span style=\"font-size: 10pt; font-family: Symbol; color: rgb(6, 6, 6);\">·<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">Hồng Phúc: 0366272703<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin: 6pt 3pt 3pt 39pt; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); text-indent: -0.25in; line-height: normal;\"><span style=\"font-size: 10pt; font-family: Symbol; color: rgb(6, 6, 6);\">·<span style=\"font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">Kim Thảo: 0383417795<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">Lưu ý: Với hình thức nộp tiền qua ngân hàng và ví Momo, đội chơi vui lòng gửi ảnh chụp biên lai lại cho BTC thông qua email&nbsp;</span><a href=\"mailto:gameuithackathon@gmail.com\" style=\"background: 0px 0px; color: rgb(119, 119, 119); text-decoration-line: none;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(19, 33, 59);\">gameuithackathon@gmail.com</span></span></a><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(6, 6, 6);\">&nbsp;với tiêu đề:<br>[GUH2021] - &lt;Tên đội&gt; - Biên lai lệ phí<br>VD: Tên của đội là A: [GUH2021] - A - Biên lai lệ phí<o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-top: 6pt; margin-bottom: 10px; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: red;\">Tìm hiểu thêm về GameUIT Hackathon tại Fanpage:</span></span><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(5, 5, 5);\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin: 6pt 0in 0in; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><a href=\"https://www.facebook.com/GameUITHackathon\" style=\"background: 0px 0px; color: rgb(119, 119, 119); text-decoration-line: none;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(19, 33, 59);\">https://www.facebook.com/GameUITHackathon</span></span></a><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(5, 5, 5);\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 0in; color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245); line-height: normal;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(5, 5, 5);\">Link đăng ký:&nbsp;</span><a href=\"http://bit.ly/GUH21_FormDangKy\" style=\"background: 0px 0px; color: rgb(119, 119, 119); text-decoration-line: none;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(19, 33, 59);\">http://bit.ly/GUH21_FormDangKy</span></span></a><span style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;, serif; color: rgb(5, 5, 5);\"><o:p></o:p></span></p><p><span style=\"color: rgb(18, 17, 17); text-align: justify; background-color: rgb(240, 242, 245); font-size: 11pt; line-height: 15.6933px; font-family: Calibri, sans-serif;\"><a href=\"http://bit.ly/GUH21_FormDangKy\" style=\"background: 0px 0px; color: rgb(119, 119, 119); text-decoration-line: none;\"><span style=\"font-size: 12pt; line-height: 17.12px; font-family: &quot;Times New Roman&quot;, serif; color: rgb(5, 5, 5);\">Thể lệ cuộc thi:&nbsp;</span></a><a href=\"http://bit.ly/TheLeGameUITHackathon2021\" style=\"background: 0px 0px; color: rgb(119, 119, 119); text-decoration-line: none;\"><span style=\"font-weight: 700;\"><span style=\"font-size: 12pt; line-height: 17.12px; font-family: &quot;Times New Roman&quot;, serif; color: rgb(19, 33, 59);\">http://bit.ly/TheLeGameUITHackathon2021</span></span></a></span></p><p style=\"color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245);\"><br></p><p style=\"color: rgb(18, 17, 17); font-family: Tahoma; font-size: 14px; text-align: justify; background-color: rgb(240, 242, 245);\"><span style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;;\">Trân trọng./.</span></p>",
+  "createdAt": "2021-05-16T07:15:32.277Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "Cuộc thi GameUIT Hackathon lần VI - năm 2021 do khoa CNPM - ĐH CNTT (ĐHQG-TP.HCM) đăng cai",
+  "department": {
+    "id": "604dfe3c9d2b493644b48ae7",
+    "name": "KHOA CÔNG NGHỆ THÔNG TIN"
+  },
+  "sender": {
+    "id": "phonglienduc",
+    "displayName": "Phong Liên Dực",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a0c71a237b5f001588f9a3"
+  },
+  "content": "<p>Chào các em,</p><p>GamUIT Hackathon lần VI - năm 2021 là cuộc thi lập trình ứng dụng trong 24 giờ dành cho các bạn sinh viên trên cả nước sẽ được khoa Công nghệ Phần mềm - trường ĐH Công nghệ Thông tin - ĐHQG Tp. HCM tổ chức. Bên cạnh đó, cuộc thi năm nay được sự hỗ trợ và phối hợp cùng nhiều doanh nghiệp trong cả nước, GameUIT Hackathon 2021 hứa hẹn sẽ là cuộc thi vô cùng hấp dẫn, hào hứng và kịch tính.</p><p>Cơ cấu giải thưởng</p><p>- 1 giải Nhất 40 triệu đồng.</p><p>- 1 giải Nhì 15 triệu đồng.</p><p>- 1 giải Ba 8 triệu đồng.</p><p>- 7 giải Khuyến khích, mỗi giải trị giá 3 triệu đồng.</p><p>- Các gói hỗ trợ về khởi nghiệp (không gian làm việc và các khóa đào tạo) và nhiều giải thưởng hấp dẫn khác.</p><p>Thời gian và địa điểm thi đấu</p><p>- Thời gian: 12 - 13/6/2021</p><p>- Địa điểm: Nhà Văn hóa Sinh viên (Khu phố 6, Phường Linh Trung, Quận Thủ Đức, TP. Hồ Chí Minh)</p><p>Đối tượng dự thi: Sinh viên, học viên của các trường Đại học, Cao đẳng, Học viện, Trung tâm trên cả nước.</p><p>Nội dung thi</p><p>Mỗi đội có 24 giờ để hoàn thành 1 sản phẩm game hoặc ứng dụng mobile hoặc ứng dụng web (được quyền sử dụng mọi engine, library, công nghệ) theo chủ đề của BTC đưa ra trong ngày khai mạc cuộc thi (12/6/2021).</p><p>Trước khi thi, BTC có tổ chức các các seminar/workshop hỗ trợ thí sinh. Lịch tổ chức chi tiết sẽ được thông báo qua fanpage cuộc thi.</p><p>Hình thức đăng kí</p><p>- Đăng ký theo đội từ 3-5 người</p><p>- Tối đa 75 đội - Ưu tiên cho những đội hoàn thành thủ tục đăng ký và nộp lệ phí trước</p><p>- Thời gian thu lệ phí: Thời gian thu lệ phí: từ ngày 03/5 đến hết ngày 30/05/2021</p><p>Lệ phí thi:</p><p>- 200.000 đồng/thành viên (dùng để phục vụ thức ăn, nước uống và cơ sở vật chất cho thí sinh trong suốt thời gian diễn ra cuộc thi và nhiều quà tặng khác).</p><p>- Tổng số tiền = số thành viên * 200.000 đồng.</p><p>- Phương thức nộp:</p><p>Cách 1: Nộp trực tiếp tại bàn thu phí đặt tại sảnh C - Trường Đại học Công nghệ Thông tin (Khu phố 6, Phường Linh Trung, Thủ Đức, TP.HCM) các ngày trong tuần từ thứ 2 đến thứ 6 hàng tuần (8h30 – 16h00), bắt đầu từ 03/05/2021 đến 30/05/2021.</p><p>Cách 2: Chuyển khoản từ ngày ra thông báo đến 16h00 ngày 30/05/2021 vào tài khoản sau:</p><p>o&nbsp; Momo: 0383417795 - Huỳnh Thị Kim Thảo</p><p>o&nbsp; Số tài khoản: 4200215035413 - Ngân hàng Agribank, chi nhánh Quảng Nam - Huỳnh Thị Kim Thảo</p><p>o&nbsp; Nội dung giao dịch: GUH2021 - &lt;Tên đội&gt;</p><p>o&nbsp; VD: Tên của đội là A: GUH2021 - A</p><p>Thông tin liên hệ:</p><p>·&nbsp; &nbsp; &nbsp; &nbsp;Hồng Phúc: 0366272703</p><p>·&nbsp; &nbsp; &nbsp; &nbsp;Kim Thảo: 0383417795</p><p>Lưu ý: Với hình thức nộp tiền qua ngân hàng và ví Momo, đội chơi vui lòng gửi ảnh chụp biên lai lại cho BTC thông qua email gameuithackathon@gmail.com với tiêu đề:</p><p>[GUH2021] - &lt;Tên đội&gt; - Biên lai lệ phí</p><p>VD: Tên của đội là A: [GUH2021] - A - Biên lai lệ phí</p><p><br></p><p>Tìm hiểu thêm về GameUIT Hackathon tại Fanpage:</p><p><a href=\"https://www.facebook.com/GameUITHackathon\">https://www.facebook.com/GameUITHackathon</a><br></p><p>Link đăng ký:&nbsp;<a href=\"http://bit.ly/GUH21_FormDangKy\">http://bit.ly/GUH21_FormDangKy</a></p><p>Thể lệ cuộc thi:&nbsp;<a href=\"http://bit.ly/TheLeGameUITHackathon2021\">http://bit.ly/TheLeGameUITHackathon2021</a></p>",
+  "createdAt": "2021-05-16T07:17:46.950Z",
+  "imagesArray": [],
+  "attachmentsArray": [],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "Thông báo dừng tổ chức thi tiếng Anh - HK1/2020-2021 giai đoạn 1 - ngày thi 16/05/2021",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "phonglienduc",
+    "displayName": "Phong Liên Dực",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a0c7a4237b5f001588f9a4"
+  },
+  "content": "<p>Thân chào em,</p><p>Công ty Phát Kiến Gia, tiên phong thị trường thực phẩm nhập khẩu đang có nhu cầu tuyển dụng thực tập sinh developer web/app, cụ thể như sau:&nbsp;</p><p>1/ Mục đích công việc: Hỗ trợ công ty viết app/web theo yêu cầu.</p><p>2/ Mô tả công việc:</p><p>Tham gia vào quá trình thiết kế, xây dựng, quản lý và vận hành các website/app của công ty (Mobile</p><p>developers, Web developers, code front-end/back-end của web/app.)</p><p>Nâng cấp tính năng mới cho website/app theo yêu cầu của cấp trên trực tiếp.</p><p>Hỗ trợ upload sản phẩm và quản lý data sản phẩm</p><p>Được tham gia vào toàn bộ quy trình phát triển phần mềm với nhóm kiểm thử phần mềm (UI/UX và QA/QC)</p><p>3/ Kinh nghiệm, kỹ năng chuyên môn:</p><p>Hiểu biết về máy tính, một số ngôn ngữ lập trình;</p><p>Có kiến thức căn bản về IT;</p><p>Hiểu biết về HTML, CSS– Đam mê về công nghệ, thương mại điện tử;</p><p>Khả năng khai thác và sử dụng thông tin trên internet;</p><p>Có tư duy toán học giải tích tốt, tư duy logic giải quyết tình huống;&nbsp;</p><p>4/ Yêu cầu công việc:</p><p>Học các ngành, trường liên quan đến IT (Đại học tự nhiên, CNTT, Nhân văn, … và các trường khác).</p><p>Sinh viên đang cần đi thực tập.</p><p>Có đam mê nhiệt huyết trong ngành IT, chịu khó tìm tòi học hỏi.</p><p>Tinh thần làm việc nhóm cao.</p><p>Có máy tính cá nhân.&nbsp;</p><p>5/ Cơ hội:</p><p>Công ty sẽ có hỗ trợ phụ cấp, sẽ được thảo luận trong buổi phỏng vấn.</p><p>Với các đối tác lớn từ nước ngoài và trong nước, công ty sẽ đem lại cho các bạn môi trường làm việc</p><p>chuyên nghiệp, năng động.</p><p>Có cơ hội được đề cử làm nhân viên chính thức sau kì thực tập.</p><p>Được hỗ trợ trong quá trình làm báo cáo thực tập và đóng dấu kí xác nhận thực tập.</p><p>Được hỗ trợ training về các kỹ năng làm việc cùng các phương pháp làm việc thực tế&nbsp;</p><p>6/ Địa chỉ làm việc: Tòa nhà TTC, số 1 đường Tân Thuận, phường Tân Thuận Đông, quận 7, TPHCM.</p><p>&nbsp;7/ Cách liên hệ:</p><p>Gửi CV qua email: tuyendung@phatkiengia.com</p><p><br></p><p>Trân trọng./.</p>",
+  "createdAt": "2021-05-16T07:20:04.652Z",
+  "imagesArray": [
+    "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/phonglienduc%2Fh%C3%ACnh%20kien%20phat.596382202.jpg?alt=media"
+  ],
+  "attachmentsArray": [],
+  "videoIdArray": null,
+  "commentsCount": 0,
+  "name": "Công ty Phát Kiến Gia tuyển dụng thực tập sinh developer web/app",
+  "department": {
+    "id": "604dfe3c9d2b493644b48ae7",
+    "name": "KHOA CÔNG NGHỆ THÔNG TIN"
+  },
+  "sender": {
+    "id": "phonglienduc",
+    "displayName": "Phong Liên Dực",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "__v": 0,
+  "lastEdited": "2021-05-16T07:20:41.916Z"
+},{
+  "_id": {
+    "$oid": "60a0c85f237b5f001588f9a5"
+  },
+  "content": "<p>Phòng Đại học gửi đến các sinh viên thông tin Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 16/05/2021)</p><p>Lưu ý:</p><p>- Sinh viên phải có mặt tại phòng thi trước giờ thi ít nhất 30 phút</p><p>- Sinh viên xem danh sách thi trong file đính kèm.</p><p>- Các trường hợp thắc mắc về danh sách thi vui lòng liên hệ phòng Đại học (A0005) hoặc email: phongdaihoc@tdtu.edu.vn</p><p>- Các ngày thi sau (nếu có) sẽ được cập nhật danh sách mỗi ngày, sinh viên vui lòng theo dõi thông tin thường xuyên.</p><p>- Các trường hợp không đủ điều kiện dự thi do chuyên cần có thể sẽ không có thể trong danh sách chính thức trên phòng thi, sinh viên phải cập nhật lịch thi thường xuyên để nắm thông tin khi có thay đổi.</p><p><em><strong>Trường hợp không đọc được file đính kèm, vui lòng liên hệ nhóm kỹ thuật qua fanpage TDTU Software Engineering </strong></em>(<a href=\"https://www.facebook.com/tdtsoftware/\">tại đây</a>).</p>",
+  "createdAt": "2021-05-16T07:23:11.557Z",
+  "imagesArray": [],
+  "attachmentsArray": [
+    "data:text/plain;charset=UTF-8,https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/phonglienduc%2F210513_ck_dot12_tienganh_thingay16-5-2021_202-(20210513_041003_096).835604237.pdf?alt=media"
+  ],
+  "videoIdArray": [],
+  "commentsCount": 0,
+  "name": "Danh sách thi chính thức các lớp tiếng Anh ở HK2/20-21 (Thi ngày 16/05/2021)",
+  "department": {
+    "id": "602e9df21054c06b8fd7dc1f",
+    "name": "PHÒNG ĐẠI HỌC"
+  },
+  "sender": {
+    "id": "phonglienduc",
+    "displayName": "Phong Liên Dực",
     "avatarUrl": "/img/no-face.png"
   },
   "__v": 0

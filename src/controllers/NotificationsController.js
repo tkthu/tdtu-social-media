@@ -31,26 +31,20 @@ class NotificationsController{
             createdAt: date,
             "department.id": dpment 
         };
-        if (hideSeen){// nếu chọn "chỉ hiện chưa xem" => lấy các unread-notifications
+        if (hideSeen){
             var idUnreadPost;
             await unreadNotifiModel.find({
-                // unreadNotifiModel.find({}) trả về promise
-                //  => .then() không biết khi nào mới làm xong
-                // khi thêm chữ "await" đằng trước nó
-                // => nghĩa là mình bắt máy phải đợi .then() chạy xong , 
-                // nó mới chạy mấy dòng tiếp theo . là từ dòng này trở đi:  query = {_id : { $in: idUnreadPost} };
-                // để sài được cái "await" này. cái function bao bọc nó phải có chữ "async"
                 receiverId: req.user.username, 
                 title: search, 
                 postCreatedAt: date, 
                 "department.id": dpment
             })
             .then((unreadNotifi) => {                    
-                idUnreadPost = unreadNotifi.map( un => {// chỉ lấy id của các unread-notifications
+                idUnreadPost = unreadNotifi.map( un => {
                     return un.postId; 
                 })
             })
-            query = {// => chỉ cần kiếm các post có trùng id với unread-notifications là được rồi
+            query = {
                 _id : { $in: idUnreadPost} 
             };
         }

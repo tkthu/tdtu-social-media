@@ -8,7 +8,7 @@ class ManagerController{
 
     // [GET] /staffs
     staffsPage(req, res, next){    
-        let search = req.query.search ? {$regex: req.query.search, $options:"$i"} : {$ne: null};
+        let search = req.query.search ? {$regex: `^${req.query.search}`, $options:"$i"} : {$ne: null};
         let page = parseInt(req.query.page);
         let perPage = 10;
 

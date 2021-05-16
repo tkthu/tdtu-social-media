@@ -1,77 +1,29 @@
 [{
   "_id": {
-    "$oid": "602ea4ee1054c06b8fd7dc2a"
+    "$oid": "607d797e8592b625dc291bed"
   },
-  "content": "Thầy chưa kèm file ạ",
-  "createdAt": "2021-02-18T17:34:25.229Z",
-  "lastEdited": null,
+  "createdAt": "2021-04-19T12:37:18.517Z",
+  "content": "sorry đăng hơi trễ :))",
   "sender": {
-    "id": "51800001",
-    "displayName": "Trần Thị B",
-    "avatarUrl": "/upload/51800001/TrThB_avatar.jpg"
-  },
-  "receiverId": "NgVA256",
-  "postId": {
-    "$oid": "602ea4551054c06b8fd7dc29"
-  }
-},{
-  "_id": {
-    "$oid": "6060b24bfc03510afc836933"
-  },
-  "createdAt": "2021-03-28T16:43:55.304Z",
-  "content": "Thầy mới sửa lại đó em",
-  "sender": {
-    "id": "NgVA256",
-    "displayName": "Nguyễn Văn A",
+    "id": "tieuchien",
+    "displayName": "Tiêu Chiến",
     "avatarUrl": "/img/no-face.png"
   },
-  "receiverId": "NgVA256",
+  "receiverId": "tieuchien",
   "postId": {
-    "$oid": "602ea4551054c06b8fd7dc29"
+    "$oid": "607d79258592b625dc291bd0"
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "606ddcbea34c0a17b075b5a2"
+    "$oid": "606ddcc8a34c0a17b075b5a7"
   },
-  "createdAt": "2021-04-07T16:24:30.612Z",
-  "content": "add cmt",
-  "sender": {
-    "id": "51800816",
-    "displayName": "Thái Kim Thư",
-    "avatarUrl": "https://lh6.googleusercontent.com/-dX5rmv_O1wo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmbxRoBVA27aUyS7WZpzUX9I4TEtw/s96-c/photo.jpg"
-  },
-  "receiverId": "NgVA256",
-  "postId": {
-    "$oid": "602ea4551054c06b8fd7dc29"
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "606ddcc3a34c0a17b075b5a3"
-  },
-  "createdAt": "2021-04-07T16:24:35.226Z",
-  "content": "add commt",
+  "createdAt": "2021-04-07T16:24:40.695Z",
+  "content": "4",
   "sender": {
     "id": "NgVA256",
     "displayName": "Nguyễn Văn A",
-    "avatarUrl": "/img/no-face.png"
-  },
-  "receiverId": "NgVA256",
-  "postId": {
-    "$oid": "602ea4551054c06b8fd7dc29"
-  },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "606ddcc5a34c0a17b075b5a4"
-  },
-  "createdAt": "2021-04-07T16:24:37.926Z",
-  "content": "1",
-  "sender": {
-    "id": "NgVA256",
-    "displayName": "Nguyễn Văn A",
-    "avatarUrl": "/img/no-face.png"
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
   },
   "receiverId": "NgVA256",
   "postId": {
@@ -87,7 +39,7 @@
   "sender": {
     "id": "NgVA256",
     "displayName": "Nguyễn Văn A",
-    "avatarUrl": "/img/no-face.png"
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
   },
   "receiverId": "NgVA256",
   "postId": {
@@ -96,30 +48,31 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "606ddcc7a34c0a17b075b5a6"
+    "$oid": "606ddccaa34c0a17b075b5a9"
   },
-  "createdAt": "2021-04-07T16:24:39.870Z",
-  "content": "3",
+  "createdAt": "2021-04-07T16:24:42.374Z",
+  "content": "99910",
   "sender": {
     "id": "NgVA256",
     "displayName": "Nguyễn Văn A",
-    "avatarUrl": "/img/no-face.png"
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
   },
   "receiverId": "NgVA256",
   "postId": {
     "$oid": "602ea4551054c06b8fd7dc29"
   },
-  "__v": 0
+  "__v": 0,
+  "lastEdited": "2021-05-04T12:10:22.007Z"
 },{
   "_id": {
-    "$oid": "606ddcc8a34c0a17b075b5a7"
+    "$oid": "6060b24bfc03510afc836933"
   },
-  "createdAt": "2021-04-07T16:24:40.695Z",
-  "content": "4",
+  "createdAt": "2021-03-28T16:43:55.304Z",
+  "content": "Thầy mới sửa lại đó em",
   "sender": {
     "id": "NgVA256",
     "displayName": "Nguyễn Văn A",
-    "avatarUrl": "/img/no-face.png"
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
   },
   "receiverId": "NgVA256",
   "postId": {
@@ -135,7 +88,7 @@
   "sender": {
     "id": "NgVA256",
     "displayName": "Nguyễn Văn A",
-    "avatarUrl": "/img/no-face.png"
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
   },
   "receiverId": "NgVA256",
   "postId": {
@@ -144,14 +97,30 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "606ddccaa34c0a17b075b5a9"
+    "$oid": "602ea4ee1054c06b8fd7dc2a"
   },
-  "createdAt": "2021-04-07T16:24:42.374Z",
-  "content": "6",
+  "content": "Thầy chưa kèm file ạ",
+  "createdAt": "2021-02-18T17:34:25.229Z",
+  "lastEdited": null,
+  "sender": {
+    "id": "51800001",
+    "displayName": "Trần Thị B",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800001%2FTrThB_avatar.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  }
+},{
+  "_id": {
+    "$oid": "606ddcc3a34c0a17b075b5a3"
+  },
+  "createdAt": "2021-04-07T16:24:35.226Z",
+  "content": "add commt",
   "sender": {
     "id": "NgVA256",
     "displayName": "Nguyễn Văn A",
-    "avatarUrl": "/img/no-face.png"
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
   },
   "receiverId": "NgVA256",
   "postId": {
@@ -160,34 +129,260 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "606ddcd3a34c0a17b075b5aa"
+    "$oid": "606ddcc5a34c0a17b075b5a4"
   },
-  "createdAt": "2021-04-07T16:24:51.688Z",
+  "createdAt": "2021-04-07T16:24:37.926Z",
+  "content": "1",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606ddcc7a34c0a17b075b5a6"
+  },
+  "createdAt": "2021-04-07T16:24:39.870Z",
+  "content": "3",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "602ea4551054c06b8fd7dc29"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "607fa2ce2e892a1a841b4d72"
+  },
+  "createdAt": "2021-04-21T03:58:06.954Z",
+  "content": "awesome",
+  "sender": {
+    "id": "51801005",
+    "displayName": "Trần Ngọc Phương Nhi",
+    "avatarUrl": "https://lh3.googleusercontent.com/a-/AOh14Gi77M4fMpN8Y8LmgKKi78QltGztxHwxGhSKItMSIw=s96-c"
+  },
+  "receiverId": "51800001",
+  "postId": {
+    "$oid": "607d7d32c335473108032c01"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6084faa2f1906519a88d6d41"
+  },
+  "createdAt": "2021-04-25T05:14:10.021Z",
+  "content": "test",
+  "sender": {
+    "id": "vuongnhatbac",
+    "displayName": "Vương Nhất Bác",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "vuongnhatbac",
+  "postId": {
+    "$oid": "607d7ddbc335473108032c02"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60853232ed6aef29d40fec48"
+  },
+  "createdAt": "2021-04-25T09:11:14.155Z",
+  "content": "dsd",
+  "sender": {
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media"
+  },
+  "receiverId": "vuongnhatbac",
+  "postId": {
+    "$oid": "607d7ddbc335473108032c02"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6085552479927017e4100817"
+  },
+  "createdAt": "2021-04-25T11:40:20.011Z",
+  "content": "video hơi lạc đề thầy",
+  "sender": {
+    "id": "suthanhhuyen",
+    "displayName": "Sư Thanh Huyền",
+    "avatarUrl": "/img/no-face.png"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "608553ff90982034087fa9cc"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609681f19204ca2e58048dd1"
+  },
+  "createdAt": "2021-05-08T12:20:01.042Z",
+  "content": "ffffffffffffffff",
+  "sender": {
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60968412bb6146177c9ca945"
+  },
+  "createdAt": "2021-05-08T12:29:06.626Z",
+  "content": "aaaaaaaaaaaaaaaaa",
+  "sender": {
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609684fd64ec90309cdf6efa"
+  },
+  "createdAt": "2021-05-08T12:33:01.764Z",
   "content": "44444444",
   "sender": {
     "id": "51800816",
     "displayName": "Thái Kim Thư",
-    "avatarUrl": "https://lh6.googleusercontent.com/-dX5rmv_O1wo/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmbxRoBVA27aUyS7WZpzUX9I4TEtw/s96-c/photo.jpg"
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media"
   },
   "receiverId": "NgVA256",
   "postId": {
-    "$oid": "602ea4551054c06b8fd7dc29"
+    "$oid": "6085559c05479339e42c1be9"
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "607d797e8592b625dc291bed"
+    "$oid": "609685a6fc6c603320e368d3"
   },
-  "createdAt": "2021-04-19T12:37:18.517Z",
-  "content": "sorry đăng hơi trễ :))",
+  "createdAt": "2021-05-08T12:35:50.420Z",
+  "content": "5555555555",
   "sender": {
-    "id": "tieuchien",
-    "displayName": "Tiêu Chiến",
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609685f8a29adb30bc370e73"
+  },
+  "createdAt": "2021-05-08T12:37:12.568Z",
+  "content": "9999999999",
+  "sender": {
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6097d1818a8db04464c9cee6"
+  },
+  "createdAt": "2021-05-09T12:11:45.039Z",
+  "content": "gggg",
+  "sender": {
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6097d1888a8db04464c9cee7"
+  },
+  "createdAt": "2021-05-09T12:11:52.040Z",
+  "content": "888888",
+  "sender": {
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "6085559c05479339e42c1be9"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6097d308c717ba4384280c78"
+  },
+  "createdAt": "2021-05-09T12:18:16.486Z",
+  "content": "123",
+  "sender": {
+    "id": "51800816",
+    "displayName": "Thái Kim Thư",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/51800816%2F1e421e34afc714f5cdeb82fd58e32a4d.793648412.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "6097d1e18a8db04464c9cee8"
+  },
+  "__v": 0,
+  "lastEdited": "2021-05-09T12:21:17.698Z"
+},{
+  "_id": {
+    "$oid": "6097d4123168d22248b7c53c"
+  },
+  "createdAt": "2021-05-09T12:22:42.690Z",
+  "content": "4567",
+  "sender": {
+    "id": "NgVA256",
+    "displayName": "Nguyễn Văn A",
+    "avatarUrl": "https://firebasestorage.googleapis.com/v0/b/tdtu-social-media.appspot.com/o/NgVA256%2F9ca88ac88a80c57678e723503cc776bb.1619457668687.jpg?alt=media"
+  },
+  "receiverId": "NgVA256",
+  "postId": {
+    "$oid": "6097d1e18a8db04464c9cee8"
+  },
+  "__v": 0,
+  "lastEdited": "2021-05-09T12:22:47.729Z"
+},{
+  "_id": {
+    "$oid": "60a0c8b5237b5f001588f9a6"
+  },
+  "createdAt": "2021-05-16T07:24:37.992Z",
+  "content": "Thầy gửi cái gì vậy ?",
+  "sender": {
+    "id": "phonglienduc",
+    "displayName": "Phong Liên Dực",
     "avatarUrl": "/img/no-face.png"
   },
-  "receiverId": "tieuchien",
+  "receiverId": "NgVA256",
   "postId": {
-    "$oid": "607d79258592b625dc291bd0"
+    "$oid": "60a0219cc4df980015411988"
   },
   "__v": 0
 }]
