@@ -23,7 +23,8 @@
             <input type="hidden" name="postId" value="xxx" id="edit-content__body--postId">
             {{!-- --------------End of hidden-------------- --}}
             {{!-- chuyên mục --}}
-            {{#ifEquals user.userType "staff"}}
+            {{#ifEquals user.userType "student"}}
+            {{else}}
                 <div class="row" >
                     <div class="col-lg-2">
                         <label for="edit-content__body--chuyenmuc" class="popup-label">Chuyên mục</label>
