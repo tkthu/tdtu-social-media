@@ -1,4 +1,5 @@
 const userModel = require('../models/user.model');
+const bcrypt = require('bcrypt')
 
 class RegisterController{    
     // [POST] /register
@@ -17,7 +18,7 @@ class RegisterController{
             return new userModel({
                 _id: username,
                 username: username,
-                password: password,
+                password: bcrypt.hashSync(password,10),
                 displayName: displayName,
                 avatarUrl: imageUrl || '/img/no-face.png',
                 createdAt: new Date().toISOString(),
