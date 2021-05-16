@@ -239,6 +239,7 @@ body {
 }
 
 .sidebar-navbar__phong-khoa-link,
+.sidebar-navbar__thong-bao-link,
 .header-username-link,
 .sidebar-navbar__admin--item-link {
     text-decoration: none;
