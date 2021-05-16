@@ -3,6 +3,7 @@ const dayjs = require('dayjs');
 const relativeTime = require('dayjs/plugin/relativeTime');
 dayjs.extend(relativeTime);
 
+
 const hbs = exphbs.create({
     extname: ".hbs",
     partialsDir: [
@@ -83,8 +84,9 @@ const hbs = exphbs.create({
             if(post !== undefined && post.content !== undefined){
                 var content = post.content;
                 const minlen = 200;
-                if (content.length > minlen){
-                  content =  $(`<p>${content}</p>`).text().substring(0,minlen) + ` <a href="/${post.sender.id}/posts/${post._id}">...xem thêm</a>` ;
+                if (content.length > minlen){                    
+                    var regex = /(&nbsp;|<([^>]+)>)/ig
+                    content =  content.replace(regex, "").substring(0,minlen) + ` <a href="/${post.sender.id}/posts/${post._id}">...xem thêm</a>` ;
                 }
                 return content;
             }
@@ -95,6 +97,13 @@ const hbs = exphbs.create({
 
     }
 });
+
+hbs._compileTemplate = function (template, options) {
+    // Do something before.
+    var compiled = this.handlebars.compile(template, options);
+    // And/or do something after.
+    return compiled;
+};
 
 function setupViewEngine(app){    
     app.engine(".hbs", hbs.engine);    

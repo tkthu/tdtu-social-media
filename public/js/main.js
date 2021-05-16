@@ -888,7 +888,9 @@ function resetSearchForm(){
   $('.notification-body__filter-fromDate-input').val('')
   $('.notification-body__filter-check-input').val('')
   $('.notification-body__filter--chuyenmuc select').val('common')
-  $('.notification-body__filter--search').val('')  
+  $('.notification-body__filter--search').val('') 
+  $('.notification-body__filter-check-input').prop( "checked", false );
+  
 }
 
 
