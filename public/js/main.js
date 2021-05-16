@@ -294,7 +294,7 @@ function onSignIn(googleUser) {
         })
         .then(json => {
             if(json.code === 1){// đăng nhập email lần đầu
-              signOut();
+              signOut(false);
               firstTimeLogin(username,displayName,imageUrl);    
             }else if (json.code === 0){// đăng nhập thành công
               window.location.replace('/');
@@ -307,7 +307,7 @@ function onSignIn(googleUser) {
         console.log(`Tài khoản phải có đuôi "${suffix}"`);
     }        
 }
-function signOut() {
+function signOut(refresh = true) {
   gapi.load('auth2', function() {
     gapi.auth2.init(
       {
@@ -319,7 +319,9 @@ function signOut() {
       if(auth2.isSignedIn.get()){
         auth2.signOut().then(function () {
           console.log('User signed out.');
-          window.location.replace('/logout');   
+          if(refresh){
+            window.location.replace('/logout');
+          } 
         });
       }else{
         window.location.replace('/logout');

@@ -43,8 +43,8 @@ class LoginController{
             if (user === null) {
                 req.flash('error', "username không tồn tại");
                 req.flash('password', req.body.password);
-                req.flash('username', req.body.username);      
-                return res.redirect('/login');
+                req.flash('username', req.body.username); 
+                throw new Error('');
             }
             return bcrypt.compare(password, user.password);
         })
@@ -52,8 +52,8 @@ class LoginController{
             if (!passwordMatch) {
                 req.flash('error', "password sai");
                 req.flash('password', req.body.password);
-                req.flash('username', req.body.username);         
-                return res.redirect('/login');
+                req.flash('username', req.body.username); 
+                throw new Error('');
             }
             //đăng nhập thành công
             console.log("đăng nhập thành công")
@@ -61,7 +61,7 @@ class LoginController{
             return res.redirect(303,'/');
         })
         .catch(err => {
-            return res.render('error-page', { user: req.user, errorMsg: `${err}`} );
+            return res.redirect('/login');
         }) 
         
     }
