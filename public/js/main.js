@@ -304,7 +304,9 @@ function onSignIn(googleUser) {
             console.log(`error: ${err}`);            
         })
     }else{
-        console.log(`Tài khoản phải có đuôi "${suffix}"`);
+      signOut(false);
+      $('#wrong-email-modal').modal('show');
+      console.log(`Tài khoản phải có đuôi "${suffix}"`);
     }        
 }
 function signOut(refresh = true) {
