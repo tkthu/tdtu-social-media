@@ -472,10 +472,10 @@ $('#upload-post').submit( (e) => { // Submit bài viết
     formData.set('tenchuyenmuc',$(`#${formData.get('chuyenmuc')}`).html());
   }
 
-  console.log("formData")
-  for (var pair of formData.entries()) {
-    console.log(pair[0], ', ' , pair[1]); 
-  }  
+  // console.log("formData")
+  // for (var pair of formData.entries()) {
+  //   console.log(pair[0], ', ' , pair[1]); 
+  // }  
   
   fetch("/api/post",{
     method : 'POST',

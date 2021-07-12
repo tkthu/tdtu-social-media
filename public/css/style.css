@@ -272,12 +272,18 @@ body {
     outline: none;
     border: none;
     color: var(--bg-color);
+    
+}
+
+.header__searching form{
+    position: relative;
 }
 
 .header__searching--link,
 .admin-body__table-search--link {
-    position: relative;
-    left: -45px;
+    position: absolute;
+    right: 20px;
+    top: 40px;
 }
 
 .header__searching--loupe,
