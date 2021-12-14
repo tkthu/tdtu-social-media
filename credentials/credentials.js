@@ -3,12 +3,9 @@ module.exports = {
     sessionSecret: 'ss123$$',
     mongo:{
         dev:{
-            conn: 'mongodb://localhost:27017/social-media-dev'
-        },
-        pro:{
+            // conn: 'mongodb://localhost:27017/social-media-dev'
             conn: 'mongodb+srv://db_admin:db_123456@cluster0.pvykl.mongodb.net/social-media'
         }
-
     },
     url:{
         dev: 'http://localhost:8080',
@@ -19,13 +16,13 @@ module.exports = {
         pro: '166513767436-etdj05bvej11g79bsf7o1tppfrmhvniu.apps.googleusercontent.com'
     },
     firebaseConfig: {
-        apiKey: "AIzaSyAmdBbiGojAmgJtJv-1xwBZbHjHMx-6MIw",
-        authDomain: "tdtu-social-media.firebaseapp.com",
-        projectId: "tdtu-social-media",
-        storageBucket: "tdtu-social-media.appspot.com",
-        messagingSenderId: "275163348144",
-        appId: "1:275163348144:web:959fd26f6dd5b185984f75",
-        measurementId: "G-3H2Y5GBHX3"
+        apiKey: "AIzaSyAkHYw46ZxT-lYMGwZBEEFpMGf6i3OU5uQ",
+        authDomain: "tdtu-social-media-web.firebaseapp.com",
+        projectId: "tdtu-social-media-web",
+        storageBucket: "tdtu-social-media-web.appspot.com",
+        messagingSenderId: "1048786973940",
+        appId: "1:1048786973940:web:87d73c52583bb69be51aa1",
+        measurementId: "G-3S72ZRSLDC"
     }
 
 }
