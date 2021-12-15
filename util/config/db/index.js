@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 var credentials = require('../../../credentials/credentials')
 
 async function connect() {
-    let db_connection = `mongodb+srv://db_admin:db_123456@cluster0.pvykl.mongodb.net/social-media`
+    let db_connection = `mongodb+srv://${'database_admin'}:${'gP7xexfwcpDPsKS'}@cluster0.pl9px.mongodb.net/social-media`
     // if (process.env.DB_ADMIN && process.env.DB_PASSWORD)
     //     db_connection = `mongodb+srv://${process.env.DB_ADMIN}:${process.env.DB_PASSWORD}@cluster0.pl9px.mongodb.net/social-media`
 
