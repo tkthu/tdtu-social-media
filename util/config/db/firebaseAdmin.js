@@ -2,8 +2,8 @@ var admin = require("firebase-admin");
 
 var serviceAccount = require("../../../credentials/tdtu-social-media-firebase-adminsdk-5py4q-e584e5a09f.json");
 
-serviceAccount.private_key_id = process.env.FIREBASE_PRIVATE_KEY_ID
-// serviceAccount.private_key = process.env.FIREBASE_PRIVATE_KEY.replace(/['"]+/g, '')
+// serviceAccount.private_key_id = process.env.FIREBASE_PRIVATE_KEY_ID
+// // serviceAccount.private_key = process.env.FIREBASE_PRIVATE_KEY.replace(/['"]+/g, '')
 
 console.log('private_key_id ', serviceAccount.private_key_id)
 console.log('private_key', serviceAccount.private_key)
