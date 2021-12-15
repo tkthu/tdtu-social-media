@@ -3,6 +3,8 @@ const path = require('path');
 const credentials = require('./credentials/credentials');
 const route = require('./routes/index');
 
+require('dotenv').config();
+
 const db = require('./util/config/db');
 db.connect();
 
